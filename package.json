@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-boilerplate",
+  "description": "A Design Professionals Node.js Boilerplate",
+  "version": "0.1.0",
+  "dependencies": {
+      "express": "",
+      "jade": "",
+      "nib": "",
+      "stylus": "",
+      "coffee-script":""
+  }
+}
