@@ -22,7 +22,6 @@ Thumbs.db
 .project
 .settings
 *.tmproj
-node_modules/
 nbproject
 *.sublime-project
 *.sublime-workspace
@@ -53,3 +52,20 @@ publish
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+
+## Node.js gitignore files from https://github.com/h5bp/html5-boilerplate
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
