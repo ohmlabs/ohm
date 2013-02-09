@@ -18,6 +18,9 @@ app.configure ->
     src: __dirname + "/public"
     compile: compile
   )
+  # tell express that its sitting behind a proxy (nginx)
+  app.enable('trust proxy')
+  # if you are using nginx to proxy static files we don't need this, comment it out
   app.use express.static(__dirname + "/public")
   app.use express.bodyParser()
   app.use express.methodOverride()
