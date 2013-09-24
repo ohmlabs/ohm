@@ -5,7 +5,6 @@
   "dependencies": {
       "express": "",
       "socket.io": "",
-      "http": "",
       "jade": "",
       "nib": "",
       "stylus": "",
