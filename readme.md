@@ -25,7 +25,7 @@ coffee server.coffee
 If you would like to run in production pass "-p" after the above line. You will need to make sure that Nginx is running and that you have symlinked the public directory to the correct place for nginx.
 
 ## Goals
-
+* Adhere to Steve Sauders Rules for High Performance Websites:
 * HTML5 ready. Use the new elements with confidence.
 * Designed with progressive enhancement in mind.
 * CSS normalizations and common bug fixes.
