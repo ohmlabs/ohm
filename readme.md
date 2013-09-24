@@ -36,11 +36,11 @@ If you would like to run in production pass "-p" after the above line. You will 
 
 ## Major components:
 
-* jQuery: MIT/GPL license
+* For server dependencies see package.json
+* For client dependencies see views/includes/
+* jQuery [http://docs.jquery.com/Tutorials:How_jQuery_Works]
 * CoffeeScript [http://coffeescript.org/]
-* Express: http://expressjs.com/guide.html
+* Express [http://expressjs.com/guide.html]
 * Compasss [http://compass-style.org/reference/compass/]
 * Animate.css [http://daneden.me/animate/]
 * Normalize.css [http://necolas.github.io/normalize.css/]
-* For server dependencies see package.json
-* For client dependencies see views/includes/
