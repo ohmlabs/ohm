@@ -1,0 +1,24 @@
+///////////////////////////////////////
+//   General                        //
+/////////////////////////////////////
+@mixin columns($n, $f:"")
+  width: (100%-$n * 2)/$n
+  margin: 0 1%
+  @if $f != ""
+    float: $f
+@mixin horizontal
+  -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(2%, #ffffff), color-stop(90%, #ffffff), color-stop(100%, rgba(0, 0, 0, 0)))
+  overflow-x: scroll
+  overflow-y: hidden
+  white-space: nowrap
+  min-height: 200px
+  figure:last-child
+    margin-right: 100px
+  figure:first-child
+    margin-left: 20px
+@mixin vertical
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(2%, #ffffff), color-stop(90%, #ffffff), color-stop(100%, rgba(0, 0, 0, 0)))
+  overflow-y: scroll
+  overflow-x: hidden
+  white-space: normal
+  min-height: 400px

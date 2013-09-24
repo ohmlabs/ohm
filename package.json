@@ -1,9 +1,11 @@
 {
   "name": "nodejs-boilerplate",
-  "description": "A Design Professionals Node.js Boilerplate",
-  "version": "0.1.0",
+  "description": "A Design Professionals Node.js Boilerplate using Express Socket.io, CoffeeScript, Stylus, Nib and more",
+  "version": "0.2.0",
   "dependencies": {
       "express": "",
+      "socket.io": "",
+      "http": "",
       "jade": "",
       "nib": "",
       "stylus": "",
