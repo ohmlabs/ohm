@@ -25,24 +25,7 @@ coffee server.coffee
 If you would like to run in production pass "-p" after the above line. You will need to make sure that Nginx is running and that you have symlinked the public directory to the correct place for nginx.
 
 ## Goals
-Adhere to Steve Sauders Rules for High Performance Websites:
-- [ ] Make fewer HTTP requests
-- [ ] Use a CDN
-- [ ] Add an Expires header
-- [ ] Gzip components
-- [ ] Put stylesheets at the top
-- [ ] Move scripts to the bottom
-- [ ] Caching
-- [ ] CSS image sprites
-- [ ] Avoid CSS expressions
-- [ ] Make JS and CSS external
-- [ ] Reduce DNS lookups
-- [ ] Minify JS
-- [ ] Avoid redirects
-- [ ] Remove duplicate scripts
-- [ ] Configure ETags
-- [ ] Make AJAX cacheable
-
+* Adhere to Steve Sauders Rules for High Performance Websites:
 * HTML5 ready. Use the new elements with confidence.
 * Designed with progressive enhancement in mind.
 * CSS normalizations and common bug fixes.
