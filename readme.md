@@ -36,11 +36,10 @@ If you would like to run in production pass "-p" after the above line. You will 
 
 ## Major components:
 
-* Node.js, Express, Coffeescript, Compass
 * jQuery: MIT/GPL license
-* CoffeeScript
+* CoffeeScript [http://coffeescript.org/]
 * Express: http://expressjs.com/guide.html
-* Compasss (for CSS pre-processing)
+* Compasss [http://compass-style.org/reference/compass/]
 * Animate.css [http://daneden.me/animate/]
 * Normalize.css [http://necolas.github.io/normalize.css/]
 * For server dependencies see package.json
