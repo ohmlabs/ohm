@@ -28,14 +28,14 @@ If you would like to run in production pass "-p" after the above line. You will 
 Adhere to Steve Sauders Rules for High Performance Websites:
 - [ ] Make fewer HTTP requests
 - [ ] Use a CDN
-- [x] Add an Expires header
-- [x] Gzip components
-- [x] Put stylesheets at the top
-- [x] Move scripts to the bottom
+- [ ] Add an Expires header
+- [ ] Gzip components
+- [ ] Put stylesheets at the top
+- [ ] Move scripts to the bottom
 - [ ] Caching
 - [ ] CSS image sprites
-- [x] Avoid CSS expressions
-- [x] Make JS and CSS external
+- [ ] Avoid CSS expressions
+- [ ] Make JS and CSS external
 - [ ] Reduce DNS lookups
 - [ ] Minify JS
 - [ ] Avoid redirects
