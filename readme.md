@@ -34,18 +34,14 @@ If you would like to run in production pass "-p" after the above line. You will 
 * The latest jQuery via CDN.
 * An optimized Google Analytics snippet.
 
-## Dependencies
+## Major components:
 
 * Node.js, Express, Coffeescript, Compass
-* Animate.css [http://daneden.me/animate/]
-* Normalize.css [http://necolas.github.io/normalize.css/]
-
-
-### Major components:
-
 * jQuery: MIT/GPL license
-* Compasss (for CSS pre-processing)
 * CoffeeScript
 * Express: http://expressjs.com/guide.html
+* Compasss (for CSS pre-processing)
+* Animate.css [http://daneden.me/animate/]
+* Normalize.css [http://necolas.github.io/normalize.css/]
 * For server dependencies see package.json
 * For client dependencies see views/includes/
