@@ -18,7 +18,15 @@ or (for production)
 ```sh
 compass -c prod_config.rb -- force
 ```
-Starting the server in development is simple
+If you'd like you can use grunt to compile the CSS as well as concat and minify the JavaScript. Just use:
+```sh
+grunt
+```
+Or
+```sh
+grunt prod
+```
+I have confured it such that the basic command defaults to watch, and the production command only compiles. Starting the server in development is simple.
 ```sh
 coffee server.coffee
 ```

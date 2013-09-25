@@ -7,11 +7,6 @@ express = require("express")
 app = express()
 server = http.createServer(app)
 io = require("socket.io")
-nib = require("nib")
-stylus = require("stylus")
-
-compile = (str, path) ->
-  stylus(str).set("filename", path).set("compress", true).use(nib()).import("nib")
 
 # Middleware
 app.configure ->
@@ -35,11 +30,6 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
-  # Stylus Middleware
-  app.use stylus.middleware(
-    src: __dirname + "/public"
-    compile: compile
-  )
 
 # Routes
 app.get "/", routes.index
