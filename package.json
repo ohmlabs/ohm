@@ -5,9 +5,7 @@
   "dependencies": {
       "express": "",
       "socket.io": "",
-      "jade": "",
-      "nib": "",
-      "stylus": ""
+      "jade": ""
   },
   "devDependencies": {
     "grunt": "~0.4.1",
