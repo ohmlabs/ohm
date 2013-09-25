@@ -7,7 +7,16 @@
       "socket.io": "",
       "jade": "",
       "nib": "",
-      "stylus": "",
-      "coffee-script":""
+      "stylus": ""
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "coffee-script": "",
+    "grunt-contrib-uglify": "",
+    "grunt-contrib-jshint": "",
+    "grunt-contrib-qunit": "",
+    "grunt-contrib-watch": "",
+    "grunt-contrib-compass": "",
+    "grunt-contrib-concat": ""
   }
 }
