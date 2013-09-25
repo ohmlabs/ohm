@@ -1,5 +1,5 @@
-routes = require("./routes/site.js")
-config = require("./config/config.js")
+routes = require("./app/routes/site.js")
+config = require("./app/config/config.js")
 
 # Module Dependencies
 http = require("http")
@@ -18,13 +18,13 @@ app.configure ->
     app.locals.pretty = false
   # DEVELOPMENT
   else
-    app.use(express.static(__dirname + '/public'));
+    app.use(express.static(__dirname + '/www'));
     app.use express.errorHandler(
       dumpExceptions: true
       showStack: true
     )
     app.locals.pretty = true
-  app.set "views", __dirname + "/views"
+  app.set "views", __dirname + "/app/views"
   app.set "view engine", "jade"
   app.use express.logger()
   app.use express.bodyParser()

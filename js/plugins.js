@@ -46,4 +46,6 @@ window.log = function f() {
 ////////////////////////////////
 // Initialize                //
 //////////////////////////////
-$(document).ready(function(){}); 
+$(document).ready(function(){
+  alert('Congrats, You have a Website!');
+}); 
