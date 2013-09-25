@@ -7,7 +7,7 @@ module.exports = (grunt) ->
 
       dist:
         src: ["js/**/*.js"]
-        dest: "public/js/<%= pkg.name %>.js"
+        dest: "www/js/<%= pkg.name %>.js"
 
     uglify:
       options:
@@ -15,7 +15,7 @@ module.exports = (grunt) ->
 
       dist:
         files:
-          "public/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
+          "www/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
 
     qunit:
       files: ["test/**/*.html"]
@@ -23,14 +23,14 @@ module.exports = (grunt) ->
     compass:
       dev:
         options:
-          config: "config/config.rb"
+          config: "app/config/config.rb"
           sassDir: 'sass'
-          cssDir: 'public/css'
+          cssDir: 'www/css'
       prod:
         options:
-          config: "config/prod_config.rb"
+          config: "app/config/prod_config.rb"
           sassDir: 'sass'
-          cssDir: 'public/css'
+          cssDir: 'www/css'
 
     jshint:
       files: ["gruntfile.coffee", "js/**/*.js"]
