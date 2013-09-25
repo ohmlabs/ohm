@@ -1,4 +1,4 @@
-# Setting Up Your Stack
+# Configure Your Stack
 As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
 
 There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow only with this post.
@@ -117,6 +117,7 @@ As previously stated, Node has a great deal of modules that are easily downloade
 * Jade: robust, elegant, feature rich template engine for nodejs
 * Coffee-Script: Javascript pre-processor
 * Forever: A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
+
 ## Build Your Node.js App
 Now that you have node installed I would suggest using a node.js boilerplate to get your app up and running. I have provided a boilerplate that you can use to get started. Simply:
 ```sh`
@@ -128,7 +129,7 @@ If you want to add a private repo to your server, you have a few options. The si
 * config/config.js > a file for separating configurations, like port and host.
 * server.coffee > You main app configuration file. You can run the app simply with
 * coffee server.js // note that if you use forever you will have to compile coffee script to js
- 
+
 ## Next Steps
 Node.js is awesome, but definitely not so awesome that its the only software that you'll need. When I am trying to configure a server that is easy for me to use I always take the following steps:
 
