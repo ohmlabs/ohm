@@ -1,5 +1,5 @@
 # Configure Your Stack
-------
+
 As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
 
 There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow only with this post.
@@ -62,12 +62,12 @@ So you're connected to your EC2 instance… What now? In the past the next steps
 
 There are many advantages to Node.js, but when choosing to build a site using it one has to keep in mind that it is not a very mature technology. The young, ever-changing nature of Node.js can present a challenge for developers. Regardless, Node is a reliable enough technology that is used by companies of the likes of Yahoo, Linkedin and many more. I have hopped on the bandwagon and recommend Node for it's simplicity above all.
 
-###Setting Up Your Environment
+### Setting Up Your Environment
 If you are using Ubuntu or other Linux distributions you will likely be using apt-get or yum to do your install. If you are using configuring a development environment for your local machine you should install Homebrew, and it will pretty much do all of the heavy lifting for you. Homebrew (brew) is the likes of linux package managers for Mac OSX, a really brilliant invention. Once you have your package manager of choice in place your installation process can take seconds.
 
 The first thing that you will probably be prompted to do when you ssh to your instance is to update. Obviously updating is always a good idea, so before you do anything else you should be sure to "sudo yum update".
 
-###Install Nginx
+### Install Nginx
 Apache is by a long shot the most popular web server in existence (It is the A in LAMP after all) but many people are starting to realize the benefits of dumping Apache for Nginx because it is lighter and faster at serving static files. Installing Nginx is a breeze and its' configuration is simple:
 ```sh
 sudo yum install nginx
@@ -76,7 +76,7 @@ sudo service start nginx
 ```
 And really that's it. Nginx has great documentation<link> for their servers and I would suggest spending some time reading as much as necessary, being sure to use best practices<link>. You'll also notice that an nginx.conf file is included in the boilerplate (config/nginx.conf). This is a configuration file that I would suggest using as it proxies node through nginx and uses nginx to serve static files rather than express (along with many other improvements to the default file). I like to symlink this file to /etc/nginx so that you can keep your config files under version control as well.
 
-###Install Node
+### Install Node
 Installing and running node is a fairly straightforward process. Depending on what you're building you may require a specific version of Node.js, but this tutorial assumes you're fine with using the latest version.
 
 On Mac:
@@ -113,7 +113,7 @@ git clone https://github.com/isaacs/npm.git
 cd npm
 sudo make install
 ```
-###Install Important Node Modules
+### Install Important Node Modules
 As previously stated, Node has a great deal of modules that are easily downloaded using npm. While each web project should have it's own packages.json for installing dependencies there are a few modules that you may want to consider installing globally (i.e. sudo npm install -g whatever_module):
 * Express: Sinatra inspired web development framework for node.js
 * Stylus: Expressive, robust, feature-rich CSS language built for nodejs
