@@ -4,7 +4,7 @@ As a developer I began making websites with zero server administration experienc
 
 There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow only with this post.
 
-## Before you get Started
+### Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
 * Purchase a domain. Where you decide to purchase it from is purely up to you and honestly doesn't matter since you will be using Amazons Route 53 for DNS management.
 * Sign up for Amazon Web Services. You can use an existing amazon account if you like
