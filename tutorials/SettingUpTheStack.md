@@ -124,7 +124,7 @@ As previously stated, Node has a great deal of modules that are easily downloade
 ## Build Your Node.js App
 ------
 Now that you have node installed I would suggest using a node.js boilerplate to get your app up and running. I have provided a boilerplate that you can use to get started. Simply:
-```sh`
+```sh
 git clone https://github.com/cdrake757/nodejs-boilerplate
 ```
 If you want to add a private repo to your server, you have a few options. The simple solution is to clone the repo to a local machine and then scp the files to the server, but this can be very clunky. I would suggest using github deply keys which gives you single repo access, but this method is not devoid of disadvantages. <insert a link on deploy keys> This should be more than enough for you to get started with your own site. The provided boilerplate uses Express, Jade and Stylus. The important files to consider are:
@@ -162,6 +162,7 @@ Finally in order for your www.domain.com to point to the server that you just st
 * The same process for google compute
 
 ## Performance
+------
 Building a high performance website is a remarkably challenging feat, but there are very clear steps to follow to maximize the performance of your site or app. How you build your structure and build your applications matters immensely in regards to performance. A major consideration: running scripts blocks parallel downloads, which can slow down your site download times. 
 
 Basic Rule: the most basic technologies (HTML/CSS) should be used in lieu of writing complicated scripts or using javascript plugins whenever possible.
