@@ -9,8 +9,7 @@ There are a few steps that obviously need to be done that I'm not going to get i
 * Purchase a domain. Where you decide to purchase it from is purely up to you and honestly doesn't matter since you will be using Amazons Route 53 for DNS management.
 * Sign up for Amazon Web Services. You can use an existing amazon account if you like
 
-## Launch an EC2 Instance
-------
+### Launch an EC2 Instance
 First, let's fire up an EC2 instance. Amazon makes this very simple to do and while very serious projects will require some advanced configuration, a simple set up is all we need for our purposes. 
 * From the AWS Console select EC2
 * Select "Launch Instance"
@@ -56,7 +55,7 @@ ssh -i ~/.ssh/id_rsa newuser@101.0.0.0
 ``` 
 If you can understand what happened there then you have a good handle on how ssh works. 
 
-## Configure the Server
+### Configure the Server
 ------
 So you're connected to your EC2 instance… What now? In the past the next steps were pretty straightforward and hardly disputable: Install and configure the typical LAMP stack technologies: PHP, MySQL and Apache. Most often, if you are a front-end developer you may not be very comfortable with learning a server side language like php or python. If this is the case you should be very excited about a new technology called Node.js If you have no idea what Node is, it is essentially Javascript for the server side. Your eyes probably light up at the idea alone, since JS has certainly become the default scripting language of the web. Most importantly, many beginners have experience with javascript, giving them the opportunity to expand their development to the server side.
 
@@ -121,7 +120,7 @@ As previously stated, Node has a great deal of modules that are easily downloade
 * Coffee-Script: Javascript pre-processor
 * Forever: A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
 
-## Build Your Node.js App
+### Build Your Node.js App
 ------
 Now that you have node installed I would suggest using a node.js boilerplate to get your app up and running. I have provided a boilerplate that you can use to get started. Simply:
 ```sh
@@ -134,7 +133,7 @@ If you want to add a private repo to your server, you have a few options. The si
 * server.coffee > You main app configuration file. You can run the app simply with
 * coffee server.js // note that if you use forever you will have to compile coffee script to js
 
-## Next Steps
+### Next Steps
 ------
 Node.js is awesome, but definitely not so awesome that its the only software that you'll need. When I am trying to configure a server that is easy for me to use I always take the following steps:
 
@@ -161,7 +160,7 @@ Finally in order for your www.domain.com to point to the server that you just st
 * Use fabric for deployment shell scripts
 * The same process for google compute
 
-## Performance
+### Performance
 ------
 Building a high performance website is a remarkably challenging feat, but there are very clear steps to follow to maximize the performance of your site or app. How you build your structure and build your applications matters immensely in regards to performance. A major consideration: running scripts blocks parallel downloads, which can slow down your site download times. 
 
