@@ -41,14 +41,23 @@ module.exports = (grunt) ->
           console: true
           module: true
           document: true
-
+    coffee:
+      compile:
+        files:
+          'server.js': 'server.coffee'
+    forever:
+      options:
+        index: 'server.js' 
+        logDir: 'logs'
+        logFile: 'node-bp.log'
+        errFile: 'err-node-bp.log'
     watch:
       css:
         files: "**/*.sass"
         tasks: "compass:dev"
       scripts:
         files: '<%= jshint.files %>'
-        tasks: ['concat', 'qunit', 'jshint']
+        tasks: ['concat', 'coffee', 'forever:restart']
           
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-jshint"
@@ -56,10 +65,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
-
+  grunt.loadNpmTasks "grunt-forever"
+  grunt.loadNpmTasks "grunt-contrib-coffee"
   # to test the javascript use test task
   grunt.registerTask "test", ["jshint", "qunit"]
   # on the dev server, only concat
   grunt.registerTask "default", [ "watch"]
   # on production, concat and minify
-  grunt.registerTask "prod", ["concat", "compass:prod", "uglify"]
+  grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify", "forever:restart"]
