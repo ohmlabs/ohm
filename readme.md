@@ -17,11 +17,7 @@ gem install ceaser-easing # or any other plugins you may want
 ```
 
 ### Running the Application
-To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). Grunt is so awesome in fact that with the the included gruntfile in order to start your server and start watching for changes, simply enter:
-```sh
-grunt forever:start watch
-```
-Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
+To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
 * Compile Coffeescript
 * Compile CSS 
@@ -29,16 +25,20 @@ Grunt will start the server as a daemon and watch the directory for file updates
 * Minify JavaScript Files
 * Restart the Server (Using Forever)
 
-If you'd rather not watch the directory and only compile, use:
+To simply compile, type: 
 ```sh
 grunt
 ```
-in production:
+To compile and also watch for changes, type: 
+```sh
+grunt forever:start watch
+```
+In production:
 ```sh
 grunt prod
 forever start server.js -p # Don't forget the -p flag for production
 ```
-If you would like to run in production, you will need to make sure that Nginx is running and that you have symlinked the public directory to the correct place for nginx.
+For production, you will need to make sure that Nginx is running and that you have symlinked the public directory to the correct place for nginx.
 
 ## Goals
 
