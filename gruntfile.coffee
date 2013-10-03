@@ -57,7 +57,7 @@ module.exports = (grunt) ->
         tasks: "compass:dev"
       scripts:
         files: '<%= jshint.files %>'
-        tasks: ['concat', 'coffee', 'forever:restart']
+        tasks: ['concat', 'coffee', 'uglify', 'forever:restart']
           
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-jshint"
@@ -70,6 +70,6 @@ module.exports = (grunt) ->
   # to test the javascript use test task
   grunt.registerTask "test", ["jshint", "qunit"]
   # on the dev server, only concat
-  grunt.registerTask "default", [ "concat", "coffee", "compass:dev", "forever:restart"]
+  grunt.registerTask "default", [ "concat", "coffee", "compass:dev", "uglify", "forever:restart"]
   # on production, concat and minify
-  grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify", "forever:stop"]
+  grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify", "forever:restart"]
