@@ -142,8 +142,8 @@ Chances are your server comes with a few text editors installed (generally vi, n
  
 ### Customize Your Shell
 Most linux machines use bash as the default shell, and if you've been using linux long enough it's likely that you have amassed an impressively large .bashrc (or .zshrc if you like me prefer the zsh shell) filled with aliases and enhancements to your shell environment. If you don't know what a .bashrc is then you should take the time to research how these files work and how they can make your life a lot easier. I would suggest perusing this.
-* My .zsh rc
-* Sample .bashrc
+#### [sample .zshrc](https://gist.github.com/cdrake757/4619637)
+
 
 ### Elastic/Dynamic IP
 Now you have successfully configured your instance you need to be able to point your domain towards the server that you created. For convenience sake you will want to use what Amazon calls Elastic IP. This allows you to assign a unique IP address to your instance which makes managing DNS records easier. You can also easily switch which instance your Elastic IP is associated with, which can be helpful if you have several servers for development and may need to switch which server your domain points to. Adding an Elastic IP is simple:
