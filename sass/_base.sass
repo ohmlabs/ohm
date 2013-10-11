@@ -4,8 +4,8 @@
 @charset "utf-8"
 @import compass
 @import compass/utilities/general/clearfix
-@import libs/normalize
-@import libs/animate.sass
+@import libs/normalize/normalize
+@import libs/animate/animate
 @import ceaser-easing
 ///////////////////////////////////////
 //  Fonts                           //
@@ -18,12 +18,9 @@ $light-grey: #ccc
 $dark-grey: #222
 $near-black: #111
 ///////////////////////////////////////
-//  Layout                          //
-/////////////////////////////////////
-$wide_figure_height: 200px
-///////////////////////////////////////
 //   Mixins                         //
 /////////////////////////////////////
+@import figures 
 @mixin columns($n, $f:"")
   width: (100%-$n * 2)/$n
   margin: 0 1%
@@ -45,3 +42,53 @@ $wide_figure_height: 200px
   overflow-x: hidden
   white-space: normal
   min-height: 400px
+///////////////////////////////////////
+//   Universal                      //
+/////////////////////////////////////
+body
+  padding: 0
+  margin: 0
+  font-family: $helvetica
+  color: #fff
+  line-height: normal
+  background: #fff
+p, a, h1, h2, h3, h4
+  padding: 0
+  margin: 0
+///////////////////////////////////////
+//   Typography                     //
+/////////////////////////////////////
+h1
+  font: 24px $helvetica
+  line-height: 0.9
+h2
+  font: 18px $helvetica
+h3
+  font: 100 20px $helvetica
+p
+  font: 100px 14px $helvetica
+  
+///////////////////////////////////////
+//  Links & Buttons                 //
+/////////////////////////////////////
+a
+  color: rgba(255, 255, 255, 1)
+  text-decoration: none
+///////////////////////////////////////
+//  All-purpose                     //
+/////////////////////////////////////
+.clearfix
+  @include clearfix  
+.scrolls
+  -webkit-overflow-scrolling: touch
+///////////////////////////////////////
+//   Media Queries(tablet)          //
+/////////////////////////////////////
+@import "queries/tablets"  
+///////////////////////////////////////
+//   Media Queries(phone)           //
+/////////////////////////////////////
+@import "queries/smartphones"  
+
+
+
