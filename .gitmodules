@@ -1,1 +1,3 @@
-
+[submodule "tutorials/css"]
+	path = tutorials/css
+	url = git@github.com:csswizardry/CSS-Guidelines.git
