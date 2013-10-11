@@ -8,6 +8,8 @@ Firstly, you will need to  install the node modules using Node Package Manger.
 ```sh
 cd nodejs-boilerplate/
 npm install
+git submodule init
+git submodule update
 ```
 Next, you will need to install Sass and Compass. You can install compass easily assuming you have Ruby installed:
 ```sh
