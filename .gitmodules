@@ -1,0 +1,6 @@
+[submodule "sass/libs/normalize"]
+	path = sass/libs/normalize
+	url = git@github.com:cdrake757/normalize.sass.git
+[submodule "sass/libs/animate"]
+	path = sass/libs/animate
+	url = git@github.com:cdrake757/animate.sass.git
