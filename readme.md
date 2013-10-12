@@ -15,7 +15,9 @@ Next, you will need to install Sass and Compass. You can install compass easily 
 ```sh
 gem install sass
 gem install compasss
-gem install ceaser-easing # or any other plugins you may want
+# or any other plugins you may want
+gem install ceaser-easing 
+gem install normalize
 ```
 
 ### Running the Application
