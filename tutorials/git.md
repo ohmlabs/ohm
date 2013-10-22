@@ -1,6 +1,6 @@
 # Designers Guide to Github
 ### Series: [Frontend Designer Boilerplate](readme.md)
-## [Branching](http://nvie.com/posts/a-successful-git-branching-model/)
+## Take Advantage of [Branching](http://nvie.com/posts/a-successful-git-branching-model/)
 The best thing about git is that it truly makes branching easy, and allows multiple developers to work together on a project with stable code and processes. There is a very renowned model that is based on this [blog post](http://nvie.com/posts/a-successful-git-branching-model/) and it very thoroughly describes a very efficent method for git branching.
 Here is an extrememly abbreviated list of important branching commands and this [cheat sheet](http://danielkummer.github.io/git-flow-cheatsheet/):
 #### create new local branch
