@@ -1,7 +1,21 @@
-# Frontend Designer Boilerplate
-### Introduction
-This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with watching [these videos](http://www.dontfeartheinternet.com/) first. They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.
-###  For Beginners
+# [Frontend Designer Boilerplate](readme.md)
+## Introduction
+This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with the section "For Absolute Beginners" if you are completely new to web development, especially [these videos](http://www.dontfeartheinternet.com/). They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.
+
+## Contents
+* [Introduction](#introduction)
+* [CSS3](#css3)
+  + [CSS Style Guide](css/readme.md)
+* [HTML5](#html5)
+* [Javascript](#javascript)
+  + [JavaScript Style Guide](js-styleguide.md)
+* [Browser Support](#browser-support)
+* [Server-Side](#server-side-development)
+  + [Designer's Guide to Github](git.md)
+  + [AWS + Node.js Tutorial](aws-nodejs.md)
+* [References](#references)
+
+###  For Absolute Beginners
 
 * [Don't Fear the Internet](http://www.dontfeartheinternet.com/)
 * [Dive into HTML5](http://diveintohtml5.info/)
@@ -10,7 +24,7 @@ This guide is not designed for absolute novice web developer. Therefore, I thoug
 # [CSS3](css/readme.md)
 ### Pre-processors: SASS v. LESS v. Stylus
 
-### [Box Model ](http://www.w3schools.com/cssref/default.asp#box)
+### [Box Model](http://www.w3schools.com/cssref/default.asp#box)
 ![Box Model](img/box-model.png)
 
 Precision is the key when aligning content with CSS. A deep understanding of the properties related to the box model and display is crucial for creating responsive designs and finely tuned layouts.
@@ -54,9 +68,10 @@ Also important:
 * box-shadow
 * border-image
 
-![Font Shorthand](img/font-shorthand.png)
 ### [Typography](http://www.w3schools.com/css3/css3_fonts.asp)
 Typography is quickly becoming the calling card of good web design. No longer limited to a small collection of "web-safe" fonts. With the introduction of the [@font-face](http://www.w3schools.com/cssref/css3_pr_font-face_rule.asp) rule and the text-shadow to CSS3 the possibilities are getting very exciting.
+
+![Font Shorthand](img/font-shorthand.png)
 
 ![Typography](img/typography.jpg)
 ### [2D](http://www.w3schools.com/css3/css3_2dtransforms.asp)/[3D](http://www.w3schools.com/css3/css3_3dtransforms.asp) Transformations
@@ -128,7 +143,7 @@ Some commonly used HTML DOM events
 * onfocus
 * onscroll
 
-# [Javascript](javaScriptStyleguide.md)
+# [Javascript](js-styleguide.md)
 Stuff everyone should use:
 
 * Modernizr
@@ -172,7 +187,8 @@ I know that it may trouble some people to see mobile lumped together like that b
 
 # Server-Side Development
 As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
-### [Instructions for configuring a production server](SettingUpTheStack.md)
+### [Configuring Node.js + AWS](aws-nodejs.md)
+### [Designer's Guide to Github](git.md)
 
 There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow only with this post.
 
@@ -191,9 +207,3 @@ There are many services that are offered by AWS, but the most important is Elast
 * [W3C HTML Specification](http://www.w3schools.com/html/html5_intro.asp)
 * [W3C CSS Specification](http://www.w3schools.com/css3/css3_intro.asp)
 
-### Additional Guides
-
-* [CSS Style Guide](css/readme.md)
-* [JavaScript Style Guide](javaScriptStyleguide.md)
-* [Server-Side Development](settingUpTheStack.md)
-* [Github Guide](gitFlow.md)
