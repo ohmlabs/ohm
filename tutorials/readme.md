@@ -145,7 +145,8 @@ Some commonly used HTML DOM events
 * onfocus
 * onscroll
 
-# [Javascript](js-styleguide.md)
+# Javascript
+### [Styleguide](js-styleguide.md) based loosely on github's own
 Stuff everyone should use:
 
 * Modernizr
