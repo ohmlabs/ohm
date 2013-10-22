@@ -1,10 +1,14 @@
 # Design Survival
 
-#### Warning
+### Introduction
+This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with watching [these videos](http://www.dontfeartheinternet.com/) first. They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.
+###  For Beginners
 
-This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with watching these videos first. They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.   
- 
-## CSS3
+* [Don't Fear the Internet](http://www.dontfeartheinternet.com/)
+* [Dive into HTML5](http://diveintohtml5.info/)
+* [Code Academy](http://codeacademy.com/)
+
+# CSS3
 ### Pre-processors: SASS v. LESS v. Stylus
 
 ### [Box Model ](http://www.w3schools.com/cssref/default.asp#box)
@@ -19,7 +23,7 @@ Precision is the key when aligning content with CSS. A deep understanding of the
   + block: element is displayed as a block-level element with width &height (e.g. div, p)
   + inline-block
 
-### Padding 
+### [Padding](http://www.w3schools.com/css/css_padding.asp)
 ```css
 padding:25px 50px 75px 100px;
 ```
@@ -53,15 +57,15 @@ Also important:
 
 ![Font Shorthand](img/font-shorthand.png)
 ### [Typography](http://www.w3schools.com/css3/css3_fonts.asp)
-Typography is quickly becoming the calling card of good web design. No longer limited to a small collection of "web-safe" fonts. With the introduction of the @font-face rule and the text-shadow to CSS3 the possibilities are getting very exciting.
+Typography is quickly becoming the calling card of good web design. No longer limited to a small collection of "web-safe" fonts. With the introduction of the [@font-face](http://www.w3schools.com/cssref/css3_pr_font-face_rule.asp) rule and the text-shadow to CSS3 the possibilities are getting very exciting.
 
 ![Typography](img/typography.jpg)
-### 2D/3D Transformations
-### Animations
-### Transitions
-### Multiple Column Layout
-### User Interface
-### Selectors 
+### [2D](http://www.w3schools.com/css3/css3_2dtransforms.asp)/[3D](http://www.w3schools.com/css3/css3_3dtransforms.asp) Transformations
+### [Animations](http://www.w3schools.com/css3/css3_animations.asp)
+### [Transitions](http://www.w3schools.com/css3/css3_transitions.asp)
+### [Multiple Column Layout](http://www.w3schools.com/css3/css3_multiple_columns.asp)
+### [User Interface](http://www.w3schools.com/css3/css3_user_interface.asp)
+### [Selectors](http://www.w3schools.com/cssref/css_selectors.asp)
 Understanding CSS selectors is the most critical concept to grasp if you are going to become a guru of front end design. A detailed understanding of every CSS property is useless if you don't understand how to apply them to what you want. Here [source 6] is a guide to complex selectors, and most of the recommended books have great chapters on the subject.
 
 * child selectors:
@@ -77,22 +81,26 @@ I would suggest following the link for a more detailed explanation of specificit
 
 ![Specificity](img/specificity.png)
 
-## HTML5 
+# HTML5 
 Using progressive HTML5 techniques can not only save you time developing, but also can enrich performance. For example, rather than writing a long chunk of code to validate a form input, use the new HTML5 form elements which automatically validate (input="email"). Of the many HTML5 features the most important are:
 
-* Semantics
-* Better Forms
-  + autofocus
-  + placeholder text
-  + new input types (email, date-picker, etc.)
-  + required fields
-  + automatic validation (may some day replace client side validation)
-* Canvas element
-* Audio/Video Support
+### [Semantics](http://diveintohtml5.info/semantics.html)
 
-Commonly associated but technically separate/experimental features with their own specification
+### [Better Forms](http://diveintohtml5.info/forms.html)
 
-* Geolocation API
+* autofocus
+* placeholder text
+* new input types (email, date-picker, etc.)
+* required fields
+* automatic validation (may some day replace client side validation)
+
+### [Canvas element](http://diveintohtml5.info/canvas.html)
+### Audio/Video Support
+
+# Related
+There are several commonly associated but technically separate/experimental features with individual specifications:
+
+* [Geolocation API](http://diveintohtml5.info/geolocation.html)
 * Web Sockets
 * SVG
 * Local Storage
@@ -121,7 +129,7 @@ Some commonly used HTML DOM events
 * onfocus
 * onscroll
 
-## Javascript
+# Javascript
 Stuff everyone should use:
 
 * Modernizr
@@ -136,6 +144,7 @@ Popular Frameworks and Libraries
 * Handlebars.js
 * ember.js
 * XUI
+* coffee-script
 
 Really cool icing
 
@@ -147,66 +156,10 @@ Really cool icing
 Server-side javascript
 
 * Node.js
-* coffee-script
 * connect
-* stylus
-* nib
 * express
 * socket.io
-
-## References
-
-* HTML5 & CSS3 Readiness
-* Browser Support Stats (Jul 12)
-* Test your browser
-* Yahoo's guide to High Performance Websites
-* HTML5 Performance
-* Complex Selectors
-* Detailed CSS positioning
-
-### Specifications
-
-* W3C HTML Specification
-* W3C CSS Specification
-
-### Resources for Beginners
-
-* Don't Fear the Internet
-* Dive into HTML5
-* Code Academy
-
-### Software I Use
-
-* TextMate
-* Emacs
-* Github 
-* Homebrew
-* Compass
-* cheat sheets
-* Dropbox
-
-### Cool Tools 
-
-* Stack Overflow
-* HTML5 Please
-* CSS3 Please
-* HTML5 Boilerplate
-* Tabifier
-* DocHub
-* Quora
-* jsFiddle or Gists
-
-### Further Reading
-
-* High Performance Web Sites - Steve Souders 
-* CSS The Definite Guide - Eric A Meyer
-* CSS Pocket Reference - Eric A Meyer
-* Javascript: The Good Parts - Douglas Crockford
-* Secrets of the Javascript Ninja - John Resig
-* JQuery Novice to Ninja - Early Castledine and Craig Sharkie
-* Responsive Design - Ethan Marcotte
- 
-### Browser Support
+# Browser Support
 
 The first step to designing a website or web app is to determine which browsers and screens you want to support. Once you have decided which screens you want to support you have to think about the features that your app will require (geolocation, media playback, etc.) and determine which technologies are best for creating these features. Naturally, you want to use the most cutting edge technologies, but some of the browsers that you want to support may not support some features. For this problem the feature-detection library Modernizr should be used to allow the site to determine which features are supported. Users should use technology that is most likely to be supported and fallbacks and polyfills should be created to maintain desired capabilities. According to the most recent trends in browsers, I would recommend users support the following browsers:
 
@@ -216,10 +169,20 @@ The first step to designing a website or web app is to determine which browsers 
 * IE9
 * Mobile + iPad
 
-I know that it may trouble some people to see mobile lumped together like that but I won't get into the details of how to design a website for the millions of possible screen sizes that can be encountered in that space. I will write a blog post later on the subject of responsive design.
+I know that it may trouble some people to see mobile lumped together like that but I won't get into the details of how to design a website for the millions of possible screen sizes that can be encountered in that space. I will write a blog post later on the subject of [responsive design](http://bradfrost.github.com/this-is-responsive/index.html).
 
-### Technical Interviews:
 
-* Never dive too quickly into the question. If the question so easy they wouldn't be asking it. When you jump into a problem its generally with a brute-force solution, or at least not the most elegant solution. A few minutes of deliberation could lead you to a solution that will reflect much better on you.
-* Think out loud. The whole point is to understand how you think. And just thinking in silence and then scribbling an answer that you hope is correct will not help your interviewer get what they want. They want to see you get the right answer, and if your train of thought is sending you in the wrong direction they will almost always drop hints.
-* Critique your own solution. Before you decide to present your answer ask yourself: is this a perfect solution? If the answer is yes, think again. You may not be able to fix the shortcomings of your solution but it will help you tremendously to follow up your answer with "If I had more time one shortcoming in this solution that I would address would be..."
+# References
+
+* [HTML5 & CSS3 Readiness](http://html5readiness.com/)
+* [Browser Support Stats](http://heygrady.com/blog/2012/07/03/state-of-browsers-july-2012/)
+* [Test your browser](http://beta.html5test.com/)
+* [Yahoo's guide to High Performance Websites](http://developer.yahoo.com/performance/rules.html#num_http)
+* [HTML5 Performance](http://www.html5rocks.com/en/features/performance)
+* [Complex Selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors)
+* [Detailed CSS positioning](http://learn.shayhowe.com/advanced-html-css/detailed-css-positioning)
+
+### Specifications
+
+* [W3C HTML Specification](http://www.w3schools.com/html/html5_intro.asp)
+* [W3C CSS Specification](http://www.w3schools.com/css3/css3_intro.asp)
