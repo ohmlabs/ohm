@@ -32,10 +32,9 @@ git branch -d feature
 git push origin :newfeature
 ```
 
-3031
-down vote
-accepted
-http://git-scm.com/docs/git-reset
+Taken from a great [StackOverflow answer](http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit):
+
+[Git Reset}(http://git-scm.com/docs/git-reset)
 
 Undo a commit and redo
 ```sh
