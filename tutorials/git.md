@@ -36,6 +36,21 @@ git branch -d feature
 ```sh
 git push origin :newfeature
 ```
+## Stashing and Switching between branches
+Suppose you're working on a new feature branch and you want to swich to a different branch to see changes that were just pushed. If you have a lot of unstaged changes that are not ready to be committed, switching branches without losing this is important. Here's how:
+```sh
+git stash apply         # message 'Saved working directory... HEAD is now...'
+git status              # 'On branch... Nothing to commit...'
+git co otherfeature
+git pull
+```
+To re-apply those changes:
+```sh
+git co master           # or whatever branch you were on
+git stash list          # show all stashed you have made
+git apply stash@{0}     # apply the most recently stashed changes
+git status              # should show your unstaged changes from before
+```
 
 ## Adding, Committing and Pusing
 After you've altered files you will need to commit these changes before pushing them to the server. The process is fairly simple, so here's an abbreviated walk-through:
