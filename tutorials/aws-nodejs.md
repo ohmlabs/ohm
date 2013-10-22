@@ -1,10 +1,15 @@
+# Configuring AWS + Node.js for Designers
+### Series: [Frontend Designer Boilerplate](readme.md)
+
 ### Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
+
 * Purchase a domain. Where you decide to purchase it from is purely up to you and honestly doesn't matter since you will be using Amazons Route 53 for DNS management.
 * Sign up for Amazon Web Services. You can use an existing amazon account if you like
 
 ### Launch an EC2 Instance
-First, let's fire up an EC2 instance. Amazon makes this very simple to do and while very serious projects will require some advanced configuration, a simple set up is all we need for our purposes. 
+First, let's fire up an EC2 instance. Amazon makes this very simple to do and while very serious projects will require some advanced configuration, a simple set up is all we need for our purposes.
+
 * From the AWS Console select EC2
 * Select "Launch Instance"
 * Select "Quick Launch Wizard"
@@ -14,6 +19,7 @@ The quick launch screen is fairly simple and asks you to name your instance and 
 
 ### Configure Ports
 Great, now you have an instance up and running but that alone isn't really good for anything. In order for it to actually serve HTTP you need to open up the appropriate ports. The first step is to set up a security group. A security group acts like a configuration file for a firewall. It lets you set which ports are open to the world and which are closed.Click on the Security Groups tab. If you used the quick launch wizard AWS should have created a group for you titled something like "quicklaunch-1". You can use this or create your own security group. 
+
 * Select the desired security group
 * At the bottom of the screen, select the "Inbound" tab.
 * Select SSH from the "create new rule" drop down and click "Add Rule". This will open up port 22, necessary if you want to have SSH access to your instances.
@@ -21,6 +27,7 @@ Great, now you have an instance up and running but that alone isn't really good 
 
 ### Connect to your instance
 Now, if you want to SSH to your instance all you have to type is:
+
 ```sh
 $ ssh -i ~/.ssh/your_key_pair.pem ec2-user@ec2-00-000-000-00.compute-1.amazonaws.com
 ```
@@ -30,6 +37,7 @@ Using the Public DNS that you find in your EC2 properties panel for that last pa
 
 ### Adding Users
 Suppose you want to grant server access to someone else. This is simple:
+
 New User's Computer
 ```sh
 cd ~/.ssh
@@ -138,6 +146,7 @@ Most linux machines use bash as the default shell, and if you've been using linu
 
 ### Elastic/Dynamic IP
 Now you have successfully configured your instance you need to be able to point your domain towards the server that you created. For convenience sake you will want to use what Amazon calls Elastic IP. This allows you to assign a unique IP address to your instance which makes managing DNS records easier. You can also easily switch which instance your Elastic IP is associated with, which can be helpful if you have several servers for development and may need to switch which server your domain points to. Adding an Elastic IP is simple:
+
 * From the EC2 console select Elastic IPs
 * Select Allocate New Address
 * Choose Associate Address and then choose the instance you just created.

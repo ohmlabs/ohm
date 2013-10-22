@@ -1,3 +1,7 @@
+# Designers Guide to Github
+### Series: [Frontend Designer Boilerplate](readme.md)
+Extrememly abbreviated and cliffnotes of branching per the model
+
 #### create new local branch
 ```sh
 git branch -b newfeature
