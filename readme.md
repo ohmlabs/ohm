@@ -59,9 +59,9 @@ For production, you will need to make sure that Nginx is running and that you ha
 
 * For server dependencies see package.json
 * For client dependencies see views/includes/
-* jQuery [http://docs.jquery.com/Tutorials:How_jQuery_Works]
-* CoffeeScript [http://coffeescript.org/]
-* Express [http://expressjs.com/guide.html]
-* Compasss [http://compass-style.org/reference/compass/]
-* Animate.css [http://daneden.me/animate/]
-* Normalize.css [http://necolas.github.io/normalize.css/]
+* [jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works)
+* [CoffeeScript](http://coffeescript.org/)
+* [Express](http://expressjs.com/guide.html)
+* [Compasss](http://compass-style.org/reference/compass/)
+* [Animate.css](http://daneden.me/animate/)
+* [Normalize.css](http://necolas.github.io/normalize.css/)
