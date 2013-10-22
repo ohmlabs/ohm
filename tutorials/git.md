@@ -1,6 +1,6 @@
 # Designers Guide to Github
 ### Series: [Frontend Designer Boilerplate](readme.md)
-## Take Advantage of [Branching](http://nvie.com/posts/a-successful-git-branching-model/)
+## Branching
 The best thing about git is that it truly makes branching easy, and allows multiple developers to work together on a project with stable code and processes. There is a very renowned model that is based on this [blog post](http://nvie.com/posts/a-successful-git-branching-model/) and it very thoroughly describes a very efficent method for git branching.
 Here is an extrememly abbreviated list of important branching commands and this [cheat sheet](http://danielkummer.github.io/git-flow-cheatsheet/):
 #### create new local branch
@@ -36,8 +36,8 @@ git branch -d feature
 ```sh
 git push origin :newfeature
 ```
-## [Stashing](http://git-scm.com/book/en/Git-Tools-Stashing) and Switching between branches
-Suppose you're working on a new feature branch and you want to swich to a different branch to see changes that were just pushed. If you have a lot of unstaged changes that are not ready to be committed, switching branches without losing this is important. Here's how:
+## Stashing and Switching between branches
+Suppose you're working on a new feature branch and you want to swich to a different branch to see changes that were just pushed. If you have a lot of unstaged changes that are not ready to be committed, switching branches without losing this is important. You will use the [git stash](http://git-scm.com/book/en/Git-Tools-Stashing) commandHere's how:
 ```sh
 git stash apply         # message 'Saved working directory... HEAD is now...'
 git status              # 'On branch... Nothing to commit...'
@@ -82,8 +82,8 @@ $ git commit -c ORIG_HEAD     # (5)
 
 [Git Reset](http://git-scm.com/docs/git-reset): Taken from a great [StackOverflow answer](http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit):
 
-# Git [Submodules](http://git-scm.com/book/en/Git-Tools-Submodules)
-Sometimes you want to include another repository within a repository. For example, you can include this boilerplate in your project and use parts of it to speed up development. How? A few easy steps:
+# Git Submodules
+Sometimes you want to include another repository within a repository. For example, you can include this boilerplate in your project and use parts of it to speed up development. How? Here's git [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) in a few easy steps:
 #### Create your own git repository.
 ```sh
 git init
