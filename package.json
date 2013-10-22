@@ -5,18 +5,19 @@
   "dependencies": {
     "express": "",
     "socket.io": "",
-    "jade": ""
+    "jade": "",
+      "grunt": "~0.4.1",
+      "grunt-contrib-uglify": "0.2.4",
+      "coffee-script": "1.6.3",
+      "grunt-cli": "",
+      "grunt-contrib-compass": "",
+      "grunt-contrib-concat": "",
+      "grunt-contrib-watch": "0.5.3",
+      "grunt-forever": "~0.4.1",
+      "grunt-contrib-coffee": "~0.7.0",
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "coffee-script": "",
-    "grunt-contrib-uglify": "",
     "grunt-contrib-jshint": "",
     "grunt-contrib-qunit": "",
-    "grunt-contrib-watch": "",
-    "grunt-contrib-compass": "",
-    "grunt-contrib-concat": "",
-    "grunt-forever": "~0.4.1",
-    "grunt-contrib-coffee": "~0.7.0"
   }
 }
