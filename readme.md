@@ -20,7 +20,6 @@ Next, you will need to install Sass and Compass. You can install compass easily 
 ```sh
 gem install sass
 gem install compasss
-```
 # or any other plugins you may want
 gem install ceaser-easing 
 gem install normalize
