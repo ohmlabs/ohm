@@ -32,7 +32,6 @@ git branch -d feature
 git push origin :newfeature
 ```
 #### Undo a commit and redo:
-
 ```sh
 $ git commit ...              # (1)
 $ git reset --soft "HEAD^"    # (2)

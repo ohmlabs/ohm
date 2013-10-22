@@ -38,11 +38,14 @@ body {background:#ffffff url('img_tree.png') no-repeat right top;}
 * background-repeat
 * background-attachment
 * background-position
+
 Also important:
 
 * background-size
 * background-origin
+
 ### [Borders](http://www.w3schools.com/css3/css3_borders.asp)
+
 * border-radius
 * box-shadow
 * border-image
