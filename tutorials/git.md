@@ -94,5 +94,29 @@ I recommend the following structure, but there are many that will suffice:
 ```sh
 git submodule add git@github.com:cdrake757/boilerplate.git bp
 ```
+Copy and update the boilerplate gruntfile
+```sh
+cp bp/gruntfile.coffee .
+cp bp/package.json .
+emacs gruntfile.coffee
+# find the compass task and change app/config.rb to bp/app/config.rb for dev and prod
+# save and close
+```
+Copy and update server.coffee
+```sh
+cp bp/server.coffee .
+emacs server.coffee
+# near the top, change 'app/config/config.js' to 'bp/app/config/config.js'
+# save and close
+```
+Create Sass for project with boilerplate included
+```sh
+mkdir sass
+emacs sass/stlye.sass
+#type this at the top to include boilerplate
+@import "../bp/sass/base"
+
+```
+
 
 
