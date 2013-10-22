@@ -21,8 +21,10 @@ This guide is not designed for absolute novice web developer. Therefore, I thoug
 * [Dive into HTML5](http://diveintohtml5.info/)
 * [Code Academy](http://codeacademy.com/)
 
-# [CSS3](css/readme.md)
-### Pre-processors: SASS v. LESS v. Stylus
+# CSS3
+### [Styleguide](css/readme.md) from CSS Wizardry
+### Pre-processors: SASS v. LESS v. Stylus v. Compass
+I personally prefer compass which is built on SASS because it is an excellent tool, with a great community. That being said there are many great options available.
 
 ### [Box Model](http://www.w3schools.com/cssref/default.asp#box)
 ![Box Model](img/box-model.png)
