@@ -34,7 +34,7 @@ git push origin :newfeature
 
 Taken from a great [StackOverflow answer](http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit):
 
-[Git Reset}(http://git-scm.com/docs/git-reset)
+[Git Reset](http://git-scm.com/docs/git-reset)
 
 Undo a commit and redo
 ```sh
