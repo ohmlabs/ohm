@@ -18,7 +18,8 @@ Precision is the key when aligning content with CSS. A deep understanding of the
   + inline (default): The element is displayed as an inline-level element (e.g. span) 
   + block: element is displayed as a block-level element with width &height (e.g. div, p)
   + inline-block
-### [Padding]() 
+
+### Padding 
 ```css
 padding:25px 50px 75px 100px;
 ```
