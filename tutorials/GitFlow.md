@@ -31,19 +31,16 @@ git branch -d feature
 ```sh
 git push origin :newfeature
 ```
+#### Undo a commit and redo:
 
-Taken from a great [StackOverflow answer](http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit):
-
-[Git Reset](http://git-scm.com/docs/git-reset)
-
-Undo a commit and redo
 ```sh
-$ git commit ...              (1)
-$ git reset --soft "HEAD^"    (2)
-$ edit                        (3)
-$ git add ....                (4)
-$ git commit -c ORIG_HEAD     (5)
+$ git commit ...              # (1)
+$ git reset --soft "HEAD^"    # (2)
+$ edit                        # (3)
+$ git add ....                # (4)
+$ git commit -c ORIG_HEAD     # (5)
 ```
+
 1. This is what you want to undo
 
 2. This is most often done when you remembered what you just committed is incomplete, or you misspelled your commit message, or both. Leaves working tree as it was before "reset". (The quotes are required if you use zsh)
@@ -52,4 +49,7 @@ $ git commit -c ORIG_HEAD     (5)
 
 4. Stage changes for commit.
 
-4. "reset" copies the old head to .git/ORIG_HEAD; redo the commit by starting with its log message. If you do not need to edit the message further, you can give -C option instead.
+5. "reset" copies the old head to .git/ORIG_HEAD; redo the commit by starting with its log message. If you do not need to edit the message further, you can give -C option instead.
+
+[Git Reset](http://git-scm.com/docs/git-reset): Taken from a great [StackOverflow answer](http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit):
+
