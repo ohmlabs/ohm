@@ -100,6 +100,9 @@ For production, you will need to make sure that Nginx is running and that you ha
 
 ### Recommeded Reading
 
+The readings listed and some additional readings can be found in this [dropbox folder](https://www.dropbox.com/sh/evgpg5amzh86zyi/zFwa2HS26a).
+
+
 * High Performance Web Sites - Steve Souders 
 * CSS The Definite Guide - Eric A Meyer
 * CSS Pocket Reference - Eric A Meyer
