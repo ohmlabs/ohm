@@ -1,7 +1,8 @@
 # Designers Guide to Github
 ### Series: [Frontend Designer Boilerplate](readme.md)
-Extrememly abbreviated and cliffnotes of branching per the model
-
+## Branching
+The best thing about git is that it truly makes branching easy, and allows multiple developers to work together on a project with stable code and processes. There is a very renowned model that is based on this [blog post](http://nvie.com/posts/a-successful-git-branching-model/) and it very thoroughly describes a very efficent method for git branching.
+Here is an extrememly abbreviated list of important branching commands and this [cheat sheet](http://danielkummer.github.io/git-flow-cheatsheet/):
 #### create new local branch
 ```sh
 git branch -b newfeature
@@ -35,6 +36,16 @@ git branch -d feature
 ```sh
 git push origin :newfeature
 ```
+
+## Adding, Committing and Pusing
+After you've altered files you will need to commit these changes before pushing them to the server. The process is fairly simple, so here's an abbreviated walk-through:
+```sh
+git status        # should show you all of the changes you've made
+git add .         # add all of the files that have been altered
+git ci -m 'detailed message describing exactly what these changes mean'
+git push origin master
+```
+Only push once you are absolutely sure that your commits are stable (unless you are on an experimental branch).
 #### Undo a commit and redo:
 ```sh
 $ git commit ...              # (1)
@@ -55,4 +66,18 @@ $ git commit -c ORIG_HEAD     # (5)
 5. "reset" copies the old head to .git/ORIG_HEAD; redo the commit by starting with its log message. If you do not need to edit the message further, you can give -C option instead.
 
 [Git Reset](http://git-scm.com/docs/git-reset): Taken from a great [StackOverflow answer](http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit):
+
+# Git Submodules
+Sometimes you want to include another repository within a repository. For example, you can include this boilerplate in your project and use parts of it to speed up development. How? A few easy steps:
+#### Create your own git repository.
+```sh
+git init
+```
+I recommend the following structure, but there are many that will suffice:
+
+#### Install Submodule
+```sh
+git submodule add git@github.com:cdrake757/boilerplate.git bp
+```
+
 
