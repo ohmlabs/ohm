@@ -90,6 +90,26 @@ git init
 ```
 I recommend the following structure, but there are many that will suffice:
 
+```sh
+├── app
+│   ├── config
+│   ├── routes
+│   └── views
+├── gruntfile.coffee
+├── js
+│   ├── plugins
+│   └── main.js
+├── package.json
+├── readme.md
+├── sass
+│   └── queries
+├── server.coffee
+├── server.js
+└── www
+    ├── css
+    ├── img
+    └── js
+```
 #### Install Submodule
 ```sh
 git submodule add git@github.com:cdrake757/boilerplate.git bp
