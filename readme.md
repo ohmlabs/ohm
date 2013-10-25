@@ -33,7 +33,7 @@ If you are a designer most of your time will be spent in the client directory. I
 Firstly, you will need to  install the node modules using Node Package Manger. 
 
 ```sh
-cd nodejs-boilerplate/
+cd boilerplate/
 npm install
 git submodule init
 git submodule update
