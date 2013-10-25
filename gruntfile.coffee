@@ -6,8 +6,8 @@ module.exports = (grunt) ->
         separator: ";"
 
       dist:
-        src: ["js/**/*.js"]
-        dest: "www/js/<%= pkg.name %>.js"
+        src: ["client/js/**/*.js"]
+        dest: "static/js/<%= pkg.name %>.js"
 
     uglify:
       options:
@@ -15,7 +15,7 @@ module.exports = (grunt) ->
 
       dist:
         files:
-          "www/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
+          "static/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
 
     qunit:
       files: ["test/**/*.html"]
@@ -23,17 +23,13 @@ module.exports = (grunt) ->
     compass:
       dev:
         options:
-          config: "app/config/config.rb"
-          sassDir: 'sass'
-          cssDir: 'www/css'
+          config: "server/config/config.rb"
       prod:
         options:
-          config: "app/config/prod_config.rb"
-          sassDir: 'sass'
-          cssDir: 'www/css'
+          config: "server/config/prod_config.rb"
 
     jshint:
-      files: ["gruntfile.coffee", "js/**/*.js"]
+      files: ["gruntfile.coffee", "client/js/**/*.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -44,10 +40,10 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'server.js': 'server.coffee'
+          'boilerplate.js': 'boilerplate.coffee'
     forever:
       options:
-        index: 'server.js' 
+        index: 'boilerplate.js' 
         logDir: 'logs'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'

@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-boilerplate",
-  "description": "A Design Professionals Node.js Boilerplate using Express Socket.io, CoffeeScript, Stylus, Nib and more",
-  "version": "0.2.0",
+  "name": "boilerplate",
+  "description": "A Design Professionals Node.js Boilerplate using Express Socket.io, CoffeeScript, Compass, Grunt and more",
+  "version": "0.9.0",
   "dependencies": {
     "express": "",
     "socket.io": "",
@@ -18,6 +18,6 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "",
-    "grunt-contrib-qunit": "",
+    "grunt-contrib-qunit": ""
   }
 }

@@ -1,9 +1,9 @@
 (function() {
   var app, config, express, http, io, routes, server;
 
-  routes = require("./app/routes/site.js");
+  routes = require("./server/routes/site.js");
 
-  config = require("./app/config/config.js");
+  config = require("./server/config/config.js");
 
   http = require("http");
 
@@ -21,14 +21,14 @@
       app.use(express.errorHandler());
       app.locals.pretty = false;
     } else {
-      app.use(express["static"](__dirname + '/www'));
+      app.use(express["static"](__dirname + '/static'));
       app.use(express.errorHandler({
         dumpExceptions: true,
         showStack: true
       }));
       app.locals.pretty = true;
     }
-    app.set("views", __dirname + "/app/views");
+    app.set("views", __dirname + "/server/views");
     app.set("view engine", "jade");
     app.use(express.logger());
     app.use(express.bodyParser());
