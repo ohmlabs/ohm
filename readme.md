@@ -4,6 +4,30 @@
 
 This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib and Coffeescript. It does absolutely nothing, but provides a good structure for your app as well as configured middleware so that you can immediately get to work. I've included some mixins and figures that can be helpful in making basic web layouts quickly. Although LESS is very well integrated with Node.js, I chose to use SASS because Compass is an excellent tool. This Boilerplate comes preconfigured with Production/Development Environments as well as server config files that allow you to proxy node.js (I highly recommend that you use a faster webserver like Nginx to serve static files, and proxy Node.js).
 
+### Basic Application Structure
+```sh
+├── client
+│   ├── js
+│   └── sass
+├── server
+│   ├── config
+│   ├── routes
+│   └── views
+├── static
+│   ├── css
+│   ├── img
+│   └── js
+├── boilerplate.coffee
+├── boilerplate.js
+├── gruntfile.coffee
+├── package.json
+├── readme.md
+```
+
+This boilerplate attempts to have the simplest possible structure. Code is grouped into three main classes: server, client, and static. The server directory contains the files that reside on the server (views to be rendered, logic for the app). I actually lied when I said there were three classes because the Static and Client directories are actually the same thing. The client directory contains *pre-compiled* code that the user will need on the client-side for the app (Sass files and Javascript code). The static directory files are all generated automatically in the grunt compile process (client/sass files are compiled to static/css, client/js files are concated and/or minified into one file which is compiled into static/js). You should NEVER have to edit static files, they should be generated automatically (except in the case of adding images or other filetypes that are not a part of the compile process e.g. *.php or *.txt)
+
+If you are a designer most of your time will be spent in the client directory. If you are a back-end developer you'd work predominately in the server folder.
+
 ### Install Dependencies
 
 Firstly, you will need to  install the node modules using Node Package Manger. 
