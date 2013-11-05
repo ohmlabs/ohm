@@ -84,9 +84,15 @@ On Mac:
 brew install node
 pat yourself on the back and grab a coffee
 ```
-Using Ubuntu makes this much easier. For all the install guides see this.
+Using Ubuntu makes this much easier. For detailed guides to using package managers to install node please [visit here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 ```sh
-sudo apt-get install node
+sudo apt-get install node		#installs an old standard version
+# to install the latest stable release
+sudo apt-get update
+sudo apt-get install -y python-software-properties python g++ make
+sudo add-apt-repository -y ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
 ```
 The detailed long form version (Amazon Linux)
 ```sh

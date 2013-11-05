@@ -117,8 +117,13 @@ emacs stlye.sass
 # save and exit
 ```
 
-Misc Shit
-remove already stored files that you no loger want to track
+### Miscellaneous
+Remove tracked files that you no loger want to track
+
+For individual files:
 ```sh
-use git rm --cached for files and git rm -r --cached for the build/ directory
+git rm --cached <file>
 ```
+For the build/ directory:
+```sh
+git rm -r --cached <dir>
