@@ -76,6 +76,16 @@ sudo service start nginx
 ```
 And really that's it. Nginx has great documentation<link> for their servers and I would suggest spending some time reading as much as necessary, being sure to use best practices<link>. You'll also notice that an nginx.conf file is included in the boilerplate (config/nginx.conf). This is a configuration file that I would suggest using as it proxies node through nginx and uses nginx to serve static files rather than express (along with many other improvements to the default file). I like to symlink this file to /etc/nginx so that you can keep your config files under version control as well.
 
+### Install Ruby, Rubygems via RVM
+Another piece of software that will be required is Ruby. While it comes preinstalled on Mac, you will need to install it on your Ubuntu server. This can be done easily using the Ruby version manager [RVM](https://rvm.io/rvm/install)
+```
+\curl -L https://get.rvm.io | bash -s stable --ruby
+```
+Afterwards you can install the gems that you will need:
+```sh
+gem install sass compass
+```
+
 ### Install Node
 Installing and running node is a fairly straightforward process. Depending on what you're building you may require a specific version of Node.js, but this tutorial assumes you're fine with using the latest version.
 
