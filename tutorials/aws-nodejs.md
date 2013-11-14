@@ -1,5 +1,38 @@
 # Configuring AWS + Node.js for Designers
-### Series: [Frontend Designer Boilerplate](readme.md)
+#### Series: [Frontend Designer Boilerplate](readme.md)
+ - [ ] Write a comparison of AWS and GCE
+ - [x] Write Instructions for setting up AWS
+ - [ ] Write Instructions for settinng up GCE
+
+### Abstract
+This guide will show you how to set up a server using EC2, Amaxon's server solution. I chose Amazon for several reasons: that can be summarized as: 
+* better  SDK
+* more mature services
+* cheaper
+
+# Contents
+1. Start EC2 Instance
+2. Configuration
+ * SSH Keys
+ * Open Ports
+ * Assign IP Address
+ * Advanced
+   + Load Balancer
+    + Block Storage
+3. Storage
+ * EBS Volumes
+ * S3 - Simple Storage Service 
+ * Glacier
+4. DNS Server
+ * Updating DNS Records
+ * Route 53
+5. CDN/Load Balancing
+ * CloudFront
+ * Elastic Beanstalk
+ * Google Compute Engine
+6. Monitoring/Analytics
+ *  Cloud Watch
+ *  Google Analytics
 
 ### Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
