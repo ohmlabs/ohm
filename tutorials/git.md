@@ -57,7 +57,7 @@ git push origin newfeature
 ```
 Copy a remote branch locally
 ```sh
-git co -b newfeature origin/newfeature
+git checkout -b newfeature origin/newfeature
 ```
 Merge a feature branch (close a pull request)
 ```sh
