@@ -1,32 +1,35 @@
 # Configuring AWS + Node.js for Designers
 #### Series: [Frontend Designer Boilerplate](readme.md)
 ### Abstract
-
 # Contents
-1. Start EC2 Instance
-2. Configuration
+1. Configuration
+ * [Launch Server](#launch-server)
  * [Configure Ports](#configure-ports)
  * [Connect to Server](#connect-to-server)
  * [Assign IP Address](#elasticdynamic-ip)
  * [Creating DNS Records](#creating-dns-records)
- * Configure the Server
-   + [Install Nginx](#install-nginx)
-   + [Install Ruby](#install-ruby)
-   + [Install Node](#install-node)
-3. Storage
+2. Install Apps
+ * [Install Nginx](#install-nginx)
+ * [Install Ruby](#install-ruby)
+ * [Install Node](#install-node)
+3. Storage/Backup
  * EBS Volumes
  * S3 - Simple Storage Service 
  * Glacier
-4. DNS Server
- * Updating DNS Records
- * Route 53
-5. CDN/Load Balancing
- * CloudFront
+4. Scaling
+ * Load Balancer
+ * Content Delivery Network - CloudFront
  * Elastic Beanstalk
  * Google Compute Engine
-6. Monitoring/Analytics
+5. Monitoring/Analytics
  *  Cloud Watch
  *  Google Analytics
+ 
+#### To Dos:
+* Using Amazon's Elastic Block Store to schedule snapshot backups of server
+* Creating an image of your server to easily replicate the server that you just built
+* Use fabric for deployment shell scripts
+* The same process for google compute
 
 ### Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
@@ -129,13 +132,10 @@ tar xvf (.tar)
 make
 sudo make install
 ln -s /sbin/nginx /usr/sbin
-```
 # update your configuration files to your liking
 sudo service nginx start
-
-add link to this:
-http://wiki.nginx.org/Pitfalls
-http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/And really that's it. Nginx has great documentation<link> for their servers and I would suggest spending some time reading as much as necessary, being sure to use best practices<link>. You'll also notice that an nginx.conf file is included in the boilerplate (config/nginx.conf). This is a configuration file that I would suggest using as it proxies node through nginx and uses nginx to serve static files rather than express (along with many other improvements to the default file). I like to symlink this file to /etc/nginx so that you can keep your config files under version control as well.
+```
+And really that's it. Nginx has great documentation for their servers and I would suggest spending some time reading as much as necessary, being sure to use [best practices](http://wiki.nginx.org/Pitfalls). You'll also notice that an nginx.conf file is included in the boilerplate (config/nginx.conf). This is a configuration file that I would suggest using as it proxies node through nginx and uses nginx to serve static files rather than express (along with many other improvements to the default file taken from [this article](http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/)). I like to symlink this file to /etc/nginx so that you can keep your config files under version control as well.
 
 ### Install Ruby
 Another piece of software that will be required is Ruby. While it comes preinstalled on Mac, you will need to install it on your Ubuntu server. This can be done easily using the Ruby version manager [RVM](https://rvm.io/rvm/install)
@@ -208,15 +208,6 @@ If you want to add a private repo to your server, you have a few options. The si
 * config/config.js > a file for separating configurations, like port and host.
 * server.coffee > You main app configuration file. You can run the app simply with
 * coffee server.js // note that if you use forever you will have to compile coffee script to js
-
-
-
- 
-### Follow up:
-* Using Amazon's Elastic Block Store to schedule snapshot backups of server
-* Creating an image of your server to easily replicate the server that you just built
-* Use fabric for deployment shell scripts
-* The same process for google compute
 
 ### Performance
 Building a high performance website is a remarkably challenging feat, but there are very clear steps to follow to maximize the performance of your site or app. How you build your structure and build your applications matters immensely in regards to performance. A major consideration: running scripts blocks parallel downloads, which can slow down your site download times. 
