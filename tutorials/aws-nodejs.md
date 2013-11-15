@@ -8,7 +8,7 @@
  * [Connect to Server](#connect-to-server)
  * [Assign IP Address](#elasticdynamic-ip)
  * [Creating DNS Records](#creating-dns-records)
-2. Install Apps
+2. Environment
  * [Install Nginx](#install-nginx)
  * [Install Ruby](#install-ruby)
  * [Install Node](#install-node)
@@ -31,7 +31,7 @@
 * Use fabric for deployment shell scripts
 * The same process for google compute
 
-### Before you get Started
+# Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
 
 * Purchase a domain. Where you decide to purchase it from is purely up to you and honestly doesn't matter since you will be using Amazons Route 53 for DNS management.
@@ -97,7 +97,7 @@ Now you have successfully configured your instance you need to be able to point 
 ### Creating DNS Records
 Finally in order for your www.domain.com to point to the server that you just started you need to update the DNS records for the domain. I would recommend using Amazon's Route 53 simply because it consolidates the services that you have to use to make changes. You'll first want to go to the Route 53 page and create a new Hosted Zone. Next, add all of the record sets that you may need (MX, CNAME, A, www, etc.). Finally return to your domain provider and change the name servers to those listed on your zone file at AWS.
 
-### Configure the Server
+# Build your Environment
 So you're connected to your EC2 instance… What now? In the past the next steps were pretty straightforward and hardly disputable: Install and configure the typical LAMP stack technologies: PHP, MySQL and Apache. Most often, if you are a front-end developer you may not be very comfortable with learning a server side language like php or python. If this is the case you should be very excited about a new technology called Node.js If you have no idea what Node is, it is essentially Javascript for the server side. Your eyes probably light up at the idea alone, since JS has certainly become the default scripting language of the web. Most importantly, many beginners have experience with javascript, giving them the opportunity to expand their development to the server side.
 
 There are many advantages to Node.js, but when choosing to build a site using it one has to keep in mind that it is not a very mature technology. The young, ever-changing nature of Node.js can present a challenge for developers. Regardless, Node is a reliable enough technology that is used by companies of the likes of Yahoo, Linkedin and many more. I have hopped on the bandwagon and recommend Node for it's simplicity above all.
