@@ -1,24 +1,18 @@
 # Configuring AWS + Node.js for Designers
 #### Series: [Frontend Designer Boilerplate](readme.md)
- - [ ] Write a comparison of AWS and GCE
- - [x] Write Instructions for setting up AWS
- - [ ] Write Instructions for settinng up GCE
-
 ### Abstract
-This guide will show you how to set up a server using EC2, Amaxon's server solution. I chose Amazon for several reasons: that can be summarized as: 
-* better  SDK
-* more mature services
-* cheaper
 
 # Contents
 1. Start EC2 Instance
 2. Configuration
- * SSH Keys
- * Open Ports
- * Assign IP Address
- * Advanced
-   + Load Balancer
-    + Block Storage
+ * [Configure Ports](#configure-ports)
+ * [Connect to Server](#connect-to-server)
+ * [Assign IP Address](#elasticdynamic-ip)
+ * [Creating DNS Records](#creating-dns-records)
+ * Configure the Server
+   + [Install Nginx](#install-nginx)
+   + [Install Ruby](#install-ruby)
+   + [Install Node](#install-node)
 3. Storage
  * EBS Volumes
  * S3 - Simple Storage Service 
@@ -40,7 +34,7 @@ There are a few steps that obviously need to be done that I'm not going to get i
 * Purchase a domain. Where you decide to purchase it from is purely up to you and honestly doesn't matter since you will be using Amazons Route 53 for DNS management.
 * Sign up for Amazon Web Services. You can use an existing amazon account if you like
 
-### Launch an EC2 Instance
+### Launch Server
 First, let's fire up an EC2 instance. Amazon makes this very simple to do and while very serious projects will require some advanced configuration, a simple set up is all we need for our purposes.
 
 * From the AWS Console select EC2
@@ -58,7 +52,7 @@ Great, now you have an instance up and running but that alone isn't really good 
 * Select SSH from the "create new rule" drop down and click "Add Rule". This will open up port 22, necessary if you want to have SSH access to your instances.
 *  Repeat the process for port 80 (HTTP) and, if desired, port 443 (HTTPS).
 
-### Connect to your instance
+### Connect to Server
 Now, if you want to SSH to your instance all you have to type is:
 
 ```sh
@@ -68,7 +62,7 @@ $ ssh -i ~/.ssh/your_key_pair.pem ec2-user@ec2-00-000-000-00.compute-1.amazonaws
 
 Using the Public DNS that you find in your EC2 properties panel for that last part. Don't want to type such a horrendous message every time you want to connect to your instance? You should read this article on the ssh config file. This is a pretty brief overview of ssh and EC2 so for more details I would recommend the Amazon EC2 User Guide.
 
-### Adding Users
+#### Adding Users
 Suppose you want to grant server access to someone else. This is simple:
 
 New User's Computer
@@ -90,26 +84,60 @@ ssh -i ~/.ssh/id_rsa newuser@101.0.0.0
 ``` 
 If you can understand what happened there then you have a good handle on how ssh works. 
 
+### Elastic/Dynamic IP
+Now you have successfully configured your instance you need to be able to point your domain towards the server that you created. For convenience sake you will want to use what Amazon calls Elastic IP. This allows you to assign a unique IP address to your instance which makes managing DNS records easier. You can also easily switch which instance your Elastic IP is associated with, which can be helpful if you have several servers for development and may need to switch which server your domain points to. Adding an Elastic IP is simple:
+
+* From the EC2 console select Elastic IPs
+* Select Allocate New Address
+* Choose Associate Address and then choose the instance you just created.
+
+### Creating DNS Records
+Finally in order for your www.domain.com to point to the server that you just started you need to update the DNS records for the domain. I would recommend using Amazon's Route 53 simply because it consolidates the services that you have to use to make changes. You'll first want to go to the Route 53 page and create a new Hosted Zone. Next, add all of the record sets that you may need (MX, CNAME, A, www, etc.). Finally return to your domain provider and change the name servers to those listed on your zone file at AWS.
+
 ### Configure the Server
 So you're connected to your EC2 instance… What now? In the past the next steps were pretty straightforward and hardly disputable: Install and configure the typical LAMP stack technologies: PHP, MySQL and Apache. Most often, if you are a front-end developer you may not be very comfortable with learning a server side language like php or python. If this is the case you should be very excited about a new technology called Node.js If you have no idea what Node is, it is essentially Javascript for the server side. Your eyes probably light up at the idea alone, since JS has certainly become the default scripting language of the web. Most importantly, many beginners have experience with javascript, giving them the opportunity to expand their development to the server side.
 
 There are many advantages to Node.js, but when choosing to build a site using it one has to keep in mind that it is not a very mature technology. The young, ever-changing nature of Node.js can present a challenge for developers. Regardless, Node is a reliable enough technology that is used by companies of the likes of Yahoo, Linkedin and many more. I have hopped on the bandwagon and recommend Node for it's simplicity above all.
 
-### Setting Up Your Environment
 If you are using Ubuntu or other Linux distributions you will likely be using apt-get or yum to do your install. If you are using configuring a development environment for your local machine you should install Homebrew, and it will pretty much do all of the heavy lifting for you. Homebrew (brew) is the likes of linux package managers for Mac OSX, a really brilliant invention. Once you have your package manager of choice in place your installation process can take seconds.
 
 The first thing that you will probably be prompted to do when you ssh to your instance is to update. Obviously updating is always a good idea, so before you do anything else you should be sure to "sudo yum update".
 
+#### Download Your Favorite Text Editor
+Chances are your server comes with a few text editors installed (generally vi, nano etc.), but if you're like me and you love emacs you'll need to sudo install emacs to make your life easier. 
+ 
+#### Customize Your Shell
+Most linux machines use bash as the default shell, and if you've been using linux long enough it's likely that you have amassed an impressively large .bashrc (or .zshrc if you like me prefer the zsh shell) filled with aliases and enhancements to your shell environment. If you don't know what a .bashrc is then you should take the time to research how these files work and how they can make your life a lot easier. I would suggest perusing this.
+#### [sample .zshrc](https://gist.github.com/cdrake757/4619637)
+
 ### Install Nginx
 Apache is by a long shot the most popular web server in existence (It is the A in LAMP after all) but many people are starting to realize the benefits of dumping Apache for Nginx because it is lighter and faster at serving static files. Installing Nginx is a breeze and its' configuration is simple:
 ```sh
-sudo yum install nginx
+sudo apt-get install nginx
 emacs /etc/nginx/nginx.conf // update config with information like root location, domain name etc.
 sudo service start nginx
 ```
-And really that's it. Nginx has great documentation<link> for their servers and I would suggest spending some time reading as much as necessary, being sure to use best practices<link>. You'll also notice that an nginx.conf file is included in the boilerplate (config/nginx.conf). This is a configuration file that I would suggest using as it proxies node through nginx and uses nginx to serve static files rather than express (along with many other improvements to the default file). I like to symlink this file to /etc/nginx so that you can keep your config files under version control as well.
+Socket.io requires installing a version of nginx past 1.3, apt-get only has 1.19 so you should install from source
+```sh
+wget http://nginx.org/download/nginx-1.4.3.tar.gz
 
-### Install Ruby, Rubygems via RVM
+tar xvzf (.tgz or tar.gz)
+tar xvjf (.tbz or .tar.bz2)
+tar xvf (.tar)
+
+./configure
+make
+sudo make install
+ln -s /sbin/nginx /usr/sbin
+```
+# update your configuration files to your liking
+sudo service nginx start
+
+add link to this:
+http://wiki.nginx.org/Pitfalls
+http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/And really that's it. Nginx has great documentation<link> for their servers and I would suggest spending some time reading as much as necessary, being sure to use best practices<link>. You'll also notice that an nginx.conf file is included in the boilerplate (config/nginx.conf). This is a configuration file that I would suggest using as it proxies node through nginx and uses nginx to serve static files rather than express (along with many other improvements to the default file). I like to symlink this file to /etc/nginx so that you can keep your config files under version control as well.
+
+### Install Ruby
 Another piece of software that will be required is Ruby. While it comes preinstalled on Mac, you will need to install it on your Ubuntu server. This can be done easily using the Ruby version manager [RVM](https://rvm.io/rvm/install)
 ```
 \curl -L https://get.rvm.io | bash -s stable --ruby
@@ -165,7 +193,6 @@ sudo make install
 ### Install Important Node Modules
 As previously stated, Node has a great deal of modules that are easily downloaded using npm. While each web project should have it's own packages.json for installing dependencies there are a few modules that you may want to consider installing globally (i.e. sudo npm install -g whatever_module):
 * Express: Sinatra inspired web development framework for node.js
-* Stylus: Expressive, robust, feature-rich CSS language built for nodejs
 * Jade: robust, elegant, feature rich template engine for nodejs
 * Coffee-Script: Javascript pre-processor
 * Forever: A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
@@ -182,26 +209,8 @@ If you want to add a private repo to your server, you have a few options. The si
 * server.coffee > You main app configuration file. You can run the app simply with
 * coffee server.js // note that if you use forever you will have to compile coffee script to js
 
-### Next Steps
-Node.js is awesome, but definitely not so awesome that its the only software that you'll need. When I am trying to configure a server that is easy for me to use I always take the following steps:
-
-### Download Your Favorite Text Editor
-Chances are your server comes with a few text editors installed (generally vi, nano etc.), but if you're like me and you love emacs you'll need to sudo install emacs to make your life easier. 
- 
-### Customize Your Shell
-Most linux machines use bash as the default shell, and if you've been using linux long enough it's likely that you have amassed an impressively large .bashrc (or .zshrc if you like me prefer the zsh shell) filled with aliases and enhancements to your shell environment. If you don't know what a .bashrc is then you should take the time to research how these files work and how they can make your life a lot easier. I would suggest perusing this.
-#### [sample .zshrc](https://gist.github.com/cdrake757/4619637)
 
 
-### Elastic/Dynamic IP
-Now you have successfully configured your instance you need to be able to point your domain towards the server that you created. For convenience sake you will want to use what Amazon calls Elastic IP. This allows you to assign a unique IP address to your instance which makes managing DNS records easier. You can also easily switch which instance your Elastic IP is associated with, which can be helpful if you have several servers for development and may need to switch which server your domain points to. Adding an Elastic IP is simple:
-
-* From the EC2 console select Elastic IPs
-* Select Allocate New Address
-* Choose Associate Address and then choose the instance you just created.
-
-### Creating DNS Records
-Finally in order for your www.domain.com to point to the server that you just started you need to update the DNS records for the domain. I would recommend using Amazon's Route 53 simply because it consolidates the services that you have to use to make changes. You'll first want to go to the Route 53 page and create a new Hosted Zone. Next, add all of the record sets that you may need (MX, CNAME, A, www, etc.). Finally return to your domain provider and change the name servers to those listed on your zone file at AWS.
  
 ### Follow up:
 * Using Amazon's Elastic Block Store to schedule snapshot backups of server
