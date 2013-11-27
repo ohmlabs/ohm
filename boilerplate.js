@@ -15,19 +15,24 @@
 
   io = require("socket.io");
 
+  app.set("env", config.env);
+
+  app.configure("production", function() {
+    app.use(express.errorHandler());
+    app.enable("trust proxy");
+    return app.locals.pretty = false;
+  });
+
+  app.configure("development", function() {
+    app.use(express["static"](__dirname + "/static"));
+    app.use(express.errorHandler({
+      dumpExceptions: true,
+      showStack: true
+    }));
+    return app.locals.pretty = true;
+  });
+
   app.configure(function() {
-    if (config.is_prod) {
-      app.enable('trust proxy');
-      app.use(express.errorHandler());
-      app.locals.pretty = false;
-    } else {
-      app.use(express["static"](__dirname + '/static'));
-      app.use(express.errorHandler({
-        dumpExceptions: true,
-        showStack: true
-      }));
-      app.locals.pretty = true;
-    }
     app.set("views", __dirname + "/server/views");
     app.set("view engine", "jade");
     app.use(express.logger());
