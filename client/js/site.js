@@ -1,3 +1,5 @@
+// If Jquery isn't loaded load it
+window.jQuery || document.write('<script src="js/libs/jquery-2.0.0.min.js">\x3C/script>');
 // usage: log('inside coolFunc', this, arguments);
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 
@@ -49,3 +51,8 @@ window.log = function f() {
 $(document).ready(function(){
   alert('Congrats, You have a Website!');
 }); 
+// Google Analytics
+var _gaq=[['_setAccount','UA-XXXXXXXX-1'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
