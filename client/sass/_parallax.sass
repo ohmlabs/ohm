@@ -1,0 +1,99 @@
+$app-bg: #fff
+///////////////////////////////////////
+//   Resume                         //
+/////////////////////////////////////
+section
+  background: $app-bg
+  display: block
+  width: 100%
+  position: relative
+  z-index: 2
+  text-align: left
+  height: 4500px
+  .dark-overlay
+    width: 100%
+    height: 100%
+    background: rgba(0,0,0,0.8)
+#one
+  background: url('../img/drinks.jpg') no-repeat fixed 50% top
+  background-size: cover
+  -skrollr-animation-name: one
+#three
+  background: #000 url('../img/bartender.jpg') no-repeat fixed 50% top
+  background-size: cover
+  -skrollr-animation-name: three
+.logo 
+  background: url('../img/logo.png') no-repeat
+  background-size: cover 
+  width: 300px
+  height: 137px
+  position: fixed
+  top: 50px
+  left: 350px
+  margin: auto
+  z-index: 3
+///////////////////////////////////////
+//   Keyframes                      //
+/////////////////////////////////////
+@-skrollr-keyframes one
+  0
+    background-position: 0px 0px
+  4500
+    background-position: 0px -250px
+@-skrollr-keyframes three
+  0
+    background-position: 0px 0px
+  9000
+    background-position: 0px 0px
+  end
+    background-position: 0px -250px
+///////////////////////////////////////
+//   Essential                      //
+/////////////////////////////////////
+#progress
+  height: 2%
+  width: 100%
+  position: fixed
+  bottom: 0
+  z-index: 1000
+  background: #ccc
+  -skrollr-animation-name: progress
+#scrollTop
+  position: fixed
+  top: 10px
+  right: 30px
+  color: #fff
+  z-index: 1000
+
+.parallaxNav
+  position: fixed
+  -webkit-overflow-scrolling: touch
+  top: 45%
+  right: 2%
+  float: left
+  z-index: 1000
+  width: 130
+  background: black
+  border-radius: 25px
+  padding: 25px
+  li
+    text-align: right
+    list-style: none
+    a
+      -skrollr-animation-name: menu-link
+///////////////////////////////////////
+//   Keyframes                      //
+/////////////////////////////////////
+@-skrollr-keyframes menu-link
+  0
+    color: white
+  100-top
+    color: black
+  100-top-bottom
+    color: white
+
+@-skrollr-keyframes progress
+  0
+    width: 0%
+  end
+    width: 100%
