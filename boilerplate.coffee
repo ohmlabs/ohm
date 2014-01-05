@@ -7,6 +7,7 @@ express = require("express")
 app = express()
 server = http.createServer(app)
 io = require("socket.io")
+aws = require("./server/apis/AWS.js")
 
 # Middleware
 # Make sure we use the right environment
@@ -40,6 +41,7 @@ app.get "/", routes.index
 app.get "*", routes.error
 
 # Listen
+
 app.listen config.port
 io = io.listen(server)
 if config.is_prod

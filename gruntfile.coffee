@@ -55,7 +55,7 @@ module.exports = (grunt) ->
         files: '<%= jshint.files %>'
         tasks: ['concat', 'coffee', 'uglify']
       server:
-        files: ["gruntfile.coffee", "jukeboxx.js", "server/**/*.js"]
+        files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
         tasks: "forever:restart"
                           
   grunt.loadNpmTasks "grunt-contrib-uglify"
