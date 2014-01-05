@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>Amazon CloudFront Streaming with JW Player 6</TITLE>	
+
+<!-- Call the JW Player JavaScript file, jwplayer.js. 
+Replace WEB-DISTRIBUTION-DOMAIN-NAME with the domain name of your 
+CloudFront web distribution, for example, d1234.cloudfront.net 
+(begins with "d"). This causes a browser to download the JW Player file 
+before streaming begins.
+-->
+<script src="http://jwpsrv.com/library/iphA3HW1EeO0AiIACmOLpg.js"></script>
+<script type='text/javascript' src='https://d1eoeell9xfj4i.cloudfront.net/jwplayer.js'></script>
+
+</HEAD>
+
+<BODY>
+<H1>This video is streamed by CloudFront and played by JW Player 6.</H1>
+
+<!-- Replace RTMP-DISTRIBUTION-DOMAIN-NAME with the domain name of your 
+RTMP distribution, for example, s5678.cloudfront.net (begins with "s").
+
+Replace VIDEO-FILE-NAME with the name of your .mp4 or .flv video file, 
+including the .mp4 or .flv filename extension. For example, if you uploaded 
+my-vacation.mp4, enter my-vacation.mp4.
+-->
+
+<div id='mediaplayer'></div>
+<script type="text/javascript">
+   jwplayer('mediaplayer').setup({
+      file: "rtmp://s10wtxo61jxngb.cloudfront.net/cfx/st/BourneUltimatum.mp4",
+      width: "720",
+      height: "480"
+   });
+</script>
+
+</BODY>
+</HTML>
