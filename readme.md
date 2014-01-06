@@ -106,6 +106,8 @@ For production, you will need to make sure that Nginx is running and that you ha
 * [Emacs](http://www.gnu.org/software/emacs/)
 * [Github](http://github.com/) 
 * [Homebrew](http://mxcl.github.com/homebrew/)
+* [Local Tunnel](http://progrium.com/localtunnel/)
+* [Yeoman](http://yeoman.io/)
 
 ### Recommended Sites 
 
