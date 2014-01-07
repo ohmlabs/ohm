@@ -196,11 +196,10 @@ The first step to designing a website or web app is to determine which browsers 
 
 I know that it may trouble some people to see mobile lumped together like that but I won't get into the details of how to design a website for the millions of possible screen sizes that can be encountered in that space. I will write a blog post later on the subject of [responsive design](http://bradfrost.github.com/this-is-responsive/index.html).
 
-# Server-Side Development
+# [Designer's Guide to AWS](aws.md)
 As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
-### [Configuring Node.js + AWS](aws.md)
 
-There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow only with this post.
+There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow along with [this post](aws.md).
 
 # [Designer's Guide to Github](git.md)
 
@@ -214,13 +213,14 @@ There are many services that are offered by AWS, but the most important is Elast
 * [Complex Selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors)
 * [Detailed CSS positioning](http://learn.shayhowe.com/advanced-html-css/detailed-css-positioning)
 
-### Recommended Links
+### Recommended Bookmarks
 
-Enviroment/Automation
+Environment/Automation
 * [Homebrew](http://mxcl.github.com/homebrew/)
 * [Grunt](http://gruntjs.com/)
 * [Local Tunnel](http://progrium.com/localtunnel/)
 * [Dropbox](http://db.tt/VmtPYp51)
+* [Compass](http://compass-style.org/reference/compass/)
 Text Editors
 * [Tabifier](http://tools.arantius.com/tabifier)
 * [TextMate](http://macromates.com/)
@@ -242,4 +242,14 @@ Standards & Specifications
 * [W3C HTML Specification](http://www.w3schools.com/html/html5_intro.asp)
 * [W3C CSS Specification](http://www.w3schools.com/css3/css3_intro.asp)
 
+### Recommended Reading
+The readings listed and some additional readings can be found in this [dropbox folder](https://www.dropbox.com/sh/svziy2elww23mtm/Za0UvpSKoA).
+
+* High Performance Web Sites - Steve Souders 
+* CSS The Definite Guide - Eric A Meyer
+* CSS Pocket Reference - Eric A Meyer
+* Javascript: The Good Parts - Douglas Crockford
+* Secrets of the Javascript Ninja - John Resig
+* JQuery Novice to Ninja - Early Castledine and Craig Sharkie
+* Responsive Design - Ethan Marcotte
 

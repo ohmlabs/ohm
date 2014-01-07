@@ -28,7 +28,7 @@ This boilerplate attempts to have the simplest possible structure. Code is group
 
 If you are a designer most of your time will be spent in the client directory. If you are a back-end developer you'd work predominately in the server folder.
 
-### Install Dependencies
+# Installing
 
 Firstly, you will need to  install the node modules using Node Package Manger. 
 
@@ -49,7 +49,7 @@ gem install ceaser-easing
 gem install normalize
 ```
 
-### Running the Application
+# Running
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
 * Compile Coffeescript
@@ -86,26 +86,16 @@ forever start server.js -p # Don't forget the -p flag for production
 * Modular SASS to provide basic mixins and structure
 * The latest jQuery via CDN.
 * An optimized Google Analytics snippet.
+* Seamless integration w/ Amazon Web Services
 
-# Major components:
+#### Major components:
 
 * For server dependencies see package.json
 * [jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works)
 * [CoffeeScript](http://coffeescript.org/)
 * [Express](http://expressjs.com/guide.html)
-* [Compasss](http://compass-style.org/reference/compass/)
 * [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
-### Recommeded Reading
-
-The readings listed and some additional readings can be found in this [dropbox folder](https://www.dropbox.com/sh/svziy2elww23mtm/Za0UvpSKoA).
-
-
-* High Performance Web Sites - Steve Souders 
-* CSS The Definite Guide - Eric A Meyer
-* CSS Pocket Reference - Eric A Meyer
-* Javascript: The Good Parts - Douglas Crockford
-* Secrets of the Javascript Ninja - John Resig
-* JQuery Novice to Ninja - Early Castledine and Craig Sharkie
-* Responsive Design - Ethan Marcotte
+# License
+This boilerplate is licensed under the GPL license
