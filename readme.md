@@ -26,6 +26,26 @@ This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib a
 This boilerplate attempts to have the simplest possible structure. Code is grouped into three main classes: server, client, and static. The server directory contains the files that reside on the server (views to be rendered, logic for the app). I actually lied when I said there were three classes because the Static and Client directories are actually the same thing. The client directory contains *pre-compiled* code that the user will need on the client-side for the app (Sass files and Javascript code). The static directory files are all generated automatically in the grunt compile process (client/sass files are compiled to static/css, client/js files are concated and/or minified into one file which is compiled into static/js). You should NEVER have to edit static files, they should be generated automatically (except in the case of adding images or other filetypes that are not a part of the compile process e.g. *.php or *.txt)
 
 If you are a designer most of your time will be spent in the client directory. If you are a back-end developer you'd work predominately in the server folder.
+### Goals
+
+* Adhere to Steve Sauders Rules for High Performance Websites:
+* HTML5 ready. Use the new elements with confidence.
+* Designed with progressive enhancement in mind.
+* CSS normalizations and common bug fixes.
+* Responsive Design templates.
+* Modular SASS to provide basic mixins and structure
+* The latest jQuery via CDN.
+* An optimized Google Analytics snippet.
+* Seamless integration w/ Amazon Web Services
+
+### Major components:
+
+* For server dependencies see package.json
+* [jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works)
+* [CoffeeScript](http://coffeescript.org/)
+* [Express](http://expressjs.com/guide.html)
+* [Animate.css](http://daneden.me/animate/)
+* [Normalize.css](http://necolas.github.io/normalize.css/)
 
 # Installing
 
@@ -61,40 +81,16 @@ To simply compile, type:
 
 ```sh
 grunt
-```
-
-To compile and also watch for changes, type: 
-
-```sh
-grunt forever:start watch
+node boilerplate.js
 ```
 
 In production:
 
 ```sh
 grunt prod
-forever start server.js -p # Don't forget the -p flag for production
+node boilerplate.js -p # Don't forget the -p flag for production
+# Or use forever to keep the server running as a daemon
+forever start server.js -p 
 ```
-# Goals
-
-* Adhere to Steve Sauders Rules for High Performance Websites:
-* HTML5 ready. Use the new elements with confidence.
-* Designed with progressive enhancement in mind.
-* CSS normalizations and common bug fixes.
-* Responsive Design templates.
-* Modular SASS to provide basic mixins and structure
-* The latest jQuery via CDN.
-* An optimized Google Analytics snippet.
-* Seamless integration w/ Amazon Web Services
-
-#### Major components:
-
-* For server dependencies see package.json
-* [jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works)
-* [CoffeeScript](http://coffeescript.org/)
-* [Express](http://expressjs.com/guide.html)
-* [Animate.css](http://daneden.me/animate/)
-* [Normalize.css](http://necolas.github.io/normalize.css/)
-
 # License
 This boilerplate is licensed under the GPL license
