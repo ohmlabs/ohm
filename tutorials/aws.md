@@ -1,4 +1,4 @@
-# Amazon Web Services
+# Designer's Guide to Amazon Web Services
 #### Series: [Frontend Designer Boilerplate](readme.md)
 # Contents
 1. Configuration
