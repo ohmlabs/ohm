@@ -226,26 +226,37 @@ When it comes to creating websites with the best possible performance I try my b
 ### Recommended Sites/Services
 
 Environment/Automation
+
 * [Homebrew](http://mxcl.github.com/homebrew/)
 * [Grunt](http://gruntjs.com/)
 * [Local Tunnel](http://progrium.com/localtunnel/)
 * [Dropbox](http://db.tt/VmtPYp51)
 * [Compass](http://compass-style.org/reference/compass/)
+
 Text Editors
+
 * [Tabifier](http://tools.arantius.com/tabifier)
 * [TextMate](http://macromates.com/)
 * [Emacs](http://www.gnu.org/software/emacs/)
+
 Documentation
+
 * [DocHub](http://dochub.io/#css/)
 * [cheat sheets](http://cheat.errtheblog.com/)
+
 Questions
+
 * [Stack Overflow](http://stackoverflow.com/)
 * [Quora](http://quora.com/)
+
 Code-Sharing
+
 * [Github](http://github.com/)
 * [jsFiddle](http://jsfiddle.net/)
 * [Gists](https://gist.github.com/)
+
 Standards & Specifications
+
 * [HTML5 Please](http://html5please.com/)
 * [CSS3 Please](http://css3please.com/)
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
