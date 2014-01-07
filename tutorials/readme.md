@@ -67,6 +67,54 @@ As previously stated, Node has a great deal of modules that are easily downloade
 #### GUI v. CLI
 This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how much control you will need.
 
+# HTML 
+Using progressive HTML5 techniques can not only save you time developing, but also can enrich performance. For example, rather than writing a long chunk of code to validate a form input, use the new HTML5 form elements which automatically validate (input="email"). Of the many HTML5 features the most important are:
+
+### [Semantics](http://diveintohtml5.info/semantics.html)
+
+### [Better Forms](http://diveintohtml5.info/forms.html)
+
+* autofocus
+* placeholder text
+* new input types (email, date-picker, etc.)
+* required fields
+* automatic validation (may some day replace client side validation)
+
+### [Canvas element](http://diveintohtml5.info/canvas.html)
+### Audio/Video Support
+
+### Related
+There are several commonly associated but technically separate/experimental features with individual specifications:
+
+* [Geolocation API](http://diveintohtml5.info/geolocation.html)
+* Web Sockets
+* SVG
+* Local Storage
+
+### HTML DOM Objects - Methods and Properties
+
+Some commonly used HTML DOM methods:
+
+* getElementById(id) - get the node (element) with a specified id
+* appendChild(node) - insert a new child node (element)
+* removeChild(node) - remove a child node (element)
+
+Some commonly used HTML DOM properties:
+
+* innerHTML - the text value of a node (element)
+* parentNode - the parent node of a node (element)
+* childNodes - the child nodes of a node (element)
+* attributes - the attributes nodes of a node (element)
+
+Some commonly used HTML DOM events
+
+* onclick
+* onresize
+* onload
+* onblur
+* onfocus
+* onscroll
+
 # CSS
 
 ### [Styleguide](css/readme.md) from CSS Wizardry
@@ -144,54 +192,6 @@ Understanding CSS selectors is the most critical concept to grasp if you are goi
 I would suggest following the link for a more detailed explanation of specificity. In a  nutshell, different selectors have different specificity values. As a result, those CSS rules with the highest specificity value will override those with lower values. It is calculated as such:
 
 ![Specificity](img/specificity.png)
-
-# HTML 
-Using progressive HTML5 techniques can not only save you time developing, but also can enrich performance. For example, rather than writing a long chunk of code to validate a form input, use the new HTML5 form elements which automatically validate (input="email"). Of the many HTML5 features the most important are:
-
-### [Semantics](http://diveintohtml5.info/semantics.html)
-
-### [Better Forms](http://diveintohtml5.info/forms.html)
-
-* autofocus
-* placeholder text
-* new input types (email, date-picker, etc.)
-* required fields
-* automatic validation (may some day replace client side validation)
-
-### [Canvas element](http://diveintohtml5.info/canvas.html)
-### Audio/Video Support
-
-### Related
-There are several commonly associated but technically separate/experimental features with individual specifications:
-
-* [Geolocation API](http://diveintohtml5.info/geolocation.html)
-* Web Sockets
-* SVG
-* Local Storage
-
-### HTML DOM Objects - Methods and Properties
-
-Some commonly used HTML DOM methods:
-
-* getElementById(id) - get the node (element) with a specified id
-* appendChild(node) - insert a new child node (element)
-* removeChild(node) - remove a child node (element)
-
-Some commonly used HTML DOM properties:
-
-* innerHTML - the text value of a node (element)
-* parentNode - the parent node of a node (element)
-* childNodes - the child nodes of a node (element)
-* attributes - the attributes nodes of a node (element)
-
-Some commonly used HTML DOM events
-
-* onclick
-* onresize
-* onload
-* onblur
-* onfocus
-* onscroll
 
 # Javascript
 ### [Styleguide](js-styleguide.md)
