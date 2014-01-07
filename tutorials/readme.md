@@ -1,6 +1,6 @@
 # [Frontend Designer Boilerplate](readme.md)
 ## Contents
-* [Introduction](#introduction)
+* [Abstract](#abstract)
 * [Git](#github)
   + [Designer's Guide to Github](git.md) 
 * [CSS3](#css3)
@@ -18,7 +18,10 @@
 This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with the section "For Absolute Beginners" if you are completely new to web development, especially [these videos](http://www.dontfeartheinternet.com/). They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.
 
 # Environment
-A developer is only as good as his/her environment. In order to be the most productive developer possible you must start by using the correct tools. When I first learned how to build websites I preferred Adobe Dreamweaver as my primary editor because it provided the most out-the-box functionality. I soon found my development needs outgrew Dreamweaver and eventually realized that there really is no GUI out there that is going to give you the control that you get by using command line tools. So, I started off down the path to leaning linux. In order to build an efficient development environment intermediate knowledge of Linux is a sine qua non.
+A developer is only as good as his/her environment. In order to be the most productive developer possible you must start by using the correct tools. When I first learned how to build websites I preferred Adobe Dreamweaver as my primary editor because it provided the most out-the-box functionality. I soon found my development needs outgrew Dreamweaver and eventually realized that there really is no GUI out there that is going to give you the control that you get by using command line tools. So, I started off down the path to learning linux. In order to build an efficient development environment intermediate knowledge of Linux is a sine qua non.
+#### Customize Your Shell
+Most linux machines use bash as the default shell, and if you've been using linux long enough it's likely that you have amassed an impressively large .bashrc (or .zshrc if you like me prefer the zsh shell) filled with aliases and enhancements to your shell environment. If you don't know what a .bashrc is then you should take the time to research how these files work and how they can make your life a lot easier. I would suggest perusing this.
+##### [sample .zshrc](https://gist.github.com/cdrake757/4619637)
 #### Install Homebrew
 If you are configuring a development environment for your local machine you must install Homebrew, and it will do a lot of heavy lifting for you. Homebrew is a package managers for Mac OSX; it can install command line packages and applications and manage these installations.
 
@@ -36,11 +39,6 @@ Other useful brews:
 * tig
 * wget
 
-#### Customize Your Shell
-Most linux machines use bash as the default shell, and if you've been using linux long enough it's likely that you have amassed an impressively large .bashrc (or .zshrc if you like me prefer the zsh shell) filled with aliases and enhancements to your shell environment. If you don't know what a .bashrc is then you should take the time to research how these files work and how they can make your life a lot easier. I would suggest perusing this.
-#### [sample .zshrc](https://gist.github.com/cdrake757/4619637)
-#### GUI v. CLI
-This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how precise of command you will need. 
 #### Install Ruby
 Mac comes with Ruby installed. Nothing to do here... Yay! But you will need to install some important rubygems:
 ```sh
@@ -64,6 +62,9 @@ As previously stated, Node has a great deal of modules that are easily downloade
 * forever: A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
 * grunt-cli: A node.js automation tool
 * node-inspector: An amazing plugin that allows you to use chrome devtools on server code.
+
+#### GUI v. CLI
+This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how precise of command you will need. 
 
 # Github
 Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, the guide that I have collected together my personal notes on Github commands that I find useful:
