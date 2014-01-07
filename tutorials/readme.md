@@ -1,20 +1,20 @@
 # [Designer's Guide to Full-Stack Development](readme.md)
 ## Contents
-* [Abstract](#abstract)
-* [Environment](#environment)
-* [Git](#github)
-  + [Designer's Guide to Github](git.md) 
-* [CSS3](#css3)
-  + [CSS Style Guide](css/readme.md)
-* [HTML5](#html5)
-* [Javascript](#javascript)
-  + [JavaScript Style Guide](js-styleguide.md)
-* [Server Administration](#server-administration)
-  + [Designer's Guide to AWS](aws.md)
-  + [Designer's Guide to SSH](ssh.md)
-* [Performance/Support](#performancesupport)
-  + [Designer's Guide to High Performing Websites](performance.md)
-* [References](#references)
+[Abstract](#abstract)
+[Environment](#environment)
+[Git](#github)
++ [Designer's Guide to Github](git.md) 
+[CSS3](#css3)
++ [CSS Style Guide](css/readme.md)
+[HTML5](#html5)
+[Javascript](#javascript)
++ [JavaScript Style Guide](js-styleguide.md)
+[Server Administration](#server-administration)
++ [Designer's Guide to AWS](aws.md)
++ [Designer's Guide to SSH](ssh.md)
+[Performance/Support](#performancesupport)
++ [Designer's Guide to High Performing Websites](performance.md)
+[References](#references)
 
 ## Abstract
 This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with the section "For Absolute Beginners" if you are completely new to web development, especially [these videos](http://www.dontfeartheinternet.com/). They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.
@@ -252,7 +252,7 @@ The first step to designing a website or web app is to determine which browsers 
 I know that it may trouble some people to see mobile lumped together like that but I won't get into the details of how to design a website for the millions of possible screen sizes that can be encountered in that space. I will write a blog post later on the subject of [responsive design](http://bradfrost.github.com/this-is-responsive/index.html).
 
 When it comes to creating websites with the best possible performance I try my best to adhere to Steve Sauders's rules. See my notes on these rules in the guide:
-#### [Rules to High Performing Websites](performance.md)
+### [Designer's Guide to High Performing Websites](performance.md)
 
 # References
 

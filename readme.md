@@ -77,13 +77,16 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Minify JavaScript Files
 * Restart the Server (Using Forever)
 
-To simply compile, type: 
+To compile: 
 
 ```sh
 grunt
 node boilerplate.js
 ```
-
+To start the server as a daemon and watch for changes:
+```
+grunt forever:start watch
+```
 In production:
 
 ```sh
