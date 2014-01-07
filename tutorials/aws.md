@@ -83,7 +83,7 @@ So you're connected to your EC2 instance… What now? In the past the next steps
 
 There are many advantages to Node.js, but when choosing to build a site using it one has to keep in mind that it is not a very mature technology. The young, ever-changing nature of Node.js can present a challenge for developers. Regardless, Node is a reliable enough technology that is used by companies of the likes of Yahoo, Linkedin and many more. I have hopped on the bandwagon and recommend Node for it's simplicity above all.
 
-If you are using Ubuntu or other Linux distributions you will likely be using apt-get or yum to do your install. If you are using configuring a development environment for your local machine you should install Homebrew, and it will pretty much do all of the heavy lifting for you. Homebrew (brew) is the likes of linux package managers for Mac OSX, a really brilliant invention. Once you have your package manager of choice in place your installation process can take seconds.
+If you are using Ubuntu or other Linux distributions you will likely be using apt-get or yum to do your install. Once you have your package manager of choice in place your installation process can take seconds.
 
 The first thing that you will probably be prompted to do when you ssh to your instance is to update. Obviously updating is always a good idea, so before you do anything else you should be sure to "sudo yum update".
 
@@ -125,11 +125,6 @@ gem install sass compass
 ### Install Node
 Installing and running node is a fairly straightforward process. Depending on what you're building you may require a specific version of Node.js, but this tutorial assumes you're fine with using the latest version.
 
-On Mac:
-```sh
-brew install node
-pat yourself on the back and grab a coffee
-```
 Using Ubuntu makes this much easier. For detailed guides to using package managers to install node please [visit here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 ```sh
 sudo apt-get install node		#installs an old standard version
@@ -165,13 +160,6 @@ git clone https://github.com/isaacs/npm.git
 cd npm
 sudo make install
 ```
-### Install Important Node Modules
-As previously stated, Node has a great deal of modules that are easily downloaded using npm. While each web project should have it's own packages.json for installing dependencies there are a few modules that you may want to consider installing globally (i.e. sudo npm install -g whatever_module):
-* Express: Sinatra inspired web development framework for node.js
-* Jade: robust, elegant, feature rich template engine for nodejs
-* Coffee-Script: Javascript pre-processor
-* Forever: A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
-
 ### Build Your Node.js App
 Now that you have node installed I would suggest using a node.js boilerplate to get your app up and running. I have provided a boilerplate that you can use to get started. Simply:
 ```sh
