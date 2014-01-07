@@ -29,7 +29,7 @@ module.exports = (grunt) ->
           config: "server/config/prod_config.rb"
 
     jshint:
-      files: ["gruntfile.coffee", "client/js/**/*.js"]
+      files: ["gruntfile.coffee", "client/**/*.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -48,12 +48,16 @@ module.exports = (grunt) ->
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
     watch:
-      css:
-        files: "**/*.sass"
+      sass:
+        files: "client/**/*.sass"
         tasks: "compass:dev"
       scripts:
         files: '<%= jshint.files %>'
         tasks: ['concat', 'coffee', 'uglify']
+      livereload:
+        options:
+          livereload: true
+        files: ["static/**/*"]
       server:
         files: ["gruntfile.coffee", "jukeboxx.js", "server/**/*.js"]
         tasks: "forever:restart"

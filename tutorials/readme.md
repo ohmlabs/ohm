@@ -44,6 +44,10 @@ Other useful brews:
 Mac comes with Ruby installed. Nothing to do here... Yay! But you will need to install some important rubygems:
 ```sh
 gem install sass compass cheat ceaser-easing
+# sass is a css preprocessor 
+# compass is a utility for sass
+# cheat is a collection of cheat sheets http://cheat.errtheblog.com/
+# ceaser-easing is a collection of easing transistions 
 ```
 
 #### Install Node
@@ -51,19 +55,26 @@ Installing and running node is a fairly straightforward process. Depending on wh
 
 ```sh
 brew install node
-pat yourself on the back and grab a coffee
+# pat yourself on the back and grab a coffee
 ```
 If you use a window's machine then go out and buy a Mac (but seriously).
 
-#### Install Important Node Modules
-As previously stated, Node has a great deal of modules that are easily downloaded using npm. While each web project should have it's own packages.json for installing dependencies there are a few modules that you may want to consider installing globally (i.e. sudo npm install -g whatever_module):
+#### Install Node Modules
+As previously stated, Node has a great deal of modules that are easily downloaded using npm. While each web project should have it's own packages.json for installing dependencies there are a few modules that you will need to install globally:
 
-* express: Sinatra inspired web development framework for node.js
-* coffee-script: Javascript pre-processor
-* forever: A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
-* grunt-cli: A node.js automation tool
-* node-inspector: An amazing plugin that allows you to use chrome devtools on server code.
+* [coffee-script](http://coffeescript.org/): Javascript pre-processor
+* [forever](https://github.com/nodejitsu/forever): A simple CLI tool for ensuring that a given script runs continuously (i.e. forever)
+* [grunt-cli](http://gruntjs.com/): A node.js automation tool
+* [bower](http://bower.io/): a package manger for the web
+* [node-inspector](https://github.com/node-inspector/node-inspector): An amazing plugin that allows you to use chrome devtools on server code.
 
+```sh
+npm install # install all modules in package.json
+npm install -g node-inspector bower forever grunt-cli coffee-script
+```
+You may also want to consider [yeomon](http://yeoman.io/), an application generator. This service installs works with bower and grunt but adds the benefit of basically doing what I've done in this repo and providing you with biased app structures (generators) to choose from. In due, time I will create my own Yeoman generator for this boilerplate.
+#### Install LiveReload
+If you've developed for a while you probably hate the process of constantly refreshing your browser once pages have been updated. This is a thing of the past with [LiveReload](http://livereload.com/). Install their app or  browser extensions. The [gruntfile.coffee](https://github.com/cdrake757/boilerplate/blob/master/gruntfile.coffee) has already been updated to enable livereload when changes are made to the static directory when you "grunt watch".
 #### GUI v. CLI
 This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how much control you will need.
 
