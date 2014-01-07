@@ -1,5 +1,5 @@
 (function() {
-  var app, config, express, http, io, routes, server;
+  var app, config, express, http, routes, server;
 
   routes = require("./server/routes/site.js");
 
@@ -12,8 +12,6 @@
   app = express();
 
   server = http.createServer(app);
-
-  io = require("socket.io");
 
   app.set("env", config.env);
 
@@ -46,8 +44,6 @@
   app.get("*", routes.error);
 
   app.listen(config.port);
-
-  io = io.listen(server);
 
   if (config.is_prod) {
     console.log("Server started on port " + config.port + " in production mode");
