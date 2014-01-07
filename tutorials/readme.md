@@ -1,6 +1,20 @@
 # [Frontend Designer Boilerplate](readme.md)
-## Introduction
+## Abstract
 This guide is not designed for absolute novice web developer. Therefore, I thought it would be helpful to provide some references for those people. I recommend starting with the section "For Absolute Beginners" if you are completely new to web development, especially [these videos](http://www.dontfeartheinternet.com/). They are stylish introductions to the concepts that you will need to be a web developer. You may also want to complete the W3C tutorials and grab a copy of any of the books listed in the additional materials section and peruse it at your leisure. That being said, the best way is to simply dive in and build your own site.
+## Contents
+* [Introduction](#introduction)
+* [Git](#github)
+  + [Designer's Guide to Github](git.md) 
+* [CSS3](#css3)
+  + [CSS Style Guide](css/readme.md)
+* [HTML5](#html5)
+* [Javascript](#javascript)
+  + [JavaScript Style Guide](js-styleguide.md)
+* [Server Administration](#server-side-development)
+  + [Designer's Guide to AWS](aws.md)
+* [Performance/Support](#browser-support)
+  + [Rules to High Performing Websites](performance.md)
+* [References](#references)
 
 #### Download Your Favorite Text Editor
 Chances are your server comes with a few text editors installed (generally vi, nano etc.), but if you're like me and you love emacs you'll need to sudo install emacs to make your life easier. 
@@ -9,25 +23,11 @@ Chances are your server comes with a few text editors installed (generally vi, n
 Most linux machines use bash as the default shell, and if you've been using linux long enough it's likely that you have amassed an impressively large .bashrc (or .zshrc if you like me prefer the zsh shell) filled with aliases and enhancements to your shell environment. If you don't know what a .bashrc is then you should take the time to research how these files work and how they can make your life a lot easier. I would suggest perusing this.
 #### [sample .zshrc](https://gist.github.com/cdrake757/4619637)
 
-## Contents
-* [Introduction](#introduction)
-* [CSS3](#css3)
-  + [CSS Style Guide](css/readme.md)
-* [HTML5](#html5)
-* [Javascript](#javascript)
-  + [JavaScript Style Guide](js-styleguide.md)
-* [Browser Support](#browser-support)
-* [Server-Side](#server-side-development)
-  + [AWS + Node.js Tutorial](aws.md)
-* [Designer's Guide to Github](git.md) 
-* [References](#references)
 
-###  For Absolute Beginners
 
-* [Don't Fear the Internet](http://www.dontfeartheinternet.com/)
-* [Dive into HTML5](http://diveintohtml5.info/)
-* [Code Academy](http://codeacademy.com/)
-
+# Github
+Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, the guide that I have collected together my personal notes on Github commands that I find useful:
+### [Designer's Guide to Github](git.md)
 # CSS3
 ### [Styleguide](css/readme.md) from CSS Wizardry
 ### Pre-processors: SASS v. LESS v. Stylus v. Compass
@@ -184,7 +184,16 @@ Server-side javascript
 * express
 * socket.io
 
-# Browser Support
+
+# Server Administration
+I know that it may trouble some people to see mobile lumped together like that but I won't get into the details of how to design a website for the millions of possible screen sizes that can be encountered in that space. I will write a blog post later on the subject of [responsive design](http://bradfrost.github.com/this-is-responsive/index.html).
+
+As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
+
+There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, [SSH](ssh.md), and DNS is requisite to follow along with [this post](aws.md).
+### [Designer's Guide to AWS](aws.md)
+
+# Performance/Support
 
 The first step to designing a website or web app is to determine which browsers and screens you want to support. Once you have decided which screens you want to support you have to think about the features that your app will require (geolocation, media playback, etc.) and determine which technologies are best for creating these features. Naturally, you want to use the most cutting edge technologies, but some of the browsers that you want to support may not support some features. For this problem the feature-detection library Modernizr should be used to allow the site to determine which features are supported. Users should use technology that is most likely to be supported and fallbacks and polyfills should be created to maintain desired capabilities. According to the most recent trends in browsers, I would recommend users support the following browsers:
 
@@ -194,14 +203,8 @@ The first step to designing a website or web app is to determine which browsers 
 * IE9
 * Mobile + iPad
 
-I know that it may trouble some people to see mobile lumped together like that but I won't get into the details of how to design a website for the millions of possible screen sizes that can be encountered in that space. I will write a blog post later on the subject of [responsive design](http://bradfrost.github.com/this-is-responsive/index.html).
-
-# [Designer's Guide to AWS](aws.md)
-As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
-
-There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow along with [this post](aws.md).
-
-# [Designer's Guide to Github](git.md)
+When it comes to creating websites with the best possible performance I try my best to adhere to Steve Sauders's rules. See my notes on these rules in the guide:
+#### [Rules to High Performing Websites](performance.md)
 
 # References
 
@@ -213,7 +216,13 @@ There are many services that are offered by AWS, but the most important is Elast
 * [Complex Selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors)
 * [Detailed CSS positioning](http://learn.shayhowe.com/advanced-html-css/detailed-css-positioning)
 
-### Recommended Bookmarks
+###  For Absolute Beginners
+
+* [Don't Fear the Internet](http://www.dontfeartheinternet.com/)
+* [Dive into HTML5](http://diveintohtml5.info/)
+* [Code Academy](http://codeacademy.com/)
+
+### Recommended Sites/Services
 
 Environment/Automation
 * [Homebrew](http://mxcl.github.com/homebrew/)
