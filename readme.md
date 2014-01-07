@@ -31,18 +31,17 @@ If you are a designer most of your time will be spent in the client directory. I
 * Adhere to Steve Sauders Rules for High Performance Websites:
 * HTML5 ready. Use the new elements with confidence.
 * Designed with progressive enhancement in mind.
-* CSS normalizations and common bug fixes.
-* Responsive Design templates.
-* Modular SASS to provide basic mixins and structure
-* The latest jQuery via CDN.
 * An optimized Google Analytics snippet.
 * Seamless integration w/ Amazon Web Services
+* Automatically compile Sass
+* Automatically compile CoffeeScript, concatinate, minify, and Lint scripts
+* Automatically compress and sprite images
+* Modular styles to provide basic mixins and structure
+* Normalized stlyes  and common bug fixes.
 
 ### Major components:
 
 * For server dependencies see package.json
-* [jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works)
-* [CoffeeScript](http://coffeescript.org/)
 * [Express](http://expressjs.com/guide.html)
 * [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
@@ -54,6 +53,7 @@ Firstly, you will need to  install the node modules using Node Package Manger.
 ```sh
 cd boilerplate/
 npm install
+npm install -g bower grunt-cli forever coffee-script # any other global packages
 git submodule init
 git submodule update
 ```
