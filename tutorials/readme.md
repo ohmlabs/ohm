@@ -217,15 +217,15 @@ When it comes to creating websites with the best possible performance I try my b
 * [Complex Selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors)
 * [Detailed CSS positioning](http://learn.shayhowe.com/advanced-html-css/detailed-css-positioning)
 
-###  For Absolute Beginners
+
+### Bookmarks
+#### For Absolute Beginners
 
 * [Don't Fear the Internet](http://www.dontfeartheinternet.com/)
 * [Dive into HTML5](http://diveintohtml5.info/)
 * [Code Academy](http://codeacademy.com/)
 
-### Recommended Sites/Services
-
-Environment/Automation
+#### Environment
 
 * [Homebrew](http://mxcl.github.com/homebrew/)
 * [Grunt](http://gruntjs.com/)
@@ -233,29 +233,29 @@ Environment/Automation
 * [Dropbox](http://db.tt/VmtPYp51)
 * [Compass](http://compass-style.org/reference/compass/)
 
-Text Editors
+#### Text Editors
 
 * [Tabifier](http://tools.arantius.com/tabifier)
 * [TextMate](http://macromates.com/)
 * [Emacs](http://www.gnu.org/software/emacs/)
 
-Documentation
+#### Documentation
 
 * [DocHub](http://dochub.io/#css/)
 * [cheat sheets](http://cheat.errtheblog.com/)
 
-Questions
+#### Questions
 
 * [Stack Overflow](http://stackoverflow.com/)
 * [Quora](http://quora.com/)
 
-Code-Sharing
+#### Code-Sharing
 
 * [Github](http://github.com/)
 * [jsFiddle](http://jsfiddle.net/)
 * [Gists](https://gist.github.com/)
 
-Standards & Specifications
+#### Standards & Specifications
 
 * [HTML5 Please](http://html5please.com/)
 * [CSS3 Please](http://css3please.com/)
