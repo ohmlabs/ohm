@@ -2,13 +2,13 @@
 ## Contents
 * [Abstract](#abstract)
 * [Environment](#environment)
-* [Git](#github)
-  + [Designer's Guide to Github](git.md) 
-* [CSS3](#css3)
-  + [CSS Style Guide](css/readme.md)
-* [HTML5](#html5)
+* [HTML](#html)
+* [CSS](#css)
+  + [Style Guide](css/readme.md)
 * [Javascript](#javascript)
-  + [JavaScript Style Guide](js-styleguide.md)
+  + [Style Guide](js-styleguide.md)
+* [Github](#github)
+  + [Designer's Guide to Github](git.md) 
 * [Server Administration](#server-administration)
   + [Designer's Guide to AWS](aws.md)
   + [Designer's Guide to SSH](ssh.md)
@@ -67,12 +67,7 @@ As previously stated, Node has a great deal of modules that are easily downloade
 #### GUI v. CLI
 This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how much control you will need.
 
-# Github
-Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, I have collected together my personal notes on Github commands that I find useful:
-
-### [Designer's Guide to Github](git.md)
-
-# CSS3
+# CSS
 
 ### [Styleguide](css/readme.md) from CSS Wizardry
 
@@ -150,7 +145,7 @@ I would suggest following the link for a more detailed explanation of specificit
 
 ![Specificity](img/specificity.png)
 
-# HTML5 
+# HTML 
 Using progressive HTML5 techniques can not only save you time developing, but also can enrich performance. For example, rather than writing a long chunk of code to validate a form input, use the new HTML5 form elements which automatically validate (input="email"). Of the many HTML5 features the most important are:
 
 ### [Semantics](http://diveintohtml5.info/semantics.html)
@@ -199,7 +194,7 @@ Some commonly used HTML DOM events
 * onscroll
 
 # Javascript
-### [Styleguide](js-styleguide.md) based loosely on github's own
+### [Styleguide](js-styleguide.md)
 Stuff everyone should use:
 
 * Modernizr
@@ -230,6 +225,10 @@ Server-side javascript
 * express
 * socket.io
 
+# Github
+Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, I have collected together my personal notes on Github commands that I find useful:
+
+### [Designer's Guide to Github](git.md)
 
 # Server Administration
 
