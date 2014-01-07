@@ -97,29 +97,6 @@ forever start server.js -p # Don't forget the -p flag for production
 * [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
-### Recommended Software
-
-* [TextMate](http://macromates.com/)
-* [Emacs](http://www.gnu.org/software/emacs/)
-* [Github](http://github.com/) 
-* [Homebrew](http://mxcl.github.com/homebrew/)
-* [Local Tunnel](http://progrium.com/localtunnel/)
-* [Yeoman](http://yeoman.io/)
-
-### Recommended Sites 
-
-* [Dropbox](http://db.tt/VmtPYp51)
-* [Stack Overflow](http://stackoverflow.com/)
-* [cheat sheets](http://cheat.errtheblog.com/)
-* [HTML5 Please](http://html5please.com/)
-* [CSS3 Please](http://css3please.com/)
-* [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
-* [Tabifier](http://tools.arantius.com/tabifier)
-* [DocHub](http://dochub.io/#css/)
-* [Quora](http://quora.com/)
-* [jsFiddle](http://jsfiddle.net/)
-* [Gists](https://gist.github.com/)
-
 ### Recommeded Reading
 
 The readings listed and some additional readings can be found in this [dropbox folder](https://www.dropbox.com/sh/svziy2elww23mtm/Za0UvpSKoA).
