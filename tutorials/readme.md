@@ -42,12 +42,14 @@ Other useful brews:
 
 #### Install Ruby
 Mac comes with Ruby installed. Nothing to do here... Yay! But you will need to install some important rubygems:
+
+* [Sass](http://sass-lang.com/) is a css preprocessor 
+* [Compass](http://compass-style.org/) is a utility for sass
+* [Cheat](http://cheat.errtheblog.com/) is a collection of cheat sheets for popular tools
+* [Ceaser](http://matthewlein.com/ceaser/) is a collection of easing transistions 
+
 ```sh
 gem install sass compass cheat ceaser-easing
-# sass is a css preprocessor 
-# compass is a utility for sass
-# cheat is a collection of cheat sheets http://cheat.errtheblog.com/
-# ceaser-easing is a collection of easing transistions 
 ```
 
 #### Install Node
