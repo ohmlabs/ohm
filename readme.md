@@ -76,14 +76,15 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Concatenate JavaScript Files
 * Minify JavaScript Files
 * Restart the Server (Using Forever)
+* Reload the Browser using (LiveReload)
 
-To compile: 
+To compile and run: 
 
 ```sh
 grunt
 node boilerplate.js
 ```
-To start the server as a daemon and watch for changes:
+To compile, start the server as a daemon and watch for changes:
 ```
 grunt forever:start watch
 ```
