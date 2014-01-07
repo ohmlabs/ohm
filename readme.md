@@ -76,9 +76,6 @@ In production:
 grunt prod
 forever start server.js -p # Don't forget the -p flag for production
 ```
-
-For production, you will need to make sure that Nginx is running and that you have symlinked the public directory to the correct place for nginx.
-
 # Goals
 
 * Adhere to Steve Sauders Rules for High Performance Websites:

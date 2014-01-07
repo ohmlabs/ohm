@@ -69,6 +69,6 @@ module.exports = (grunt) ->
   # to test the javascript use test task
   grunt.registerTask "test", ["jshint", "qunit"]
   # on the dev server, only concat
-  grunt.registerTask "default", [ "concat", "coffee", "compass:dev", "uglify"]
+  grunt.registerTask "default", [ "concat", "coffee", "compass:dev"]
   # on production, concat and minify
   grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify"]
