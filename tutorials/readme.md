@@ -18,7 +18,7 @@ Most linux machines use bash as the default shell, and if you've been using linu
   + [JavaScript Style Guide](js-styleguide.md)
 * [Browser Support](#browser-support)
 * [Server-Side](#server-side-development)
-  + [AWS + Node.js Tutorial](aws-nodejs.md)
+  + [AWS + Node.js Tutorial](aws.md)
 * [Designer's Guide to Github](git.md) 
 * [References](#references)
 
@@ -198,7 +198,7 @@ I know that it may trouble some people to see mobile lumped together like that b
 
 # Server-Side Development
 As a developer I began making websites with zero server administration experience. I used commercial web hosting services that were both terribly interfaced and extremely limited (GoDaddy, Yahoo, etc.) As the sophistication of the things that I decided to build began to outgrow these services I decided that it was worth my time to learn to deploy a site using Amazon Web Services. Many of the webs most successful companies (Netflix, Tumblr, etc.) and most startups heavily rely on AWS, as it is very competitively priced. Unfortunately, for most front-end developers, learning to use these services is a daunting task. The purpose of this post is to guide a front-end engineer like myself through using AWS.
-### [Configuring Node.js + AWS](aws-nodejs.md)
+### [Configuring Node.js + AWS](aws.md)
 
 There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, SSH, and DNS is requisite to follow only with this post.
 
@@ -214,8 +214,32 @@ There are many services that are offered by AWS, but the most important is Elast
 * [Complex Selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors)
 * [Detailed CSS positioning](http://learn.shayhowe.com/advanced-html-css/detailed-css-positioning)
 
-### Specifications
+### Recommended Links
 
+Enviroment/Automation
+* [Homebrew](http://mxcl.github.com/homebrew/)
+* [Grunt](http://gruntjs.com/)
+* [Local Tunnel](http://progrium.com/localtunnel/)
+* [Dropbox](http://db.tt/VmtPYp51)
+Text Editors
+* [Tabifier](http://tools.arantius.com/tabifier)
+* [TextMate](http://macromates.com/)
+* [Emacs](http://www.gnu.org/software/emacs/)
+Documentation
+* [DocHub](http://dochub.io/#css/)
+* [cheat sheets](http://cheat.errtheblog.com/)
+Questions
+* [Stack Overflow](http://stackoverflow.com/)
+* [Quora](http://quora.com/)
+Code-Sharing
+* [Github](http://github.com/)
+* [jsFiddle](http://jsfiddle.net/)
+* [Gists](https://gist.github.com/)
+Standards & Specifications
+* [HTML5 Please](http://html5please.com/)
+* [CSS3 Please](http://css3please.com/)
+* [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 * [W3C HTML Specification](http://www.w3schools.com/html/html5_intro.asp)
 * [W3C CSS Specification](http://www.w3schools.com/css3/css3_intro.asp)
+
 
