@@ -1,4 +1,4 @@
-# Designers Guide to Github
+# Designer's Guide to Github
 #### Series: [Frontend Designer Boilerplate](readme.md)
 
 Here are some commands that I use often, It's not the most thorough but a good start, I would suggest checking out this:

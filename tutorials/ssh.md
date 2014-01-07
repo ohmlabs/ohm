@@ -1,4 +1,4 @@
-# SSH 
+# Designer's Guide to SSH
 SSH is critical to all developers connecting to servers and is the safest most common way to access remote servers. 
 To connect to a server using ssh you need to either have a private key whose corresponding public key is in the servers authorized_keys file or a password (if password authentication is used, which is not recommended for many reasons).
 ## Generate SSH Keys

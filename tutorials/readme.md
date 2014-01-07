@@ -1,6 +1,7 @@
-# [Frontend Designer Boilerplate](readme.md)
+# [Designer's Guide to Full-Stack Development](readme.md)
 ## Contents
 * [Abstract](#abstract)
+* [Environment](#environment)
 * [Git](#github)
   + [Designer's Guide to Github](git.md) 
 * [CSS3](#css3)
@@ -10,8 +11,9 @@
   + [JavaScript Style Guide](js-styleguide.md)
 * [Server Administration](#server-administration)
   + [Designer's Guide to AWS](aws.md)
+  + [Designer's Guide to SSH](ssh.md)
 * [Performance/Support](#performancesupport)
-  + [Rules to High Performing Websites](performance.md)
+  + [Designer's Guide to High Performing Websites](performance.md)
 * [References](#references)
 
 ## Abstract
@@ -26,8 +28,7 @@ Most linux machines use bash as the default shell, and if you've been using linu
 If you are configuring a development environment for your local machine you must install Homebrew, and it will do a lot of heavy lifting for you. Homebrew is a package managers for Mac OSX; it can install command line packages and applications and manage these installations.
 
 Essential packages
-* node
-* git
+* git (duh)
 * emacs (or your favorite command line text editor)
 
 Other useful brews:
@@ -64,10 +65,10 @@ As previously stated, Node has a great deal of modules that are easily downloade
 * node-inspector: An amazing plugin that allows you to use chrome devtools on server code.
 
 #### GUI v. CLI
-This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how precise of command you will need. 
+This is not to say that the best development environment doesn't use any GUIs. Many services provide excellent GUIs which provide additional benefits and advanced features. Many developers (myself included) prefer to use non-CLI text editors (textmate, webstorm, textwrangler and coda seem to be most popular). Other developers use the Github GUI, which is capable of executing most of the available git commands. To each it's own, but when making the decision between using a GUI or CLI, consider carefully how much control you will need.
 
 # Github
-Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, the guide that I have collected together my personal notes on Github commands that I find useful:
+Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, I have collected together my personal notes on Github commands that I find useful:
 
 ### [Designer's Guide to Github](git.md)
 
@@ -236,6 +237,7 @@ As a developer I began making websites with zero server administration experienc
 
 There are many services that are offered by AWS, but the most important is Elastic Compute Cloud (EC2) which allows users to create their own virtual servers which are partitioned from Amazon's data servers. As a result these are some of the fastest and most reliable servers you can use. Other crucial services that you will probably use are S3 (a storage service), Route 53 (A DNS management service) and Cloudfront (a CDN). You need only use Route 53 and EC2 to get started, but I recommend becoming very familiar with these four services and the many other products that AWS offers. A basic knowledge of Unix, [SSH](ssh.md), and DNS is requisite to follow along with [this post](aws.md).
 ### [Designer's Guide to AWS](aws.md)
+### [Designer's Guide to SSH](ssh.md)
 
 # Performance/Support
 
