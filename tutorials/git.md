@@ -1,8 +1,11 @@
 # Designers Guide to Github
-### Series: [Frontend Designer Boilerplate](readme.md)
+#### Series: [Frontend Designer Boilerplate](readme.md)
+
 Here are some commands that I use often, It's not the most thorough but a good start, I would suggest checking out this:
+
 #### [Interactive Cheat Sheet](http://www.ndpsoftware.com/git-cheatsheet.html)
 #### [Github Bootcamp](https://help.github.com/articles/set-up-git)
+
 ## Clone or Initiate a Repository
 Congratulations, you have decided to code, and better still you've chosen to learn git first... a wise choice. 
 ```sh

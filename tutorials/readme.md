@@ -10,9 +10,9 @@ This guide is not designed for absolute novice web developer. Therefore, I thoug
 * [HTML5](#html5)
 * [Javascript](#javascript)
   + [JavaScript Style Guide](js-styleguide.md)
-* [Server Administration](#server-side-development)
+* [Server Administration](#server-administration)
   + [Designer's Guide to AWS](aws.md)
-* [Performance/Support](#browser-support)
+* [Performance/Support](#performancesupport)
   + [Rules to High Performing Websites](performance.md)
 * [References](#references)
 
