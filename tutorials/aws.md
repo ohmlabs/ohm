@@ -1,6 +1,5 @@
 # Amazon Web Services
 #### Series: [Frontend Designer Boilerplate](readme.md)
-### Abstract
 # Contents
 1. Configuration
  * [Launch Server](#launch-server)
@@ -25,11 +24,15 @@
  *  Cloud Watch
  *  Google Analytics
  
+# Abstract
+This guide is designed to help a completely novice developer set up Amazon Web Services to host their site.
+
 #### To Dos:
 * Using Amazon's Elastic Block Store to schedule snapshot backups of server
 * Creating an image of your server to easily replicate the server that you just built
 * Use fabric for deployment shell scripts
 * The same process for google compute
+
 
 # Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
