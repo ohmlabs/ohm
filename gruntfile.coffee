@@ -57,7 +57,7 @@ module.exports = (grunt) ->
       livereload:
         options:
           livereload: true
-        files: ["static/**/*"]
+        files: ["static/js/*", "static/img/*", "static/css/*"]
       server:
         files: ["gruntfile.coffee", "jukeboxx.js", "server/**/*.js"]
         tasks: "forever:restart"
