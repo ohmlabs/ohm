@@ -41,31 +41,24 @@ If you are a designer most of your time will be spent in the client directory. I
 
 ### Major components:
 
-* For server dependencies see package.json
+* For server dependencies see [package.json](https://github.com/cdrake757/boilerplate/blob/master/package.json)
+* For client dependencies see [bower.json](https://github.com/cdrake757/boilerplate/blob/master/bower.json)
 * [Express](http://expressjs.com/guide.html)
 * [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
 # Installing
 
-Firstly, you will need to  install the node modules using Node Package Manger. 
+Firstly, you will need to  install be sure that Ruby and Node are installed. If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
 
 ```sh
 cd boilerplate/
-npm install
-npm install -g bower grunt-cli forever coffee-script # any other global packages
+npm install -g bower grunt-cli forever coffee-script node-inspector
+npm install       # install node modules https://npmjs.org/
+bower install     # install client dependencies http://bower.io/
+gem install sass compasss ceaser-easing normalize
 git submodule init
 git submodule update
-```
-
-Next, you will need to install Sass and Compass. You can install compass easily assuming you have Ruby installed:
-
-```sh
-gem install sass
-gem install compasss
-# or any other plugins you may want
-gem install ceaser-easing 
-gem install normalize
 ```
 
 # Running
@@ -88,6 +81,8 @@ To compile, start the server as a daemon and watch for changes:
 ```
 grunt forever:start watch
 ```
+Extra: You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector).
+
 In production:
 
 ```sh
