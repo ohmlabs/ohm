@@ -17,6 +17,7 @@ module.exports = (grunt) ->
         files:
           "static/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
 
+    # browser sync works with the watch task to inject css when updated
     browser_sync:
       dev:
         bsFiles:
@@ -35,8 +36,9 @@ module.exports = (grunt) ->
         options:
           config: "server/config/prod_config.rb"
 
+    # jshint javascript files
     jshint:
-      files: ["gruntfile.coffee", "static/*.js"]
+      files: ["gruntfile.coffee", "server/**/*.js", "static/*.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -44,7 +46,8 @@ module.exports = (grunt) ->
           console: true
           module: true
           document: true
-
+    
+    # generate a plato report on the project's javascript files
     plato:
       options:
         jshint : grunt.file.readJSON('.jshintrc')
@@ -52,6 +55,7 @@ module.exports = (grunt) ->
         files: 
           "logs/plato": ["static/js/*.js", "server/**/*.js"]
 
+    # compile  coffeescript, only included the server file as an example.
     coffee:
       compile:
         files:
@@ -64,6 +68,11 @@ module.exports = (grunt) ->
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
 
+    # this watch task does a lot:
+    #     1.) compile sass
+    #     2.) concat and minify js
+    #     3.) reload the page if js or dom changed
+    #     4.) restart the server if necessary
     watch:
       sass:
         files: "client/**/*.sass"
@@ -91,7 +100,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # to test the javascript use test task
   grunt.registerTask "test", ["jshint", "qunit"]
-  # on the dev server, only concat
+  # the bare grunt command only compiles
   grunt.registerTask "default", [ "concat", "coffee", "compass:dev"]
-  # on production, concat and minify
+  # in production, concat and minify
   grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify"]
