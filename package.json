@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "",
-    "grunt-contrib-qunit": ""
+    "grunt-contrib-qunit": "",
+    "grunt-plato": "~0.2.1",
+    "grunt-browser-sync": "~0.4.8"
   }
 }
