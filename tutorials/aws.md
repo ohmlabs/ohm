@@ -88,7 +88,7 @@ If you are using Ubuntu or other Linux distributions you will likely be using ap
 The first thing that you will probably be prompted to do when you ssh to your instance is to update. Obviously updating is always a good idea, so before you do anything else you should be sure to "sudo yum update".
 
 ### Install Nginx
-Apache is by a long shot the most popular web server in existence (It is the A in LAMP after all) but many people are starting to realize the benefits of dumping Apache for Nginx because it is lighter and faster at serving static files. Installing Nginx is a breeze and its' configuration is simple:
+Apache is by a long shot the most popular web server in existence (It is the A in LAMP after all) but many people are starting to realize the benefits of dumping Apache for Nginx because it is lighter and faster at serving static files. Using Nginx rather than Node's HTTP server does not only provide advantages in speed, but also allows you to run multiple node processes at once and proxy them all through nginx. Installing Nginx is a breeze and its' configuration is simple:
 ```sh
 sudo apt-get install nginx
 emacs /etc/nginx/nginx.conf // update config with information like root location, domain name etc.
@@ -160,6 +160,17 @@ git clone https://github.com/isaacs/npm.git
 cd npm
 sudo make install
 ```
+### Install Varnish
+Varnish is a HTTP cache/accelerator, Combining Nginx super fast static file processing and Node's fast IO with Varnish's enhanced caching is a great recipe for speed. First install Varnish:
+```sh
+# via https://www.varnish-cache.org/installation/ubuntu
+curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
+echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install varnish
+```
+
+
 ### Build Your Node.js App
 Now that you have node installed I would suggest using a node.js boilerplate to get your app up and running. I have provided a boilerplate that you can use to get started. Simply:
 ```sh
