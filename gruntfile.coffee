@@ -17,6 +17,13 @@ module.exports = (grunt) ->
         files:
           "static/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
 
+    browser_sync:
+      dev:
+        bsFiles:
+          src : 'static/css/style.css'
+        options:
+          watchTask: true
+
     qunit:
       files: ["test/**/*.html"]
 
@@ -29,7 +36,7 @@ module.exports = (grunt) ->
           config: "server/config/prod_config.rb"
 
     jshint:
-      files: ["gruntfile.coffee", "client/**/*.js"]
+      files: ["gruntfile.coffee", "static/*.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -37,16 +44,26 @@ module.exports = (grunt) ->
           console: true
           module: true
           document: true
+
+    plato:
+      options:
+        jshint : grunt.file.readJSON('.jshintrc')
+      your_task:
+        files: 
+          "logs/plato": ["static/js/*.js", "server/**/*.js"]
+
     coffee:
       compile:
         files:
           'boilerplate.js': 'boilerplate.coffee'
+
     forever:
       options:
         index: 'boilerplate.js' 
         logDir: 'logs'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
+
     watch:
       sass:
         files: "client/**/*.sass"
@@ -68,6 +85,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
+  grunt.loadNpmTasks "grunt-browser-sync"
+  grunt.loadNpmTasks "grunt-plato"
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # to test the javascript use test task
