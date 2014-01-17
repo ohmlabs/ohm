@@ -16,10 +16,14 @@ This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib a
 │   ├── css
 │   ├── img
 │   └── js
-├── boilerplate.coffee
-├── boilerplate.js
-├── gruntfile.coffee
-├── package.json
+├── boilerplate.coffee        # main server file (coffee)
+├── boilerplate.js            # compile server file (js)
+├── gruntfile.coffee          # grunt tasks and config
+├── bower.json                # bower client dependencies file
+├── .bowerrc                  # bower config
+├── .gitignore
+├── .gitmodules
+├── package.json              # npm server dependencies file
 ├── readme.md
 ```
 
@@ -68,8 +72,10 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Compile CSS 
 * Concatenate JavaScript Files
 * Minify JavaScript Files
-* Restart the Server (Using Forever)
-* Reload the Browser using (LiveReload)
+* Jshint your javascript files
+* Restart the Server (Forever)
+* Reload the Browser (LiveReload)
+* Inject CSS w/o reload (Browser-sync)
 
 To compile and run: 
 
@@ -81,7 +87,8 @@ To compile, start the server as a daemon and watch for changes:
 ```
 grunt forever:start watch
 ```
-Extra: You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). Another great added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
+### Extras
+You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). In addition to LiveReload, [browser-snyc](https://github.com/shakyShane/grunt-browser-sync) is enabled in the gruntfile to allow you to inject css changes without a page refresh. I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). Another great added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files. To run plato simply:
 ```sh
 grunt plato
 # open the index file in the folder specified in the gruntfile and view report
