@@ -53,7 +53,7 @@ Firstly, you will need to  install be sure that Ruby and Node are installed. If 
 
 ```sh
 cd boilerplate/
-npm install -g bower grunt-cli forever coffee-script node-inspector
+npm install -g bower grunt-cli forever coffee-script node-inspector 
 npm install       # install node modules https://npmjs.org/
 bower install     # install client dependencies http://bower.io/
 gem install sass compasss ceaser-easing normalize
@@ -81,7 +81,11 @@ To compile, start the server as a daemon and watch for changes:
 ```
 grunt forever:start watch
 ```
-Extra: You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector).
+Extra: You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). Another great added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
+```sh
+grunt plato
+# open the index file in the folder specified in the gruntfile and view report
+```
 
 In production:
 
