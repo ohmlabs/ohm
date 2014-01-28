@@ -183,3 +183,26 @@ If you want to add a private repo to your server, you have a few options. The si
 * server.coffee > You main app configuration file. You can run the app simply with
 * coffee server.js // note that if you use forever you will have to compile coffee script to js
 
+# Storage & Backup
+A great primary solution for cloud stprage and backup is Amazon s3. It is very affordably priced for most user's needs and can give you maximum durability and availability. I have found that s3fs, an s3 FUSE based file system is a great way to mount a bucket on my server and even local machine for transferring large amounts of files to s3.
+```sh
+brew install s3fs
+
+# or for linux 
+wget http://s3fs.googlecode.com/files/s3fs-1.74.tar.gz
+tar xvzf s3fs-1.74.tar.gz
+cd s3fs-1.74/
+./configure --prefix=/usr
+make
+sudo make install
+
+# now you need to add your AWS security keys to the server's home dir
+emacs .passwd-s3fs
+# paste in AWSSECRET:AWSSECRETKEY
+
+chmod 600 ~/.passwd-s3fs
+
+# finally mount an s3 bucket on the server
+/usr/local/bin/s3fs mybucket /mnt
+```
+
