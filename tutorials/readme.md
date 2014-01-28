@@ -39,6 +39,12 @@ Other useful brews:
 * tree
 * tig
 * wget
+* htop
+* mosh
+* s3cmd
+* s3fs
+* nginx
+* zsh
 
 #### Install Ruby
 Mac comes with Ruby installed. Nothing to do here... Yay! But you will need to install some important rubygems:
