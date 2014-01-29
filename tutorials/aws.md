@@ -11,6 +11,8 @@
  * [Install Nginx](#install-nginx)
  * [Install Ruby](#install-ruby)
  * [Install Node](#install-node)
+ * [Install Ghost](#install-ghost)
+ * [Install PHP](#install-php)
 3. Storage/Backup
  * EBS Volumes
  * S3 - Simple Storage Service 
@@ -160,6 +162,22 @@ git clone https://github.com/isaacs/npm.git
 cd npm
 sudo make install
 ```
+### Install Ghost
+Ghost is a cool blogging platform built in node.js that I think could be the future Wordpress. It is really easy to install:
+```sh
+curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
+
+unzip -uo ghost.zip -d ghost
+cd /path/to/ghost
+npm install —production
+npm start
+
+# or to start with forever
+NODE_ENV=production forever start index.js
+```
+
+From here you have Ghost Running, the next step is to configure Ghost to work on your deployment solution. Detailed guides are [available here](http://docs.ghost.org/installation/deploy/).
+
 ### Install Varnish
 Varnish is a HTTP cache/accelerator, Combining Nginx super fast static file processing and Node's fast IO with Varnish's enhanced caching is a great recipe for speed. First install Varnish:
 ```sh
