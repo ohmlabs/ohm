@@ -36,3 +36,10 @@ Host dp
 ```
 
 It is explained in detail in this [blog post](http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/).
+
+## Mosh
+Finally I would recommend strongly that you use mosh (the mobile shell). Unlike standard ssh mosh can keep you connected and responsive even when your internet suffers. They put it best:
+
+Remote terminal application that allows roaming, supports intermittent connectivity, and provides intelligent local echo and line editing of user keystrokes. Mosh is a replacement for SSH. It's more robust and responsive, especially over Wi-Fi, cellular, and long-distance links.
+
+download it here: http://mosh.mit.edu/#getting
