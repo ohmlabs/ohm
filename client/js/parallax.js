@@ -33,9 +33,4 @@ function parallax() {
   scrollPos = $(this).scrollTop();
   // Display Scroll position for debugging
   $('#scrollTop').html($(this).scrollTop());
-  $('.logo').css({
-    'margin-top' : -(scrollPos/5)+"px", // Lower make the effect quicker
-    'opacity' : 1-(scrollPos/500), // Higher make the effect slower
-    'left' : 350 - scrollPos/5 +"px" // Lower make the effect quicker
-  });
 }
