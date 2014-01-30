@@ -1,9 +1,64 @@
 $app-bg: #fff
+$weiss-blue: rgba(0,102,255,0.99)
 ///////////////////////////////////////
-//   Resume                         //
+//   Progress                       //
+/////////////////////////////////////
+#progress
+  height: 2%
+  width: 100%
+  position: fixed
+  bottom: 0
+  z-index: 1000
+  -skrollr-animation-name: progress
+#scrollTop
+  position: fixed
+  top: 10px
+  right: 30px
+  color: $weiss-blue
+  z-index: 1000
+
+///////////////////////////////////////
+//   Header                         //
+/////////////////////////////////////
+header
+  background: rgba(255,255,255,0.8)
+  z-index: 5
+  width: 100%
+  position: fixed
+  top: 0
+  .wrapper
+    width: 960px
+    margin: auto
+    .logo-head
+      background: url('../img/logo.png') no-repeat
+      background-size: cover 
+      width: 300px
+      height: 100px
+      z-index: 3
+      -skrollr-animation-name: logo-top
+      display: inline-block
+    .nav
+      display: inline-block
+      width: auto
+      vertical-align: top
+      margin-top: 40px
+      li
+        display: inline-block
+        margin-left: 5px
+        list-style: none
+        a
+          -skrollr-animation-name: menu-link        
+          color: #111
+          border-radius: 15px
+          padding: 10px
+          display: block
+          background-color: rgba(255,255,255,0)
+                
+///////////////////////////////////////
+//   Sections                       //
 /////////////////////////////////////
 section
-  background: $app-bg
+  background: #000
   display: block
   width: 100%
   position: relative
@@ -18,86 +73,67 @@ section
   background: url('../img/iStock_000020722248XXXLarge.jpg') no-repeat fixed 50% top
   background-size: cover
   -skrollr-animation-name: one
-#two
+  #title
+    position: fixed
+    left: 10px
+    -skrollr-animation-name: titleOne
+    color: $weiss-blue
+#three
   background: url('../img/iStock_000000816590Large.jpg') no-repeat fixed 50% top
   background-size: cover
-  -skrollr-animation-name: two
-#three
-  background: url('../img/iStock_000016673879XXXLarge.jpg') no-repeat fixed 50% top
-  background-size: cover
   -skrollr-animation-name: three
-.logo 
-  background: url('../img/logo.png') no-repeat
-  background-size: cover 
-  width: 400px
-  height: 95px
-  position: fixed
-  top: 50px
-  left: 350px
-  margin: auto
-  z-index: 3
 ///////////////////////////////////////
 //   Keyframes                      //
 /////////////////////////////////////
 @-skrollr-keyframes one
   0
     background-position: 0px 0px
+    @include opacity(1)
+  1500
+    @include opacity(0.5)  
   4500
     background-position: 0px -250px
+    @include opacity(0)
+
+@-skrollr-keyframes titleOne
+  0
+    top: 200px
+    display: block
+  1500
+    top: 100px
+    display: block
+  4500
+    display: none
+    
 @-skrollr-keyframes three
   0
     background-position: 0px 0px
   9000
     background-position: 0px 0px
   end
-    background-position: 0px -250px
-///////////////////////////////////////
-//   Essential                      //
-/////////////////////////////////////
-#progress
-  height: 2%
-  width: 100%
-  position: fixed
-  bottom: 0
-  z-index: 1000
-  background: #ccc
-  -skrollr-animation-name: progress
-#scrollTop
-  position: fixed
-  top: 10px
-  right: 30px
-  color: #fff
-  z-index: 1000
+    background-position: -250px 0px
 
-.parallaxNav
-  position: fixed
-  -webkit-overflow-scrolling: touch
-  top: 45%
-  right: 2%
-  float: left
-  z-index: 1000
-  width: 130
-  background: black
-  border-radius: 25px
-  padding: 25px
-  li
-    text-align: right
-    list-style: none
-    a
-      -skrollr-animation-name: menu-link
-///////////////////////////////////////
-//   Keyframes                      //
-/////////////////////////////////////
 @-skrollr-keyframes menu-link
   0
-    color: white
+    background-color: rgba(0,102,255,0)
+    color: #000
   100-top
-    color: black
+    background-color: rgba(0,102,255,0)
+    color: #000
+  top
+    background-color: rgba(0,102,255,0.99)
+    color: #fff
+  250-top-bottom
+    background-color: rgba(0,102,255,0.99)
+    color: #ffe
   100-top-bottom
-    color: white
-
+    background-color: rgba(0,102,255,0)
+    color: #000
+    
 @-skrollr-keyframes progress
   0
     width: 0%
+    background-color: $weiss-blue
   end
     width: 100%
+    background-color: rgba(0,0,0,0.99)
