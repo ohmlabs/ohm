@@ -38,7 +38,7 @@ module.exports = (grunt) ->
 
     # jshint javascript files
     jshint:
-      files: ["gruntfile.coffee", "server/**/*.js", "static/*.js"]
+      files: ["gruntfile.coffee", "server/**/*.js", "static/js/*.js", "boilerplate.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -78,12 +78,12 @@ module.exports = (grunt) ->
         files: "client/**/*.sass"
         tasks: "compass:dev"
       scripts:
-        files: '<%= jshint.files %>'
+        files: 'client/js/*.js'
         tasks: ['concat', 'coffee', 'uglify']
       livereload:
         options:
           livereload: true
-        files: ["static/js/*", "static/img/*", "static/css/*"]
+        files: ["static/**/*", "server/views/*"]
       server:
         files: ["gruntfile.coffee", "jukeboxx.js", "server/**/*.js"]
         tasks: "forever:restart"
