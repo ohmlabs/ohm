@@ -17,6 +17,10 @@
   ],
   "dependencies": {
     "modernizr": "2.6.2",
-    "jquery": "~2.0.3"
+    "jquery": "~2.0.3",
+    "skrollr": "0.6.13",
+    "skrollr-menu": "~0.1.10",
+    "skrollr-stylesheets": "~0.0.4",
+    "skrollr-ie": "~1.0.2"
   }
 }
