@@ -9,7 +9,7 @@ forever=/usr/bin/forever
 npm=/usr/bin/npm
 bower=/usr/bin/bower
 SITEROOT=~/boilerplate
-export PATH=$PATH:/usr/local/bin/
+export PATH=$PATH:/usr/bin/
 
 case "$1" in
   start)
@@ -19,25 +19,20 @@ case "$1" in
     $bower install
     $npm install
     $grunt
-    $forever start boilerplate.js
+    $forever start boilerplate.js -p
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
-    $forever stop boilerplate.js
+    $forever stop boilerplate.js -p
 
     ;;
   install)
     echo "Beginning Installation for script $NAME"
     cd $SITEROOT
-    # install global node modules first https://npmjs.org/ 
-    sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
-    # install Ruby gems
-    sudo $gem install sass compass ceaser-easing normalize
-    # install node modules
+    $npm cache clean
     $npm install
-    # install client dependencies http://bower.io/
-    $bower install
+    $bower install --allow-root
     git submodule init
     git submodule update
 
