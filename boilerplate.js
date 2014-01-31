@@ -45,11 +45,11 @@
 
   app.get("/", routes.index);
 
+  app.get("/parallax", routes.parallax);
+
   app.get("*", routes.error);
 
   app.listen(config.port);
-
-  io = io.listen(server);
 
   if (config.is_prod) {
     console.log("Server started on port " + config.port + " in production mode");
