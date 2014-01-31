@@ -72,7 +72,7 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Inject CSS w/o reload (Browser-sync)
 
 When you install the boilerplate it begins running on port http://localhost:8080. You can use grunt from then on to interact with the server:
-```
+```sh
 # start the server
 grunt forever:start
 # stop a running server
@@ -88,7 +88,8 @@ In production:
 
 ```sh
 grunt prod
-node boilerplate.js -p # Don't forget the -p flag for production
+# Don't forget the -p flag for production
+node boilerplate.js -p 
 # Or use forever to keep the server running as a daemon
 forever start server.js -p 
 ```
