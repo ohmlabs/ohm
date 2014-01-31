@@ -17,6 +17,14 @@ module.exports = (grunt) ->
         files:
           "static/js/<%= pkg.name %>.min.js": ["<%= concat.dist.dest %>"]
 
+    # browser sync works with the watch task to inject css when updated
+    browser_sync:
+      dev:
+        bsFiles:
+          src : 'static/css/style.css'
+        options:
+          watchTask: true
+
     qunit:
       files: ["test/**/*.html"]
 
@@ -28,8 +36,9 @@ module.exports = (grunt) ->
         options:
           config: "server/config/prod_config.rb"
 
+    # jshint javascript files
     jshint:
-      files: ["gruntfile.coffee", "client/js/**/*.js"]
+      files: ["gruntfile.coffee", "server/**/*.js", "static/js/*.js", "boilerplate.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -37,23 +46,44 @@ module.exports = (grunt) ->
           console: true
           module: true
           document: true
+    
+    # generate a plato report on the project's javascript files
+    plato:
+      options:
+        jshint : grunt.file.readJSON('.jshintrc')
+      your_task:
+        files: 
+          "logs/plato": ["static/js/*.js", "server/**/*.js"]
+
+    # compile  coffeescript, only included the server file as an example.
     coffee:
       compile:
         files:
           'boilerplate.js': 'boilerplate.coffee'
+
     forever:
       options:
         index: 'boilerplate.js' 
         logDir: 'logs'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
+
+    # this watch task does a lot:
+    #     1.) compile sass
+    #     2.) concat and minify js
+    #     3.) reload the page if js or dom changed
+    #     4.) restart the server if necessary
     watch:
-      css:
-        files: "**/*.sass"
+      sass:
+        files: "client/**/*.sass"
         tasks: "compass:dev"
       scripts:
-        files: '<%= jshint.files %>'
+        files: 'client/js/*.js'
         tasks: ['concat', 'coffee', 'uglify']
+      livereload:
+        options:
+          livereload: true
+        files: ["static/**/*", "server/views/*"]
       server:
         files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
         tasks: "forever:restart"
@@ -64,11 +94,13 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
+  grunt.loadNpmTasks "grunt-browser-sync"
+  grunt.loadNpmTasks "grunt-plato"
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # to test the javascript use test task
   grunt.registerTask "test", ["jshint", "qunit"]
-  # on the dev server, only concat
+  # the bare grunt command only compiles
   grunt.registerTask "default", [ "concat", "coffee", "compass:dev"]
-  # on production, concat and minify
+  # in production, concat and minify
   grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify"]
