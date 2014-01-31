@@ -6,6 +6,7 @@
     "express": "",
     "jade": "",
     "grunt": "~0.4.1",
+    "socket.io": "0.9.10",
     "grunt-contrib-uglify": "0.2.4",
     "coffee-script": "1.6.3",
     "grunt-contrib-compass": "",
