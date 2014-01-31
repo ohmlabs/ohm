@@ -44,13 +44,6 @@ window.log = function f() {
     }
 }());
 
-// place any jQuery/helper plugins in here, instead of separate, slower script files.
-////////////////////////////////
-// Initialize                //
-//////////////////////////////
-$(document).ready(function(){
-  alert('Congrats, You have a Website!');
-}); 
 // Google Analytics
 var _gaq=[['_setAccount','UA-XXXXXXXX-1'],['_trackPageview']];
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
