@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH
+export PATH=/usr/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/bin/node
 export EDITOR=/usr/local/bin/emacs
 
