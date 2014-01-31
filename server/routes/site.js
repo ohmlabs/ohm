@@ -1,9 +1,8 @@
 exports.index = function(req, res){  
-//  res.render('index', {title:'Cameron W. Drake'});
   res.redirect('http://blog.drake.fm');
 };
-exports.resume = function(req, res){  
-  res.render('resume');
+exports.parallax= function(req, res){  
+  res.render('parallax');
 };
 exports.photos = function(req, res){
   res.redirect('http://camwes.500px.com');
