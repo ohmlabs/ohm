@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH
-export NODE_PATH=/usr/local/lib/node
+export NODE_PATH=/usr/bin/node
 export EDITOR=/usr/local/bin/emacs
 
 #Color table from: http://www.understudy.net/custom.html
@@ -72,7 +72,13 @@ HISTSIZE=10000
 SAVEHIST=10000
  
 #Aliases
- 
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  colorflag="--color"
+else # OS X `ls`
+  colorflag="-G"
+fi
+
 #-------------------
 # Personnal Aliases
 #-------------------
@@ -94,7 +100,7 @@ alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
  
 ##ls, the common ones I use a lot shortened for rapid fire usage
-alias ls='pwd ; ls -laG'       #I like color
+alias ls='pwd ; ls -la ${colorflag}'       #I like color
 alias l='ls -lFh'         #size,show type,human readable
 alias la='ls -lAFh'       #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'       #sorted by date,recursive,show type,human readable
