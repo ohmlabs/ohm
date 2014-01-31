@@ -41,6 +41,8 @@
 
   app.get("/", routes.index);
 
+  app.get("/parallax", routes.parallax);
+
   app.get("*", routes.error);
 
   app.listen(config.port);
