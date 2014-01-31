@@ -46,7 +46,6 @@ If you are a designer most of your time will be spent in the client directory. I
 * For server dependencies see [package.json](https://github.com/cdrake757/boilerplate/blob/master/package.json)
 * For client dependencies see [bower.json](https://github.com/cdrake757/boilerplate/blob/master/bower.json)
 * [Express](http://expressjs.com/guide.html)
-* [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
 # Installing
