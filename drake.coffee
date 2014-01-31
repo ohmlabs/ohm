@@ -38,6 +38,8 @@ app.configure ->
 # Routes
 app.get "/", routes.index
 app.get "/parallax", routes.parallax
+app.get "/photos", routes.photos
+app.get "/work", routes.work
 # 404 
 app.get "*", routes.error
 
