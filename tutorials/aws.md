@@ -11,10 +11,12 @@
  * [Install Nginx](#install-nginx)
  * [Install Ruby](#install-ruby)
  * [Install Node](#install-node)
+ * [Install Ghost](#install-ghost)
+ * [Install PHP](#install-php)
 3. Storage/Backup
- * EBS Volumes
- * S3 - Simple Storage Service 
- * Glacier
+ * [EBS Volumes](#ebs)
+ * [Simple Storage Service(S3)](#s3)
+ * [Glacier](#glacier)
 4. Scaling
  * Load Balancer
  * Content Delivery Network - CloudFront
@@ -26,13 +28,6 @@
  
 # Abstract
 This guide is designed to help a completely novice developer set up Amazon Web Services to host their site.
-
-#### To Dos:
-* Using Amazon's Elastic Block Store to schedule snapshot backups of server
-* Creating an image of your server to easily replicate the server that you just built
-* Use fabric for deployment shell scripts
-* The same process for google compute
-
 
 # Before you get Started
 There are a few steps that obviously need to be done that I'm not going to get into for brevity's sake but should be very simple to figure out:
@@ -88,7 +83,7 @@ If you are using Ubuntu or other Linux distributions you will likely be using ap
 The first thing that you will probably be prompted to do when you ssh to your instance is to update. Obviously updating is always a good idea, so before you do anything else you should be sure to "sudo yum update".
 
 ### Install Nginx
-Apache is by a long shot the most popular web server in existence (It is the A in LAMP after all) but many people are starting to realize the benefits of dumping Apache for Nginx because it is lighter and faster at serving static files. Installing Nginx is a breeze and its' configuration is simple:
+Apache is by a long shot the most popular web server in existence (It is the A in LAMP after all) but many people are starting to realize the benefits of dumping Apache for Nginx because it is lighter and faster at serving static files. Using Nginx rather than Node's HTTP server does not only provide advantages in speed, but also allows you to run multiple node processes at once and proxy them all through nginx. Installing Nginx is a breeze and its' configuration is simple:
 ```sh
 sudo apt-get install nginx
 emacs /etc/nginx/nginx.conf // update config with information like root location, domain name etc.
@@ -160,6 +155,34 @@ git clone https://github.com/isaacs/npm.git
 cd npm
 sudo make install
 ```
+### Install Ghost
+Ghost is a cool blogging platform built in node.js that I think could be the future Wordpress. It is really easy to install:
+```sh
+curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
+
+unzip -uo ghost.zip -d ghost
+cd /path/to/ghost
+npm install —production
+npm start
+
+# or to start with forever
+NODE_ENV=production forever start index.js
+```
+
+From here you have Ghost Running, the next step is to configure Ghost to work on your deployment solution. Detailed guides are [available here](http://docs.ghost.org/installation/deploy/).
+### Install PHP
+For some people node.js just isn't enough and they need to use Wordpress, often out of legacy. For these people I have some sympathy, and you could modify this stack to use PHP easily, guide coming soon
+### Install Varnish
+Varnish is a HTTP cache/accelerator, Combining Nginx super fast static file processing and Node's fast IO with Varnish's enhanced caching is a great recipe for speed. First install Varnish:
+```sh
+# via https://www.varnish-cache.org/installation/ubuntu
+curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
+echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install varnish
+```
+
+
 ### Build Your Node.js App
 Now that you have node installed I would suggest using a node.js boilerplate to get your app up and running. I have provided a boilerplate that you can use to get started. Simply:
 ```sh
@@ -172,3 +195,40 @@ If you want to add a private repo to your server, you have a few options. The si
 * server.coffee > You main app configuration file. You can run the app simply with
 * coffee server.js // note that if you use forever you will have to compile coffee script to js
 
+# Storage & Backup
+One of the best features of Amazon AWS is that it has several storage solutions of varying levels of price, avaialability and durability. The correct usage of Amazon Web Services will probably use all three of the major storage solutions:
+* Elastic Block Storage: A large-capacity persistent disk to attach to your server
+* Simple Storage Service: For storing large quantities of file with very high availability and durability.
+* Glacier: Very low cost, low availability storage for archives
+
+### EBS
+Attaching EBS to a server is very simple and is done in the AWS EC2 console. Once you select a disk of an appropriate size and attach it, you will still have to mount this disk on the server:
+TODO: ATTACH INSTRUCTIONS
+
+### S3
+A great primary solution for cloud storage and backup is Amazon s3. It is very affordably priced for most user's needs and can give you maximum durability and availability. I have found that s3fs, an s3 FUSE based file system is a great way to 
+mount a bucket on my server and even local machine for transferring large amounts of files to s3.
+
+```sh
+brew install s3fs
+
+# or for linux 
+wget http://s3fs.googlecode.com/files/s3fs-1.74.tar.gz
+tar xvzf s3fs-1.74.tar.gz
+cd s3fs-1.74/
+./configure --prefix=/usr
+make
+sudo make install
+
+# now you need to add your AWS security keys to the server's home dir
+emacs .passwd-s3fs
+# paste in AWSSECRET:AWSSECRETKEY
+
+chmod 600 ~/.passwd-s3fs
+
+# finally mount an s3 bucket on the server
+/usr/local/bin/s3fs mybucket /mnt
+```
+
+### Glacier
+TODO: write description
