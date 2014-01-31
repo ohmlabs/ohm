@@ -1,0 +1,49 @@
+[user]
+	email = cdrake757@gmail.com
+	name = Cameron Drake
+[push]
+        default = matching
+[branch]
+        status = auto
+[core]
+        editor = emacs
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[color]
+  ui = true
+[color "diff"]
+  whitespace = red reverse
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  up = pull
+  df = diff
+  dc = diff --cached
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+  permission-reset = "!git diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+[credential]
+	helper = osxkeychain
+[diff]
+	tool = opendiff
+[merge]
+	tool = opendiff
