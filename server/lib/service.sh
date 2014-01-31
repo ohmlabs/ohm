@@ -33,7 +33,7 @@ case "$1" in
     # install global node modules first https://npmjs.org/ 
     sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
     # install Ruby gems
-    sudo $gem install sass compasss ceaser-easing normalize
+    sudo $gem install sass compass ceaser-easing normalize
     # install node modules
     $npm install
     # install client dependencies http://bower.io/
