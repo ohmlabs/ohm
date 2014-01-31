@@ -11,24 +11,29 @@ echo $FILE_DIR
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 function doIt() {
-        sudo ln -s $FILE_DIR/server/lib/service.sh /etc/init.d/boilerplate
-        sudo chmod 0755 /etc/init.d/boilerplate
+        ln -is $FILE_DIR/.gitconfig ~
+        ln -is $FILE_DIR/.zshrc  ~
+        sudo ln -is $FILE_DIR/server/lib/service.sh /etc/init.d/drake
+        sudo chmod 0755 /etc/init.d/drake
         cd $NGINX_CONFIG
-  pwd
-        sudo ln -s $FILE_DIR/server/lib/nginx.conf .
-        sudo ln -s $FILE_DIR/server/lib/sites-available sites-enabled
+        pwd
+        sudo ln -is $FILE_DIR/server/lib/nginx.conf .
+        sudo ln -is $FILE_DIR/server/lib/sites-available sites-enabled
         cd $GIT
-  pwd
-        ln -s $FILE_DIR/server/lib/hooks/ hooks
-  cd hooks
-  ls -la
+        pwd
+        ln -is $FILE_DIR/server/lib/hooks/ hooks
+        cd hooks
         sudo chmod +x pre-receive.sh
         sudo chmod +x post-receive.sh
-  cd "$(dirname "${BASH_SOURCE}")"
-  pwd
-        # install 
-  sudo service boilerplate install
-  sudo service boilerplate start
+        cd "$(dirname "${BASH_SOURCE}")"
+        pwd
+        # install global node modules first https://npmjs.org/
+        sudo $npm cache clean
+	sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
+        # install Ruby gems
+        sudo $gem install sass compasss ceaser-easing normalize
+        sudo service boilerplate install
+        sudo service boilerplate start
 }
 function dev() {
         cd "$(dirname "${BASH_SOURCE}")"
