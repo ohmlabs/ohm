@@ -37,6 +37,7 @@ app.configure ->
 
 # Routes
 app.get "/", routes.index
+app.get "/parallax", routes.parallax
 # 404 
 app.get "*", routes.error
 
