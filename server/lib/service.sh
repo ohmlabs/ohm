@@ -25,6 +25,13 @@ case "$1" in
     $forever stop drake.js -p
 
     ;;
+  compile)
+    echo "Compiling $NAME"
+    cd $SITEROOT
+    $grunt prod
+    $forever restart drake.js -p
+
+    ;;
   install)
     echo "Beginning Installation for script $NAME"
     cd $SITEROOT
