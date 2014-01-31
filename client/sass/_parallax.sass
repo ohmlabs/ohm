@@ -1,0 +1,139 @@
+$app-bg: #fff
+$weiss-blue: rgba(0,102,255,0.99)
+///////////////////////////////////////
+//   Progress                       //
+/////////////////////////////////////
+#progress
+  height: 2%
+  width: 100%
+  position: fixed
+  bottom: 0
+  z-index: 1000
+  -skrollr-animation-name: progress
+#scrollTop
+  position: fixed
+  top: 10px
+  right: 30px
+  color: $weiss-blue
+  z-index: 1000
+
+///////////////////////////////////////
+//   Header                         //
+/////////////////////////////////////
+header
+  background: rgba(255,255,255,0.8)
+  z-index: 5
+  width: 100%
+  position: fixed
+  top: 0
+  .wrapper
+    width: 960px
+    margin: auto
+    .logo-head
+      background: url('../img/logo.png') no-repeat
+      background-size: cover 
+      width: 300px
+      height: 100px
+      z-index: 3
+      -skrollr-animation-name: logo-top
+      display: inline-block
+    .nav
+      display: inline-block
+      width: auto
+      vertical-align: top
+      margin-top: 40px
+      li
+        display: inline-block
+        margin-left: 5px
+        list-style: none
+        a
+          -skrollr-animation-name: menu-link        
+          color: #111
+          border-radius: 15px
+          padding: 10px
+          display: block
+          background-color: rgba(255,255,255,0)
+                
+///////////////////////////////////////
+//   Sections                       //
+/////////////////////////////////////
+section
+  background: #000
+  display: block
+  width: 100%
+  position: relative
+  z-index: 2
+  text-align: left
+  height: 4500px
+  .dark-overlay
+    width: 100%
+    height: 100%
+    background: rgba(0,0,0,0.8)
+#one
+  background: url('../img/iStock_000020722248XXXLarge.jpg') no-repeat fixed 50% top
+  background-size: cover
+  -skrollr-animation-name: one
+  #title
+    position: fixed
+    left: 10px
+    -skrollr-animation-name: titleOne
+    color: $weiss-blue
+#three
+  background: url('../img/iStock_000000816590Large.jpg') no-repeat fixed 50% top
+  background-size: cover
+  -skrollr-animation-name: three
+///////////////////////////////////////
+//   Keyframes                      //
+/////////////////////////////////////
+@-skrollr-keyframes one
+  0
+    background-position: 0px 0px
+    @include opacity(1)
+  1500
+    @include opacity(0.5)  
+  4500
+    background-position: 0px -250px
+    @include opacity(0)
+
+@-skrollr-keyframes titleOne
+  0
+    top: 200px
+    display: block
+  1500
+    top: 100px
+    display: block
+  4500
+    display: none
+    
+@-skrollr-keyframes three
+  0
+    background-position: 0px 0px
+  9000
+    background-position: 0px 0px
+  end
+    background-position: -250px 0px
+
+@-skrollr-keyframes menu-link
+  0
+    background-color: rgba(0,102,255,0)
+    color: #000
+  100-top
+    background-color: rgba(0,102,255,0)
+    color: #000
+  top
+    background-color: rgba(0,102,255,0.99)
+    color: #fff
+  250-top-bottom
+    background-color: rgba(0,102,255,0.99)
+    color: #ffe
+  100-top-bottom
+    background-color: rgba(0,102,255,0)
+    color: #000
+    
+@-skrollr-keyframes progress
+  0
+    width: 0%
+    background-color: $weiss-blue
+  end
+    width: 100%
+    background-color: rgba(0,0,0,0.99)
