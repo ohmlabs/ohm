@@ -1,6 +1,4 @@
 # Boilerplate for Designers 
-### [The Designer's Guide to Full-Stack Development](tutorials/readme.md)
-
 This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib and Coffeescript. It does absolutely nothing, but provides a good structure for your app as well as configured middleware so that you can immediately get to work. I've included some mixins and figures that can be helpful in making basic web layouts quickly. Although LESS is very well integrated with Node.js, I chose to use SASS because Compass is an excellent tool. This Boilerplate comes preconfigured with Production/Development Environments as well as server config files that allow you to proxy node.js (I highly recommend that you use a faster webserver like Nginx to serve static files, and proxy Node.js).
 
 ### Basic Application Structure
@@ -16,10 +14,14 @@ This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib a
 │   ├── css
 │   ├── img
 │   └── js
-├── boilerplate.coffee
-├── boilerplate.js
-├── gruntfile.coffee
-├── package.json
+├── boilerplate.coffee        # main server file (coffee)
+├── boilerplate.js            # compile server file (js)
+├── gruntfile.coffee          # grunt tasks and config
+├── bower.json                # bower client dependencies file
+├── .bowerrc                  # bower config
+├── .gitignore
+├── .gitmodules
+├── package.json              # npm server dependencies file
 ├── readme.md
 ```
 
@@ -31,69 +33,73 @@ If you are a designer most of your time will be spent in the client directory. I
 * Adhere to Steve Sauders Rules for High Performance Websites:
 * HTML5 ready. Use the new elements with confidence.
 * Designed with progressive enhancement in mind.
-* CSS normalizations and common bug fixes.
-* Responsive Design templates.
-* Modular SASS to provide basic mixins and structure
-* The latest jQuery via CDN.
 * An optimized Google Analytics snippet.
 * Seamless integration w/ Amazon Web Services
+* Automatically compile Sass
+* Automatically compile CoffeeScript, concatinate, minify, and Lint scripts
+* Automatically compress and sprite images
+* Modular styles to provide basic mixins and structure
+* Normalized stlyes  and common bug fixes.
 
 ### Major components:
 
-* For server dependencies see package.json
-* [jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works)
-* [CoffeeScript](http://coffeescript.org/)
+* For server dependencies see [package.json](https://github.com/cdrake757/boilerplate/blob/master/package.json)
+* For client dependencies see [bower.json](https://github.com/cdrake757/boilerplate/blob/master/bower.json)
 * [Express](http://expressjs.com/guide.html)
-* [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
 # Installing
 
-Firstly, you will need to  install the node modules using Node Package Manger. 
+Firstly, you will need to  install be sure that Ruby and Node are installed. If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
 
 ```sh
-cd boilerplate/
-npm install
-git submodule init
-git submodule update
+./bootstrap
+# What type of install is this? (p)Prod (d)Dev... press d
+
 ```
-
-Next, you will need to install Sass and Compass. You can install compass easily assuming you have Ruby installed:
-
-```sh
-gem install sass
-gem install compasss
-# or any other plugins you may want
-gem install ceaser-easing 
-gem install normalize
-```
-
+That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the bootstrap file!
 # Running
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
-* Compile Coffeescript
+* Compile Coffee-script
 * Compile CSS 
 * Concatenate JavaScript Files
 * Minify JavaScript Files
-* Restart the Server (Using Forever)
+* Jshint your javascript files
+* Restart the Server (Forever)
+* Reload the Browser (LiveReload)
+* Inject CSS w/o reload (Browser-sync)
 
-To compile: 
-
+When you install the boilerplate it begins running on port http://localhost:8080. You can use grunt from then on to interact with the server:
 ```sh
+# start the server
+grunt forever:start
+# stop a running server
+grunt forever:stop 
+#  watch files for changes
+grunt watch
+# compile files
 grunt
-node boilerplate.js
-```
-To start the server as a daemon and watch for changes:
-```
-grunt forever:start watch
+# compile files for production
+grunt prod 
 ```
 In production:
 
 ```sh
 grunt prod
-node boilerplate.js -p # Don't forget the -p flag for production
+# Don't forget the -p flag for production
+node boilerplate.js -p 
 # Or use forever to keep the server running as a daemon
 forever start server.js -p 
 ```
+#### Extras
+```sh
+grunt plato
+# open the index file in the folder specified in the gruntfile and view report
+```
+An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
+
+Additionally, You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). In addition to LiveReload, [browser-snyc](https://github.com/shakyShane/grunt-browser-sync) is enabled in the gruntfile to allow you to inject css changes without a page refresh. I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). 
+
 # License
-This boilerplate is licensed under the GPL license
+This boilerplate is licensed under the MIT license
