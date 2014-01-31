@@ -59,11 +59,11 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'boilerplate.js': 'boilerplate.coffee'
+          'drake.js': 'drake.coffee'
 
     forever:
       options:
-        index: 'boilerplate.js' 
+        index: 'drake.js' 
         logDir: 'logs'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
