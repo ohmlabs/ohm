@@ -51,6 +51,8 @@
 
   app.listen(config.port);
 
+  io = io.listen(server);
+
   if (config.is_prod) {
     console.log("Server started on port " + config.port + " in production mode");
   } else {
