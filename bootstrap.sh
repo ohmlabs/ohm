@@ -37,18 +37,18 @@ function doIt() {
 }
 function dev() {
         cd "$(dirname "${BASH_SOURCE}")"
-  # install global node modules first https://npmjs.org/ 
-  sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
-  # install Ruby gems
-  sudo $gem install sass compass ceaser-easing normalize
-  # install node modules 
-  $npm install
-  # install client dependencies http://bower.io/
-  $bower install
-  $git submodule init
-  $git submodule update
-  $grunt forever:start
-  tail -n 1 logs/node-bp.log
+  	# install global node modules first https://npmjs.org/ 
+  	sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
+  	# install Ruby gems
+  	sudo $gem install sass compass ceaser-easing normalize
+  	# install node modules 
+  	$npm install
+  	# install client dependencies http://bower.io/
+  	$bower install
+  	$git submodule init
+  	$git submodule update
+  	$grunt forever:start
+  	tail -n 1 logs/node-bp.log
   
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
