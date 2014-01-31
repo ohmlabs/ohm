@@ -1,0 +1,46 @@
+####################################
+##      AWS                       ##
+####################################
+Host imac
+     Hostname 10.0.1.48
+     User cwdrake
+Host st
+     IdentityFile ~/.ssh/id_rsa
+     User cam
+     Hostname 54.221.243.158
+     ForwardAgent yes
+     ServerAliveInterval 30
+     ServerAliveCountMax 120
+Host dp
+     IdentityFile ~/.ssh/id_rsa
+     User ubuntu
+     Hostname 54.221.243.158
+     ForwardAgent yes
+     ServerAliveInterval 30
+     ServerAliveCountMax 120
+Host github.com
+     IdentityFile ~/.ssh/github_rsa
+Host dpt
+     Hostname 54.243.116.62
+     User ubuntu
+     IdentityFile ~/.ssh/cdrake.pem
+####################################
+##      Petitioners               ##
+####################################
+Host smir
+     Hostname 66.175.221.168
+     User cameron
+     IdentityFile ~/.ssh/id_rsa
+     ForwardAgent yes
+     ServerAliveInterval 30
+     ServerAliveCountMax 120
+####################################
+##     Ohm Labs Inc               ##
+####################################
+Host ohm
+     Hostname 174.129.247.110
+     User ec2-user
+     IdentityFile ~/.ssh/id_rsa
+     ForwardAgent yes
+     ServerAliveInterval 30
+     ServerAliveCountMax 120
