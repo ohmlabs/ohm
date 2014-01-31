@@ -46,7 +46,6 @@ If you are a designer most of your time will be spent in the client directory. I
 * For server dependencies see [package.json](https://github.com/cdrake757/boilerplate/blob/master/package.json)
 * For client dependencies see [bower.json](https://github.com/cdrake757/boilerplate/blob/master/bower.json)
 * [Express](http://expressjs.com/guide.html)
-* [Animate.css](http://daneden.me/animate/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
 # Installing
@@ -54,19 +53,15 @@ If you are a designer most of your time will be spent in the client directory. I
 Firstly, you will need to  install be sure that Ruby and Node are installed. If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
 
 ```sh
-cd boilerplate/
-npm install -g bower grunt-cli forever coffee-script node-inspector 
-npm install       # install node modules https://npmjs.org/
-bower install     # install client dependencies http://bower.io/
-gem install sass compasss ceaser-easing normalize
-git submodule init
-git submodule update
-```
+./bootstrap
+# What type of install is this? (p)Prod (d)Dev... press d
 
+```
+That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the bootstrap file!
 # Running
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
-* Compile Coffeescript
+* Compile Coffee-script
 * Compile CSS 
 * Concatenate JavaScript Files
 * Minify JavaScript Files
@@ -75,30 +70,36 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Reload the Browser (LiveReload)
 * Inject CSS w/o reload (Browser-sync)
 
-To compile and run: 
-
+When you install the boilerplate it begins running on port http://localhost:8080. You can use grunt from then on to interact with the server:
 ```sh
+# start the server
+grunt forever:start
+# stop a running server
+grunt forever:stop 
+#  watch files for changes
+grunt watch
+# compile files
 grunt
-node boilerplate.js
+# compile files for production
+grunt prod 
 ```
-To compile, start the server as a daemon and watch for changes:
-```
-grunt forever:start watch
-```
-### Extras
-You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). In addition to LiveReload, [browser-snyc](https://github.com/shakyShane/grunt-browser-sync) is enabled in the gruntfile to allow you to inject css changes without a page refresh. I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). Another great added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files. To run plato simply:
-```sh
-grunt plato
-# open the index file in the folder specified in the gruntfile and view report
-```
-
 In production:
 
 ```sh
 grunt prod
-node boilerplate.js -p # Don't forget the -p flag for production
+# Don't forget the -p flag for production
+node boilerplate.js -p 
 # Or use forever to keep the server running as a daemon
 forever start server.js -p 
 ```
+#### Extras
+```sh
+grunt plato
+# open the index file in the folder specified in the gruntfile and view report
+```
+An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
+
+Additionally, You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). In addition to LiveReload, [browser-snyc](https://github.com/shakyShane/grunt-browser-sync) is enabled in the gruntfile to allow you to inject css changes without a page refresh. I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). 
+
 # License
-This boilerplate is licensed under the GPL license
+This boilerplate is licensed under the MIT license
