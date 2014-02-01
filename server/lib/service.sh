@@ -8,7 +8,7 @@ gem=/usr/bin/gem
 forever=/usr/bin/forever
 npm=/usr/bin/npm
 bower=/usr/bin/bower
-SITEROOT=/home/cam/drake
+SITEROOT=/home/ubuntu/drake
 export PATH=$PATH:/usr/bin/
 
 case "$1" in

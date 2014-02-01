@@ -18,11 +18,6 @@ function doIt() {
 	pwd
         sudo ln -is $FILE_DIR/server/lib/nginx.conf .
         sudo ln -is $FILE_DIR/server/lib/sites-available sites-enabled
-        cd $GIT/hooks
-        sudo ln -is $FILE_DIR/server/lib/hooks/pre-receive.sh pre-receive
-        sudo ln -is $FILE_DIR/server/lib/hooks/post-receive.sh post-receive
-        sudo chmod +x pre-receive
-        sudo chmod +x post-receive
         cd "$(dirname "${BASH_SOURCE}")"
         pwd
         # install global node modules first https://npmjs.org/
