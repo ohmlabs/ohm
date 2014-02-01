@@ -4,7 +4,7 @@ npm=/usr/bin/npm
 git=/usr/local/bin/git
 bower=/usr/local/share/npm/bin/bower
 NGINX_CONFIG=/etc/nginx/
-#GIT=~/git/boilerplate.git
+GIT=~/git/drake.git
 FILE_DIR=`pwd`
 echo $FILE_DIR
 cd "$(dirname "${BASH_SOURCE}")"
@@ -18,11 +18,11 @@ function doIt() {
 	pwd
         sudo ln -is $FILE_DIR/server/lib/nginx.conf .
         sudo ln -is $FILE_DIR/server/lib/sites-available sites-enabled
-        #cd $GIT
-        #sudo ln -is $FILE_DIR/server/lib/hooks/ hooks
-	#cd hooks
-        #sudo chmod +x pre-receive.sh
-        #sudo chmod +x post-receive.sh
+        cd $GIT/hooks
+        sudo ln -is $FILE_DIR/server/lib/hooks/pre-receive.sh .
+        sudo ln -is $FILE_DIR/server/lib/hooks/post-receive.sh .
+        sudo chmod +x pre-receive.sh
+        sudo chmod +x post-receive.sh
         cd "$(dirname "${BASH_SOURCE}")"
         pwd
         # install global node modules first https://npmjs.org/
