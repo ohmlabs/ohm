@@ -15,36 +15,36 @@ function doIt() {
         sudo ln -is $FILE_DIR/server/lib/service.sh /etc/init.d/drake
         sudo chmod 0755 /etc/init.d/drake
         cd $NGINX_CONFIG
-	pwd
+        pwd
         sudo ln -is $FILE_DIR/server/lib/nginx.conf .
         sudo ln -is $FILE_DIR/server/lib/sites-available sites-enabled
         cd "$(dirname "${BASH_SOURCE}")"
         pwd
         # install global node modules first https://npmjs.org/
         sudo $npm cache clean
-	sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
+        sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
         # install Ruby gems
         sudo $gem install sass compasss ceaser-easing normalize
         sudo service drake install
         sudo service drake start
 }
 function dev() {
-  	cd "$(dirname "${BASH_SOURCE}")"
-  	ln -is $FILE_DIR/.gitconfig ~
-  	ln -is $FILE_DIR/.sshconfig  ~/.ssh/config
-  	ln -is $FILE_DIR/.zshrc  ~
-  	source ~/.zshrc
-  	# install global node modules first https://npmjs.org/ 
-  	sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
-  	# install Ruby gems
-  	sudo $gem install sass compass ceaser-easing normalize
-  	# install node modules 
-  	$npm install
-  	# install client dependencies http://bower.io/
-  	$bower install
-  	$git submodule init
-  	$git submodule update
-  	tail -n 1 logs/node-bp.log
+    cd "$(dirname "${BASH_SOURCE}")"
+    ln -is $FILE_DIR/.gitconfig ~
+    ln -is $FILE_DIR/.sshconfig  ~/.ssh/config
+    ln -is $FILE_DIR/.zshrc  ~
+    source ~/.zshrc
+    # install global node modules first https://npmjs.org/ 
+    sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
+    # install Ruby gems
+    sudo $gem install sass compass ceaser-easing normalize
+    # install node modules 
+    $npm install
+    # install client dependencies http://bower.io/
+    $bower install
+    $git submodule init
+    $git submodule update
+    tail -n 1 logs/node-bp.log
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
         doIt
