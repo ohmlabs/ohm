@@ -1,5 +1,5 @@
 #!/bin/sh
 echo "Checkout Updates"
-GIT_WORK_TREE=~/boilerplate git checkout master -f
-echo "start boilerplate server"
-sudo service boilerplate start
+GIT_WORK_TREE=/home/cam/drake git checkout master -f
+echo "start drake server"
+sudo service drake compile
