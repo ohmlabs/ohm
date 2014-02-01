@@ -2,13 +2,13 @@
 # /etc/init.d/boilerplate
 #
 
-NAME=Boilerplate
+NAME=boilerplate.fm
 grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
 npm=/usr/bin/npm
 bower=/usr/bin/bower
-SITEROOT=~/boilerplate
+SITEROOT=/home/ubuntu/boilerplate
 export PATH=$PATH:/usr/bin/
 
 case "$1" in
@@ -16,15 +16,20 @@ case "$1" in
     echo "Starting $NAME"
     cd $SITEROOT
     pwd
-    $bower install
-    $npm install
-    $grunt
+    $grunt prod
     $forever start boilerplate.js -p
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
     $forever stop boilerplate.js -p
+
+    ;;
+  compile)
+    echo "Compiling $NAME"
+    cd $SITEROOT
+    $grunt prod
+    $forever restart boilerplate.js -p
 
     ;;
   install)
