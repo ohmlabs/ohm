@@ -10,23 +10,23 @@ echo $FILE_DIR
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 function doIt() {
-        ln -is $FILE_DIR/.gitconfig ~
-        ln -is $FILE_DIR/.zshrc  ~
-        sudo ln -is $FILE_DIR/server/lib/service.sh /etc/init.d/drake
-        sudo chmod 0755 /etc/init.d/drake
-        cd $NGINX_CONFIG
-        pwd
-        sudo ln -is $FILE_DIR/server/lib/nginx.conf .
-        sudo ln -is $FILE_DIR/server/lib/sites-available sites-enabled
-        cd "$(dirname "${BASH_SOURCE}")"
-        pwd
-        # install global node modules first https://npmjs.org/
-        sudo $npm cache clean
-        sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
-        # install Ruby gems
-        sudo $gem install sass compasss ceaser-easing normalize
-        sudo service drake install
-        sudo service drake start
+    ./server/lib/deploy.sh
+    sudo ln -is $FILE_DIR/server/lib/service.sh /etc/init.d/drake
+    sudo chmod 0755 /etc/init.d/drake
+    cd $NGINX_CONFIG
+    pwd
+    sudo ln -is $FILE_DIR/server/lib/nginx.conf .
+    sudo ln -is $FILE_DIR/server/lib/sites-available sites-enabled
+    cd "$(dirname "${BASH_SOURCE}")"
+    pwd
+    # install global node modules first https://npmjs.org/
+    sudo $npm cache clean
+    sudo $npm install -g bower grunt-cli forever coffee-script node-inspector strong-cli
+    # install Ruby gems
+    sudo $gem install sass compasss ceaser-easing normalize
+    sudo service drake install
+    sudo service drake start
+    sudo service nginx restart
 }
 function dev() {
     cd "$(dirname "${BASH_SOURCE}")"
@@ -35,7 +35,7 @@ function dev() {
     ln -is $FILE_DIR/.zshrc  ~
     source ~/.zshrc
     # install global node modules first https://npmjs.org/ 
-    sudo $npm install -g bower grunt-cli forever coffee-script node-inspector
+    sudo $npm install -g bower grunt-cli forever coffee-script node-inspector strong-cli
     # install Ruby gems
     sudo $gem install sass compass ceaser-easing normalize
     # install node modules 

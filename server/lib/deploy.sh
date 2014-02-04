@@ -1,3 +1,4 @@
+#!/bin/bash
 npm=/usr/bin/npm
 gem=~/.rvm/bin/gem
 GIT=~/git/drake.git
