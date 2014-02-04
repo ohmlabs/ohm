@@ -1,3 +1,5 @@
+# Allow StrongOps to profile the app. see: http://docs.strongloop.com/display/DOC/Getting+started
+require('strong-agent').profile();
 routes = require("./server/routes/site.js")
 config = require("./server/config/config.js")
 
