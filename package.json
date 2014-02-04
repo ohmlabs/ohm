@@ -14,7 +14,8 @@
     "grunt-contrib-watch": "0.5.3",
     "grunt-forever": "~0.4.1",
     "grunt-contrib-coffee": "~0.7.0",
-    "aws-sdk": "~2.0.0-rc5"
+    "aws-sdk": "~2.0.0-rc5",
+    "strong-agent": "~0.2.21"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "",
