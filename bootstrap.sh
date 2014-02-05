@@ -40,6 +40,8 @@ function dev() {
     $bower install
     $git submodule init
     $git submodule update
+    $grunt
+    $grunt forever:start
     tail -n 1 logs/node-bp.log
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
