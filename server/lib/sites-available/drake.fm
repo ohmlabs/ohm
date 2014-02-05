@@ -1,7 +1,7 @@
 server {
         listen       80;
 	server_name   drake.fm;
-        root /home/cam/drake/static;
+        root /home/ubuntu/drake/static;
         location ~ ^/(images/|components/|img/|javascript/|js/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {
           access_log off;
           expires max;
