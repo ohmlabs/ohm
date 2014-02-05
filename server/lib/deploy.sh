@@ -7,7 +7,7 @@ mkdir ~/git
 mkdir $GIT && cd $GIT
 git —-bare init
 # if you want to reference a repository on github
-git --bare fetch git@github.com:cdrake757/drake.git prod:prod
+git --bare fetch git@github.com:cdrake757/boilerplate.git master:master
 cd "$(dirname "${BASH_SOURCE}")"
 sudo ln -is hooks/pre-receive.sh $GIT/hooks/pre-receive
 sudo ln -is hooks/post-receive.sh $GIT/hooks/post-receive
