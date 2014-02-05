@@ -3,7 +3,7 @@ gem=~/.rvm/bin/gem
 npm=/usr/bin/npm
 git=/usr/local/bin/git
 bower=/usr/local/share/npm/bin/bower
-NGINX_CONFIG=/etc/nginx/
+NGINX_CONFIG=/usr/local/nginx/conf
 GIT=~/git/drake.git
 FILE_DIR=`pwd`
 echo $FILE_DIR
@@ -23,7 +23,7 @@ function doIt() {
     sudo $npm cache clean
     sudo $npm install -g bower grunt-cli forever coffee-script node-inspector strong-cli
     # install Ruby gems
-    sudo $gem install sass compasss ceaser-easing normalize
+    sudo $gem install sass compass ceaser-easing normalize
     sudo service drake install
     sudo service drake start
     sudo service nginx restart
