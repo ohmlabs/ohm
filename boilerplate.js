@@ -1,5 +1,5 @@
 (function() {
-  var app, aws, config, express, http, io, routes, server;
+  var app, aws, config, express, http, routes, server;
 
   require('strong-agent').profile();
 
@@ -14,8 +14,6 @@
   app = express();
 
   server = http.createServer(app);
-
-  io = require("socket.io");
 
   aws = require("./server/apis/AWS.js");
 
@@ -49,11 +47,13 @@
 
   app.get("/parallax", routes.parallax);
 
+  app.get("/ios", routes.ios);
+
+  app.get("/play", routes.play);
+
   app.get("*", routes.error);
 
   app.listen(config.port);
-
-  io = io.listen(server);
 
   if (config.is_prod) {
     console.log("Server started on port " + config.port + " in production mode");
