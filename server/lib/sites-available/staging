@@ -1,8 +1,8 @@
 server {
         listen       80;
         server_name  stage.ohm.fm;
-        root /home/ubuntu/dev/static;
-        location ~ ^/(images/|img/|javascript/|js/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {
+        root /home/ubuntu/staging/static;
+        location ~ ^/(images/|img/|javascript/|js/|components/|build/|plato/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {
           access_log off;
           expires max;
         }
