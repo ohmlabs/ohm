@@ -1,7 +1,7 @@
 #! /bin/sh
 # /etc/init.d/boilerplate
 # update these paths so that the script works correctly
-NAME=boilerplate.fm
+NAME=ohm.fm
 grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
