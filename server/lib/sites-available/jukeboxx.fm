@@ -1,7 +1,7 @@
 server {
         listen       80;
 	server_name  jukebox.ohm.fm jb.ohm.fm;
-        root /home/ubuntu/ubuntu/static;
+        root /home/ubuntu/production/static;
         location ~ ^/(images/|img/|javascript/|js/|components/|build/|plato/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {
           access_log off;
           expires max;
