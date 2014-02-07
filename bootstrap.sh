@@ -3,16 +3,13 @@ gem=~/.rvm/bin/gem
 npm=/usr/bin/npm
 git=/usr/local/bin/git
 bower=/usr/local/share/npm/bin/bower
-NGINX_CONFIG=/usr/local/etc/nginx/
+NGINX_CONFIG=/etc/nginx/
 GIT=~/git/boilerplate.git
 FILE_DIR=`pwd`
 echo $FILE_DIR
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 function doIt() {
-    ./server/lib/deploy.sh
-    sudo ln -is $FILE_DIR/server/lib/service.sh /etc/init.d/boilerplate
-    sudo chmod 0755 /etc/init.d/boilerplate
     cd $NGINX_CONFIG
     pwd
     sudo ln -is $FILE_DIR/server/lib/nginx.conf .
@@ -23,7 +20,7 @@ function doIt() {
     sudo $npm cache clean
     sudo $npm install -g bower grunt-cli forever coffee-script node-inspector strong-cli
     # install Ruby gems
-    sudo $gem install sass compass ceaser-easing normalize
+    sudo $gem install sass compass ceaser-easing normalize bundle
     sudo service boilerplate install
     sudo service boilerplate start
     sudo service nginx restart

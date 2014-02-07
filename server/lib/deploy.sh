@@ -1,15 +1,18 @@
 #!/bin/bash
 npm=/usr/bin/npm
 gem=~/.rvm/bin/gem
-GIT=~/git/drake.git
+git=/usr/bin/git
+GIT=~/git/production.git
+FILE_DIR=`pwd`
+WORK_TREE=~/production
 
-mkdir ~/git
-mkdir $GIT && cd $GIT
-git —-bare init
-# if you want to reference a repository on github
+mkdir -p $GIT && cd $GIT
+$git --bare init
 git --bare fetch git@github.com:cdrake757/boilerplate.git master:master
-cd "$(dirname "${BASH_SOURCE}")"
-sudo ln -is hooks/pre-receive.sh $GIT/hooks/pre-receive
-sudo ln -is hooks/post-receive.sh $GIT/hooks/post-receive
+sudo cp -i $FILE_DIR/hooks/pre-receive.sh $GIT/hooks/pre-receive
+sudo cp -i $FILE_DIR/hooks/post-receive.sh $GIT/hooks/post-receive
 sudo chmod +x $GIT/hooks/pre-receive
 sudo chmod +x $GIT/hooks/post-receive
+sudo cp -i $FILE_DIR/service.sh /etc/init.d/jukeboxP
+sudo chmod 0755 /etc/init.d/jukeboxP
+mkdir $WORK_TREE
