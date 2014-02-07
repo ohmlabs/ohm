@@ -8,7 +8,6 @@ http = require("http")
 express = require("express")
 app = express()
 server = http.createServer(app)
-io = require("socket.io")
 aws = require("./server/apis/AWS.js")
 
 # Middleware
@@ -40,13 +39,15 @@ app.configure ->
 # Routes
 app.get "/", routes.index
 app.get "/parallax", routes.parallax
+app.get "/ios", routes.ios
+app.get "/play", routes.play
+
 # 404 
 app.get "*", routes.error
 
 # Listen
 
 app.listen config.port
-io = io.listen(server)
 if config.is_prod
   console.log "Server started on port " + config.port + " in production mode"
 else
