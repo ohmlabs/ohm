@@ -7,7 +7,7 @@ gem=/usr/bin/gem
 forever=/usr/bin/forever
 npm=/usr/bin/npm
 bower=/usr/bin/bower
-SITEROOT=/home/ubuntu/boilerplate
+SITEROOT=/home/ubuntu/production
 export PATH=$PATH:/usr/bin/
 
 case "$1" in
@@ -39,6 +39,11 @@ case "$1" in
     $bower install --allow-root
     git submodule init
     git submodule update
+    cd Ghost
+    sudo bundle install
+    npm install
+    grunt init
+    NODE_ENV=production forever start index.js
 
     ;;
   list)
