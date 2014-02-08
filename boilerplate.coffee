@@ -38,7 +38,7 @@ app.configure ->
 
 # Routes
 app.get "/", routes.index
-app.get "/parallax", routes.\parallax
+app.get "/parallax", routes.parallax
 app.get "/ios", routes.ios
 app.get "/play", routes.play
 
