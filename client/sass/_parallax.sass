@@ -20,39 +20,40 @@ $weiss-blue: rgba(0,102,255,0.99)
 ///////////////////////////////////////
 //   Header                         //
 /////////////////////////////////////
-header
-  background: rgba(255,255,255,0.8)
-  z-index: 5
-  width: 100%
-  position: fixed
-  top: 0
-  .wrapper
-    width: 960px
-    margin: auto
-    .logo-head
-      background: url('../img/logo.png') no-repeat
-      background-size: cover 
-      width: 300px
-      height: 100px
-      z-index: 3
-      -skrollr-animation-name: logo-top
-      display: inline-block
-    .nav
-      display: inline-block
-      width: auto
-      vertical-align: top
-      margin-top: 40px
-      li
+//
+  header
+    background: rgba(255,255,255,0.8)
+    z-index: 5
+    width: 100%
+    position: fixed
+    top: 0
+    .wrapper
+      width: 960px
+      margin: auto
+      .logo-head
+        background: url('../img/logo.png') no-repeat
+        background-size: cover 
+        width: 300px
+        height: 100px
+        z-index: 3
+        -skrollr-animation-name: logo-top
         display: inline-block
-        margin-left: 5px
-        list-style: none
-        a
-          -skrollr-animation-name: menu-link        
-          color: #111
-          border-radius: 15px
-          padding: 10px
-          display: block
-          background-color: rgba(255,255,255,0)
+      .nav
+        display: inline-block
+        width: auto
+        vertical-align: top
+        margin-top: 40px
+        li
+          display: inline-block
+          margin-left: 5px
+          list-style: none
+          a
+            -skrollr-animation-name: menu-link        
+            color: #111
+            border-radius: 15px
+            padding: 10px
+            display: block
+            background-color: rgba(255,255,255,0)
                 
 ///////////////////////////////////////
 //   Sections                       //
