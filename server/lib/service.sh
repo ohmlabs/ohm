@@ -6,6 +6,7 @@ grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
 npm=/usr/bin/npm
+GHOST=/home/ubuntu/ghost
 bower=/usr/bin/bower
 SITEROOT=/home/ubuntu/production
 export PATH=$PATH:/usr/bin/
@@ -17,11 +18,13 @@ case "$1" in
     pwd
     $grunt prod
     $forever start boilerplate.js -p
+    sudo service ghost start
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
     $forever stop boilerplate.js -p
+    sudo service ghost stop
 
     ;;
   compile)
@@ -29,7 +32,8 @@ case "$1" in
     cd $SITEROOT
     $grunt prod
     $forever restart boilerplate.js -p
-
+    sudo service ghost restart
+    
     ;;
   install)
     echo "Beginning Installation for script $NAME"
@@ -37,13 +41,6 @@ case "$1" in
     $npm cache clean
     $npm install
     $bower install --allow-root
-    #git submodule init
-    #git submodule update
-    #cd Ghost
-    #sudo bundle install
-    #npm install
-    #grunt init
-    #NODE_ENV=production forever start index.js
 
     ;;
   list)
