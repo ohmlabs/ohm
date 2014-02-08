@@ -45,10 +45,6 @@
 
   app.get("/parallax", routes.parallax);
 
-  app.get("/ios", routes.ios);
-
-  app.get("/play", routes.play);
-
   app.get("*", routes.error);
 
   app.listen(config.port);
