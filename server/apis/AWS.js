@@ -1,6 +1,7 @@
 AWS = require('aws-sdk')
 // Configure AWS
-/*AWS.config.loadFromPath('./server/config/config.json');
+// Must add config.json in specified path
+AWS.config.loadFromPath('./server/config/config.json');
 
 var s3 = new AWS.S3();
 s3.listBuckets(function(err, data) {
@@ -12,4 +13,4 @@ s3.listBuckets(function(err, data) {
     });
     console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
   }
-});*/
+});
