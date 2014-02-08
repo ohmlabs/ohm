@@ -11,6 +11,9 @@
 *.vi
 *~
 *#
+
+# APPLICATION SPECIFIC IGNORES
+server/config/config.json # for AWS security
 *.sass-cache
 logs
 *.css
@@ -22,7 +25,7 @@ Thumbs.db
 .cache
 .project
 .settings
-*.tmproj
+
 nbproject
 *.sublime-project
 *.sublime-workspace
