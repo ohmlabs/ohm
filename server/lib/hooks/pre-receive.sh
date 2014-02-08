@@ -1,3 +1,3 @@
 #!/bin/sh
 echo "Stopping service"
-sudo service ohmlabs stop
+sudo service boilerplate stop
