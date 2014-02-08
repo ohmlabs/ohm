@@ -1,8 +1,6 @@
 (function() {
   var app, aws, config, express, http, routes, server;
 
-  require('strong-agent').profile();
-
   routes = require("./server/routes/site.js");
 
   config = require("./server/config/config.js");
