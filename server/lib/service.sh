@@ -37,13 +37,13 @@ case "$1" in
     $npm cache clean
     $npm install
     $bower install --allow-root
-    git submodule init
-    git submodule update
-    cd Ghost
-    sudo bundle install
-    npm install
-    grunt init
-    NODE_ENV=production forever start index.js
+    #git submodule init
+    #git submodule update
+    #cd Ghost
+    #sudo bundle install
+    #npm install
+    #grunt init
+    #NODE_ENV=production forever start index.js
 
     ;;
   list)
