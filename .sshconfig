@@ -37,10 +37,7 @@ Host smir
 ####################################
 ##     Ohm Labs Inc               ##
 ####################################
-Host ohm
-     Hostname 174.129.247.110
-     User ec2-user
-     IdentityFile ~/.ssh/id_rsa
-     ForwardAgent yes
-     ServerAliveInterval 30
-     ServerAliveCountMax 120
+Host ohmlabs
+     Hostname 107.22.226.79
+     User ubuntu
+     IdentityFile ~/.ssh/cdrake.pem
