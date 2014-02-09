@@ -6,7 +6,6 @@
     "express": "",
     "jade": "",
     "grunt": "~0.4.1",
-    "socket.io": "0.9.10",
     "grunt-contrib-uglify": "0.2.4",
     "coffee-script": "1.6.3",
     "grunt-contrib-compass": "",
@@ -14,8 +13,7 @@
     "grunt-contrib-watch": "0.5.3",
     "grunt-forever": "~0.4.1",
     "grunt-contrib-coffee": "~0.7.0",
-    "aws-sdk": "~2.0.0-rc5",
-    "strong-agent": "~0.2.21"
+    "aws-sdk": ""
   },
   "devDependencies": {
     "grunt-contrib-jshint": "",
