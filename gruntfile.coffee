@@ -72,7 +72,7 @@ module.exports = (grunt) ->
         files: ["static/**/*", "server/views/*"]
       server:
         files: ["gruntfile.coffee", "drake.coffee", "server/**/*.js"]
-        tasks: ["grunt", "forever:restart"]
+        tasks: ["coffee", "forever:restart"]
                           
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"

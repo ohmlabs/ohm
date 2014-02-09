@@ -30,6 +30,8 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 drake.js
+ohmlabs.js
+weiss.js
 # Dreamweaver added files
 _notes
 dwsync.xml
