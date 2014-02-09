@@ -6,6 +6,7 @@ grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
 npm=/usr/bin/npm
+GHOST=/home/ubuntu/ghost
 bower=/usr/bin/bower
 SITEROOT=/home/ubuntu/drake
 export PATH=$PATH:/usr/bin/
@@ -16,20 +17,23 @@ case "$1" in
     cd $SITEROOT
     pwd
     $grunt prod
-    $forever start drake.js -p
+    $forever start drake -p
+    sudo service ghost start
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
     $forever stop drake.js -p
+    sudo service ghost stop
 
     ;;
   compile)
     echo "Compiling $NAME"
     cd $SITEROOT
     $grunt prod
-    $forever restart drake.js -p
-
+    $forever restart boilerplate.js -p
+    sudo service ghost restart
+    
     ;;
   install)
     echo "Beginning Installation for script $NAME"

@@ -98,9 +98,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-plato"
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
-  # to test the javascript use test task
-  grunt.registerTask "test", ["jshint", "qunit"]
   # the bare grunt command only compiles
   grunt.registerTask "default", [ "concat", "coffee", "compass:dev"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "coffee", "compass:prod", "uglify"]
+  grunt.registerTask "prod", ["concat", "uglify", "plato", "coffee", "compass:prod"]

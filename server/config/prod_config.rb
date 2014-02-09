@@ -2,7 +2,7 @@
 require 'ceaser-easing'
 require 'compass-normalize'
 # Set this to the root of your project when deployed:
-http_path = ""
+http_path = "static"
 css_dir = "static/css"
 sass_dir = "client/sass"
 images_dir = "static/img"

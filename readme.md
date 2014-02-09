@@ -69,6 +69,8 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Restart the Server (Forever)
 * Reload the Browser (LiveReload)
 * Inject CSS w/o reload (Browser-sync)
+* Inspect Code Source (node-inspector)
+* Profile Server (StrongOps)
 
 When you install the boilerplate it begins running on port http://localhost:8080. You can use grunt from then on to interact with the server:
 ```sh
@@ -100,6 +102,13 @@ grunt plato
 An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
 
 Additionally, You can configure the app to automatically refresh the page when changes are made using LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei). In addition to LiveReload, [browser-snyc](https://github.com/shakyShane/grunt-browser-sync) is enabled in the gruntfile to allow you to inject css changes without a page refresh. I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). 
+You can also monitor your servers performance using [strongOps](http://strongloop.com/node-js-performance/strongops/). All you need to do is sign up for an account:
+```sh
+$ cd your-app-dir
+$ slc strongops --register
+# If you already have a StrongOps account, don't use --register.
+# Complete your registration at the strongOps site
+```
 
 # License
 This boilerplate is licensed under the MIT license
