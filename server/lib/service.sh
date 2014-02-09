@@ -1,14 +1,14 @@
 #! /bin/sh
 # /etc/init.d/drake
 # update these paths so that the script works correctly
-NAME=Drake.fm
+NAME=drake.js
+SITEROOT=/home/ubuntu/drake
+GHOST=/home/ubuntu/ghost
 grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
 npm=/usr/bin/npm
-GHOST=/home/ubuntu/ghost
 bower=/usr/bin/bower
-SITEROOT=/home/ubuntu/drake
 export PATH=$PATH:/usr/bin/
 
 case "$1" in
@@ -17,21 +17,21 @@ case "$1" in
     cd $SITEROOT
     pwd
     $grunt prod
-    $forever start drake -p
+    $forever start $NAME -p
     sudo service ghost start
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
-    $forever stop drake.js -p
+    $forever stop $NAME -p
     sudo service ghost stop
 
     ;;
-  compile)
+  reload)
     echo "Compiling $NAME"
     cd $SITEROOT
     $grunt prod
-    $forever restart boilerplate.js -p
+    $forever restart $NAME -p
     sudo service ghost restart
     
     ;;
@@ -50,7 +50,7 @@ case "$1" in
     $forever list
     ;;
   *)
-    echo "Usage: /etc/init.d/drake {start|stop|list}"
+    echo "Usage: /etc/init.d/drake {start|stop|list|reload|install}"
     exit 1
     ;;
 esac

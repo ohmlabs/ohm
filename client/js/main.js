@@ -1,0 +1,51 @@
+// If Jquery isn't loaded load it
+window.jQuery || document.write('<script src="js/libs/jquery-2.0.0.min.js">\x3C/script>');
+// usage: log('inside coolFunc', this, arguments);
+// paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+
+window.log = function f() {
+    log.history = log.history || [];
+    log.history.push(arguments);
+    if (this.console) {
+        var args = arguments;
+        var newarr;
+
+        try {
+            args.callee = f.caller;
+        } catch(e) {
+
+        }
+
+        newarr = [].slice.call(args);
+
+        if (typeof console.log === 'object') {
+            log.apply.call(console.log, console, newarr);
+        } else {
+            console.log.apply(console, newarr);
+        }
+    }
+};
+
+// make it safe to use console.log always
+
+(function(a) {
+    function b() {}
+    var c = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn";
+    var d;
+    for (c = c.split(","); !!(d = c.pop());) {
+        a[d] = a[d] || b;
+    }
+})(function() {
+    try {
+        console.log();
+        return window.console;
+    } catch(a) {
+        return (window.console = {});
+    }
+}());
+
+// Google Analytics
+var _gaq=[['_setAccount','UA-XXXXXXXX-1'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
