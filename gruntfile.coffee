@@ -38,7 +38,7 @@ module.exports = (grunt) ->
 
     # jshint javascript files
     jshint:
-      files: ["gruntfile.coffee", "server/**/*.js", "static/js/*.js", "boilerplate.js"]
+      files: ["gruntfile.coffee", "server/**/*.js", "static/js/*.js", "*.js"]
       options:
         # options here to override JSHint defaults
         globals:
@@ -59,7 +59,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'drake.js': 'drake.coffee'
+          '*.js': '*.coffee'
 
     forever:
       options:
@@ -85,7 +85,7 @@ module.exports = (grunt) ->
           livereload: true
         files: ["static/**/*", "server/views/*"]
       server:
-        files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
+        files: ["*.coffee", "server/**/*.js"]
         tasks: "forever:restart"
                           
   grunt.loadNpmTasks "grunt-contrib-uglify"

@@ -1,6 +1,6 @@
 # Allow StrongOps to profile the app. see: http://docs.strongloop.com/display/DOC/Getting+started
 require('strong-agent').profile();
-routes = require("./server/routes/site.js")
+routes = require("./server/routes/drake.js")
 config = require("./server/config/config.js")
 
 # Module Dependencies
@@ -37,9 +37,8 @@ app.configure ->
   app.use app.router
 
 # Routes
-app.get "/", routes.index
-app.get "/weiss", routes.weiss
-app.get "/ohmlabs", routes.ohm
+app.get "/", routes.tumblr
+app.get "/index", routes.index
 app.get "/photos", routes.photos
 app.get "/work", routes.work
 # 404 
