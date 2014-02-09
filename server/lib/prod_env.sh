@@ -6,6 +6,11 @@ sudo apt-get install emacs htop git nginx rubygems unzip
 # Install RVM
 #\curl -L https://get.rvm.io | sudo bash -s stable --ruby
 #source /home/ubuntu/.rvm/scripts/rvm
+# Install Mosh
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:keithw/mosh
+sudo apt-get update
+sudo apt-get install mosh
 # Install Node (latest stable)
 sudo apt-get update
 sudo apt-get install -y python-software-properties python g++ make
