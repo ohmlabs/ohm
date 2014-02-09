@@ -18,13 +18,12 @@ case "$1" in
     pwd
     $grunt prod
     $forever start drake.js -p
-    sudo service ghost start
+
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
     $forever stop drake.js -p
-    sudo service ghost stop
 
     ;;
   reload)
@@ -32,7 +31,6 @@ case "$1" in
     cd $SITEROOT
     $grunt prod
     $forever restart drake.js -p
-    sudo service ghost restart
     
     ;;
   install)
