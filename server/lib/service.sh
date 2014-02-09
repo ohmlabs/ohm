@@ -38,8 +38,8 @@ case "$1" in
   install)
     echo "Beginning Installation for script $NAME"
     cd $SITEROOT
-    $npm cache clean
-    $npm install
+    sudo $npm cache clean
+    sudo $npm install
     $bower install --allow-root
     git submodule init
     git submodule update

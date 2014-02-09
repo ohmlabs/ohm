@@ -16,7 +16,7 @@ sudo apt-get install nodejs
 sudo npm cache clean
 sudo npm install -g bower grunt-cli forever coffee-script node-inspector
 # install Ruby gems
-sudo gem install sass compass ceaser-easing normalize bundle
+sudo gem install sass compass ceaser-easing compass-normalize bundle
 echo "Successfully Installed the following:"
 node -v
 ruby -v
