@@ -1,6 +1,6 @@
 {
-  "name": "Drake.fm",
-  "description": "Cameron Drake's personal website",
+  "name": "boilerplate",
+  "description": "Cameron Drake's web boilerplate",
   "version": "0.9.0",
   "dependencies": {
     "express": "",
@@ -19,6 +19,7 @@
     "grunt-contrib-jshint": "",
     "grunt-contrib-qunit": "",
     "grunt-plato": "~0.2.1",
-    "grunt-browser-sync": "~0.4.8"
+    "grunt-browser-sync": "~0.4.8",
+    "strong-agent": "~0.2.22"
   }
 }

@@ -2,7 +2,8 @@ doctype html
 html(lang="en").no-js
   head
     include includes/common
-  body#skrollr-body
+    block head
+  body
     block content
     include includes/scripts
     block extras
