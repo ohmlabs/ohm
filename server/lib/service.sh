@@ -41,8 +41,6 @@ case "$1" in
     sudo $npm cache clean
     sudo $npm install
     $bower install --allow-root
-    git submodule init
-    git submodule update
 
     ;;
   list)
