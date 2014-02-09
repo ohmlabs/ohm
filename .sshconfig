@@ -38,6 +38,6 @@ Host smir
 ##     Ohm Labs Inc               ##
 ####################################
 Host ohmlabs
-     Hostname 107.22.226.79
+     Hostname 174.129.247.110
      User ubuntu
      IdentityFile ~/.ssh/cdrake.pem
