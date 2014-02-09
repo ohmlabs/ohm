@@ -41,6 +41,28 @@ module.exports = (grunt) ->
         files: 
           "logs/plato": ["static/js/*.js", "server/**/*.js"]
 
+    imagemin:
+      png:
+        options:
+          optimizationLevel: 7
+        files: [
+          expand: true
+          cwd: 'images/'
+          src: ['**/*.png', '*.png']
+          dest: 'static/img/'
+          ext: '.png'
+        ]
+      jpg:
+        options:
+          progressive: true
+        files: [
+          expand: true
+          cwd: 'image/'
+          src: ['**/*.jpg', '*.jpg']
+          dest: 'static/img/'
+          ext: '.jpg'
+        ]
+
     # compile  coffeescript, only included the server file as an example.
     coffee:
       compile:
@@ -74,6 +96,7 @@ module.exports = (grunt) ->
         files: ["gruntfile.coffee", "drake.coffee", "server/**/*.js"]
         tasks: ["coffee", "forever:restart"]
                           
+  grunt.loadNpmTasks "grunt-contrib-imagemin"
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-concat"
@@ -85,4 +108,4 @@ module.exports = (grunt) ->
   # the bare grunt command only compiles
   grunt.registerTask "default", [ "concat", "coffee", "compass:dev"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "plato", "coffee", "compass:prod"]
+  grunt.registerTask "prod", ["imagemin", "concat", "uglify", "plato", "coffee", "compass:prod"]
