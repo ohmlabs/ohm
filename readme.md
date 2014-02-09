@@ -53,9 +53,10 @@ If you are a designer most of your time will be spent in the client directory. I
 Firstly, you will need to  install be sure that Ruby and Node are installed. If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
 
 ```sh
-./bootstrap
-# What type of install is this? (p)Prod (d)Dev... press d
-
+cd server/lib
+./dev_env.sh
+# Production
+./prod_env.sh
 ```
 That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the bootstrap file!
 # Running
@@ -88,11 +89,9 @@ grunt prod
 In production:
 
 ```sh
-grunt prod
-# Don't forget the -p flag for production
-node boilerplate.js -p 
-# Or use forever to keep the server running as a daemon
-forever start server.js -p 
+sudo service boilerplate start
+sudo service boilerplate stop
+sudo service boilerplate reload
 ```
 #### Extras
 ```sh
