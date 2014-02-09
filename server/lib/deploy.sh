@@ -21,7 +21,8 @@ function setUp() {
   sudo chmod 0755 /etc/init.d/drake
   sudo cp -i $FILE_DIR/nginx.conf $NGINX_DIR
   sudo rm -rf /etc/nginx/sites-enabled
-  sudo cp -ir $FILE_DIR/sites-available/ $NGINX_DIR/sites-enabled  sudo service nginx restart
+  sudo cp -ir $FILE_DIR/sites-available/ $NGINX_DIR/sites-enabled
+  sudo service nginx restart
   mkdir $WORK_TREE
 }
 read -p "Key above added ?? https://github.com/cdrake757/drakefm/settings/keys (No to proceed with https authentication) [Y/n]" -n 1
