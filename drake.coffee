@@ -1,6 +1,6 @@
 # Allow StrongOps to profile the app. see: http://docs.strongloop.com/display/DOC/Getting+started
 require('strong-agent').profile();
-routes = require("./server/routes/drake.js")
+routes = require("./server/routes/drake.fm.js")
 config = require("./server/config/config.js")
 
 # Module Dependencies
