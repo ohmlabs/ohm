@@ -36,6 +36,7 @@ If you are a designer most of your time will be spent in the client directory. I
 * An optimized Google Analytics snippet.
 * Seamless integration w/ Amazon Web Services
 * Automatically compile Sass
+* Automatically compress images for production
 * Automatically compile CoffeeScript, concatinate, minify, and Lint scripts
 * Automatically compress and sprite images
 * Modular styles to provide basic mixins and structure
@@ -50,15 +51,15 @@ If you are a designer most of your time will be spent in the client directory. I
 
 # Installing
 
-Firstly, you will need to  install be sure that Ruby and Node are installed. If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
+Firstly, you will need to  install be sure that Ruby and Node are installed (on dev, in production this is done as a part of the install script). If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
 
 ```sh
-cd server/lib
+cd deploy
 ./dev_env.sh
-# Production
+# for production...
 ./prod_env.sh
 ```
-That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the bootstrap file!
+And That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the file you just ran.
 # Running
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
