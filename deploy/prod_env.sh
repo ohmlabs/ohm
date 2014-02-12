@@ -1,4 +1,6 @@
 #!/bin/bash
+NGINX_DIR=/etc/nginx
+
 sudo apt-get update
 sudo apt-get upgrade
 # Install generally useful apps
@@ -6,6 +8,16 @@ sudo apt-get install emacs htop git nginx rubygems unzip
 # Install RVM
 #\curl -L https://get.rvm.io | sudo bash -s stable --ruby
 #source /home/ubuntu/.rvm/scripts/rvm
+# Install Varnish via https://www.varnish-cache.org/installation/ubuntu
+curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
+echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install varnish
+sudo patch /etc/default/varnish < varnish.diff
+sudo patch /etc/varnish/default.vcl < default.vcl.diff
+# install nginx configs
+sudo cp -i nginx.conf $NGINX_DIR
+sudo cp -ir sites-enabled $NGINX_DIR
 # Install Mosh
 sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:keithw/mosh
@@ -34,14 +46,17 @@ gem list
 read -p "Server Successfully Initialized, Do you want to create a git repo for deployment? [Y/n]" -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-        ./deploy.sh
+        ./production/deploy.sh
 elif [[ $REPLY =~ ^[Nn]$ ]]; then
         echo "continuing..."
 fi
 read -p "Deployment Setup Complete, Do you want to install Ghost? [Y/n]" -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-        ./ghost.sh
+        ./ghost/ghost.sh
 elif [[ $REPLY =~ ^[Nn]$ ]]; then
         echo "install complete"
 fi
+sudo service nginx start
+sudo service varnish start
+echo "Deployment Setup Complete
