@@ -3,7 +3,7 @@ upstream boilerplate_upstream {
 	keepalive 64;
 }
 server {
-		listen	80;
+		listen	81;
 		server_name	  boilerplate.fm;
 		root /home/ubuntu/production/static;
 		location ~ ^/(images/|components/|img/|javascript/|js/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {

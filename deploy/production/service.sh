@@ -1,8 +1,8 @@
 #! /bin/sh
-# /etc/init.d/drake
+# /etc/init.d/boilerplate
 # update these paths so that the script works correctly
-NAME=drake.js
-SITEROOT=/home/ubuntu/drake
+NAME=boilerplate.js
+SITEROOT=/home/ubuntu/production
 GHOST=/home/ubuntu/ghost
 grunt=/usr/bin/grunt
 gem=/usr/bin/gem
@@ -18,13 +18,11 @@ case "$1" in
     pwd
     $grunt prod
     $forever start $NAME -p
-    sudo service ghost start
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
     $forever stop $NAME -p
-    sudo service ghost stop
 
     ;;
   reload)
@@ -32,7 +30,6 @@ case "$1" in
     cd $SITEROOT
     $grunt prod
     $forever restart $NAME -p
-    sudo service ghost restart
     
     ;;
   install)
@@ -48,7 +45,7 @@ case "$1" in
     $forever list
     ;;
   *)
-    echo "Usage: /etc/init.d/drake {start|stop|list|reload|install}"
+    echo "Usage: /etc/init.d/boilerplate {start|stop|list|reload|install}"
     exit 1
     ;;
 esac
