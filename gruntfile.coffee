@@ -49,7 +49,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'images/'
           src: ['**/*.png', '*.png']
-          dest: 'static/img/'
+          dest: 'static/img/drake'
           ext: '.png'
         ]
       jpg:
@@ -57,9 +57,9 @@ module.exports = (grunt) ->
           progressive: true
         files: [
           expand: true
-          cwd: 'image/'
+          cwd: 'images/'
           src: ['**/*.jpg', '*.jpg']
-          dest: 'static/img/'
+          dest: 'static/img/drake'
           ext: '.jpg'
         ]
 
@@ -106,6 +106,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", [ "concat", "coffee", "compass:dev"]
+  grunt.registerTask "default", ["imagemin", "concat", "coffee", "compass:dev"]
   # in production, concat and minify
   grunt.registerTask "prod", ["imagemin", "concat", "uglify", "plato", "coffee", "compass:prod"]
