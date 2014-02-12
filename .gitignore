@@ -1,4 +1,10 @@
 # Read about how to use .gitignore: http://h5bp.com/ae
+drake.js
+ohmlabs.js
+weiss.js
+static/img/ohmlabs
+static/img/weiss
+static/img/drake
 
 # Numerous always-ignore extensions
 *.diff
@@ -29,9 +35,6 @@ Thumbs.db
 nbproject
 *.sublime-project
 *.sublime-workspace
-drake.js
-ohmlabs.js
-weiss.js
 # Dreamweaver added files
 _notes
 dwsync.xml
