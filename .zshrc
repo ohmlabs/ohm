@@ -1,4 +1,4 @@
-export PATH=/usr/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:~/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/bin/node
 export EDITOR=/usr/local/bin/emacs
 
@@ -96,6 +96,7 @@ alias which='type -a'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
  
+# disk usage shortcuts
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
  
@@ -108,20 +109,21 @@ alias lt='ls -ltFh'       #long list,sorted by date,show type,human readable
 alias ln='ln -is'         #symlink without clobbering
 alias ps='ps -efm'        #show all process 
 alias grep='grep -irn'    # grep recursively case insisitive with line numbers 
-alias tree='tree -I node_modules' # remove annoying node modules 
- 
+
+# app specific
+alias tree='tree -CI node_modules' # remove annoying node modules, use color
+alias 'npm ls'='npm ls -depth=0' # npm ls one dimm.
+alias brewdoc='brew doctor'
+alias gits='git st' # git  aliases should be in  ~/.gitconfig
+
+## SSH Aliases should be in ~/.ssh/config
+
 ##cd, because typing the backslash is ALOT of work!!
 alias .='cd ../'
 alias ..='cd ../../'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .-='cd -'
- 
-## SSH Aliases should be in ~/.ssh/config
-
-## Other aliases should be in  ~/.gitconfig
-alias gits='git st'
-alias brewdoc='brew doctor'
 
 ## use alt-s to insert sudo at the beginning
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
