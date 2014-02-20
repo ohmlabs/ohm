@@ -7,7 +7,7 @@ FILE_DIR=`pwd`
 echo $FILE_DIR
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
-read -p "This may overwrite existing files in your home directory. What type of install is this? (p)Prod (d)Dev" -n 1
+read -p "This may overwrite existing files in your home directory. Proceed? (Y/N)" -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   cd "$(dirname "${BASH_SOURCE}")"
@@ -19,8 +19,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   $npm install
   # install client dependencies http://bower.io/
   $bower install
-  $git submodule init
-  $git submodule update
   $grunt
   $grunt forever:start
   tail -n 1 logs/node-bp.log

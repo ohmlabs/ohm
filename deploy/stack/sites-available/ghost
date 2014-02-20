@@ -3,7 +3,7 @@ upstream ghost_upstream {
 	keepalive 64;
 }
 server {
-	listen 80;
+	listen 81;
 	server_name ghost.drake.fm labs.ohm.fm;
 	location / {
 		proxy_pass http://ghost_upstream;
