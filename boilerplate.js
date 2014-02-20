@@ -1,5 +1,5 @@
 (function() {
-  var app, aws, config, express, http, routes, server;
+  var app, config, express, http, routes, server;
 
   routes = require("./server/routes/site.js");
 
@@ -12,8 +12,6 @@
   app = express();
 
   server = http.createServer(app);
-
-  aws = require("./server/apis/AWS.js");
 
   app.set("env", config.env);
 

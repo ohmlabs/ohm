@@ -8,7 +8,7 @@ http = require("http")
 express = require("express")
 app = express()
 server = http.createServer(app)
-aws = require("./server/apis/AWS.js")
+# aws = require("./server/apis/AWS.js")
 
 # Middleware
 # Make sure we use the right environment
