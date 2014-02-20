@@ -60,14 +60,6 @@ module.exports = (grunt) ->
         pushTo: 'origin'
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
 
-    compass:
-      dev:
-        options:
-          config: "server/config/config.rb"
-      prod:
-        options:
-          config: "server/config/prod_config.rb"
-
     # generate a plato report on the project's javascript files
     plato:
       options:
@@ -106,23 +98,15 @@ module.exports = (grunt) ->
         options:
           config: "server/config/prod_config.rb"
 
-    # generate a plato report on the project's javascript files
-    plato:
-      options:
-        jshint : grunt.file.readJSON('.jshintrc')
-      your_task:
-        files: 
-          "logs/plato": ["static/js/*.js", "server/**/*.js"]
-
     # compile  coffeescript, only included the server file as an example.
     coffee:
       compile:
         files:
-          'drake.js': 'drake.coffee'
+          'boilerplate.js': 'boilerplate.coffee'
 
     forever:
       options:
-        index: 'drake.js' 
+        index: 'boilerplate.js' 
         logDir: 'logs'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
