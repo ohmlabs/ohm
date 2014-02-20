@@ -25,6 +25,41 @@ module.exports = (grunt) ->
         options:
           watchTask: true
 
+    # Cache Busting for production
+    cacheBust:
+      options:
+        encoding: 'utf8',
+        algorithm: 'md5',
+        length: 8
+        rename: true
+      assets:
+        files:
+          src: ["server/views/includes/common.jade", "server/views/includes/scripts.jade"]
+
+    # Open files
+    open:
+      plato:
+        path: 'http://127.0.0.1:8080/plato/'
+      dev:
+        path: 'http://127.0.0.1:8080'
+
+    # Bump for managing releases:
+    #     1.) bump up version on package.json
+    #     2.) increment git tag
+    bump:
+      options:
+        files: ['package.json']
+        updateConfigs: []
+        commit: true
+        commitMessage: 'Release v%VERSION%'
+        commitFiles: ['package.json'] # '-a' for all files
+        createTag: true
+        tagName: 'v%VERSION%'
+        tagMessage: 'Version %VERSION%'
+        push: true
+        pushTo: 'origin'
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
+
     compass:
       dev:
         options:
@@ -39,7 +74,7 @@ module.exports = (grunt) ->
         jshint : grunt.file.readJSON('.jshintrc')
       your_task:
         files: 
-          "logs/plato": ["static/js/*.js", "server/**/*.js"]
+          "static/plato": ["static/js/*.js", "server/**/*.js"]
 
     imagemin:
       png:
@@ -102,10 +137,13 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
   grunt.loadNpmTasks "grunt-browser-sync"
+  grunt.loadNpmTasks "grunt-cache-bust"
+  grunt.loadNpmTasks "grunt-bump"
+  grunt.loadNpmTasks "grunt-open"
   grunt.loadNpmTasks "grunt-plato"
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["imagemin", "concat", "coffee", "compass:dev"]
+  grunt.registerTask "default", [ "concat", "coffee", "compass:dev", "imagemin"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["imagemin", "concat", "uglify", "plato", "coffee", "compass:prod"]
+  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "coffee", "cacheBust", "open:plato", "imagemin"]
