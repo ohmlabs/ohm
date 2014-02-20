@@ -1,4 +1,13 @@
 # Read about how to use .gitignore: http://h5bp.com/ae
+pids
+logs
+results
+npm-debug.log
+node_modules
+static/js
+static/css
+static/components
+static/plato
 drake.js
 ohmlabs.js
 weiss.js
@@ -72,12 +81,3 @@ lib-cov
 *.pid
 *.gz
 
-pids
-logs
-results
-
-npm-debug.log
-node_modules
-static/js
-static/css
-static/components
