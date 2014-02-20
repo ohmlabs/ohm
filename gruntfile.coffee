@@ -25,9 +25,6 @@ module.exports = (grunt) ->
         options:
           watchTask: true
 
-    qunit:
-      files: ["test/**/*.html"]
-
     imagemin:
       png:
         options:
@@ -58,17 +55,6 @@ module.exports = (grunt) ->
         options:
           config: "server/config/prod_config.rb"
 
-    # jshint javascript files
-    jshint:
-      files: ["gruntfile.coffee", "server/**/*.js", "static/js/*.js", "boilerplate.js"]
-      options:
-        # options here to override JSHint defaults
-        globals:
-          jQuery: true
-          console: true
-          module: true
-          document: true
-    
     # generate a plato report on the project's javascript files
     plato:
       options:
@@ -112,8 +98,6 @@ module.exports = (grunt) ->
                           
   grunt.loadNpmTasks "grunt-contrib-imagemin"
   grunt.loadNpmTasks "grunt-contrib-uglify"
-  grunt.loadNpmTasks "grunt-contrib-jshint"
-  grunt.loadNpmTasks "grunt-contrib-qunit"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
