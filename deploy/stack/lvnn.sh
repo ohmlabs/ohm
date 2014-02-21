@@ -32,7 +32,8 @@ sudo npm install -g bower grunt-cli forever coffee-script node-inspector
 read -p "Node Install Complete, Do you want to install Ghost? [Y/n]" -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-        sudo ./$FILE_DIR/ghost.sh
+        cd $FILE_DIR
+        sudo ./ghost.sh
 elif [[ $REPLY =~ ^[Nn]$ ]]; then
         echo "install complete"
 fi

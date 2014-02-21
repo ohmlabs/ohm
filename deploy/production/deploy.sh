@@ -1,8 +1,8 @@
 #!/bin/bash
 FILE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 git=/usr/bin/git
-GIT=/home/ubuntu/git/production.git
-WORK_TREE=/home/ubuntu/production
+GIT=/home/git/production.git
+WORK_TREE=/home/git/production
 
 mkdir -p $GIT && cd $GIT
 $git --bare init

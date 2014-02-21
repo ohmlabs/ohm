@@ -2,8 +2,8 @@
 # /etc/init.d/boilerplate
 # update these paths so that the script works correctly
 NAME=boilerplate.js
-SITEROOT=/home/ubuntu/production
-GHOST=/home/ubuntu/ghost
+SITEROOT=/home/git/production
+GHOST=/home/git/ghost
 grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
