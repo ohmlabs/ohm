@@ -6,7 +6,7 @@ server {
 	listen 81;
 	server_name drake.fm;
 	root /home/git/drake/static;
-	location ~ ^/(images/|components/|img/|javascript/|js/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {
+	location ~ ^/(images/|components/|img/|javascript/|js/|plato/|css/|343.ttf|gcal.html|stylesheets/|media/|static/|robots.txt|humans.txt) {
 		access_log off;
 		expires max;
 	}

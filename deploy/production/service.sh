@@ -2,8 +2,8 @@
 # /etc/init.d/drake
 # update these paths so that the script works correctly
 NAME=drake.js
-SITEROOT=/home/ubuntu/drake
-GHOST=/home/ubuntu/ghost
+SITEROOT=/home/git/drake
+GHOST=/home/git/ghost
 grunt=/usr/bin/grunt
 gem=/usr/bin/gem
 forever=/usr/bin/forever
