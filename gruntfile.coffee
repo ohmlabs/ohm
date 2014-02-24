@@ -80,6 +80,7 @@ module.exports = (grunt) ->
       png:
         options:
           optimizationLevel: 7
+          cache: false
         files: [
           expand: true
           cwd: 'images/'
@@ -90,6 +91,7 @@ module.exports = (grunt) ->
       jpg:
         options:
           progressive: true
+          cache: false
         files: [
           expand: true
           cwd: 'images/'
