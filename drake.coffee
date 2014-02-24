@@ -1,5 +1,6 @@
 # Allow StrongOps to profile the app. see: http://docs.strongloop.com/display/DOC/Getting+started
 require('strong-agent').profile();
+routes = require("./server/routes/weiss.js")
 routes = require("./server/routes/drake.fm.js")
 config = require("./server/config/config.js")
 
@@ -40,6 +41,7 @@ app.configure ->
 app.get "/", routes.tumblr
 app.get "/index", routes.index
 app.get "/photos", routes.photos
+app.get "/weiss", routes.weiss
 app.get "/work", routes.work
 # 404 
 app.get "*", routes.error
