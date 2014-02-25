@@ -10,6 +10,7 @@ express = require("express")
 app = express()
 server = http.createServer(app)
 aws = require("./server/apis/AWS.js")
+require('strong-agent').profile();
 
 # Middleware
 # Make sure we use the right environment

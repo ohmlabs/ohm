@@ -17,21 +17,20 @@ case "$1" in
     cd $SITEROOT
     pwd
     $grunt prod
-    $forever start drake.js -p
-
+    $forever start $NAME -p
     ;;
   stop)
     echo "Stopping script $NAME"
     cd $SITEROOT
-    $forever stop drake.js -p
+    $forever stop $NAME -p
 
     ;;
   reload)
     echo "Compiling $NAME"
     cd $SITEROOT
     $grunt prod
-    $forever restart drake.js -p
-    
+    $forever restart $NAME -p
+
     ;;
   install)
     echo "Beginning Installation for script $NAME"
@@ -39,6 +38,7 @@ case "$1" in
     sudo $npm cache clean
     sudo $npm install
     $bower install --allow-root
+    slc strongops
 
     ;;
   list)

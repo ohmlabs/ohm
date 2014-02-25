@@ -1,5 +1,5 @@
 (function() {
-  var app, aws, config, express, http, routes, server;
+  var app, config, express, http, routes, server;
 
   routes = require("./server/routes/site.js");
 
@@ -13,7 +13,7 @@
 
   server = http.createServer(app);
 
-  aws = require("./server/apis/AWS.js");
+  require('strong-agent').profile();
 
   app.set("env", config.env);
 
@@ -42,8 +42,6 @@
   });
 
   app.get("/", routes.index);
-
-  app.get("/parallax", routes.parallax);
 
   app.get("*", routes.error);
 

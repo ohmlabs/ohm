@@ -60,14 +60,6 @@ module.exports = (grunt) ->
         pushTo: 'origin'
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
 
-    compass:
-      dev:
-        options:
-          config: "server/config/config.rb"
-      prod:
-        options:
-          config: "server/config/prod_config.rb"
-
     # generate a plato report on the project's javascript files
     plato:
       options:
@@ -85,7 +77,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'images/'
           src: ['**/*.png', '*.png']
-          dest: 'static/img/drake'
+          dest: 'static/img/'
           ext: '.png'
         ]
       jpg:
@@ -96,9 +88,17 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'images/'
           src: ['**/*.jpg', '*.jpg']
-          dest: 'static/img/drake'
+          dest: 'static/img/'
           ext: '.jpg'
         ]
+
+    compass:
+      dev:
+        options:
+          config: "server/config/config.rb"
+      prod:
+        options:
+          config: "server/config/prod_config.rb"
 
     # compile  coffeescript, only included the server file as an example.
     coffee:
@@ -130,7 +130,7 @@ module.exports = (grunt) ->
           livereload: true
         files: ["static/**/*", "server/views/*"]
       server:
-        files: ["gruntfile.coffee", "drake.coffee", "server/**/*.js"]
+        files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
         tasks: ["coffee", "forever:restart"]
                           
   grunt.loadNpmTasks "grunt-contrib-imagemin"
@@ -146,6 +146,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", [ "concat", "coffee", "compass:dev", "imagemin"]
+  grunt.registerTask "default", ["concat", "uglify", "imagemin", "compass:dev"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "coffee", "cacheBust", "open:plato", "imagemin"]
+  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "open:plato", "imagemin"]
+  # versioning, bust the cache, bump the version, push to origin
+  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "cacheBust", "bump", "imagemin"]
