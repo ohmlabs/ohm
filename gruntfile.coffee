@@ -148,4 +148,4 @@ module.exports = (grunt) ->
   # in production, concat and minify
   grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "open:plato", "imagemin"]
   # versioning, bust the cache, bump the version, push to origin
-  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "cacheBust", "bump", "imagemin"]
+  grunt.registerTask "version", ["concat", "uglify", "compass:prod", "plato", "cacheBust", "bump", "imagemin"]
