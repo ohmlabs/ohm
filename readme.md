@@ -55,11 +55,18 @@ Firstly, you will need to  install be sure that Ruby and Node are installed (on 
 
 ```sh
 cd deploy
-./dev_env.sh
-# for production...
+# on Ubuntu 12.04 (or later)
 ./prod_env.sh
 ```
-And That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the file you just ran.
+And That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the file you just ran. For those of you more interested in building an app in your local environment, refer to my dotfiles directory. From there:
+```sh
+cd dotfiles
+# on Mac OS X
+./bootstrap.sh
+# follow prompts
+```
+In this shell script you have the option of installing my dotfiles (you should really fork these and start building your own), command line apps via homebrew (assuming you already have it installed). Next you will install iOS native apps via Casks, which is AWESOME and finally global node modules and rubygems.
+
 # Running
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
