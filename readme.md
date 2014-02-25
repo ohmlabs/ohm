@@ -6,22 +6,37 @@ This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib a
 ├── client
 │   ├── js
 │   └── sass
+├── deploy
+│   ├── prod_env.sh
+│   ├── production
+│   └── stack
+├── dotfiles
+│   └── bootstrap.sh
+├── images
+├── logs
+│   ├── err-node-bp.log
+│   └── node-bp.log
 ├── server
+│   ├── apis
 │   ├── config
 │   ├── routes
 │   └── views
 ├── static
+│   ├── components
 │   ├── css
 │   ├── img
-│   └── js
-├── boilerplate.coffee        # main server file (coffee)
-├── boilerplate.js            # compile server file (js)
-├── gruntfile.coffee          # grunt tasks and config
-├── bower.json                # bower client dependencies file
-├── .bowerrc                  # bower config
+│   ├── js
+│   └── plato
+└── tutorials
+├── boilerplate.coffee
+├── boilerplate.js
+├── bower.json
+├── package.json
+├── gruntfile.coffee
+├── .bowerrc
 ├── .gitignore
 ├── .gitmodules
-├── package.json              # npm server dependencies file
+├── .jshintrc
 ├── readme.md
 ```
 
