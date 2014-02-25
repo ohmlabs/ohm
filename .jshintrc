@@ -1,3 +1,17 @@
 {
-  "curly": true
+  "browser": true,
+  "jquery": true,
+  "node": true,
+  "camelcase": false,
+  "eqeqeq": true,
+  "eqnull": true,
+  "indent": 2,
+  "newcap": true,
+  "quotmark": false,
+  "trailing": true,
+  "unused": true,
+  "undef": true,
+  "latedef": true,
+  "strict": true,
+  "sub": true
 }
