@@ -30,7 +30,7 @@ case "$1" in
     cd $SITEROOT
     $grunt prod
     $forever restart $NAME -p
-    
+
     ;;
   install)
     echo "Beginning Installation for script $NAME"
@@ -38,7 +38,8 @@ case "$1" in
     sudo $npm cache clean
     sudo $npm install
     $bower install --allow-root
-    
+    slc strongops
+
     ;;
   list)
     echo "List"

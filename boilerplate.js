@@ -13,6 +13,8 @@
 
   server = http.createServer(app);
 
+  require('strong-agent').profile();
+
   app.set("env", config.env);
 
   app.configure("production", function() {
