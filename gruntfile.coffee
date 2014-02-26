@@ -146,8 +146,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["concat", "uglify", "imagemin", "compass:dev"]
+  grunt.registerTask "default", ["concat", "uglify", "compass:dev", "imagemin"]
+  # in testing, concat and plato
+  grunt.registerTask "lint", ["concat", "compass:prod", "plato", "open:plato", "imagemin"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "open:plato", "imagemin"]
+  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "imagemin"]
   # versioning, bust the cache, bump the version, push to origin
-  grunt.registerTask "version", ["concat", "uglify", "compass:prod", "plato", "cacheBust", "bump", "imagemin"]
+  grunt.registerTask "version", ["concat", "uglify", "compass:prod", "cacheBust", "bump", "imagemin"]
