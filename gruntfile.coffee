@@ -127,7 +127,7 @@ module.exports = (grunt) ->
         tasks: ['concat', 'coffee', 'uglify']
       livereload:
         options:
-          livereload: true
+          livereload: 1337
         files: ["static/**/*", "server/views/*"]
       server:
         files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
@@ -146,7 +146,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["concat", "uglify", "compass:dev", "imagemin"]
+  grunt.registerTask "default", ["coffee", "concat", "uglify", "compass:dev", "imagemin"]
   # in testing, concat and plato
   grunt.registerTask "lint", ["concat", "compass:prod", "plato", "open:plato", "imagemin"]
   # in production, concat and minify

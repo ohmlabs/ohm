@@ -25,7 +25,13 @@ $weiss-blue: rgba(0,102,255,0.99)
   right: 30px
   color: $weiss-blue
   z-index: 1000
-
+#map_canvas
+  width: 100%
+  height: 800px
+  margin: auto
+  position: absolute
+  bottom: 16px
+  -skrollr-animation-name: map_canvas
 ///////////////////////////////////////
 //   Header                         //
 /////////////////////////////////////
@@ -67,7 +73,6 @@ header
 //   Sections                       //
 /////////////////////////////////////
 section
-  background: #000
   display: block
   width: 100%
   position: relative
@@ -91,6 +96,8 @@ section
   background: url('../img/drake/iStock_000000816590Large.jpg') no-repeat fixed 50% top
   background-size: cover
   -skrollr-animation-name: three
+#office
+  color: #333
 ///////////////////////////////////////
 //   Keyframes                      //
 /////////////////////////////////////
@@ -99,10 +106,16 @@ section
     background-position: 0px 0px
     @include opacity(1)
   1500
-    @include opacity(0.5)  
+    @include opacity(0.5)
   4500
     background-position: 0px -250px
     @include opacity(0)
+
+@-skrollr-keyframes map_canvas
+  1500-end
+    @include opacity(0.1)
+  end
+    @include opacity(1)
 
 @-skrollr-keyframes titleOne
   0
