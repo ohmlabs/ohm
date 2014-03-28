@@ -72,6 +72,7 @@ module.exports = (grunt) ->
       png:
         options:
           optimizationLevel: 7
+          cache: false
         files: [
           expand: true
           cwd: 'images/'
@@ -82,6 +83,7 @@ module.exports = (grunt) ->
       jpg:
         options:
           progressive: true
+          cache: false
         files: [
           expand: true
           cwd: 'images/'
@@ -102,11 +104,11 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'boilerplate.js': 'boilerplate.coffee'
+          'boilerplate.js': 'boilerplate.coffee'  # FIXME: change for project name
 
     forever:
       options:
-        index: 'boilerplate.js' 
+        index: 'boilerplate.js' 				  # FIXME: change for project name
         logDir: 'logs'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
@@ -125,7 +127,7 @@ module.exports = (grunt) ->
         tasks: ['concat', 'coffee', 'uglify']
       livereload:
         options:
-          livereload: true
+          livereload: 1337
         files: ["static/**/*", "server/views/*"]
       server:
         files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
@@ -144,8 +146,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["concat", "uglify", "imagemin", "compass:dev"]
+  grunt.registerTask "default", ["coffee", "concat", "uglify", "compass:dev", "imagemin"]
+  # in testing, concat and plato
+  grunt.registerTask "lint", ["concat", "compass:prod", "plato", "open:plato", "imagemin"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "plato", "open:plato", "imagemin"]
+  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "imagemin"]
   # versioning, bust the cache, bump the version, push to origin
-  grunt.registerTask "version", ["concat", "uglify", "compass:prod", "plato", "cacheBust", "bump", "imagemin"]
+  grunt.registerTask "version", ["concat", "uglify", "compass:prod", "cacheBust", "bump", "imagemin"]
