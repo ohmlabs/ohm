@@ -4,19 +4,19 @@ git=/usr/bin/git
 GIT=/home/git/production.git
 WORK_TREE=/home/git/production
 
-mkdir -p $GIT && cd $GIT
+sudo mkdir -p $GIT && cd $GIT
 $git --bare init
 function setUp() {
-  git --bare fetch git@github.com:cdrake757/boilerplate.git master:master
+  git --bare fetch git@github.com:ohmlabs/boilerplate.git master:master # FIXME: update name
   sudo cp -i $FILE_DIR/hooks/pre-receive.sh $GIT/hooks/pre-receive
   sudo cp -i $FILE_DIR/hooks/post-receive.sh $GIT/hooks/post-receive
   sudo chmod +x $GIT/hooks/pre-receive
   sudo chmod +x $GIT/hooks/post-receive
   sudo cp -i $FILE_DIR/service.sh /etc/init.d/boilerplate
   sudo chmod 0755 /etc/init.d/boilerplate
-  mkdir $WORK_TREE
+  sudo mkdir -p $WORK_TREE
 }
-read -p "Key above added ?? https://github.com/cdrake757/boilerplate/settings/keys (No to proceed with https authentication) [Y/n]" -n 1
+read -p "Visit https://github.com/ohmlabs/boilerplate/settings/keys to add Deploy Key (No to proceed with https authentication) [Y/n]" -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   setUp
