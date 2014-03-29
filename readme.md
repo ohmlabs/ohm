@@ -103,6 +103,28 @@ $ slc strongops --register
 # If you already have a StrongOps account, don't use --register.
 # Complete your registration at the strongOps site
 ```
+### Versioning the App
+The best thing about this boilerplate is that when used in conjunction with our [environment repo](https://github.com/ohmlabs/environment) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets.
+```sh
+git checkout prod
+grunt prod
+```
+Once you are satisfied and ready to commit execute the ```grunt version``` command:
+* compiles assets for production
+* cache busts those assets 
+* bumps the version tag for git
+* compresses images
+
+```sh
+git add .
+git ci -m 'pushing to production'
+grunt version # alternatively you can:
+# grunt bump:patch
+# grunt bump:minor
+# grunt bump:major
+git push production prod  # push to the actual server
+git push origin prod      # push to github servers
+```
 
 # License
 This boilerplate is licensed under the MIT license
