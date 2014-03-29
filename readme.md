@@ -60,22 +60,7 @@ If you are a designer most of your time will be spent in the client directory. I
 
 # Installing
 
-Firstly, you will need to  install be sure that Ruby and Node are installed (on dev, in production this is done as a part of the install script). If you have never configured a command line development environment, start [HERE](https://github.com/ohmlabs/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
-
-```sh
-cd deploy
-# on Ubuntu 12.04 (or later)
-./prod_env.sh
-```
-And That's it thanks to some crafty scripting by yours truly... If you care what was installed just read the file you just ran. For those of you more interested in building an app in your local environment, refer to my dotfiles directory. From there:
-```sh
-cd dotfiles
-# on Mac OS X
-./bootstrap.sh
-# follow prompts
-```
-In this shell script you have the option of installing my dotfiles (you should really fork these and start building your own), command line apps via homebrew (assuming you already have it installed). Next you will install iOS native apps via Casks, which is AWESOME and finally global node modules and rubygems.
-
+In order to configure a development environment sufficient for running this boilerplate I recommend using our [environment repo](https://github.com/ohmlabs/environment)
 # Running
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 
