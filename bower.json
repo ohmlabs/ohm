@@ -21,6 +21,9 @@
     "skrollr": "0.6.13",
     "skrollr-menu": "~0.1.10",
     "skrollr-stylesheets": "~0.0.4",
-    "skrollr-ie": "~1.0.2"
+    "skrollr-ie": "~1.0.2",
+    "maps": "https://github.com/cdrake757/maplace.js.git",
+    "underscore": "~1.6.0",
+    "d3": "~3.4.4"
   }
 }
