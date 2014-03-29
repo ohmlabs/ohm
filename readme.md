@@ -6,12 +6,6 @@ This is a very simple Node.js Boilerplate that uses Express, Jade, Stylus, Nib a
 ├── client
 │   ├── js
 │   └── sass
-├── deploy
-│   ├── prod_env.sh
-│   ├── production
-│   └── stack
-├── dotfiles
-│   └── bootstrap.sh
 ├── images
 ├── logs
 │   ├── err-node-bp.log
@@ -59,14 +53,14 @@ If you are a designer most of your time will be spent in the client directory. I
 
 ### Major components:
 
-* For server dependencies see [package.json](https://github.com/cdrake757/boilerplate/blob/master/package.json)
-* For client dependencies see [bower.json](https://github.com/cdrake757/boilerplate/blob/master/bower.json)
+* For server dependencies see [package.json](https://github.com/ohmlabs/boilerplate/blob/master/package.json)
+* For client dependencies see [bower.json](https://github.com/ohmlabs/boilerplate/blob/master/bower.json)
 * [Express](http://expressjs.com/guide.html)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
 # Installing
 
-Firstly, you will need to  install be sure that Ruby and Node are installed (on dev, in production this is done as a part of the install script). If you have never configured a command line development environment, start [HERE](https://github.com/cdrake757/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
+Firstly, you will need to  install be sure that Ruby and Node are installed (on dev, in production this is done as a part of the install script). If you have never configured a command line development environment, start [HERE](https://github.com/ohmlabs/boilerplate/tree/master/tutorials#environment). Next execute the following commands:
 
 ```sh
 cd deploy
@@ -107,19 +101,12 @@ grunt watch
 # compile files
 grunt
 # compile files for production
-grunt prod 
-```
-In production:
-
-```sh
-sudo service boilerplate start
-sudo service boilerplate stop
-sudo service boilerplate reload
+grunt prod
 ```
 #### Extras
 ```sh
-grunt plato
-# open the index file in the folder specified in the gruntfile and view report
+# get lint and complexity reports(Plato)
+grunt lint
 ```
 An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
 
