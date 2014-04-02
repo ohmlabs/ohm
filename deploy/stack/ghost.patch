@@ -1,4 +1,0 @@
-18c18
-< GHOST_ROOT=/var/www/ghost
----
-> GHOST_ROOT=/home/git/ghost
