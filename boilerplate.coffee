@@ -1,24 +1,25 @@
-# Allow StrongOps to profile the app. see: http://docs.strongloop.com/display/DOC/Getting+started
-# require('strong-agent').profile();
-routes = require("./server/routes/site.js")
+# You need to copy config/config.example.js to config/config.js
 config = require("./server/config/config.js")
-
-# Module Dependencies
+################
+# Dependencies
+################
 http = require("http")
 express = require("express")
 app = express()
 server = http.createServer(app)
-require('strong-agent').profile();
-
-# aws = require("./server/apis/AWS.js")
-
-# Middleware
-# Make sure we use the right environment
+io = require('socket.io').listen(server);
+################
+# APIS
+################
+parse = require("./server/apis/Parse.js")
+aws = require("./server/apis/AWS.js")
+################
+# Configuration
+################
 app.set "env", config.env
-
 app.configure "production", ->
   app.use express.errorHandler()
-    # tell express that its sitting behind a proxy (nginx)
+  # tell express that its sitting behind a proxy (nginx)
   app.enable "trust proxy"
   app.locals.pretty = false
 
@@ -37,16 +38,17 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
-
-# Routes
-app.get "/", routes.index
-
-# 404 
-app.get "*", routes.error
-
+################
+# Controllers
+################
+sample = require("./server/controllers/SampleController.js")
+app.get "/", sample.index
+# 404
+app.get "*", sample.error
+################
 # Listen
-
-app.listen config.port
+################
+server.listen config.port
 if config.is_prod
   console.log "Server started on port " + config.port + " in production mode"
 else

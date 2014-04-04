@@ -66,7 +66,7 @@ module.exports = (grunt) ->
         jshint : grunt.file.readJSON('.jshintrc')
       your_task:
         files: 
-          "static/plato": ["static/js/*.js", "server/**/*.js"]
+          "static/plato": ["client/js/*.js", "server/**/*.js"]
 
     imagemin:
       png:
@@ -110,6 +110,7 @@ module.exports = (grunt) ->
       options:
         index: 'drake.js' 
         logDir: 'logs'
+        command: 'node --debug'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
 
@@ -148,7 +149,7 @@ module.exports = (grunt) ->
   # the bare grunt command only compiles
   grunt.registerTask "default", ["coffee", "concat", "uglify", "compass:dev", "imagemin"]
   # in testing, concat and plato
-  grunt.registerTask "lint", ["concat", "compass:prod", "plato", "open:plato", "imagemin"]
+  grunt.registerTask "lint", ["plato", "open:plato", "imagemin"]
   # in production, concat and minify
   grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "imagemin"]
   # versioning, bust the cache, bump the version, push to origin

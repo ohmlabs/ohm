@@ -9,12 +9,8 @@ static/css
 static/components
 static/img
 static/plato
-drake.js
-ohmlabs.js
-weiss.js
-static/img/ohmlabs
-static/img/weiss
-static/img/drake
+server/config/config.js
+server/config/aws.json
 
 # Numerous always-ignore extensions
 *.diff
