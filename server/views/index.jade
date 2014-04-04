@@ -1,7 +1,42 @@
 extends layout
-
 block head
-  meta(name='description', content='')
-  meta(name='keywords', content='')
-  link(rel='shortcut icon', href='img/favicon.png')
+  //////////////////////////////////////
+  // STYLES
+  //////////////////////////////////////
   link(rel="stylesheet", href="/css/style.css", type="text/css")
+  //////////////////////////////////////
+  // SHORTCUT ICONS:
+  //////////////////////////////////////
+  link(rel='shortcut icon', href='img/favicon.png')
+  link(rel="apple-touch-icon-precomposed",  href="/img/apple-touch-icon-precomposed.png")
+  //////////////////////////////////////
+  // APPLE
+  //////////////////////////////////////
+  meta(name="description", content="")
+  meta(name="author", content="")
+  meta(name='keywords', content='')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  //////////////////////////////////////
+  // FACEBOOK
+  //////////////////////////////////////
+  meta(property="og:title", content="title")
+  meta(property="og:description", content="The best in the business")
+  meta(property="og:image", content="")
+  //////////////////////////////////////
+  // TWITTER
+  //////////////////////////////////////
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@site_account')
+  meta(name='twitter:creator', content='@individual_account')
+  meta(name='twitter:url', content='http://www.example.com/path/to/page.html')
+  meta(name='twitter:title', content='')
+  meta(name='twitter:description', content='')
+  meta(name='twitter:image', content='http://www.example.com/path/to/image.jpg')
+  //////////////////////////////////////
+  // EXTENSIONS: https://github.com/h5bp/html5-boilerplate/blob/master/doc/extend.md
+  /////////////////////////////////////
+  // CHROME
+  // link(rel="chrome-webstore-item", href="https://chrome.google.com/webstore/detail/APP_ID")
+  // APP STORE
+  // meta(name="apple-itunes-app", content="app-id=APP_ID,app-argument=SOME_TEXT")
