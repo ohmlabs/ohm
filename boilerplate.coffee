@@ -1,5 +1,6 @@
 # You need to copy config/config.example.js to config/config.js
 config = require("./server/config/config.js")
+routes = require("./server/routes/index.js")
 ################
 # Dependencies
 ################
@@ -39,10 +40,11 @@ app.configure ->
   app.use express.methodOverride()
   app.use app.router
 ################
-# Controllers
+# Routes
 ################
 sample = require("./server/controllers/SampleController.js")
-app.get "/", sample.index
+# import routes
+routes.site(app)
 # 404
 app.get "*", sample.error
 ################

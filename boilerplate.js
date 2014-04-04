@@ -1,7 +1,9 @@
 (function() {
-  var app, aws, config, express, http, io, parse, sample, server;
+  var app, aws, config, express, http, io, parse, routes, sample, server;
 
   config = require("./server/config/config.js");
+
+  routes = require("./server/routes/index.js");
 
   http = require("http");
 
@@ -45,7 +47,7 @@
 
   sample = require("./server/controllers/SampleController.js");
 
-  app.get("/", sample.index);
+  routes.site(app);
 
   app.get("*", sample.error);
 
