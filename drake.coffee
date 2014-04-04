@@ -80,8 +80,8 @@ require('strong-agent').profile();
 ################
 # Routes
 ################
-# import routes
 sample = require("./server/controllers/SampleController.js")
+# import routes
 routes.site(app)
 routes.weiss(app)
 routes.ohm(app)
