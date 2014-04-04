@@ -1,7 +1,5 @@
 (function() {
-  var app, config, express, http, routes, server;
-
-  routes = require("./server/routes/site.js");
+  var app, aws, config, express, http, io, parse, sample, server;
 
   config = require("./server/config/config.js");
 
@@ -13,7 +11,11 @@
 
   server = http.createServer(app);
 
-  require('strong-agent').profile();
+  io = require('socket.io').listen(server);
+
+  parse = require("./server/apis/Parse.js");
+
+  aws = require("./server/apis/AWS.js");
 
   app.set("env", config.env);
 
@@ -41,11 +43,13 @@
     return app.use(app.router);
   });
 
-  app.get("/", routes.index);
+  sample = require("./server/controllers/SampleController.js");
 
-  app.get("*", routes.error);
+  app.get("/", sample.index);
 
-  app.listen(config.port);
+  app.get("*", sample.error);
+
+  server.listen(config.port);
 
   if (config.is_prod) {
     console.log("Server started on port " + config.port + " in production mode");
