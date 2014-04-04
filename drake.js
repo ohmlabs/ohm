@@ -1,7 +1,9 @@
 (function() {
-  var app, aws, config, drake, express, http, io, parse, sample, server, weiss;
+  var app, aws, config, express, http, io, parse, routes, sample, server;
 
   config = require("./server/config/config.js");
+
+  routes = require("./server/routes/index.js");
 
   http = require("http");
 
@@ -85,21 +87,15 @@
 
   require('strong-agent').profile();
 
-  drake = require("./server/controllers/DrakeController.js");
-
-  weiss = require("./server/controllers/WeissHomeController.js");
-
   sample = require("./server/controllers/SampleController.js");
 
-  app.get("/work", drake.work);
+  routes.site(app);
 
-  app.get("/weiss", weiss.home);
+  routes.weiss(app);
 
-  app.get("/", drake.tumblr);
+  routes.ohm(app);
 
-  app.get("/photos", drake.photos);
-
-  app.get("/index", sample.index);
+  routes.drake(app);
 
   app.get("*", sample.error);
 

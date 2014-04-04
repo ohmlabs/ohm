@@ -1,5 +1,6 @@
 # You need to copy config/config.example.js to config/config.js
 config = require("./server/config/config.js")
+routes = require("./server/routes/index.js")
 ################
 # Dependencies
 ################
@@ -76,18 +77,15 @@ io.on "connection", (socket) ->
 ################
 # StrongOps see: http://docs.strongloop.com/display/DOC/Getting+started
 require('strong-agent').profile();
-drake = require("./server/controllers/DrakeController.js")
-weiss = require("./server/controllers/WeissHomeController.js")
 ################
-# Controllers
-################
-sample = require("./server/controllers/SampleController.js")
 # Routes
-app.get "/work", drake.work
-app.get "/weiss", weiss.home
-app.get "/", drake.tumblr
-app.get "/photos", drake.photos
-app.get "/index", sample.index
+################
+# import routes
+sample = require("./server/controllers/SampleController.js")
+routes.site(app)
+routes.weiss(app)
+routes.ohm(app)
+routes.drake(app)
 # 404
 app.get "*", sample.error
 ################

@@ -1,0 +1,114 @@
+extends layout
+block head
+  //////////////////////////////////////
+  // STYLES
+  //////////////////////////////////////
+  link(rel="stylesheet", href="/css/ohm.css", type="text/css")
+  //////////////////////////////////////
+  // SHORTCUT ICONS:
+  //////////////////////////////////////
+  link(rel='shortcut icon', href='img/ohmlabs/favicon.png')
+  link(rel="apple-touch-icon-precomposed",  href="/img/apple-touch-icon-precomposed.png")
+  //////////////////////////////////////
+  // APPLE
+  //////////////////////////////////////
+  meta(name="description", content="")
+  meta(name="author", content="")
+  meta(name='keywords', content='')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  //////////////////////////////////////
+  // FACEBOOK
+  //////////////////////////////////////
+  meta(property="og:title", content="title")
+  meta(property="og:description", content="The best in the business")
+  meta(property="og:image", content="")
+  //////////////////////////////////////
+  // TWITTER
+  //////////////////////////////////////
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@site_account')
+  meta(name='twitter:creator', content='@individual_account')
+  meta(name='twitter:url', content='http://www.example.com/path/to/page.html')
+  meta(name='twitter:title', content='')
+  meta(name='twitter:description', content='')
+  meta(name='twitter:image', content='http://www.example.com/path/to/image.jpg')
+  //////////////////////////////////////
+  // APP STORE
+  /////////////////////////////////////
+  meta(name="apple-itunes-app", content="app-id=522608649")
+block content
+  header
+    .masthead
+      .sprite.icon
+      div
+        p
+          | Ohm Labs Inc Presents:
+        h1 Ohm Music
+      div
+        a(href='http://itunes.apple.com/us/app/ohm-music/id522608649?mt=8', target='_blank')
+          #appstore.sprite
+        a(href='https://play.google.com/store/apps/details?id=com.ohmslab', target='_blank')
+          #playstore.sprite
+    .clear_float
+    hr
+  .clear_float
+  .contentarea
+    .product
+      .phoneframe
+        img(src='img/ohmlabs/screen1.png', width='260', alt='Welcome to a more Beautiful Music Collection')
+        img(src='img/ohmlabs/screen2.png', width='260', alt='Interact with Playlists Like Never Before')
+        img(src='img/ohmlabs/screen3.png', width='260', alt='Welcome to a more Beautiful Music Collection')
+        img(src='img/ohmlabs/screen4.png', width='260', alt='Home Screen Uses Gesture-Based Commands')
+        img(src='img/ohmlabs/screen5.png', width='260', alt='Welcome to a more Beautiful Music Collection')
+        img(src='img/ohmlabs/screen6.png', width='260', alt='Welcome to a more Beautiful Music Collection')
+        img(src='img/ohmlabs/screen7.png', width='260', alt='Use the queue to build playlists on-the-go')
+      .appdescript
+        h2 Beautiful Music Collections
+        p
+          | We understand that your music library is not a spreadsheet, but a treasured collection that should remind you of digging through the crates at a record store. In Ohm, each of your artists gets a unique profile page, allowing you to easily browse through and showcase your favorite artist collections.
+        h2 Playlists Done Right
+        p
+          | We were annoyed by the fact that players were repositories for your playlists, rather than a factory of them. To solve this problem we introduced a queue, which allows you to quickly build on-the-go playlists. Once created, your can then associate your own photos with these playlists, creating a far more personal musical experience.
+        h2 Share Musical Moments
+        p
+          | We\'ve enabled you to share the current song you\'re listening to from your music player to your preferred social network with a single click. You can also attach links from your preferred web services like YouTube so other friends can listen in too.
+        h2 Sleek Controls
+        p
+          | While the original iPod was designed with a click wheel, the current generation of smartphones requires little more than your finger to operate. Ohm has a full suite of gesture controls so you can use seamlessly play and pause, jump forward or back within your current shuffle or queue, ideal for when you\'re on a run, at the gym, or just walking around town.
+        .viralbuttons
+          // FACEBOOK BTN 
+          #fb-root
+          .fb-like(data-href='http://facebook.com/ohmmusicapp', data-send='true', data-layout='button_count', data-width='', data-show-faces='true', data-font='arial')
+          // +1 BTN 
+          .g-plusone(data-size='medium', data-href='https://play.google.com/store/apps/details?id=com.ohmslab')
+          // FOLLOW BTN 
+          a.twitter-follow-button(href='https://twitter.com/ohmlabs', data-show-count='false') Follow @ohmlabs
+  footer
+    .footframe.sprite
+      .social.sprite
+        a(href='http://facebook.com/ohmmusicapp', target='_blank')
+          #zonefacebook
+        a(href='http://twitter.com/ohmlabs', target='_blank')
+          #zonetweet
+        a(href='http://youtube.com/ohmlabs', target='_blank')
+          #zoneyoutube
+        a(href='http://blog.ohmmusic.com', target='_blank')
+          #zonetumblr
+      .download.sprite
+        a(href='https://play.google.com/store/apps/details?id=com.ohmslab', target='_blank')
+          #zoneplay
+        a(href='http://itunes.apple.com/us/app/ohm-music/id522608649?mt=8', target='_blank')
+          #zoneios
+      #downloadsub
+        p
+          | Download Now
+      .clear_float
+      hr
+      ul.copy
+        li#contact
+          a(href='mailto:info@ohmmusic.com?Subject=Ohm%20Feedback') Contact Us
+        li
+          a(href='mailto:help@ohmmusic.com?Subject=Ohm%20Feedback') Feedback
+        li#copyright
+          | Copright © 2011 Ohm Labs Inc. San Francisco, CA, All rights reserved, Patents Pending.

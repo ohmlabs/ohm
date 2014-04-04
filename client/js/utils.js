@@ -8,7 +8,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 //////////////
 // Local   //
 ////////////
-if (window.location.origin.indexOf("8080") !== -1)
+if (window.location.origin.indexOf("8888") !== -1)
 {
   handleError("development mode");
 }
