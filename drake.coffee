@@ -1,23 +1,25 @@
-# Allow StrongOps to profile the app. see: http://docs.strongloop.com/display/DOC/Getting+started
-require('strong-agent').profile();
-routes = require("./server/routes/drake.fm.js")
+# You need to copy config/config.example.js to config/config.js
 config = require("./server/config/config.js")
-
-# Module Dependencies
+################
+# Dependencies
+################
 http = require("http")
 express = require("express")
 app = express()
 server = http.createServer(app)
+io = require('socket.io').listen(server);
+################
+# APIS
+################
+parse = require("./server/apis/Parse.js")
 aws = require("./server/apis/AWS.js")
-require('strong-agent').profile();
-
-# Middleware
-# Make sure we use the right environment
+################
+# Configuration
+################
 app.set "env", config.env
-
 app.configure "production", ->
   app.use express.errorHandler()
-    # tell express that its sitting behind a proxy (nginx)
+  # tell express that its sitting behind a proxy (nginx)
   app.enable "trust proxy"
   app.locals.pretty = false
 
@@ -36,19 +38,62 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
-
+################
+# Sockets
+################
+io.on "connection", (socket) ->
+  socket.emit('news', { hello: 'world' })
+  socket.on "message", (data) ->
+    console.log "received: " + JSON.stringify(data)
+    socket.emit "news_response",
+      hello: "world"
+    return
+  socket.on "geo", (data) ->
+    Locations = parse.Object.extend("locations")
+    query = new parse.Query(Locations)
+    query.get data.location.objectId,
+      success: (location) ->
+        point = new parse.GeoPoint({latitude: data.location.latLng.k, longitude: data.location.latLng.A});
+        location.set "latLng", point
+        location.set "readable_address", data.location.readable_address
+        location.save null,
+          success: (location) ->
+            console.log location
+            return
+          error: (gameScore, error) ->
+            console.log "Failed to create new object, with error code: " + error.description
+            return
+      # The object was retrieved successfully.
+      error: (object, error) ->
+        # The object was not retrieved successfully.
+        # error is a Parse.Error with an error code and description.
+  socket.on "disconnect", ->
+    console.log "disconnected"
+    return
+  return
+################
+# Extras
+################
+# StrongOps see: http://docs.strongloop.com/display/DOC/Getting+started
+require('strong-agent').profile();
+drake = require("./server/controllers/DrakeController.js")
+weiss = require("./server/controllers/WeissHomeController.js")
+################
+# Controllers
+################
+sample = require("./server/controllers/SampleController.js")
 # Routes
-app.get "/", routes.tumblr
-app.get "/index", routes.index
-app.get "/photos", routes.photos
-app.get "/weiss", routes.weiss
-app.get "/work", routes.work
-# 404 
-app.get "*", routes.error
-
+app.get "/work", drake.work
+app.get "/weiss", weiss.home
+app.get "/", drake.tumblr
+app.get "/photos", drake.photos
+app.get "/index", sample.index
+# 404
+app.get "*", sample.error
+################
 # Listen
-
-app.listen config.port
+################
+server.listen config.port
 if config.is_prod
   console.log "Server started on port " + config.port + " in production mode"
 else

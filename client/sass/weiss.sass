@@ -6,7 +6,10 @@
 //   Figures                        //
 /////////////////////////////////////
 @import "figures"
-
+///////////////////////////////////////
+//   Utilities                      //
+/////////////////////////////////////
+@import "utilities"
 $app-bg: #fff
 $weiss-blue: rgba(0,102,255,0.99)
 ///////////////////////////////////////
@@ -25,13 +28,6 @@ $weiss-blue: rgba(0,102,255,0.99)
   right: 30px
   color: $weiss-blue
   z-index: 1000
-#map_canvas
-  width: 100%
-  height: 800px
-  margin: auto
-  position: absolute
-  bottom: 16px
-  -skrollr-animation-name: map_canvas
 ///////////////////////////////////////
 //   Header                         //
 /////////////////////////////////////
@@ -83,57 +79,207 @@ section
     width: 100%
     height: 100%
     background: rgba(0,0,0,0.8)
+#two
+  -skrollr-animation-name: anatomy
+  background: rgb(0,102,255)
 #one
-  background: url('../img/drake/iStock_000020722248XXXLarge.jpg') no-repeat fixed 50% top
-  background-size: cover
-  -skrollr-animation-name: one
-  #title
+  height: 9000px
+  figure#body
     position: fixed
-    left: 10px
-    -skrollr-animation-name: titleOne
-    color: $weiss-blue
+    top: 75px
+    -skrollr-animation-name: model
+    width: 100%
+    .model
+      position: relative
+      width: 600px
+      height: 802px
+      background: url('../img/drake/iStock_000020722248XXXLarge.jpg') no-repeat 50% top
+      background-size: cover
+      margin: auto
+      .body-part
+        display: block
+        position: absolute
+      svg
+        g
+          text.name
+            fill: $weiss-blue
+            font: 400 20px $hcb
+            text-anchor: middle
+          circle
+            stroke: steelblue
+            fill-opacity: 0
+            fill: #fff
+            stroke-opacity: 0.3
+            stroke-width: 4
+          .description, .short, .maladies
+            display: none
+        g:hover
+          text.name
+            stroke-width: 0.2
+            fill: $weiss-blue
+            +text-shadow(#fff 1px 1px 5px)
+          circle
+            stroke: $weiss-blue
+            stroke-opacity: 1
+      #hip
+        top: 260px
+        left: 110px
+        g
+          circle
+            -skrollr-animation-name: hip
+      #elbow
+        top: 60px
+        left: 130px
+        g
+          circle
+            -skrollr-animation-name: elbow
+      #shoulder
+        top: 120px
+        left: 250px
+        g
+          circle
+            -skrollr-animation-name: shoulder
+      #foot
+        top: 510px
+        left: 420px
+        g
+          circle
+            -skrollr-animation-name: foot
+      #hand
+        top: 0
+        left: 0
+        g
+          circle
+            -skrollr-animation-name: hand
+      #knee
+        top: 300px
+        left: 350px
+        g
+          circle
+            -skrollr-animation-name: knee
 #three
   background: url('../img/drake/iStock_000000816590Large.jpg') no-repeat fixed 50% top
   background-size: cover
   -skrollr-animation-name: three
 #office
   color: #333
+  figure#office-details
+    .offices
+      width: 300px
+      -skrollr-animation-name: offices
+      .location
+        width: 280px
+        padding: 10px
+        height: 100px
+        z-index: 1001
+        display: inline-block
+  #map_canvas
+    width: 100%
+    height: 800px
+    margin: auto
+    position: absolute
+    bottom: 16px
+    -skrollr-animation-name: map_canvas
 ///////////////////////////////////////
 //   Keyframes                      //
 /////////////////////////////////////
-@-skrollr-keyframes one
-  0
-    background-position: 0px 0px
-    @include opacity(1)
-  1500
-    @include opacity(0.5)
-  4500
-    background-position: 0px -250px
+@-skrollr-keyframes offices
+  17500
     @include opacity(0)
+    position: fixed
+    top: 10px
+  19000
+    @include opacity(1)
+    position: fixed
+    top: 10px
+
+@-skrollr-keyframes model
+  0
+    @include opacity(1)
+  8200
+    @include opacity(1)
+  9000
+    @include opacity(0)
+
+@-skrollr-keyframes anatomy
+  0
+    background: rgb(0,102,255)
+  9000
+    background: rgb(0,102,255)
+  13500
+    background: rgb(4,55,108)
+
+@-skrollr-keyframes hand
+  0
+    fill-opacity: 0
+    stroke-opacity: 0.3
+  750
+    fill-opacity: 0.7
+    stroke-opacity: 1
+  1500
+    fill-opacity: 0
+    stroke-opacity: 0.3
+
+@-skrollr-keyframes elbow
+  1500
+    fill-opacity: 0
+    stroke-opacity: 0.3
+  2250
+    fill-opacity: 0.7
+    stroke-opacity: 1
+  3000
+    fill-opacity: 0
+    stroke-opacity: 0.3
+
+@-skrollr-keyframes shoulder
+  3000
+    fill-opacity: 0
+    stroke-opacity: 0.3
+  3750
+    fill-opacity: 0.7
+    stroke-opacity: 1
+  4500
+    fill-opacity: 0
+    stroke-opacity: 0.3
+
+@-skrollr-keyframes hip
+  4500
+    fill-opacity: 0
+    stroke-opacity: 0.3
+  5250
+    fill-opacity: 0.7
+    stroke-opacity: 1
+  6000
+    fill-opacity: 0
+    stroke-opacity: 0.3
+
+@-skrollr-keyframes knee
+  6000
+    fill-opacity: 0
+    stroke-opacity: 0.3
+  6750
+    fill-opacity: 0.7
+    stroke-opacity: 1
+  7500
+    fill-opacity: 0
+    stroke-opacity: 0.3
+
+@-skrollr-keyframes foot
+  7500
+    fill-opacity: 0
+    stroke-opacity: 0.3
+  8250
+    fill-opacity: 0.7
+    stroke-opacity: 1
+  9000
+    fill-opacity: 0
+    stroke-opacity: 0.3
 
 @-skrollr-keyframes map_canvas
   1500-end
     @include opacity(0.1)
   end
     @include opacity(1)
-
-@-skrollr-keyframes titleOne
-  0
-    top: 200px
-    display: block
-  1500
-    top: 100px
-    display: block
-  4500
-    display: none
-    
-@-skrollr-keyframes three
-  0
-    background-position: 0px 0px
-  9000
-    background-position: 0px 0px
-  end
-    background-position: -250px 0px
 
 @-skrollr-keyframes menu-link
   0

@@ -9,8 +9,7 @@ static/css
 static/components
 static/img
 static/plato
-server/config/config.js
-server/config/aws.json
+# server/config/config.js
 
 # Numerous always-ignore extensions
 *.diff
@@ -25,7 +24,6 @@ server/config/aws.json
 *#
 
 # APPLICATION SPECIFIC IGNORES
-server/config/config.json # for AWS security
 *.sass-cache
 logs
 *.css
