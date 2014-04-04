@@ -110,6 +110,7 @@ module.exports = (grunt) ->
       options:
         index: 'boilerplate.js' 				  # FIXME: change for project name
         logDir: 'logs'
+        command: 'node --debug'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
 
