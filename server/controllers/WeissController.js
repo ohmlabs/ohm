@@ -17,7 +17,7 @@ module.exports = {
         socketio: true,
         gmaps: config.GOOGLE_MAPS_KEY,
         ga: config.GOOGLE_ANALYTICS,
-      }
+      },
     });
   },
 }

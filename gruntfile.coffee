@@ -110,7 +110,7 @@ module.exports = (grunt) ->
       options:
         index: 'drake.js' 
         logDir: 'logs'
-        command: 'node --debug'
+        command: 'node --debug=5859'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
 
