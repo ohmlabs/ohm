@@ -10,7 +10,7 @@ var offices = [];
 
 function initializeMap(data) {
   // load style from json
-  if (data.theme !== null && (data.theme === "BW" || data.theme === "RGB")) {
+  if (data.theme !== null && (data.theme === "BW" || data.theme === "weiss")) {
     d3.json("maps/" + data.theme + ".json", function(json) {
       mapStyles = json;
       styledMap = new google.maps.StyledMapType(mapStyles, {name: data.theme});

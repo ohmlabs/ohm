@@ -20,19 +20,20 @@ block head
   //////////////////////////////////////
   // FACEBOOK
   //////////////////////////////////////
-  meta(property="og:title", content="title")
-  meta(property="og:description", content="The best in the business")
-  meta(property="og:image", content="")
+  meta(property="og:title", content="Weiss Orthoaedics: Over 20 years of putting you back to work and back on your feet.")
+  meta(property="og:description", content="Weiss Orthopaedics in Northern California provides exceptional care for orthopaedic injuries and conditions, including Sports Medicine, Hand Surgery, Shoulder and Elbow Arthroscopy & Reconstruction, Knee and Cartilage Repair, and Joint Reconstruction.")
+  meta(property="og:image", content="http://drake.fm/img/drake/logo.png")
+  meta(property="og:url", content="http://www.weissortho.com/")
   //////////////////////////////////////
   // TWITTER
   //////////////////////////////////////
-  meta(name='twitter:card', content='summary')
+  meta(name='twitter:card', content='summary_large_image')
   meta(name='twitter:site', content='@WeissOrtho')
   meta(name='twitter:creator', content='@camwes')
   meta(name='twitter:url', content='http://www.weissortho.com/')
-  meta(name='twitter:title', content='Weiss Orthoaedics: Over 20 years of putting you back to work and back on your feet.')
+  meta(name='twitter:title', content='Weiss Orthoaedics: Over 20 years of putting you back to work and back on your feet.')
   meta(name='twitter:description', content='Weiss Orthopaedics in Northern California provides exceptional care for orthopaedic injuries and conditions, including Sports Medicine, Hand Surgery, Shoulder and Elbow Arthroscopy & Reconstruction, Knee and Cartilage Repair, and Joint Reconstruction.')
-  meta(name='twitter:image', content='http://weissortho.com/wp-content/uploads/2013/08/WEISS-RotatingHomeImages-3.jpg')
+  meta(name='twitter:image', content='http://drake.fm/img/drake/logo.png')
 block content
   header
     .wrapper
@@ -75,6 +76,12 @@ block content
     #general-error
   #scrollTop
   #progress
+  a(href="https://www.facebook.com/WeissOrthopedics", target="_blank")
+    svg#facebook.social-buttons
+  a(href="https://twitter.com/weissortho", target="_blank")
+    svg#twitter.social-buttons
+  a(href="https://plus.google.com/115183251808414290042/about?gl=US&hl=en-US", target="_blank")
+    svg#google.social-buttons
 block onload
   script(type="text/javascript").
     window.addEventListener("load", function() { onLoad(); }, false);
@@ -109,7 +116,7 @@ block onload
           lat: 38.042165,
           lng: -122.5381458,
           scrollWheel: false,
-          theme: "BW",
+          theme: "weiss",
           overlay: true,
           gplus: true,
           gplus_query: "Weiss Orthopaedics",
