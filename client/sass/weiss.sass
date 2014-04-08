@@ -10,7 +10,7 @@
 //   Utilities                      //
 /////////////////////////////////////
 @import "utilities"
-$app-bg: #ffffff
+$app-bg: rgb(255,255,255)
 $weiss-blue: rgba(0,102,255,0.99)
 ///////////////////////////////////////
 //   Progress                       //
@@ -20,7 +20,7 @@ $weiss-blue: rgba(0,102,255,0.99)
   height: 30px
   background-size: cover
   z-index: 100
-  fill: #ffffff
+  fill: rgb(255,255,255)
   position: fixed
   bottom: 16px
 #facebook
@@ -70,7 +70,7 @@ header
         list-style: none
         a
           -skrollr-animation-name: menu-link
-          color: #111
+          color: rgb(17,17,17)
           border-radius: 15px
           padding: 10px
           display: block
@@ -119,7 +119,7 @@ section
           circle
             stroke: steelblue
             fill-opacity: 0
-            fill: #ffffff
+            fill: rgb(255,255,255)
             stroke-opacity: 0.3
             stroke-width: 4
           .description, .short, .maladies
@@ -128,7 +128,7 @@ section
           text.name
             stroke-width: 0.2
             fill: $weiss-blue
-            +text-shadow(#ffffff 1px 1px 5px)
+            +text-shadow(rgb(255,255,255) 1px 1px 5px)
           circle
             stroke: $weiss-blue
             stroke-opacity: 1
@@ -173,7 +173,7 @@ section
   background-size: cover
   -skrollr-animation-name: three
 #office
-  color: #333
+  color: rgb(51,51,51)
   figure#office-details
     .offices-info
       width: 300px
@@ -202,7 +202,7 @@ section
     font: 10px sans-serif
   .offices circle
     fill: $weiss-blue
-    stroke: #ccc
+    stroke: rgb(204,204,104)
     stroke-width: 1.5px
 
 ///////////////////////////////////////
