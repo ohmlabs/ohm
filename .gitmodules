@@ -1,6 +1,3 @@
-[submodule "environment"]
-	path = environment
-	url = https://github.com/ohmlabs/environment.git
 [submodule "dotfiles"]
 	path = dotfiles
 	url = git@github.com:cdrake757/dotfiles.git
