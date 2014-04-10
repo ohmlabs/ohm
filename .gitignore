@@ -1,16 +1,20 @@
-# Read about how to use .gitignore: http://h5bp.com/ae
-pids
+# APPLICATION SPECIFIC IGNORES
+*.sass-cache
 logs
-results
-npm-debug.log
-node_modules
+*.css
 static/js
 static/css
 static/components
 static/img
 static/plato
 server/config/config.js
-server/config/aws.json
+
+# Read about how to use .gitignore: http://h5bp.com/ae
+pids
+logs
+results
+npm-debug.log
+node_modules
 
 # Numerous always-ignore extensions
 *.diff
@@ -23,12 +27,6 @@ server/config/aws.json
 *.vi
 *~
 *#
-
-# APPLICATION SPECIFIC IGNORES
-server/config/config.json # for AWS security
-*.sass-cache
-logs
-*.css
 
 # OS or Editor folders
 .DS_Store

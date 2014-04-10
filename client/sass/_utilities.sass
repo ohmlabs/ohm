@@ -1,0 +1,47 @@
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hidden
+  display: none !important
+  visibility: hidden
+
+//Hide only visually, but have it available for screenreaders: h5bp.com/v
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+  // Extends the .visuallyhidden class to allow the element to be focusable
+  // when navigated to via the keyboard: h5bp.com/p
+  &.focusable
+    &:active, &:focus
+      clip: auto
+      height: auto
+      margin: 0
+      overflow: visible
+      position: static
+      width: auto
+// Hide visually and from screenreaders, but maintain layout
+.invisible
+  visibility: hidden
+
+#scrollTop
+  position: fixed
+  top: 10px
+  right: 30px
+  color: red
+  z-index: 1000
+#general-error-wrapper
+  display: none
+  position: fixed
+  bottom: 0
+  width: 100%
+  background-color: $dark-grey
+  color: red
+  text-align: center
+  font-size: 20px
+  z-index: 1000
+  #general-error
+    padding: 15px 25px
