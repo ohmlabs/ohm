@@ -3,7 +3,7 @@
 
   config = require("./server/config/config.js");
 
-  routes = require("./server/routes/index.js");
+  routes = require("./server/routes/drake.js");
 
   http = require("http");
 
@@ -89,11 +89,7 @@
 
   sample = require("./server/controllers/SampleController.js");
 
-  routes.site(app);
-
-  routes.weiss(app);
-
-  routes.drake(app);
+  routes(app);
 
   app.get("*", sample.error);
 

@@ -1,6 +1,6 @@
 # You need to copy config/config.example.js to config/config.js
 config = require("./server/config/config.js")
-routes = require("./server/routes/index.js")
+routes = require("./server/routes/drake.js")
 ################
 # Dependencies
 ################
@@ -82,9 +82,7 @@ require('strong-agent').profile();
 ################
 sample = require("./server/controllers/SampleController.js")
 # import routes
-routes.site(app)
-routes.weiss(app)
-routes.drake(app)
+routes(app)
 # 404
 app.get "*", sample.error
 ################
