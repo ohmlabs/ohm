@@ -93,8 +93,6 @@
 
   routes.weiss(app);
 
-  routes.ohm(app);
-
   routes.drake(app);
 
   app.get("*", sample.error);

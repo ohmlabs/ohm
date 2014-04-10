@@ -84,7 +84,6 @@ sample = require("./server/controllers/SampleController.js")
 # import routes
 routes.site(app)
 routes.weiss(app)
-routes.ohm(app)
 routes.drake(app)
 # 404
 app.get "*", sample.error
