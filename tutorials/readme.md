@@ -4,9 +4,7 @@
 * [Environment](#environment)
 * [HTML](#html)
 * [CSS](#css)
-  + [Style Guide](css/readme.md)
 * [Javascript](#javascript)
-  + [Style Guide](js-styleguide.md)
 * [Github](#github)
   + [Designer's Guide to Github](git.md) 
 * [Server Administration](#server-administration)
@@ -22,7 +20,7 @@ This guide is not designed for absolute novice web developer. Therefore, I thoug
 # Environment
 A developer is only as good as his/her development environment. This project started off including detailed guides about setting up both production and development environments, but that proved far too ambitious and had to be broken out into a separate project. Before you dive into building with this project I strongly recommend checking out the repository:
 
-### [Designer's Guide to Building Development Environments]()
+### [Designer's Guide to Building Development Environments](https://github.com/ohmlabs/environment)
 
 # Github
 Obviously if you are reading this then you have some idea of what Github is. Github has rapidly become the most common code-sharing service in the world and the heart and soul of the open source community. While mastering Git is a complex and continuous process, I have collected together my personal notes on Github commands that I find useful:
@@ -93,8 +91,6 @@ Some commonly used HTML DOM events
 * onscroll
 
 # CSS
-
-### [Styleguide](css/readme.md) from CSS Wizardry
 
 ### Pre-processors: SASS v. LESS v. Stylus v. Compass
 I personally prefer compass which is built on SASS because it is an excellent tool, with a great community. That being said there are many great options available.
