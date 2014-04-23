@@ -104,11 +104,11 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'boilerplate.js': 'boilerplate.coffee'  # FIXME: change for project name
+          'boilerplate.js': 'boilerplate.coffee'
 
     forever:
       options:
-        index: 'boilerplate.js' 				  # FIXME: change for project name
+        index: 'boilerplate.js' 
         logDir: 'logs'
         command: 'node --debug'
         logFile: 'node-bp.log'
