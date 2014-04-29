@@ -7,6 +7,7 @@ static/css
 static/components
 static/img
 static/plato
+static/jsdoc
 server/config/config.js
 
 # Read about how to use .gitignore: http://h5bp.com/ae

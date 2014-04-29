@@ -9,6 +9,27 @@ module.exports = (grunt) ->
         src: ["client/js/**/*.js"]
         dest: "static/js/<%= pkg.name %>.js"
 
+    jsdoc:
+      dist:
+        src: ["client/js/**/*.js", "gruntfile.coffee", "boilerplate.js", "server/**/*.js"]
+        options:
+          destination: 'static/jsdoc'
+
+    copy:
+      main:
+        expand: true,
+        cwd: 'client/js/',
+        src: ['*.js']
+        dest: 'static/js/'
+
+    # generate a plato report on the project's javascript files
+    plato:
+      options:
+        jshint : grunt.file.readJSON('.jshintrc')
+      your_task:
+        files: 
+          "static/plato": ["<%= jsdoc.dist.src %>"]
+
     uglify:
       options:
         banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"dd-mm-yyyy\") %> */\n"
@@ -40,6 +61,8 @@ module.exports = (grunt) ->
     open:
       plato:
         path: 'http://127.0.0.1:8080/plato/'
+      jsdoc:
+        path: 'http://127.0.0.1:8080/jsdoc/'
       dev:
         path: 'http://127.0.0.1:8080'
 
@@ -59,14 +82,6 @@ module.exports = (grunt) ->
         push: true
         pushTo: 'origin'
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
-
-    # generate a plato report on the project's javascript files
-    plato:
-      options:
-        jshint : grunt.file.readJSON('.jshintrc')
-      your_task:
-        files: 
-          "static/plato": ["client/js/*.js", "server/**/*.js"]
 
     imagemin:
       png:
@@ -110,7 +125,7 @@ module.exports = (grunt) ->
       options:
         index: 'boilerplate.js' 
         logDir: 'logs'
-        command: 'node --debug'
+        command: 'node --debug=5859'
         logFile: 'node-bp.log'
         errFile: 'err-node-bp.log'
 
@@ -124,12 +139,12 @@ module.exports = (grunt) ->
         files: "client/**/*.sass"
         tasks: "compass:dev"
       scripts:
-        files: 'client/js/*.js'
+        files: '<%= concat.dist.src %>'
         tasks: ['concat', 'coffee', 'uglify']
       livereload:
         options:
-          livereload: 1337
-        files: ["static/**/*", "server/views/*"]
+          livereload: true
+        files: ["static/js/*.js", "static/css/*.css", "server/views/**/*"]
       server:
         files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
         tasks: ["coffee", "forever:restart"]
@@ -137,9 +152,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-imagemin"
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
+  grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
   grunt.loadNpmTasks "grunt-browser-sync"
+  grunt.loadNpmTasks "grunt-jsdoc"
   grunt.loadNpmTasks "grunt-cache-bust"
   grunt.loadNpmTasks "grunt-bump"
   grunt.loadNpmTasks "grunt-open"
@@ -147,9 +164,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["coffee", "concat", "uglify", "compass:dev", "imagemin"]
+  grunt.registerTask "default", ["coffee", "concat", "copy", "uglify", "compass:dev", "imagemin"]
   # in testing, concat and plato
-  grunt.registerTask "lint", ["plato", "open:plato", "imagemin"]
+  grunt.registerTask "lint", ["plato", "jsdoc", "open:plato", "open:jsdoc"]
   # in production, concat and minify
   grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "imagemin"]
   # versioning, bust the cache, bump the version, push to origin
