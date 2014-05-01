@@ -140,7 +140,7 @@ module.exports = (grunt) ->
         tasks: "compass:dev"
       scripts:
         files: '<%= concat.dist.src %>'
-        tasks: ['concat', 'coffee', 'uglify']
+        tasks: ['concat', 'coffee', 'copy']
       livereload:
         options:
           livereload: true

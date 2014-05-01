@@ -13,6 +13,7 @@
       firstScript.parentNode.insertBefore(scriptElement, firstScript)
       }(window, document, 'ga'));
       ga('create', '#{dependencies.ga}');
+      ga('require', 'displayfeatures');
       ga('send', 'pageview');
   // TODO: implement advanced Google Analytics tracking
   // https://github.com/h5bp/html5-boilerplate/blob/master/doc/extend.md#google-universal-analytics
