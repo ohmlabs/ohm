@@ -1,3 +1,6 @@
+# Start Ghost
+ghost = require('./node_modules/ghost/core/index.js')
+ghost(app)
 # You need to copy config/config.example.js to config/config.js
 config = require("./server/config/config.js")
 routes = require("./server/routes/site.js")

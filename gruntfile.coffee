@@ -42,7 +42,7 @@ module.exports = (grunt) ->
     browser_sync:
       dev:
         bsFiles:
-          src : 'static/css/style.css'
+          src : 'static/css/*.css'
         options:
           watchTask: true
 
@@ -164,7 +164,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["coffee", "concat", "copy", "uglify", "compass:dev", "imagemin"]
+  grunt.registerTask "default", ["coffee", "concat", "copy", "compass:dev", "imagemin"]
   # in testing, concat and plato
   grunt.registerTask "lint", ["plato", "jsdoc", "open:plato", "open:jsdoc"]
   # in production, concat and minify

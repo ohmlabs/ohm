@@ -23,7 +23,8 @@
     "aws-sdk": "^2.0.0-rc13",
     "parse": "^1.2.17",
     "underscore": "^1.6.0",
-    "socket.io": "^0.9.16"
+    "socket.io": "^0.9.16",
+    "ghost": "^0.4.2"
   },
   "devDependencies": {
     "grunt-contrib-watch": "0.5.3",
