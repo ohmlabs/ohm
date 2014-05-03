@@ -1,23 +1,44 @@
+/*
+ohm 1.1.1
+For all details and documentation:
+http://ohm.fm
+@version    1.1.1
+@author     Cameron W. Drake
+@abstract   Designed to make web application deployment as simple as possible, ohm is a spark for lightning fast deployment
+@copyright  Copyright (c) 2014 Ohm Labs
+@license    Licensed under the MIT license
+
+@requires HTTP
+@requires Express (logger, cookieParser, bodyParser, methodOverride, errorHandler)
+@requires Ghost
+@requires Socket.io
+@requires
+*/
+
+
 (function() {
-  var app, aws, bodyParser, config, cookieParser, errorHandler, express, ghost, http, io, logger, methodOverride, parse, routes, sample, server;
-
-  config = require("./server/config/config.js");
-
-  process.env.NODE_ENV = config.env;
-
-  ghost = require('./ghost/core/index.js');
+  var app, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, routes, sample, server;
 
   http = require("http");
 
   express = require("express");
 
+  ghost = require('./server/ghost/core/index.js');
+
+  config = require("./server/config/config.example.js");
+
+  process.env.NODE_ENV = config.env;
+
   app = express();
 
   server = http.createServer(app);
 
-  io = require('socket.io').listen(server);
-
   ghost(app);
+
+  /*
+  @todo Implement Socket.io example
+  */
+
 
   logger = require("morgan");
 
@@ -58,13 +79,9 @@
     app.locals.pretty = true;
   }
 
-  parse = require("./server/apis/Parse.js");
-
-  aws = require("./server/apis/AWS.js");
+  sample = require("./server/controllers/SampleController.js");
 
   routes = require("./server/routes/site.js");
-
-  sample = require("./server/controllers/SampleController.js");
 
   routes(app);
 

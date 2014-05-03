@@ -11,7 +11,7 @@ module.exports = (grunt) ->
 
     jsdoc:
       dist:
-        src: ["client/js/**/*.js", "gruntfile.coffee", "boilerplate.js", "server/**/*.js"]
+        src: ["client/js/**/*.js", "gruntfile.coffee", "ohm.coffee", "server/**/*.js", "readme.md"]
         options:
           destination: 'static/jsdoc'
 
@@ -119,11 +119,11 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'boilerplate.js': 'boilerplate.coffee'
+          'ohm.js': 'ohm.coffee'
 
     forever:
       options:
-        index: 'boilerplate.js' 
+        index: 'ohm.js' 
         logDir: 'logs'
         command: 'node --debug=5859'
         logFile: 'node-bp.log'
@@ -146,7 +146,7 @@ module.exports = (grunt) ->
           livereload: true
         files: ["static/js/*.js", "static/css/*.css", "server/views/**/*"]
       server:
-        files: ["gruntfile.coffee", "boilerplate.coffee", "server/**/*.js"]
+        files: ["gruntfile.coffee", "ohm.coffee", "server/**/*.js"]
         tasks: ["coffee", "forever:restart"]
                           
   grunt.loadNpmTasks "grunt-contrib-imagemin"

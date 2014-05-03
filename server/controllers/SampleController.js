@@ -1,4 +1,4 @@
-var config = require("../config/config.js")
+var config = require("../config/config.example.js")
 
 exports.index = function(req, res){
   res.render('index', {

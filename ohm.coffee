@@ -1,30 +1,43 @@
-################
-# Dependencies
-################
-config = require("./server/config/config.js")
-# set environment variable
-process.env.NODE_ENV = config.env
-# import ghost for CMS
-ghost = require('./ghost/core/index.js')
+###
+ohm 1.1.1
+For all details and documentation:
+http://ohm.fm
+@version    1.1.1
+@author     Cameron W. Drake
+@abstract   Designed to make web application deployment as simple as possible, ohm is a spark for lightning fast deployment
+@copyright  Copyright (c) 2014 Ohm Labs
+@license    Licensed under the MIT license
+
+@requires HTTP
+@requires Express (logger, cookieParser, bodyParser, methodOverride, errorHandler)
+@requires Ghost
+@requires Socket.io
+@requires 
+###
 http = require("http")
 express = require("express")
+ghost = require('./server/ghost/core/index.js')
+config = require("./server/config/config.example.js")
+# Set Environment Variable
+process.env.NODE_ENV = config.env
 app = express()
 server = http.createServer(app)
-# require socket.io
-io = require('socket.io').listen(server);
-# start ghost
 ghost(app)
-################
+###
+@todo Implement Socket.io example
+###
+# io = require('socket.io').listen(server);
+# ------------------
 # Express Middleware
-################
+# ------------------
 logger = require("morgan")
 cookieParser = require("cookie-parser")
 bodyParser = require("body-parser")
 methodOverride = require("method-override")
 errorHandler = require("errorhandler")
-################
+# ------------------
 # Configuration
-################
+# ------------------
 app.use logger()
 app.use cookieParser()
 app.use bodyParser()
@@ -44,27 +57,27 @@ if app.settings.env == "development"
     showStack: true
   )
   app.locals.pretty = true
-################
-# APIS
-################
-parse = require("./server/apis/Parse.js")
-aws = require("./server/apis/AWS.js")
-################
+# ------------------
 # Extras
-################
+# ------------------
+# parse = require("./server/apis/Parse.js")
+# aws = require("./server/apis/AWS.js")
 # StrongOps see: http://docs.strongloop.com/display/DOC/Getting+started
 # require('strong-agent').profile();
-################
-# Routes
-################
-routes = require("./server/routes/site.js")
+# ------------------
+# Controllers
+# ------------------
 sample = require("./server/controllers/SampleController.js")
+# ------------------
+# Routes
+# ------------------
+routes = require("./server/routes/site.js")
 routes(app)
 # 404
 app.get "*", sample.error
-################
+# ------------------
 # Listen
-################
+# ------------------
 server.listen config.port
 if config.is_prod
   console.log "Server started on port " + config.port + " in " + app.settings.env + " mode"

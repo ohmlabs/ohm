@@ -1,7 +1,22 @@
 {
-  "name": "boilerplate",
-  "description": "Ohm Labs Node.js Boilerplate",
+  "name": "ohm",
+  "description": "Node.js Starter Application (Grunt, Express, Ghost, Bower & Compass)",
   "version": "1.1.1",
+  "contributors": [ 
+    {
+      "name": "Cameron Drake",
+      "email": "cameron@drake.fm"
+    } 
+  ],
+  "keywords": [
+    "boilerplate",
+    "ghost",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ohmlabs/ohm.git"
+  },
   "dependencies": {
     "express": "",
     "morgan": "^1.0.0",
