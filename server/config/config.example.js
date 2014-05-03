@@ -14,13 +14,21 @@ switch (env) {
 case '-p':
   base['is_prod'] = true;
   base['host'] = '127.0.0.1';
+<<<<<<< HEAD
   base['port'] = '8080';
+=======
+  base['port'] = '8888';
+>>>>>>> upstream/master
   base['env'] = 'production';
   break;
 default:
   base['is_prod'] = false;
   base['host'] = 'localhost';
+<<<<<<< HEAD
   base['port'] = '8080';
+=======
+  base['port'] = '8888';
+>>>>>>> upstream/master
   base['env'] = 'development';
 };
 

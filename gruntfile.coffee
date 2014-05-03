@@ -60,11 +60,11 @@ module.exports = (grunt) ->
     # Open files
     open:
       plato:
-        path: 'http://127.0.0.1:8080/plato/'
+        path: 'http://127.0.0.1:8888/plato/'
       jsdoc:
-        path: 'http://127.0.0.1:8080/jsdoc/'
+        path: 'http://127.0.0.1:8888/jsdoc/'
       dev:
-        path: 'http://127.0.0.1:8080'
+        path: 'http://127.0.0.1:8888'
 
     # Bump for managing releases:
     #     1.) bump up version on package.json

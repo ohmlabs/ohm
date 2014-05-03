@@ -1,19 +1,21 @@
-# Start Ghost
-ghost = require('./node_modules/ghost/core/index.js')
-ghost(app)
-# You need to copy config/config.example.js to config/config.js
-config = require("./server/config/config.js")
-routes = require("./server/routes/site.js")
 ################
 # Dependencies
 ################
+config = require("./server/config/config.js")
+# set environment variable
+process.env.NODE_ENV = config.env
+# import ghost for CMS
+ghost = require('./ghost/core/index.js')
 http = require("http")
 express = require("express")
 app = express()
 server = http.createServer(app)
+# require socket.io
 io = require('socket.io').listen(server);
+# start ghost
+ghost(app)
 ################
-# Middleware
+# Express Middleware
 ################
 logger = require("morgan")
 cookieParser = require("cookie-parser")
@@ -51,10 +53,11 @@ aws = require("./server/apis/AWS.js")
 # Extras
 ################
 # StrongOps see: http://docs.strongloop.com/display/DOC/Getting+started
-require('strong-agent').profile();
+# require('strong-agent').profile();
 ################
 # Routes
 ################
+routes = require("./server/routes/site.js")
 sample = require("./server/controllers/SampleController.js")
 routes(app)
 # 404

@@ -1,9 +1,11 @@
 (function() {
-  var app, aws, bodyParser, config, cookieParser, errorHandler, express, http, io, logger, methodOverride, parse, routes, sample, server;
+  var app, aws, bodyParser, config, cookieParser, errorHandler, express, ghost, http, io, logger, methodOverride, parse, routes, sample, server;
 
   config = require("./server/config/config.js");
 
-  routes = require("./server/routes/site.js");
+  process.env.NODE_ENV = config.env;
+
+  ghost = require('./ghost/core/index.js');
 
   http = require("http");
 
@@ -14,6 +16,8 @@
   server = http.createServer(app);
 
   io = require('socket.io').listen(server);
+
+  ghost(app);
 
   logger = require("morgan");
 
@@ -58,7 +62,7 @@
 
   aws = require("./server/apis/AWS.js");
 
-  require('strong-agent').profile();
+  routes = require("./server/routes/site.js");
 
   sample = require("./server/controllers/SampleController.js");
 

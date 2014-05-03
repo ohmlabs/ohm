@@ -1,9 +1,8 @@
 # APPLICATION SPECIFIC IGNORES
 *.sass-cache
 logs
-*.css
+static/css/*.css
 static/js
-static/css
 static/components
 static/img
 static/plato
