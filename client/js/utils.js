@@ -1,6 +1,7 @@
 //////////////
 // Mobile  //
 ////////////
+/** is_mobile check */
 var is_mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   is_mobile = true;
@@ -15,6 +16,10 @@ if (window.location.origin.indexOf("8888") !== -1)
 ///////////////////////////////////////
 //  ERRORS                          //
 /////////////////////////////////////
+/**
+* Display an error onscreen
+* @param {string} msg the message to be displayed
+*/
 function handleError(msg) {
   document.getElementById('general-error-wrapper').style.display="block";
   document.getElementById('general-error').innerHTML = msg;
@@ -75,7 +80,7 @@ function countdown(deadline, id)
   // set the date we're counting down to
   var target_date = new Date(deadline).getTime();
   calculateCountdown(target_date, id);
-   
+
   // update the tag with id "countdown" every 1 second
   setInterval(function () {
     calculateCountdown(target_date, id);
@@ -84,7 +89,7 @@ function countdown(deadline, id)
 function calculateCountdown(target_date, id) {
   // variables for time units
   var days, hours, minutes, seconds;
-  
+
   // find the amount of "seconds" between now and target
   var current_date = new Date().getTime();
   var seconds_left = (target_date - current_date) / 1000;

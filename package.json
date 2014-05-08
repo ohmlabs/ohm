@@ -2,11 +2,12 @@
   "name": "ohm",
   "description": "Node.js Starter Application (Grunt, Express, Ghost, Bower & Compass)",
   "version": "1.1.1",
-  "contributors": [ 
+  "homepage": "http://ohm.fm",
+  "contributors": [
     {
       "name": "Cameron Drake",
       "email": "cameron@drake.fm"
-    } 
+    }
   ],
   "keywords": [
     "boilerplate",
@@ -15,7 +16,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ohmlabs/ohm.git"
+    "url": "git://github.com/ohmlabs/ohm.git"
+  },
+  "bugs": "https://github.com/ohmlabs/ohm/issues",
+  "preferGlobal": "true",
+  "bin": {
+    "ohm": "./bin/ohm"
+  },
+  "scripts": {
+    "start": "node ohm"
   },
   "dependencies": {
     "express": "",
@@ -39,7 +48,8 @@
     "parse": "^1.2.17",
     "underscore": "^1.6.0",
     "socket.io": "^0.9.16",
-    "ghost": "^0.4.2"
+    "ghost": "^0.4.2",
+    "phantomjs": "^1.9.7-5"
   },
   "devDependencies": {
     "grunt-contrib-watch": "0.5.3",

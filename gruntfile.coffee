@@ -11,7 +11,7 @@ module.exports = (grunt) ->
 
     jsdoc:
       dist:
-        src: ["client/js/**/*.js", "gruntfile.coffee", "ohm.coffee", "server/**/*.js", "readme.md"]
+        src: ["client/js/**/*.js", "gruntfile.coffee", "ohm.coffee", "server/apis/**/*.js", "server/models/**/*.js", "server/config/**/*.js", "server/controllers/**/*.js", "server/routes/**/*.js", "server/views/**/*.js", "readme.md", "*.js"]
         options:
           destination: 'static/jsdoc'
 
@@ -140,14 +140,14 @@ module.exports = (grunt) ->
         tasks: "compass:dev"
       scripts:
         files: '<%= concat.dist.src %>'
-        tasks: ['concat', 'coffee', 'copy']
+        tasks: ['concat', 'coffee', 'copy', 'lint']
       livereload:
         options:
           livereload: true
         files: ["static/js/*.js", "static/css/*.css", "server/views/**/*"]
       server:
         files: ["gruntfile.coffee", "ohm.coffee", "server/**/*.js"]
-        tasks: ["coffee", "forever:restart"]
+        tasks: ["coffee", "forever:restart", 'lint']
                           
   grunt.loadNpmTasks "grunt-contrib-imagemin"
   grunt.loadNpmTasks "grunt-contrib-uglify"
@@ -166,7 +166,7 @@ module.exports = (grunt) ->
   # the bare grunt command only compiles
   grunt.registerTask "default", ["coffee", "concat", "copy", "compass:dev", "imagemin"]
   # in testing, concat and plato
-  grunt.registerTask "lint", ["plato", "jsdoc", "open:plato", "open:jsdoc"]
+  grunt.registerTask "lint", ["plato", "jsdoc"]
   # in production, concat and minify
   grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "imagemin"]
   # versioning, bust the cache, bump the version, push to origin
