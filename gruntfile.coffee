@@ -90,7 +90,7 @@ module.exports = (grunt) ->
           cache: false
         files: [
           expand: true
-          cwd: 'images/'
+          cwd: 'client/images/'
           src: ['**/*.png', '*.png']
           dest: 'static/img/'
           ext: '.png'
@@ -101,7 +101,7 @@ module.exports = (grunt) ->
           cache: false
         files: [
           expand: true
-          cwd: 'images/'
+          cwd: 'client/images/'
           src: ['**/*.jpg', '*.jpg']
           dest: 'static/img/'
           ext: '.jpg'

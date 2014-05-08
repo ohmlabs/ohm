@@ -20,10 +20,10 @@ var Gmapper = (function(data){
   var map, mapOptions, center, mapStyles, styledMap;
   var overlay_locations = [];
   var context = this;
-  
+
   // load style from json
   if (data.theme !== null) {
-    d3.json("maps/" + data.theme + ".json", function(json) {
+    d3.json("files/" + data.theme + ".json", function(json) {
       mapStyles = json;
       styledMap = new google.maps.StyledMapType(mapStyles, {name: data.theme});
       //Associate the styled map with the MapTypeId and set it to display.
@@ -31,17 +31,17 @@ var Gmapper = (function(data){
       map.setMapTypeId('map_style');
     });
   }
-  
+
   // set the center or default to oval */
   !data.lng || !data.lat ? center = new google.maps.LatLng(37.429856, -122.169425) : center = new google.maps.LatLng(data.lat, data.lng);
-  
+
   // set zoom or default to 10 */
   !data.zoom ? data.zoom = 10 : null;
-  
+
   // set scrollwheel or default to false */
   data.scrollWheel === null ? data.scrollWheel = false : null;
-  
-  /** 
+
+  /**
   * Map options
   * @param {string} icon Custom Marker Image
   * @param {string} theme Theme file to load (/static/maps)
@@ -63,16 +63,16 @@ var Gmapper = (function(data){
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
   };
-  
+
   // initialize map
   map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-  
+
   // If Google Places Search
   if (data.search){
     this.googlePlaceQuery(data.query, map, center, data.radius, data.types, context);
     return;
   }
-  
+
   // If Locations are provided
   if (data.locations) {
     for (var i in data.locations) {
@@ -94,7 +94,7 @@ var Gmapper = (function(data){
       }
     }
   }
-  
+
   // If D3 Overlay
   if (data.overlay) {
     // add array of officers to map in d3 overlay

@@ -21,7 +21,7 @@ $near-black: #111
 ///////////////////////////////////////
 //   Mixins                         //
 /////////////////////////////////////
-@import figures 
+@import figures
 @mixin columns($n, $f:"")
   width: (100%-$n * 2)/$n
   margin: 0 1%
@@ -50,9 +50,7 @@ body
   padding: 0
   margin: 0
   font-family: $helvetica
-  color: rgb(255,255,255)
   line-height: normal
-  background: rgb(255,255,255)
 p, a, h1, h2, h3, h4
   padding: 0
   margin: 0
@@ -68,17 +66,16 @@ h3
   font: 100 20px $helvetica
 p
   font: 100px 14px $helvetica
-  
+
 ///////////////////////////////////////
 //  Links & Buttons                 //
 /////////////////////////////////////
 a
-  color: rgba(255, 255, 255, 1)
   text-decoration: none
 ///////////////////////////////////////
 //  All-purpose                     //
 /////////////////////////////////////
 .clearfix
-  @include clearfix  
+  @include clearfix
 .scrolls
   -webkit-overflow-scrolling: touch
