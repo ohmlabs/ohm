@@ -1,0 +1,67 @@
+#!/usr/bin/env node
+var userArguments = process.argv.slice(2); // Copies arguments list but removes first two options (script exec type & exec location)
+var command           = userArguments[0];
+var args              = userArguments[1];
+
+var fs               = require('fs');
+var shell            = require('child_process').exec;
+var phantomjs        = require('phantomjs').path;
+//var manifest         = __dirname + '/../appcache.manifest';
+var manifest         = __dirname + '/../ohm.json';
+
+var manifestContent;
+var data;
+
+fs.readFile(manifest, bootstrap);
+function bootstrap(err, contentAsBuffer){
+    if (err) throw err;
+    manifestContent = contentAsBuffer.toString('utf8');
+    data = JSON.parse(contentAsBuffer);
+    log(data.name);
+}
+
+switch (command) {
+case "start":
+    shell('grunt forever:start', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "stop":
+    shell('grunt forever:stop', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "docs":
+    shell('grunt lint', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "install":
+    shell('npm cache clean;npm install;bower install;cd server/ghost && npm install;', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "watch":
+    shell('grunt watch', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "list":
+    shell('forever list', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "version":
+    shell('grunt version', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+}
+
+function log(message) {
+    process.stdout.write(message + '\n');
+}
+
+function error(err) {
+    process.stderr.write(err);
+}

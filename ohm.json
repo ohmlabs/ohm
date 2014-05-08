@@ -1,0 +1,33 @@
+
+{
+  "name": "Ohm Labs Inc",
+  "description": "Node.js Starter Application (Grunt, Express, Ghost, Bower & Compass)",
+  "title": "Weiss Orthopaedics",
+  "version": "1.1.1",
+  "author": "Cameron Drake",
+  "keywords": "Weiss, doctor, Noah Weiss, Top Doctors, Orthopedic Surgeons, orthopaedic, orthopedic, surgery, surgeon, osteoarthritis, splinting, fracture, arthritis, joints, trauma, musculoskeletal, arthroscopy, total joint replacement, sports medicine, hip replacement, spine, knee, shoulder, elbow, foot, ankle, hand, knee replacement, tumor, cancer, infection, carpal tunnel, hip",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ohmlabs/ohm.git"
+  },
+  "apple-mobile-web-app-status-bar-style": "black-translucent",
+  "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+  "og:title": "Weiss Orthoaedics: Over 20 years of putting you back to work and back on your feet.",
+  "og:description": "Weiss Orthopaedics in Northern California provides exceptional care for orthopaedic injuries and conditions, including Sports Medicine, Hand Surgery, Shoulder and Elbow Arthroscopy & Reconstruction, Knee and Cartilage Repair, and Joint Reconstruction.",
+  "og:image": "http://drake.fm/img/drake/logo.png",
+  "og:url": "http://www.weissortho.com/",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@WeissOrtho",
+  "twitter:creator": "@camwes",
+  "twitter:url": "http://www.weissortho.com/",
+  "twitter:title": "Weiss Orthoaedics: Over 20 years of putting you back to work and back on your feet.",
+  "twitter:description": "Weiss Orthopaedics in Northern California provides exceptional care for orthopaedic injuries and conditions, including Sports Medicine, Hand Surgery, Shoulder and Elbow Arthroscopy & Reconstruction, Knee and Cartilage Repair, and Joint Reconstruction.",
+  "twitter:image": "http://drake.fm/img/drake/logo.png",
+  "PARSE_APPLICATION_ID": "PARSEID",
+  "PARSE_JAVASCRIPT_KEY": "JAVASCRIPTKEY",
+  "PARSE_MASTER_KEY": "MASTERKEY",
+  "GOOGLE_MAPS_KEY": "GOOGLEMAPSKEY",
+  "GOOGLE_ANALYTICS": "UA-XXXXXX-1",
+  "AWS_ACCESS_KEY": "AWS_ACCESS",
+  "AWS_SECRET_KEY": "AWS_SECRET"
+}
