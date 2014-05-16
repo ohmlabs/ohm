@@ -15,7 +15,7 @@
 ###
 http = require("http")
 express = require("express")
-ghost = require('./server/ghost/core/index.js')
+ghost = require('./node_modules/ghost/core/index.js')
 config = require("./server/config/config.example.js")
 # Set Environment Variable
 process.env.NODE_ENV = config.env

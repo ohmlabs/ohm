@@ -5,9 +5,7 @@ var args              = userArguments[1];
 
 var fs               = require('fs');
 var shell            = require('child_process').exec;
-var phantomjs        = require('phantomjs').path;
-//var manifest         = __dirname + '/../appcache.manifest';
-var manifest         = __dirname + '/../ohm.json';
+var manifest         = __dirname + '/../package.json';
 
 var manifestContent;
 var data;
@@ -37,7 +35,12 @@ case "docs":
     });
     break;
 case "install":
-    shell('npm cache clean;npm install;bower install;cd server/ghost && npm install;', function(error, stdout, stderr) {
+    shell('npm cache clean;npm install;bower install;ohm link;cd node_module/ghost && npm install;', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "link":
+    shell('rm -rf content config.js;ln -Ffs ../../server/ghost/content node_modules/ghost && ln -Ffs ../../server/ghost/config.js node_modules/ghost', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
