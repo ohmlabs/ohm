@@ -81,6 +81,9 @@ ohm stop
 
 # show all forever process
 ohm list
+
+#  The almighty watch command
+grunt watch
 ```
 To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 * Compile Coffee-script
@@ -94,20 +97,6 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Inspect Code Source (node-inspector)
 * Profile Server (StrongOps)
 
-```sh`
-# generate Plato & jsdoc Reports (complexity analysis, lint & jsdoc)
-# documentation - localhost:8888/jsdoc
-# plato         - localhost:8888/plato
-ohm docs
-
-# generate relase assets and version branch (bump, imagemin)
-ohm version
-# only generate production assets and start in production
-grunt prod; node ohm.js -p
-
-#  watch files for changes
-grunt watch
-```
 When you install the boilerplate it begins running on port http://localhost:8080. You can use grunt from then on to interact with the server:
 ### Versioning the App
 The best thing about this boilerplate is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
@@ -115,9 +104,13 @@ The best thing about this boilerplate is that when used in conjunction with our 
 * bumps the version tag for git
 * compresses images
 ```sh
+# only generate production assets and start in production
+grunt prod; node ohm.js -p
+# commit changes
 git add .
 git ci -m 'pushing to production'
-ohm version 
+# generate relase assets and version branch (bump, imagemin)
+ohm version
 # alternatively you can:
 # grunt bump:patch
 # grunt bump:minor
@@ -136,7 +129,9 @@ There are a few client-side add-ons included via Bower. There are advantages to 
 * [socket.io](http://socket.io/#how-to-use)
 
 ```sh
-# get lint and complexity reports(Plato)
+# generate Plato & jsdoc Reports (complexity analysis, lint & jsdoc)
+# documentation - localhost:8888/jsdoc
+# plato         - localhost:8888/plato
 ohm docs
 ```
 This command will generate jsdoc documentation and perform jslint on both client and server files. An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
