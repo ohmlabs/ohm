@@ -60,15 +60,14 @@ If you are a designer most of your time will be spent in the client directory. I
 │   ├── js                        # compiled js
 │   ├── jsdoc                     # jsdoc documentation
 │   └── plato                     # plato complexity reports
-└── tutorials
-├── ohm.coffee                    # main file
-├── ohm.js                        # compiled to js
 ├── bower.json                    
 ├── package.json
 ├── gruntfile.coffee              # gruntfile (necessary for cli to work)
 ├── .bowerrc
 ├── .gitignore
-└── .jshintrc
+├── .jshintrc
+├── ohm.coffee                    # main file
+└── ohm.js                        # compiled
 ```
 # Running
 In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
