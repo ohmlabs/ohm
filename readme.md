@@ -35,6 +35,8 @@ Ohm attempts to have the simplest possible structure. Code is grouped into three
 
 If you are a designer most of your time will be spent in the client directory. If you are a back-end developer you'd work predominately in the server folder.
 ```sh
+├── bin
+│   └── ohm                       # command line app
 ├── client
 │   ├── js                        # client scripts
 │   ├── images                    # raw image files 
@@ -73,7 +75,7 @@ If you are a designer most of your time will be spent in the client directory. I
 In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
 ```sh
 # start ohm
-ohm start
+ohm start running on localhost:8888/
 
 # stop ohm
 ohm stop
@@ -96,7 +98,7 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Inspect Code Source (node-inspector)
 * Profile Server (StrongOps)
 
-When you install ohm it begins running on port http://localhost:8888. You can use grunt from then on to interact with the server:
+
 ### Versioning the App
 The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
 * compiles production assets
@@ -146,7 +148,7 @@ This command will generate jsdoc documentation and perform jslint on both client
 Additionally, If you use the watch command you get the benefit of automatic CSS injection and page reloading via LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) and [browser-snyc](https://github.com/shakyShane/grunt-browser-sync). I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). The gruntfile by default passes the necessary flag to run the debugger, but you must start node inspector:
 ```sh
 node-inspector &
-# navigate to localhost:5858
+# navigate to http://127.0.0.1:8080/debug?port=5858
 ```
 
 You can also monitor your servers performance using [strongOps](http://strongloop.com/node-js-performance/strongops/). All you need to do is sign up for an account, this occurs automatically in the prod environment script.
@@ -156,6 +158,5 @@ $ slc strongops --register
 # If you already have a StrongOps account, don't use --register.
 # Complete your registration at the strongOps site
 ```
-# Browser Support
 # License
 Ohm is licensed under the MIT license
