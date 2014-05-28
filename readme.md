@@ -22,6 +22,66 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 * [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
 * [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
 
+# Installing
+In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy:
+
+```sh
+# install ohm
+git clone https://github.com/ohmlabs/ohm.git
+cd ohm
+npm link
+ohm install
+```
+# Running
+In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
+```sh
+# start ohm on http://localhost:8888/
+ohm start
+
+# stop ohm
+ohm stop
+
+# show all forever process
+ohm list
+
+#  The almighty watch command
+grunt watch
+```
+#### ```grunt watch```
+To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). There is so much that you can automate with grunt, but the included gruntfile is includes a powerful watch task with the following features:
+* Automatic browser reloading (LiveReload) [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+* Automatic Sass compilation and css injection ([browser-snyc](https://github.com/shakyShane/grunt-browser-sync))
+* Automatic concatination, minification, validation (lint, plato) and CoffeeScript compilation
+* Automatically restart ohm on server file changes (Forever)
+
+# Versioning
+The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
+* compiles production assets
+* bumps the version tag for git
+* compresses images
+
+```sh
+# only generate production assets and start in production
+grunt prod; node ohm.js -p
+
+# commit changes
+git add .
+git ci -m 'pushing to production'
+
+# generate relase assets and version branch (bump, imagemin)
+ohm version
+
+# alternatively you can:
+# grunt bump:patch
+# grunt bump:minor
+# grunt bump:major
+
+# push to the production server
+git push production prod
+
+# push to github
+git push origin prod
+```
 # Architecture
 ohm attempts to have the simplest possible structure. Code is grouped into three main classes: server, client, and static. The server directory contains the files that reside on the server (views to be rendered, logic for the app). I actually lied when I said there were three classes because the Static and Client directories are actually the same thing. The client directory contains *pre-compiled* code that the user will need on the client-side for the app (Sass files and Javascript code). The static directory files are all generated automatically in the grunt compile process (client/sass files are compiled to static/css, client/js files are concated and/or minified into one file which is compiled into static/js). You should NEVER have to edit static files, they should be generated automatically (except in the case of adding images or other filetypes that are not a part of the compile process e.g. *.php or *.txt)
 
@@ -63,66 +123,8 @@ If you are a designer most of your time will be spent in the client directory. I
 ├── ohm.coffee                    # main file
 └── ohm.js                        # compiled
 ```
-# Installing
-In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy:
-```sh
-# install ohm
-git clone https://github.com/ohmlabs/ohm.git
-cd ohm
-npm link
-ohm install
-```
-# Running
-In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
-```sh
-# start ohm on http://localhost:8888/
-ohm start
-
-# stop ohm
-ohm stop
-
-# show all forever process
-ohm list
-
-#  The almighty watch command
-grunt watch
-```
-#### ```grunt watch```
-To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). There is so much that you can automate with grunt, but the included gruntfile is includes a powerful watch task with the following features:
-* Automatic browser reloading (LiveReload) [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
-* Automatic Sass compilation and css injection ([browser-snyc](https://github.com/shakyShane/grunt-browser-sync))
-* Automatic concatination, minification, validation (lint, plato) and CoffeeScript compilation
-* Automatically restart ohm on server file changes (Forever)
-
-#### Versioning the App
-The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
-* compiles production assets
-* bumps the version tag for git
-* compresses images
-
-```sh
-# only generate production assets and start in production
-grunt prod; node ohm.js -p
-
-# commit changes
-git add .
-git ci -m 'pushing to production'
-
-# generate relase assets and version branch (bump, imagemin)
-ohm version
-
-# alternatively you can:
-# grunt bump:patch
-# grunt bump:minor
-# grunt bump:major
-
-# push to the production server
-git push production prod
-
-# push to github
-git push origin prod
-```
-# Extending ohm
+# Extending
+ohm is built to be easily extended to include many additional features.
 ### Client Dependencies
 There are a few client-side add-ons included via Bower. There are advantages to each of these libraries and I would certainly not recommend using them all together as it can really add in terms of HTTP requests and page download size (remember Souders rules!). Modernizr is useful for any project. Many users love using underscore and/or jQuery. Personally I prefer to use d3 instead of jQuery. Although it's larger in terms of download size it can do a lot of the same things jQuery can do and a whole lot more. Skrollr is very useful if you are working on a single page app or want to add parallax effects to your site. Finally, socket.io is a great library for building a real time web app.
 
