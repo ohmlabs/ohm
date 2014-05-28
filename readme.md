@@ -1,17 +1,18 @@
-# ohm
+# ohm - Node.js Start Application
 ohm is an opinionated full-stack Node.js environment to jumpstart a web project. Based on [Express](http://expressjs.com/guide.html), ohm uses [grunt](http://gruntjs.com/) for automation, [Compass](http://compass-style.org/) (SASS) for CSS pre-processing and npm & bower for dependencies. It also integrates the [Ghost Blogging](http://ghost.org) platform as a CMS. ohm is designed to be run proxied by [Nginx](http://nginx.org). For more see the [dock repo](https://github.com/ohmlabs/dock).  I've included some basic mixins and figures that can be helpful in making web layouts quickly, I also am going to gradually integrate Bootstrap features. ohm comes preconfigured with production/development environments (production minifies all files including the html markup) as well as example server config files (using Nginx to serve static files, and proxying ohm and ghost).
 
-# Features
-* Adhere to Steve Sauders Rules for High Performance Websites:
+# Goals
 * HTML5 ready. Use the new elements with confidence.
+* CSS resets (normalize.css) and common bug fixes.
+* Compression and spriting of images
 * Designed with progressive enhancement in mind.
 * An optimized Google Analytics snippet.
-* Seamless integration w/ Amazon Web Services
-* Automatically compile Sass
-* Automatically compress images for production
-* Automatically compile CoffeeScript, concatinate, minify, and lint scripts
-* Automatically compression and spriting of images
-* Normalize.css and common bug fixes.
+* Make powerful use of ```grunt watch```
+* Adhere to Steve Sauders Rules for High Performance Websites:
+
+# Roadmap
+* Amazon Web Services integration
+* Parse backend integration
 
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
@@ -21,15 +22,6 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 * [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
 * [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
 
-# Installing
-In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy:
-```sh
-# install ohm
-git clone https://github.com/ohmlabs/ohm.git
-cd ohm
-npm link
-ohm install
-```
 # Architecture
 ohm attempts to have the simplest possible structure. Code is grouped into three main classes: server, client, and static. The server directory contains the files that reside on the server (views to be rendered, logic for the app). I actually lied when I said there were three classes because the Static and Client directories are actually the same thing. The client directory contains *pre-compiled* code that the user will need on the client-side for the app (Sass files and Javascript code). The static directory files are all generated automatically in the grunt compile process (client/sass files are compiled to static/css, client/js files are concated and/or minified into one file which is compiled into static/js). You should NEVER have to edit static files, they should be generated automatically (except in the case of adding images or other filetypes that are not a part of the compile process e.g. *.php or *.txt)
 
@@ -71,11 +63,20 @@ If you are a designer most of your time will be spent in the client directory. I
 ├── ohm.coffee                    # main file
 └── ohm.js                        # compiled
 ```
+# Installing
+In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy:
+```sh
+# install ohm
+git clone https://github.com/ohmlabs/ohm.git
+cd ohm
+npm link
+ohm install
+```
 # Running
 In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
 ```sh
-# start ohm
-ohm start running on localhost:8888/
+# start ohm on http://localhost:8888/
+ohm start
 
 # stop ohm
 ohm stop
@@ -86,20 +87,14 @@ ohm list
 #  The almighty watch command
 grunt watch
 ```
-To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
-* Compile Coffee-script
-* Compile CSS 
-* Concatenate JavaScript Files
-* Minify JavaScript Files
-* Jshint your javascript files
-* Restart the Server (Forever)
-* Reload the Browser (LiveReload)
-* Inject CSS w/o reload (Browser-sync)
-* Inspect Code Source (node-inspector)
-* Profile Server (StrongOps)
+#### ```grunt watch```
+To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). There is so much that you can automate with grunt, but the included gruntfile is includes a powerful watch task with the following features:
+* Automatic browser reloading (LiveReload) [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+* Automatic Sass compilation and css injection ([browser-snyc](https://github.com/shakyShane/grunt-browser-sync))
+* Automatic concatination, minification, validation (lint, plato) and CoffeeScript compilation
+* Automatically restart ohm on server file changes (Forever)
 
-
-### Versioning the App
+#### Versioning the App
 The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
 * compiles production assets
 * bumps the version tag for git
@@ -127,7 +122,8 @@ git push production prod
 # push to github
 git push origin prod
 ```
-# Extras
+# Extending ohm
+### Client Dependencies
 There are a few client-side add-ons included via Bower. There are advantages to each of these libraries and I would certainly not recommend using them all together as it can really add in terms of HTTP requests and page download size (remember Souders rules!). Modernizr is useful for any project. Many users love using underscore and/or jQuery. Personally I prefer to use d3 instead of jQuery. Although it's larger in terms of download size it can do a lot of the same things jQuery can do and a whole lot more. Skrollr is very useful if you are working on a single page app or want to add parallax effects to your site. Finally, socket.io is a great library for building a real time web app.
 
 * [modernizr](http://modernizr.com/)
@@ -137,21 +133,22 @@ There are a few client-side add-ons included via Bower. There are advantages to 
 * [skrollr](https://github.com/Prinzhorn/skrollr) (also IE, color, menu and stylesheets plugins)
 * [socket.io](http://socket.io/#how-to-use)
 
+### Documentation & Validation
+This command will generate jsdoc documentation and perform jslint on both client and server files. An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
 ```sh
 # generate Plato & jsdoc Reports (complexity analysis, lint & jsdoc)
 # documentation - localhost:8888/jsdoc
 # plato         - localhost:8888/plato
 ohm docs
 ```
-This command will generate jsdoc documentation and perform jslint on both client and server files. An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
-
-Additionally, If you use the watch command you get the benefit of automatic CSS injection and page reloading via LiveReload [chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) and [browser-snyc](https://github.com/shakyShane/grunt-browser-sync). I also included node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). The gruntfile by default passes the necessary flag to run the debugger, but you must start node inspector:
+### Debugging
+The dock repo includes node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). The gruntfile by default passes the necessary flag to run the debugger, but you must start node inspector:
 ```sh
 node-inspector &
 # navigate to http://127.0.0.1:8080/debug?port=5858
 ```
-
-You can also monitor your servers performance using [strongOps](http://strongloop.com/node-js-performance/strongops/). All you need to do is sign up for an account, this occurs automatically in the prod environment script.
+### Profiling
+You can profile your servers performance using [strongOps](http://strongloop.com/node-js-performance/strongops/). All you need to do is sign up for an account.
 ```sh
 $ cd your-app-dir
 $ slc strongops --register
