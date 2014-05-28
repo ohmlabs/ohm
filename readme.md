@@ -37,8 +37,8 @@ If you are a designer most of your time will be spent in the client directory. I
 ```sh
 ├── client
 │   ├── js
+│   ├── images
 │   └── sass
-├── images
 ├── logs
 │   ├── err-node-bp.log
 │   └── node-bp.log
@@ -46,12 +46,17 @@ If you are a designer most of your time will be spent in the client directory. I
 │   ├── apis
 │   ├── config
 │   ├── routes
+│   ├── ghost
+│   |   ├── content
+│   |   └── config.js
+│   ├── routes
 │   └── views
 ├── static
 │   ├── components
 │   ├── css
 │   ├── img
 │   ├── js
+│   ├── jsdoc
 │   └── plato
 └── tutorials
 ├── boilerplate.coffee
