@@ -29,30 +29,7 @@ git clone https://github.com/ohmlabs/ohm.git
 cd ohm
 npm link
 ohm install
-
-# start ohm
-ohm start
-
-# stop ohm
-ohm stop
-
-# show all forever process
-ohm list
-
-# generate Plato & jsdoc Reports (complexity analysis, lint & jsdoc)
-# documentation - localhost:8888/jsdoc
-# plato         - localhost:8888/plato
-ohm docs
-
-# generate relase assets and version branch (bump, imagemin)
-ohm version
-# only generate production assets and start in production
-grunt prod; node ohm.js -p
-
-#  watch files for changes
-grunt watch
 ```
-
 # Architecture
 This boilerplate attempts to have the simplest possible structure. Code is grouped into three main classes: server, client, and static. The server directory contains the files that reside on the server (views to be rendered, logic for the app). I actually lied when I said there were three classes because the Static and Client directories are actually the same thing. The client directory contains *pre-compiled* code that the user will need on the client-side for the app (Sass files and Javascript code). The static directory files are all generated automatically in the grunt compile process (client/sass files are compiled to static/css, client/js files are concated and/or minified into one file which is compiled into static/js). You should NEVER have to edit static files, they should be generated automatically (except in the case of adding images or other filetypes that are not a part of the compile process e.g. *.php or *.txt)
 
@@ -89,8 +66,18 @@ If you are a designer most of your time will be spent in the client directory. I
 ├── readme.md
 ```
 # Running
-To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). In development, Grunt will start the server as a daemon and watch the directory for file updates and automatically compile. There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
+In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
+```sh
+# start ohm
+ohm start
 
+# stop ohm
+ohm stop
+
+# show all forever process
+ohm list
+```
+To best streamline the development process this project uses grunt.js (a JavaScript Task Runner). There is so much that you can automate with grunt, but the included gruntfile is configured to fulfill the following tasks:
 * Compile Coffee-script
 * Compile CSS 
 * Concatenate JavaScript Files
@@ -102,13 +89,26 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Inspect Code Source (node-inspector)
 * Profile Server (StrongOps)
 
+```sh`
+# generate Plato & jsdoc Reports (complexity analysis, lint & jsdoc)
+# documentation - localhost:8888/jsdoc
+# plato         - localhost:8888/plato
+ohm docs
+
+# generate relase assets and version branch (bump, imagemin)
+ohm version
+# only generate production assets and start in production
+grunt prod; node ohm.js -p
+
+#  watch files for changes
+grunt watch
+```
 When you install the boilerplate it begins running on port http://localhost:8080. You can use grunt from then on to interact with the server:
 ### Versioning the App
 The best thing about this boilerplate is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
 * compiles production assets
 * bumps the version tag for git
 * compresses images
-
 ```sh
 git add .
 git ci -m 'pushing to production'
