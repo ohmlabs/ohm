@@ -36,39 +36,39 @@ Ohm attempts to have the simplest possible structure. Code is grouped into three
 If you are a designer most of your time will be spent in the client directory. If you are a back-end developer you'd work predominately in the server folder.
 ```sh
 ├── client
-│   ├── js
-│   ├── images
-│   └── sass
+│   ├── js                        # client scripts
+│   ├── images                    # raw image files 
+│   └── sass                      # sass files
 ├── logs
-│   ├── err-node-bp.log
-│   └── node-bp.log
+│   ├── ohm-error.log             # error log
+│   └── ohm.log                   # access log
 ├── server
-│   ├── apis
-│   ├── config
-│   ├── routes
+│   ├── apis                      # API initializations (Parse, AWS)
+│   ├── config                    # config files for Compass, Express, Auth, etc.
+│   ├── models                    # app models
 │   ├── ghost
-│   |   ├── content
-│   |   └── config.js
-│   ├── routes
-│   └── views
+│   |   ├── content               # Ghost data, images & themes
+│   |   └── config.js             # Ghost config file
+│   ├── controllers               # app controllers
+│   ├── routes                    # url routing
+│   └── views                     # jade files for pages and templates
+│   |   └── includes              # include files such as google analytics
 ├── static
-│   ├── components
-│   ├── css
-│   ├── img
-│   ├── js
-│   ├── jsdoc
-│   └── plato
+│   ├── components                # bower managed client dependencies
+│   ├── css                       # compiled css files
+│   ├── img                       # compressed images
+│   ├── js                        # compiled js
+│   ├── jsdoc                     # jsdoc documentation
+│   └── plato                     # plato complexity reports
 └── tutorials
-├── ohm.coffee
-├── ohm.js
-├── bower.json
+├── ohm.coffee                    # main file
+├── ohm.js                        # compiled to js
+├── bower.json                    
 ├── package.json
-├── gruntfile.coffee
+├── gruntfile.coffee              # gruntfile (necessary for cli to work)
 ├── .bowerrc
 ├── .gitignore
-├── .gitmodules
-├── .jshintrc
-├── readme.md
+└── .jshintrc
 ```
 # Running
 In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
