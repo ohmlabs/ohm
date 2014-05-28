@@ -11,7 +11,7 @@ module.exports = (grunt) ->
 
     jsdoc:
       dist:
-        src: ["client/js/**/*.js", "gruntfile.coffee", "ohm.coffee", "server/apis/**/*.js", "server/models/**/*.js", "server/config/**/*.js", "server/controllers/**/*.js", "server/routes/**/*.js", "server/views/**/*.js", "readme.md", "*.js"]
+        src: ["readme.md", "client/js/**/*.js", "server/**/*.js", "*.coffee", "*.js"]
         options:
           destination: 'static/jsdoc'
 
@@ -106,7 +106,9 @@ module.exports = (grunt) ->
           dest: 'static/img/'
           ext: '.jpg'
         ]
-
+    ### 
+    Compass Configuration
+    ###
     compass:
       dev:
         options:
@@ -121,34 +123,38 @@ module.exports = (grunt) ->
         files:
           'ohm.js': 'ohm.coffee'
 
+    ### 
+    Grunt Forever Task
+    ###
     forever:
       options:
         index: 'ohm.js' 
         logDir: 'logs'
-        command: 'node --debug=5859'
-        logFile: 'node-bp.log'
-        errFile: 'err-node-bp.log'
-
-    # this watch task does a lot:
-    #     1.) compile sass
-    #     2.) concat and minify js
-    #     3.) reload the page if js or dom changed
-    #     4.) restart the server if necessary
+        command: 'node --debug=5858'
+        logFile: 'ohm.log'
+        errFile: 'ohm-error.log'
+    ###
+    Watch Task
+        1.) compile sass
+        2.) concat and minify js
+        3.) reload the page if js or dom changed
+        4.) restart the server if necessary
+    ###
     watch:
       sass:
         files: "client/**/*.sass"
         tasks: "compass:dev"
       scripts:
-        files: '<%= concat.dist.src %>'
-        tasks: ['concat', 'coffee', 'copy', 'lint']
+        files: ['<%= concat.dist.src %>']
+        tasks: ['copy']
       livereload:
         options:
           livereload: true
-        files: ["static/js/*.js", "static/css/*.css", "server/views/**/*"]
+        files: ["static/js/*.js", "static/css/*.css", "server/views/**/*.jade"]
       server:
-        files: ["gruntfile.coffee", "ohm.coffee", "server/**/*.js"]
-        tasks: ["coffee", "forever:restart", 'lint']
-                          
+        files: ["ohm.coffee", "server/**/*.js"]
+        tasks: ["coffee", "forever:restart"]
+
   grunt.loadNpmTasks "grunt-contrib-imagemin"
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
@@ -163,8 +169,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-plato"
   grunt.loadNpmTasks "grunt-forever"
   grunt.loadNpmTasks "grunt-contrib-coffee"
+
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["coffee", "concat", "copy", "compass:dev", "imagemin"]
+  grunt.registerTask "default", ["coffee", "copy", "compass:dev", "imagemin"]
   # in testing, concat and plato
   grunt.registerTask "lint", ["plato", "jsdoc"]
   # in production, concat and minify
