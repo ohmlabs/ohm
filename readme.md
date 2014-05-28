@@ -1,5 +1,5 @@
 # ohm - Node.js Start Application
-ohm is an opinionated full-stack Node.js environment to jumpstart a web project. Based on [Express](http://expressjs.com/guide.html), ohm uses [grunt](http://gruntjs.com/) for automation, [Compass](http://compass-style.org/) (SASS) for CSS pre-processing and npm & bower for dependencies. It also integrates the [Ghost Blogging](http://ghost.org) platform as a CMS. ohm is designed to be run proxied by [Nginx](http://nginx.org). For more see the [dock repo](https://github.com/ohmlabs/dock).  I've included some basic mixins and figures that can be helpful in making web layouts quickly, I also am going to gradually integrate Bootstrap features. ohm comes preconfigured with production/development environments (production minifies all files including the html markup) as well as example server config files (using Nginx to serve static files, and proxying ohm and ghost).
+ohm is an opinionated full-stack Node.js environment to jumpstart a web project. Based on [Express](http://expressjs.com/guide.html), ohm uses [Grunt](http://gruntjs.com/) for automation, [Compass](http://compass-style.org/) (SASS) for CSS pre-processing and npm & bower for dependencies. It also integrates the [Ghost](http://ghost.org) blogging platform as a CMS. ohm is designed to be run proxied by [Nginx](http://nginx.org). For more see [dock](https://github.com/ohmlabs/dock).  I've included some basic mixins and figures that can be helpful in making web layouts quickly, I also am going to gradually integrate Bootstrap features. ohm comes preconfigured with production/development environments (production minifies all files including the html markup) as well as example server config files (using Nginx to serve static files, and proxying ohm and ghost).
 
 # Goals
 * HTML5 ready. Use the new elements with confidence.
@@ -13,6 +13,7 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 # Roadmap
 * Amazon Web Services integration
 * Parse backend integration
+* Socket.io integration
 
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
