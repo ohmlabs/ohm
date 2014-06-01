@@ -171,6 +171,10 @@ $ slc strongops --register
 * Amazon Web Services integration
 * Parse backend integration
 * Socket.io integration
+* Require.js support
+* Support multiple templating platforms (.hbs, .jade, angular etc.)
+* Yeoman Generator
+* Ghost Theme
 
 # License
 ohm is licensed under the MIT license
