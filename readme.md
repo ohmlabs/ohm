@@ -10,11 +10,27 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 * Make powerful use of ```grunt watch```
 * Adhere to Steve Sauders Rules for High Performance Websites:
 
-# Roadmap
-* Amazon Web Services integration
-* Parse backend integration
-* Socket.io integration
+# Installing
+In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy using [dock](https://github.com/ohmlabs/dock)
+```sh
+# clone the repo to computer for development
+git clone https://github.com/ohmlabs/ohm.git your-repo
+cd your-repo
 
+# install the cli for running app or alternatively "npm link"
+npm install -g ohm 
+
+# install dependencies (must be done first)
+ohm install
+
+# equip your development machine (homebrew, cask, etc)
+# https://github.com/ohmlabs/dock#development-environment
+ohm dev
+
+# provision production server
+# https://github.com/ohmlabs/dock#production-deployment
+ohm prod
+```
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
 * [Grunt (Javascript Task Runner)](http://gruntjs.com/)
@@ -23,16 +39,7 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 * [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
 * [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
 
-# Installing
-In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy:
 
-```sh
-# install ohm
-git clone https://github.com/ohmlabs/ohm.git
-cd ohm
-npm link
-ohm install
-```
 # Running
 In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
 ```sh
@@ -158,5 +165,10 @@ $ slc strongops --register
 # If you already have a StrongOps account, don't use --register.
 # Complete your registration at the strongOps site
 ```
+# Roadmap
+* Amazon Web Services integration
+* Parse backend integration
+* Socket.io integration
+
 # License
 ohm is licensed under the MIT license
