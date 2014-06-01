@@ -1,7 +1,7 @@
 # ohm - Node.js Starter Application
 ohm is an opinionated full-stack Node.js environment to jumpstart a web project. Based on [Express](http://expressjs.com/guide.html), ohm uses [Grunt](http://gruntjs.com/) for automation, [Compass](http://compass-style.org/) (SASS) for CSS pre-processing and npm & bower for dependencies. It also integrates the [Ghost](http://ghost.org) blogging platform as a CMS. ohm is designed to be run proxied by [Nginx](http://nginx.org). For more see [dock](https://github.com/ohmlabs/dock).  I've included some basic mixins and figures that can be helpful in making web layouts quickly, I also am going to gradually integrate Bootstrap features. ohm comes preconfigured with production/development environments (production minifies all files including the html markup) as well as example server config files (using Nginx to serve static files, and proxying ohm and ghost).
 
-# Goals
+# Features
 * HTML5 ready. Use the new elements with confidence.
 * CSS resets (normalize.css) and common bug fixes.
 * Compression and spriting of images
@@ -11,7 +11,7 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 * Adhere to Steve Sauders Rules for High Performance Websites:
 
 # Installing
-In order to configure a development environment sufficient for running ohm I recommend using our [dock repo](https://github.com/ohmlabs/dock). If you are confident that your environment is properly configured installing the app is very easy using [dock](https://github.com/ohmlabs/dock)
+If you are confident that your environment is properly configured skip this, but installing the app is very easy using [dock](https://github.com/ohmlabs/dock)
 ```sh
 # clone the repo to computer for development
 git clone https://github.com/ohmlabs/ohm.git your-repo
@@ -36,6 +36,7 @@ ohm prod
 * [Grunt (Javascript Task Runner)](http://gruntjs.com/)
 * [Compass(CSS framework)](http://compass-style.org/)
 * [Normalize (CSS normalizations)](http://necolas.github.io/normalize.css/)
+* [dock Deployments](https://github.com/ohmlabs/dock)
 * [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
 * [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
 
@@ -62,34 +63,7 @@ To best streamline the development process this project uses grunt.js (a JavaScr
 * Automatic concatination, minification, validation (lint, plato) and CoffeeScript compilation
 * Automatically restart ohm on server file changes (Forever)
 
-# Versioning
-The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
-* compiles production assets
-* bumps the version tag for git
-* compresses images
 
-```sh
-# only generate production assets and start in production
-grunt prod; node ohm.js -p
-
-# commit changes
-git add .
-git ci -m 'pushing to production'
-
-# generate relase assets and version branch (bump, imagemin)
-ohm version
-
-# alternatively you can:
-# grunt bump:patch
-# grunt bump:minor
-# grunt bump:major
-
-# push to the production server
-git push production prod
-
-# push to github
-git push origin prod
-```
 # Architecture
 ohm attempts to have the simplest possible structure. Code is grouped into three main classes: server, client, and static. The server directory contains the files that reside on the server (views to be rendered, logic for the app). I actually lied when I said there were three classes because the Static and Client directories are actually the same thing. The client directory contains *pre-compiled* code that the user will need on the client-side for the app (Sass files and Javascript code). The static directory files are all generated automatically in the grunt compile process (client/sass files are compiled to static/css, client/js files are concated and/or minified into one file which is compiled into static/js). You should NEVER have to edit static files, they should be generated automatically (except in the case of adding images or other filetypes that are not a part of the compile process e.g. *.php or *.txt)
 
@@ -130,6 +104,34 @@ If you are a designer most of your time will be spent in the client directory. I
 ├── .jshintrc
 ├── ohm.coffee                    # main file
 └── ohm.js                        # compiled
+```
+# Versioning
+The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
+* compiles production assets
+* bumps the version tag for git
+* compresses images
+
+```sh
+# only generate production assets and start in production
+grunt prod; node ohm.js -p
+
+# commit changes
+git add .
+git ci -m 'pushing to production'
+
+# generate relase assets and version branch (bump, imagemin)
+ohm version
+
+# alternatively you can:
+# grunt bump:patch
+# grunt bump:minor
+# grunt bump:major
+
+# push to the production server
+git push production prod
+
+# push to github
+git push origin prod
 ```
 # Extending
 ohm is built to be easily extended to include many additional features.
