@@ -12,7 +12,9 @@
   "keywords": [
     "boilerplate",
     "ghost",
-    "frontend"
+    "frontend",
+    "framework",
+    "full-stack"
   ],
   "repository": {
     "type": "git",
@@ -27,29 +29,30 @@
     "start": "node ohm"
   },
   "dependencies": {
-    "express": "",
-    "morgan": "^1.0.0",
-    "cookie-parser": "^1.0.1",
+    "aws-sdk": "^2.0.0-rc13",
     "body-parser": "^1.0.2",
-    "method-override": "^1.0.0",
-    "connect": "^2.14.4",
-    "errorhandler": "^1.0.0",
-    "jade": "",
-    "grunt": "0.4.1",
     "coffee-script": "1.6.3",
-    "grunt-contrib-uglify": "0.2.4",
+    "connect": "^2.14.4",
+    "cookie-parser": "^1.0.1",
+    "errorhandler": "^1.0.0",
+    "express": "",
+    "ghost": "^0.4.2",
+    "grunt": "0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-compass": "",
     "grunt-contrib-concat": "",
-    "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-imagemin": "^0.5.0",
+    "grunt-contrib-uglify": "0.2.4",
     "grunt-forever": "0.4.1",
-    "aws-sdk": "^2.0.0-rc13",
+    "jade": "",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0",
+    "ohm-dock": "0.0.1",
     "parse": "^1.2.17",
-    "underscore": "^1.6.0",
+    "phantomjs": "^1.9.7-5",
     "socket.io": "^0.9.16",
-    "ghost": "^0.4.2",
-    "phantomjs": "^1.9.7-5"
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "grunt-browser-sync": "~0.4.8",

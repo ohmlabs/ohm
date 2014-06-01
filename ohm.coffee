@@ -1,18 +1,3 @@
-###*
-* ohm.js 1.1.1
-* For all details and documentation:
-* http://ohm.fm
-* @version    1.1.1
-* @author     Cameron W. Drake
-* @summary   Designed to make web application deployment as simple as possible, ohm is a spark for lightning fast deployment
-* @copyright  Copyright (c) 2014 Ohm Labs
-* @license    Licensed under the MIT license
-*
-* @requires HTTP
-* @requires Express (logger, cookieParser, bodyParser, methodOverride, errorHandler)
-* @requires Ghost
-* @requires Socket.io
-###
 http = require("http")
 express = require("express")
 ghost = require('./node_modules/ghost/core/index.js')
@@ -22,9 +7,13 @@ process.env.NODE_ENV = config.env
 app = express()
 server = http.createServer(app)
 ghost(app)
-###*
-@todo Implement Socket.io example
-###
+# ------------------
+# Extras
+# ------------------
+# parse = require("./server/apis/Parse.js")
+# aws = require("./server/apis/AWS.js")
+# StrongOps see: http://docs.strongloop.com/display/DOC/Getting+started
+# require('strong-agent').profile();
 # io = require('socket.io').listen(server);
 # ------------------
 # Express Middleware
@@ -56,13 +45,6 @@ if app.settings.env == "development"
     showStack: true
   )
   app.locals.pretty = true
-# ------------------
-# Extras
-# ------------------
-# parse = require("./server/apis/Parse.js")
-# aws = require("./server/apis/AWS.js")
-# StrongOps see: http://docs.strongloop.com/display/DOC/Getting+started
-# require('strong-agent').profile();
 # ------------------
 # Controllers
 # ------------------
