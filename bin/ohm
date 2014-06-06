@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-var command           = process.argv[2]; // Command to execute
-var userArguments     = process.argv.slice(3); // Copies arguments, removes first 3 options (script exec type & exec location & command)
+var userArguments = process.argv.slice(2); // Copies arguments list but removes first two options (script exec type & exec location)
+var command           = userArguments[0];
+var args              = userArguments[1];
 
 var fs                = require('fs');
 var shell             = require('child_process').exec;
@@ -18,24 +19,6 @@ switch (command) {
 case "help":
     log("ohm - Node.js Starter Application: Ohm Labs Inc");
     shell('./node_modules/ohm-dock/dock', function(error, stdout, stderr) {
-      log(stdout);
-    });
-    break;
-  case "-d":
-  case "deploy":
-    log("Git Powered Deployment Beginning...");
-    if(userArguments.length >= 3){
-      shell('./node_modules/ohm-dock/dock -d ' + userArguments[0] + ' ' + userArguments[1] + ' ' + userArguments[2], function(error, stdout, stderr) {
-        log(stdout);
-      });
-    } else {
-      log("You need at least 3 arguments (repository, username, branch) from Github");
-      process.exit(1);
-    }
-    break;
-case "dev":
-    log("Building Development Environment");
-    shell('./node_modules/ohm-dock/dock dev', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
@@ -57,15 +40,7 @@ case "link":
     });
     break;
 case "list":
-    log("Listing ohms:");
     shell('forever list', function(error, stdout, stderr) {
-      log(stdout);
-    });
-    break;
-case "-p":
-case "prod":
-    log("Building Production Environment...");
-    shell('./node_modules/ohm-dock/dock -p', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
@@ -81,13 +56,34 @@ case "stop":
       log(stdout);
     });
     break;
-case "watch":
-    shell('grunt watch', function(error, stdout, stderr) {
+case "version":
+    shell('grunt version', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
-case "version":
-    shell('grunt version', function(error, stdout, stderr) {
+case "--deploy":
+case "deploy":
+    log("Git Powered Deployment Beginning...");
+    if(userArguments.length >= 3){
+      shell('./node_modules/ohm-dock/dock -d ' + userArguments[0] + ' ' + userArguments[1] + ' ' + userArguments[2], function(error, stdout, stderr) {
+        log(stdout);
+      });
+    } else {
+      log("You need at least 3 arguments (repository, username, branch) from Github");
+      process.exit(1);
+    }
+    break;
+case "--dev":
+case "dev":
+    log("Building Development Environment");
+    shell('./node_modules/ohm-dock/dock dev', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "--prod":
+case "prod":
+    log("Building Production Environment...");
+    shell('./node_modules/ohm-dock/dock -p', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
