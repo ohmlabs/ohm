@@ -18,7 +18,7 @@ function bootstrap(err, contentAsBuffer){
 switch (command) {
 case "help":
     log("ohm - Node.js Starter Application: Ohm Labs Inc");
-    shell('./node_modules/ohm-dock/dock', function(error, stdout, stderr) {
+    shell('./node_modules/ohm-dock/bin/dock', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
@@ -65,7 +65,7 @@ case "--deploy":
 case "deploy":
     log("Git Powered Deployment Beginning...");
     if(userArguments.length >= 3){
-      shell('./node_modules/ohm-dock/dock -d ' + userArguments[0] + ' ' + userArguments[1] + ' ' + userArguments[2], function(error, stdout, stderr) {
+      shell('./node_modules/ohm-dock/bin/dock --deploy ' + userArguments[0] + ' ' + userArguments[1] + ' ' + userArguments[2], function(error, stdout, stderr) {
         log(stdout);
       });
     } else {
@@ -76,14 +76,14 @@ case "deploy":
 case "--dev":
 case "dev":
     log("Building Development Environment");
-    shell('./node_modules/ohm-dock/dock dev', function(error, stdout, stderr) {
+    shell('./node_modules/ohm-dock/bin/dock --dev', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
 case "--prod":
 case "prod":
     log("Building Production Environment...");
-    shell('./node_modules/ohm-dock/dock -p', function(error, stdout, stderr) {
+    shell('./node_modules/ohm-dock/bin/dock --prod', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
