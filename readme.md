@@ -25,11 +25,11 @@ ohm install
 
 # equip your development machine (homebrew, cask, etc)
 # https://github.com/ohmlabs/dock#development-environment
-ohm dev
+./dock dev
 
 # provision production server
 # https://github.com/ohmlabs/dock#production-deployment
-ohm prod
+./dock prod
 ```
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
