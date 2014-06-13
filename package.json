@@ -1,0 +1,66 @@
+{
+  "name": "ohm",
+  "description": "Node.js Starter Application (Grunt, Express, Ghost, Bower & Compass)",
+  "version": "0.1.3",
+  "homepage": "http://ohm.fm",
+  "contributors": [
+    {
+      "name": "Cameron Drake",
+      "email": "cameron@drake.fm"
+    }
+  ],
+  "keywords": [
+    "boilerplate",
+    "ghost",
+    "frontend",
+    "framework",
+    "full-stack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ohmlabs/ohm.git"
+  },
+  "bugs": "https://github.com/ohmlabs/ohm/issues",
+  "preferGlobal": "true",
+  "bin": {
+    "ohm": "./bin/ohm"
+  },
+  "scripts": {
+    "start": "node ohm"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.0.0-rc13",
+    "body-parser": "^1.0.2",
+    "coffee-script": "1.6.3",
+    "connect": "^2.14.4",
+    "cookie-parser": "^1.0.1",
+    "errorhandler": "^1.0.0",
+    "express": "",
+    "ghost": "^0.4.2",
+    "grunt": "0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-compass": "",
+    "grunt-contrib-concat": "",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-imagemin": "^0.5.0",
+    "grunt-contrib-uglify": "0.2.4",
+    "grunt-forever": "0.4.1",
+    "jade": "",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0",
+    "ohm-dock": "^0.1.3",
+    "parse": "^1.2.17",
+    "socket.io": "^1.0.4",
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-plato": "~0.2.1",
+    "grunt-browser-sync": "~0.4.8",
+    "strong-agent": "~0.2.22",
+    "grunt-open": "^0.2.3",
+    "grunt-bump": "0.0.13",
+    "grunt-jsdoc": "^0.5.4",
+    "jsdoc": "^3.3.0-alpha5"
+  }
+}

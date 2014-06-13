@@ -1,0 +1,74 @@
+#!/usr/bin/env node
+var userArguments = process.argv.slice(2); // Copies arguments list but removes first two options (script exec type & exec location)
+var command           = userArguments[0];
+var args              = userArguments[1];
+
+var fs                = require('fs');
+var shell             = require('child_process').exec;
+var manifest          = __dirname + '/../package.json';
+var manifestContent;
+var data;
+var project_root      = __dirname + '/../';
+
+fs.readFile(manifest, bootstrap);
+function bootstrap(err, contentAsBuffer){
+    if (err) throw err;
+    manifestContent = contentAsBuffer.toString('utf8');
+    data = JSON.parse(contentAsBuffer);
+}
+switch (command) {
+case "help":
+    log("ohm - Node.js Starter Application: Ohm Labs Inc");
+    shell('./node_modules/ohm-dock/bin/dock', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "docs":
+    log("Generating JSDocs and Plato Reports");
+    shell('grunt lint', function(error, stdout, stderr) {
+      log(stdout);
+      log(stderr);
+    });
+    break;
+case "install":
+    log("Installing Node Modules and Bower Dependencies...");
+    shell('npm cache clean;npm install;bundle install; bower install;ohm link;cd node_module/ghost && npm install;', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "link":
+    shell('cp -r server/ghost/content node_modules/ghost; cp server/ghost/config.js node_modules/ghost/config.js', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "list":
+    log("Running Node.js Apps...");
+    shell('forever list', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "start":
+    log("Starting App...");
+    shell('grunt forever:start', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "stop":
+    log("Stopping App...");
+    shell('grunt forever:stop', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+case "version":
+    shell('grunt version', function(error, stdout, stderr) {
+      log(stdout);
+    });
+    break;
+}
+function log(message) {
+    process.stdout.write(message + '\n');
+}
+
+function error(err) {
+    process.stderr.write(err);
+}

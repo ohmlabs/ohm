@@ -1,0 +1,94 @@
+///////////////////////////////////////
+//  Sass Document                   //
+////////////////////////////////////
+@charset "utf-8"
+@import compass
+@import ceaser-easing
+@import "bootstrap-custom"
+/*
+ Custom Build of Bootstrap
+ * Normalize
+ * Utilities
+ * Forms
+ * Buttons
+ * Modals
+ * Tooltip 
+ * Popovers
+ * Carousel
+ */
+///////////////////////////////////////
+//  Fonts                           //
+/////////////////////////////////////
+$helvetica: "Helvetica Neue", Helvetica, sans-serif
+$hcb: 'HelveticaNeue-CB', 'HelveticaNeue-CondensedBold', 'HelveticaNeueBoldCondensed', 'HelveticaNeue-Bold-Condensed', 'Helvetica Neue Bold Condensed', 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Impact', 'Arial Condensed Bold', sans-serif
+///////////////////////////////////////
+//   Google Fonts                   //
+/////////////////////////////////////
+//@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Gravitas+One|Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Abril+Fatface|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Old+Standard+TT:400,400italic,700|Montserrat:400,700|Oswald:400:700:300|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Raleway:400,100,200,300,500,600,700,800,900)
+/*
+  Select Google Fonts:
+  * font-family: 'Ubuntu', sans-serif
+  * font-family: 'Gravitas One', cursive
+  * font-family: 'Lato', sans-serif
+  * font-family: 'Abril Fatface', cursive
+  * font-family: 'Roboto Condensed', sans-serif
+  * font-family: 'Old Standard TT', serif
+  * font-family: 'Montserrat', sans-serif
+  * font-family: 'Open Sans', sans-serif
+  * font-family: 'Raleway', sans-serif
+  * font-family: 'Oswald', sans-serif
+  */
+///////////////////////////////////////
+//  Colors                          //
+/////////////////////////////////////
+$light-grey: #ccc
+$dark-grey: #222
+$near-black: #111
+///////////////////////////////////////
+//   Figures                        //
+/////////////////////////////////////
+@import "figures"
+///////////////////////////////////////
+//   Figures                        //
+/////////////////////////////////////
+@import "utilities"
+///////////////////////////////////////
+//   Media Queries                  //
+/////////////////////////////////////
+@import "queries"
+///////////////////////////////////////
+//   Universal                      //
+/////////////////////////////////////
+body
+  padding: 0
+  margin: 0
+  font-family: $helvetica
+  line-height: normal
+p, a, h1, h2, h3, h4
+  padding: 0
+  margin: 0
+///////////////////////////////////////
+//   Typography                     //
+/////////////////////////////////////
+h1
+  font: 24px $helvetica
+  line-height: 0.9
+h2
+  font: 18px $helvetica
+h3
+  font: 100 20px $helvetica
+p
+  font: 100px 14px $helvetica
+
+///////////////////////////////////////
+//  Links & Buttons                 //
+/////////////////////////////////////
+a
+  text-decoration: none
+///////////////////////////////////////
+//  All-purpose                     //
+/////////////////////////////////////
+.clearfix
+  @include clearfix
+.scrolls
+  -webkit-overflow-scrolling: touch
