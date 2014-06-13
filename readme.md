@@ -13,14 +13,6 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 # Installing
 If you are confident that your environment is properly configured skip this, but installing the app is very easy using [dock](https://github.com/ohmlabs/dock)
 ```sh
-# equip your development machine (homebrew, cask, etc)
-# https://github.com/ohmlabs/dock#development-environment
-./dock dev
-
-# provision production server
-# https://github.com/ohmlabs/dock#production-deployment
-./dock prod
-
 # clone the repo to computer for development
 git clone https://github.com/ohmlabs/ohm.git your-repo
 cd your-repo
