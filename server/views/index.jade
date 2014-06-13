@@ -1,7 +1,7 @@
-extends layout
+extends base/layout
 block head
   // STYLES
-  link(rel="stylesheet", href="/css/style.css", type="text/css")
+  link(rel="stylesheet", href="/css/style.css?v=#{assetsVersion}", type="text/css")
   // SHORTCUT ICONS:
   link(rel='shortcut icon', href='img/favicon.png')
   link(rel="apple-touch-icon-precomposed",  href="/img/apple-touch-icon-precomposed.png")

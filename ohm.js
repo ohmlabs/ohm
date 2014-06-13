@@ -1,22 +1,7 @@
-/**
-* ohm.js 1.1.1
-* For all details and documentation:
-* http://ohm.fm
-* @version    1.1.1
-* @author     Cameron W. Drake
-* @summary   Designed to make web application deployment as simple as possible, ohm is a spark for lightning fast deployment
-* @copyright  Copyright (c) 2014 Ohm Labs
-* @license    Licensed under the MIT license
-*
-* @requires HTTP
-* @requires Express (logger, cookieParser, bodyParser, methodOverride, errorHandler)
-* @requires Ghost
-* @requires Socket.io
-*/
-
-
 (function() {
-  var app, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, routes, sample, server;
+  var app, assetsVersion, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, pkg, routes, sample, server;
+
+  pkg = require('./package.json');
 
   http = require("http");
 
@@ -34,11 +19,6 @@
 
   ghost(app);
 
-  /**
-  @todo Implement Socket.io example
-  */
-
-
   logger = require("morgan");
 
   cookieParser = require("cookie-parser");
@@ -48,6 +28,13 @@
   methodOverride = require("method-override");
 
   errorHandler = require("errorhandler");
+
+  assetsVersion = pkg.version;
+
+  app.use(function(req, res, next) {
+    res.locals.assetsVersion = assetsVersion;
+    return next();
+  });
 
   app.use(logger());
 

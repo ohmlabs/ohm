@@ -9,7 +9,7 @@ config = {
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
-        url: 'http://127.0.0.1:8889/',
+        url: 'http://127.0.0.1:8888/',
 
         // Visit http://docs.ghost.org/mail for instructions
         mail: {

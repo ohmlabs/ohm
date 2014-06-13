@@ -1,3 +1,4 @@
+pkg = require('./package.json')
 http = require("http")
 express = require("express")
 ghost = require('./node_modules/ghost/core/index.js')
@@ -26,6 +27,12 @@ errorHandler = require("errorhandler")
 # ------------------
 # Configuration
 # ------------------
+# get assets version
+assetsVersion = pkg.version
+# expose assets version to client
+app.use (req, res, next) ->
+  res.locals.assetsVersion = assetsVersion
+  next()
 app.use logger()
 app.use cookieParser()
 app.use bodyParser()

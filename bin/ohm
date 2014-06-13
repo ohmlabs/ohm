@@ -32,12 +32,12 @@ case "docs":
     break;
 case "install":
     log("Installing Node Modules and Bower Dependencies...");
-    shell('npm cache clean;npm install;bower install;ohm link;cd node_module/ghost && npm install;', function(error, stdout, stderr) {
+    shell('npm cache clean;npm install;bundle install; bower install;ohm link;cd node_module/ghost && npm install;', function(error, stdout, stderr) {
       log(stdout);
     });
     break;
 case "link":
-    shell('rm -rf content config.js;ln -Ffs ../../server/ghost/content node_modules/ghost && ln -Ffs ../../server/ghost/config.js node_modules/ghost', function(error, stdout, stderr) {
+    shell('cp -r server/ghost/content node_modules/ghost; cp server/ghost/config.js node_modules/ghost/config.js', function(error, stdout, stderr) {
       log(stdout);
     });
     break;

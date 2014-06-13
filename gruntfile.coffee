@@ -19,7 +19,7 @@ module.exports = (grunt) ->
       main:
         expand: true,
         cwd: 'client/js/',
-        src: ['*.js']
+        src: ['**/*.js']
         dest: 'static/js/'
 
     # generate a plato report on the project's javascript files
@@ -45,17 +45,6 @@ module.exports = (grunt) ->
           src : 'static/css/*.css'
         options:
           watchTask: true
-
-    # Cache Busting for production
-    cacheBust:
-      options:
-        encoding: 'utf8',
-        algorithm: 'md5',
-        length: 8
-        rename: true
-      assets:
-        files:
-          src: ["server/views/includes/common.jade", "server/views/includes/scripts.jade"]
 
     # Open files
     open:
@@ -145,7 +134,7 @@ module.exports = (grunt) ->
         files: "client/**/*.sass"
         tasks: "compass:dev"
       scripts:
-        files: ['<%= concat.dist.src %>']
+        files: '<%= concat.dist.src %>'
         tasks: ['copy']
       livereload:
         options:
@@ -163,7 +152,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-compass"
   grunt.loadNpmTasks "grunt-browser-sync"
   grunt.loadNpmTasks "grunt-jsdoc"
-  grunt.loadNpmTasks "grunt-cache-bust"
   grunt.loadNpmTasks "grunt-bump"
   grunt.loadNpmTasks "grunt-open"
   grunt.loadNpmTasks "grunt-plato"
@@ -171,10 +159,12 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-coffee"
 
   # the bare grunt command only compiles
-  grunt.registerTask "default", ["coffee", "copy", "compass:dev", "imagemin"]
+  grunt.registerTask "default", ["coffee", "concat", "copy", "compass:dev"]
   # in testing, concat and plato
-  grunt.registerTask "lint", ["plato", "jsdoc"]
+  grunt.registerTask "docs", ["plato", "jsdoc"]
+  # images
+  grunt.registerTask "images", ["imagemin:jpg", "imagemin:png"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "compass:prod", "imagemin"]
+  grunt.registerTask "prod", ["concat", "uglify", "copy", "compass:prod"]
   # versioning, bust the cache, bump the version, push to origin
-  grunt.registerTask "version", ["concat", "uglify", "compass:prod", "cacheBust", "bump", "imagemin"]
+  grunt.registerTask "version", ["coffee", "copy", "concat", "uglify", "compass:prod", "bump"]

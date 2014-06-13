@@ -1,31 +1,29 @@
-//////////////
-// Mobile  //
-////////////
-/** is_mobile check */
-var is_mobile = false;
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  is_mobile = true;
-}
-//////////////
-// Local   //
-////////////
-if (window.location.origin.indexOf("8888") !== -1)
+'use strict';
+var isMobile, distance, dev;
+/** 
+* Mobile Device Detection
+*/
+isMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
+/**
+* Check for dev environment
+*/
+dev = window.location.origin.indexOf("8887") !== -1 ? true: false;
+if (dev)
 {
   handleError("development mode");
 }
-///////////////////////////////////////
-//  ERRORS                          //
-/////////////////////////////////////
+distance = isMobile ? "70%" : "30%";
 /**
-* Display an error onscreen
+* Display message onscreen
 * @param {string} msg the message to be displayed
 */
 function handleError(msg) {
-  document.getElementById('general-error-wrapper').style.display="block";
-  document.getElementById('general-error').innerHTML = msg;
-  setTimeout(function() {document.getElementById('general-error-wrapper').style.display="none";},2500);
+  if (document.getElementById('general-error-wrapper')){
+    document.getElementById('general-error-wrapper').style.display="block";
+    document.getElementById('general-error').innerHTML = msg;
+    setTimeout(function() {document.getElementById('general-error-wrapper').style.display="none";},2500);
+  }
 }
-
 ///////////////////////////////////////
 //  IMAGES                          //
 /////////////////////////////////////

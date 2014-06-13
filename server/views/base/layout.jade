@@ -6,11 +6,9 @@ html(lang="en").no-js.skrollr
     meta(name="apple-touch-fullscreen", content="yes")
     title #{title}
     block head
-    // MODERNIZR
-    script(src="/components/modernizr/modernizr.js", type="text/javascript")
   body
     block content
+    include dependencies
+    include scripts
+    include ga
     block onload
-    include includes/dependencies
-    include includes/scripts
-    include includes/ga
