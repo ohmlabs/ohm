@@ -8,6 +8,7 @@ var shell             = require('child_process').exec;
 var manifest          = __dirname + '/../package.json';
 var manifestContent;
 var data;
+var project_root      = __dirname + '/../';
 
 fs.readFile(manifest, bootstrap);
 function bootstrap(err, contentAsBuffer){
@@ -26,6 +27,7 @@ case "docs":
     log("Generating JSDocs and Plato Reports");
     shell('grunt lint', function(error, stdout, stderr) {
       log(stdout);
+      log(stderr);
     });
     break;
 case "install":
@@ -40,6 +42,7 @@ case "link":
     });
     break;
 case "list":
+    log("Running Node.js Apps...");
     shell('forever list', function(error, stdout, stderr) {
       log(stdout);
     });
@@ -61,34 +64,6 @@ case "version":
       log(stdout);
     });
     break;
-case "--deploy":
-case "deploy":
-    log("Git Powered Deployment Beginning...");
-    if(userArguments.length >= 3){
-      shell('./node_modules/ohm-dock/bin/dock --deploy ' + userArguments[0] + ' ' + userArguments[1] + ' ' + userArguments[2], function(error, stdout, stderr) {
-        log(stdout);
-      });
-    } else {
-      log("You need at least 3 arguments (repository, username, branch) from Github");
-      process.exit(1);
-    }
-    break;
-case "--dev":
-case "dev":
-    log("Building Development Environment");
-    shell('./node_modules/ohm-dock/bin/dock --dev', function(error, stdout, stderr) {
-      log(stdout);
-    });
-    break;
-case "--prod":
-case "prod":
-    log("Building Production Environment...");
-    shell('./node_modules/ohm-dock/bin/dock --prod', function(error, stdout, stderr) {
-      log(stdout);
-    });
-    break;
-}
-
 function log(message) {
     process.stdout.write(message + '\n');
 }
