@@ -1,4 +1,4 @@
-var config = require("../config/config.js");
+var config = require("../config/drake.js");
 var Parse = require('parse').Parse;
 
 // Initialize Parse

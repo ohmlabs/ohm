@@ -110,18 +110,18 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'ohm.js': 'ohm.coffee'
+          'drake.js': 'drake.coffee'
 
     ### 
     Grunt Forever Task
     ###
     forever:
       options:
-        index: 'ohm.js' 
+        index: 'drake.js' 
         logDir: 'logs'
         command: 'node --debug=5858'
-        logFile: 'ohm.log'
-        errFile: 'ohm-error.log'
+        logFile: 'drake.log'
+        errFile: 'drake-error.log'
     ###
     Watch Task
         1.) compile sass
@@ -141,7 +141,7 @@ module.exports = (grunt) ->
           livereload: true
         files: ["static/js/*.js", "static/css/*.css", "server/views/**/*.jade"]
       server:
-        files: ["ohm.coffee", "server/**/*.js"]
+        files: ["drake.coffee", "server/**/*.js"]
         tasks: ["coffee", "forever:restart"]
 
   grunt.loadNpmTasks "grunt-contrib-imagemin"
