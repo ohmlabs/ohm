@@ -22,14 +22,6 @@ npm install -g ohm
 
 # install dependencies (must be done first)
 ohm install
-
-# equip your development machine (homebrew, cask, etc)
-# https://github.com/ohmlabs/dock#development-environment
-ohm dev
-
-# provision production server
-# https://github.com/ohmlabs/dock#production-deployment
-ohm prod
 ```
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
