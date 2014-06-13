@@ -64,6 +64,7 @@ case "version":
       log(stdout);
     });
     break;
+}
 function log(message) {
     process.stdout.write(message + '\n');
 }
