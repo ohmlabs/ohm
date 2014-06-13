@@ -48,7 +48,7 @@
     "jade": "",
     "method-override": "^1.0.0",
     "morgan": "^1.0.0",
-    "ohm-dock": "^0.0.2",
+    "ohm-dock": "^0.1.3",
     "parse": "^1.2.17",
     "phantomjs": "^1.9.7-5",
     "socket.io": "^0.9.16",
