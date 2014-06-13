@@ -1,7 +1,7 @@
 var config = require("../config/config.example.js")
 
 exports.index = function(req, res){
-  res.render('index', {
+  res.render('sample', {
     title:'Node.js Boilerplate',
     dependencies: {
       modernizr: true,

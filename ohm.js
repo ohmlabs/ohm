@@ -67,7 +67,7 @@
 
   sample = require("./server/controllers/SampleController.js");
 
-  routes = require("./server/routes/site.js");
+  routes = require("./server/routes/sample.js");
 
   routes(app);
 
