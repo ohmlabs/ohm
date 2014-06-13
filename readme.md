@@ -108,29 +108,27 @@ If you are a designer most of your time will be spent in the client directory. I
 # Versioning
 The best thing about this ohm is that when used in conjunction with our [dock repo](https://github.com/ohmlabs/dock) can be used to fully deploy a node.js web app. First you must generate production assets, and then version your app. To only generate production assets, first checkout a production branch. You can compile and test the app with new static assets. Once you are satisfied and ready to release execute the ```ohm version``` command:
 * compiles production assets
-* bumps the version tag for git
-* compresses images
+* bumps the git version
+
 
 ```sh
-# only generate production assets and start in production
-grunt prod; node ohm.js -p
+# compile production assets 
+grunt prod
 
-# commit changes
-git add .
-git ci -m 'pushing to production'
+# start in production
+node ohm.js -p
 
-# generate relase assets and version branch (bump, imagemin)
+# increment git version
 ohm version
-
 # alternatively you can:
 # grunt bump:patch
 # grunt bump:minor
 # grunt bump:major
 
 # push to the production server
-git push production prod
+git push prod prod
 
-# push to github
+# push to github server
 git push origin prod
 ```
 # Extending
