@@ -19,9 +19,9 @@ cd your-repo
 
 # install the cli for running app or alternatively "npm link"
 npm install -g ohm 
-
+ohm -h
 # install dependencies (must be done first)
-ohm install
+ohm -i
 ```
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
@@ -43,7 +43,7 @@ ohm start
 ohm stop
 
 # show all forever process
-ohm list
+ohm -l
 
 #  The almighty watch command
 grunt watch
@@ -105,7 +105,7 @@ The best thing about this ohm is that when used in conjunction with our [dock re
 
 ```sh
 # compile production assets 
-grunt prod
+ohm -p
 
 # start in production
 node ohm.js -p

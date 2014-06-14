@@ -37,6 +37,7 @@ commander
   .option('-g, --ghost', 'Copying Ghost Content')
   .option('-i, --install', 'Installing... (package.json, Gemfile, bower.json)')
   .option('-l, --list, list', 'Running Node.js Apps...')
+  .option('-p, --prod', 'Generating Production Ready Assets...')
   .option('start, --start', 'Starting App with Forever...')
   .option('stop, --stop', 'Stopping App with Forever...')
   .parse(process.argv);
@@ -61,6 +62,10 @@ if (commander.install){
 }
 if (commander.list){
   shell('forever list', puts);
+}
+if (commander.prod){
+  echo("Generating Production Ready Assets......");
+  shell('grunt prod', puts);
 }
 if (commander.start) {
   echo("Starting App...");
