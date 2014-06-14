@@ -165,6 +165,6 @@ module.exports = (grunt) ->
   # images
   grunt.registerTask "images", ["imagemin:jpg", "imagemin:png"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "copy", "compass:prod"]
+  grunt.registerTask "prod", ["concat", "uglify", "copy", "compass:prod", "images"]
   # versioning, bust the cache, bump the version, push to origin
   grunt.registerTask "version", ["coffee", "copy", "concat", "uglify", "compass:prod", "bump"]
