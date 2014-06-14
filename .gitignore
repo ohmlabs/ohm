@@ -4,7 +4,6 @@ logs
 static/css/*.css
 static/js
 static/components
-static/img
 static/plato
 static/jsdoc
 # server/config/config.js
