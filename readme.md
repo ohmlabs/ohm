@@ -20,6 +20,22 @@ cd your-repo
 # install the cli for running app or alternatively "npm link"
 npm install -g ohm 
 ohm -h
+
+  Usage: ohm [options]
+
+  Options:
+
+    -h, --help        output usage information
+    -V, --version     output the version number
+    -b, --bump        Versioning App using git tags, package.json
+    -d, --docs        Generating JSDocs and Plato Reports
+    -g, --ghost       Copying Ghost Content
+    -i, --install     Installing... (package.json, Gemfile, bower.json)
+    -l, --list, list  Running Node.js Apps...
+    -p, --prod        Generating Production Ready Assets...
+    start, --start    Starting App with Forever...
+    stop, --stop      Stopping App with Forever...
+
 # install dependencies (must be done first)
 ohm -i
 ```
@@ -165,6 +181,15 @@ $ slc strongops --register
 * Support multiple templating platforms (.hbs, .jade, angular etc.)
 * Yeoman Generator
 * Ghost Theme
+
+# Credit
+Much credit goes to a number of excellent boilerplates out there that inspired me along the way:
+
+* [Bootstrap](http://getbootstrap.com/)
+* [MEAN.io](http://www.mean.io/#!/)
+* [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
+* [Hackathon Starter](https://github.com/sahat/hackathon-starter/blob/master/app.js)
+* [Google Web Starter Kit](https://github.com/google/web-starter-kit)
 
 # License
 ohm is licensed under the MIT license
