@@ -16,7 +16,7 @@ module.exports = {
       }
     });
   },
-  tumblr: function(req, res){
+  blog: function(req, res){
     res.redirect('http://blog.drake.fm');
   },
   photos: function(req, res){
