@@ -20,10 +20,10 @@ module.exports = {
     res.redirect('http://blog.drake.fm');
   },
   photos: function(req, res){
-    res.redirect('http://camwes.500px.com');
+    res.redirect('http://500px.com/camwes');
   },
   work: function(req, res){
-    res.redirect('http://camwes.prosite.com/');
+    res.redirect('http://work.drake.fm');
   },
   buckets: function(req, res){ // List Buckets
     var s3 = new aws.S3();
