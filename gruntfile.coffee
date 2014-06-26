@@ -141,7 +141,7 @@ module.exports = (grunt) ->
           livereload: true
         files: ["static/js/*.js", "static/css/*.css", "server/views/**/*.jade"]
       server:
-        files: ["drake.coffee", "server/**/*.js"]
+        files: ["drake.coffee", "server/apis/*.js", "server/config/*.js", "server/controllers/*.js", "server/routes/*.js"]
         tasks: ["coffee", "forever:restart"]
 
   grunt.loadNpmTasks "grunt-contrib-imagemin"
