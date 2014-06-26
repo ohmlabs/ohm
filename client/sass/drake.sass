@@ -5,14 +5,34 @@
 @import "base/style"
 $app-bg: #000000
 $off-white: #fffffe
+$orange: #ff8432
 body
   background: $app-bg
   color: $off-white
+a, a:visited, a:active
+  color: $orange
+a:hover
+  color: #fff
 ///////////////////////////////////////
-//   Social                       //
+//   Footer                         //
+/////////////////////////////////////
+footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  .copyright
+    width: 100%
+    text-align: center
+    font: 100 13px $helvetica
+    line-height: 40px
+    a
+      line-height: 40px
+      font: 700 18px 'Roboto Condensed', $hcb
+///////////////////////////////////////
+//   Header                         //
 /////////////////////////////////////
 header
-  width: 600px
+  max-width: 600px
   height: 200px
   margin: auto
   .overlay
@@ -26,9 +46,9 @@ header
       text-align: center
       position: relative
       .name
-        font: 100 24px $helvetica
+        font: 100 30px $helvetica
       .title
-        font: 100 16px $helvetica
+        font: 100 16px 'Lato', $helvetica
         color: #ccc
       .watermark
         background: url('../img/watermark-w.png')
@@ -36,6 +56,13 @@ header
         height: 100px
         background-size: cover
         margin: auto
+@media only screen and (min-width: 320px) and (max-device-width: 768px)
+  header
+    width: 100%
+    height: auto
+///////////////////////////////////////
+//   Links                          //
+/////////////////////////////////////
 .work
   position: absolute
   bottom: 50px
