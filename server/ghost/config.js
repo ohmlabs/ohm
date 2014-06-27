@@ -45,7 +45,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://www.yourwebsite.com',
+        url: 'http://weiss.drake.fm',
         mail: {},
         database: {
             client: 'sqlite3',
