@@ -1,4 +1,36 @@
 'use strict';
+/** 
+* DOM Utility Functions
+* Vanilla javascript implementation of class manipulation
+*/
+
+Element.prototype.hasClassName = function (a) {
+    return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);
+};
+/** 
+* Add Class Name
+*/
+Element.prototype.addClassName = function (a) {
+    if (!this.hasClassName(a)) {
+        this.className = [this.className, a].join(" ");
+    }
+};
+/** 
+* Remove Class Name
+*/
+Element.prototype.removeClassName = function (b) {
+    if (this.hasClassName(b)) {
+        var a = this.className;
+        this.className = a.replace(new RegExp("(?:^|\\s+)" + b + "(?:\\s+|$)", "g"), " ");
+    }
+};
+/** 
+* Toggle Class Name
+*/
+Element.prototype.toggleClassName = function (a) {
+  this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
+};
+
 var isMobile, distance, dev;
 /** 
 * Mobile Device Detection
