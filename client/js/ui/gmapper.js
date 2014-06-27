@@ -49,9 +49,7 @@ _.extend(Gmapper.prototype, {
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent(
         //'<div class="plus-icon" style="background-image:url(\'' + data.icon +'\');"></div>' +
-        '<a href="' + data.url + '" target="_blank"><h1>' + data.name + '</h1></a>' +
-        '<h2>' + data.readable_address + '</h2>' +
-        '<h2>' + data.phone + '</h2>'
+        '<a href="' + data.url + '" target="_blank"><h1>' + data.name + '</h1></a>'
       );
       infowindow.open(map, this);
     });

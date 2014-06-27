@@ -35,6 +35,7 @@ block content
       .blurb
         .watermark
         h2.title Developer & Designer
+  #map_canvas
   .work
     .social
       a(href="https://github.com/camwes", target="_blank")
@@ -53,6 +54,21 @@ block content
       a(href='/work', target='_blank') portfolio 
       &#124; Cameron W. Drake &copy; 2014
 block scripts
-  script(type="text/javascript", src="/js/base/utils.js")
-
-      
+  script(type="text/javascript", src="/js/base/utils.js?v=#{assetsVersion}")
+  script(type='text/javascript', src="/js/ui/Gmapper.js?v=#{assetsVersion}")
+  script(type='text/javascript', src='//maps.googleapis.com/maps/api/js?key=AIzaSyC4Tnw7DEdnK7-mr7MG0a60H9qTIE87NQc&sensor=true&libraries=places')
+block onload
+  script(type="text/javascript").
+    var gmapper = new Gmapper({
+      icon: "img/apple-touch-icon-precomposed.png",
+      scrollWheel: false,
+      theme: "BW",
+      overlay: false,
+      lat: 41.80,
+      lng: -87.60,
+      search: false,
+      query: "cameron",
+      types: ["web design"],
+      radius: 40000,
+      zoom: 3
+    });

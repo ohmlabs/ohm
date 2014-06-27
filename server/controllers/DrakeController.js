@@ -1,6 +1,5 @@
 var config = require("../config/drake.js");
 var aws = require("../apis/AWS.js");
-
 module.exports = {
   index: function(req, res){
     res.render('drake', {
@@ -11,10 +10,11 @@ module.exports = {
         underscore: true,
         skrollr: false,
         socketio: false,
-        gmaps: false,
+        gmaps: config.GOOGLE_MAPS_KEY,
         ga: config.GOOGLE_ANALYTICS,
       }
     });
+    console.log(config.GOOGLE_MAPS_KEY);
   },
   blog: function(req, res){
     res.redirect('http://blog.drake.fm');
