@@ -1,3 +1,6 @@
+$default-text-shadow-color: rgba(0,0,0, 0.8)
+$default-text-shadow-blur: 3px
+$default-text-shadow-v-offset: 3px
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Abril+Fatface|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Oswald:400:700:300|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800)
 ///////////////////////////////////////
 //   Sass Document                  //
@@ -5,6 +8,7 @@
 @import "base/style"
 $app-bg: rgba(255,255,255,0.99)
 $weiss-blue: rgba(0,102,255,0.99)
+$drake-orange: rgba(255,132,50, 0.99)
 $weiss-font: 'Open Sans', $helvetica
 ///////////////////////////////////////
 //   Header                         //
@@ -40,8 +44,9 @@ h2
   font: 500 24px "Roboto Condensed", sans-serif
   color: #666
   &.art-title
-    font: 700 98px "Roboto Condensed"
-    color: $weiss-blue
+    font: 700 98px "PT Sans Narrow"
+    color: $drake-orange
+    +single-text-shadow
 
 p
   margin: 0 0 28px 0
