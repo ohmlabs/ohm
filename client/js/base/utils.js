@@ -57,17 +57,30 @@ function handleError(msg) {
   }
 }
 ///////////////////////////////////////
-//  IMAGES                          //
+//  Lightbox                        //
 /////////////////////////////////////
 
 function lightbox(img)
 {
+  var fsImg = document.getElementById('fullscreen_image');
   if(img){
-    document.getElementById('fullscreen_image').innerHTML = '<img alt="flier" src=' + img + ' />';
-    document.getElementById('fullscreen_image').style.display="table-cell";
-    document.getElementById('fullscreen_image').parentNode.style.display="table";
+    fsImg.innerHTML = '<img id="fullscreen" alt="flier" src=' + img + ' />';
+    var node = document.getElementById('fullscreen');
+    if(!isPortrait(node)) {
+      node.style.maxWidth="800px";
+    } else {
+      node.style.maxWidth="500px";
+    }
+    fsImg.style.display="table-cell";
+    fsImg.parentNode.style.display="table";
+  }
+  function isPortrait(i) {
+      var w = i.naturalWidth || i.width,
+          h = i.naturalHeight || i.height;
+      return (h > w);
   }
 }
+
 /*
 ///////////////////////////////////////
 //  TEXT                            //
