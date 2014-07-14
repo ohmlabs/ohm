@@ -18,12 +18,13 @@ module.exports = {
         ga: config.GOOGLE_ANALYTICS,
       }
     });
-    console.log(config.GOOGLE_MAPS_KEY);
   },
   noblebachelor: function(req, res){
+    var isMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(req.headers["user-agent"]) ? true : false;
     res.render('hotties', {
       title:'100 Hottest Women of Social Media',
       hotties: Hotties,
+      isMobile: isMobile,
       dependencies: {
         d3: true,
         jquery: false,
@@ -34,7 +35,6 @@ module.exports = {
         ga: config.GOOGLE_ANALYTICS,
       }
     });
-    console.log(config.GOOGLE_MAPS_KEY);
   },
   blog: function(req, res){
     res.redirect('http://blog.drake.fm');
@@ -57,6 +57,7 @@ module.exports = {
         console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
       }
     });
+    res.redirect('/nb');
   },
 }
 

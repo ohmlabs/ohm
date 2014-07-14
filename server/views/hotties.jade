@@ -31,20 +31,17 @@ block content
         .overlay(onclick="lightbox('#{hottie.profile.url()}')")
           .rank #{hottie.rank}
           h1.name #{hottie.displayName}
+          .profession #{hottie.profession}
         figcaption
-          h4 #{hottie.profession}
           - if (hottie.instagram)
             a(href="http://instagram.com/#{hottie.instagram}", target="_blank")
-              p instagram
+              .links.instagram
           - if (hottie.tumblr)
             a(href="#{hottie.tumblr}", target="_blank")
-              p tumblr
+              .links.tumblr
           - if (hottie.twitter)
             a(href="http://twitter.com/#{hottie.twitter}", target="_blank")
-              p twitter
-          - if (hottie.website)
-            a(href="#{hottie.website}", target="_blank")
-              p site
+              .links.twitter
   .lightbox(onclick="this.style.display='none'")
     #fullscreen_image
 block scripts
