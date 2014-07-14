@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Abril+Fatface|Oswald:400:700:300|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800)
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Abril+Fatface|Great+Vibes|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800)
 ///////////////////////////////////////
 //   Sass Document                  //
 /////////////////////////////////////
@@ -27,7 +27,7 @@ footer
     line-height: 40px
     a
       line-height: 40px
-      font: 700 18px 'Oswald', $hcb
+      font: 700 18px $hcb
 ///////////////////////////////////////
 //   Header                         //
 /////////////////////////////////////
@@ -58,6 +58,17 @@ header
   width: 100%
   height: 400px
   margin: auto
+.page-title
+  font: 100px $hcb
+  color: $orange
+  text-align: center
+  width: 100%
+  margin: 50px auto
+  .cursive
+    font: 60px 'Great Vibes'
+    margin-left: -40px
+    margin-top: 40px
+    color: #ccc
 .hotties
   width: 960px
   margin: auto
@@ -73,7 +84,7 @@ header
         position: absolute
         top: 0
         left: 0
-        font: 65px 'Oswald'
+        font: 65px $hcb
         color: #666
       .name
         font: 32px 'Abril Fatface'

@@ -25,6 +25,9 @@ block head
   meta(name='twitter:description', content='Coder, Writer, Designer')
   meta(name='twitter:image', content='http://www.example.com/path/to/image.jpg')
 block content
+  h1.page-title
+    | 25 
+    span.cursive Sexiest Women on the Web
   .hotties
     for hottie in hotties
       figure.hot-caption(style="background:url('#{hottie.profile.url()}')")
