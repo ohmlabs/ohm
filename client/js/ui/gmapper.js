@@ -263,9 +263,7 @@ _.extend(Gmapper.prototype, {
         }
         if (!data.overlay) {
           // if you are not using d3 overlay or Google places search...
-          if(glocation.GooglePlacesReference){
-            this._addMarker(glocation, map, data.icon);
-          }
+          this._addMarker(glocation, map, data.icon);
         }
         // add the locations to an array
         if(glocation.GooglePlacesReference){

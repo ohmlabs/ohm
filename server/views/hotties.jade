@@ -24,52 +24,31 @@ block head
   meta(name='twitter:title', content='Cameron W. Drake')
   meta(name='twitter:description', content='Coder, Writer, Designer')
   meta(name='twitter:image', content='http://www.example.com/path/to/image.jpg')
-  // EXTENSIONS: https://github.com/h5bp/html5-boilerplate/blob/master/doc/extend.md
-  // CHROME
-  // link(rel="chrome-webstore-item", href="https://chrome.google.com/webstore/detail/APP_ID")
-  // APP STORE
-  // meta(name="apple-itunes-app", content="app-id=APP_ID,app-argument=SOME_TEXT")
 block content
-  header
-    .overlay
-      .blurb
-        .watermark
-        h2.title Developer & Designer
-  #map_canvas
-  .work
-    .social
-      a(href="https://github.com/camwes", target="_blank")
-        svg#github.social-buttons
-      a(href="https://twitter.com/camwes", target="_blank")
-        svg#twitter.social-buttons
-      a(href="https://plus.google.com/u/0/+CameronDrake88/", target="_blank")
-        svg#google.social-buttons
-  #tumblr
-  #photography
-  #designs
-  footer
-    .copyright 
-      a(href='/blog', target='_blank') blog 
-      &#124; 
-      a(href='/work', target='_blank') portfolio 
-      &#124; Cameron W. Drake &copy; 2014
+  .hotties
+    for hottie in hotties
+      figure.hot-caption(style="background:url('#{hottie.profile.url()}')")
+        .overlay(onclick="lightbox('#{hottie.profile.url()}')")
+          .rank #{hottie.rank}
+          h1.name #{hottie.displayName}
+        figcaption
+          h4 #{hottie.profession}
+          - if (hottie.instagram)
+            a(href="http://instagram.com/#{hottie.instagram}", target="_blank")
+              p instagram
+          - if (hottie.tumblr)
+            a(href="#{hottie.tumblr}", target="_blank")
+              p tumblr
+          - if (hottie.twitter)
+            a(href="http://twitter.com/#{hottie.twitter}", target="_blank")
+              p twitter
+          - if (hottie.website)
+            a(href="#{hottie.website}", target="_blank")
+              p site
+  .lightbox(onclick="this.style.display='none'")
+    #fullscreen_image
 block scripts
   script(type="text/javascript", src="/js/base/utils.js?v=#{assetsVersion}")
   script(type='text/javascript', src="/js/ui/gmapper.js?v=#{assetsVersion}")
   script(type='text/javascript', src='//maps.googleapis.com/maps/api/js?key=AIzaSyC4Tnw7DEdnK7-mr7MG0a60H9qTIE87NQc&sensor=true&libraries=places')
 block onload
-  script(type="text/javascript").
-    var gmapper = new Gmapper({
-      locations: !{JSON.stringify(clients)},
-      icon: "img/apple-touch-icon-precomposed.png",
-      scrollWheel: false,
-      theme: "BW",
-      overlay: false,
-      lat: 41.80,
-      lng: -87.60,
-      search: false,
-      query: "cameron",
-      types: ["web design"],
-      radius: 40000,
-      zoom: 4
-    });

@@ -59,21 +59,16 @@ function handleError(msg) {
 ///////////////////////////////////////
 //  IMAGES                          //
 /////////////////////////////////////
-/*
-function expandImage(img)
+
+function lightbox(img)
 {
-  var image = img;
-  if(image){
-    addImage(image);
+  if(img){
+    document.getElementById('fullscreen_image').innerHTML = '<img alt="flier" src=' + img + ' />';
+    document.getElementById('fullscreen_image').style.display="table-cell";
+    document.getElementById('fullscreen_image').parentNode.style.display="table";
   }
 }
-function addImage(full)
-{
-  $('#fullscreen_image').html('<img alt="flier" width="95%" style="margin: 10px 0 10px 0;"  src=' + full + ' />');
-  $('#fullscreen_image').show();
-  $('#fullscreen_image').parent().show();
-}
-
+/*
 ///////////////////////////////////////
 //  TEXT                            //
 /////////////////////////////////////

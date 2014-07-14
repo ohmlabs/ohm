@@ -95,7 +95,6 @@
 ///////////////////////////////////////
 //   Figures                        //
 /////////////////////////////////////
-
 figure
   position: relative
   cursor: default
@@ -104,12 +103,15 @@ figure
   margin: 10px
   background-size: cover !important
   .overlay
-    +background-image(linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)))
+    +background-image(radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1) 100%))
     display: table-cell
     vertical-align: top
 figure:hover
   .overlay
-    +background-image(radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1) 100%))
+    +background-image(radial-gradient(center, ellipse cover, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%))
+  figcaption
+    opacity: 0.75
+    bottom: -1px
 
 ///////////////////////////////////////
 //   Small Square                   //
