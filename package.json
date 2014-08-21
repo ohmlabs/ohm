@@ -1,7 +1,7 @@
 {
   "name": "ohm",
   "description": "Node.js Starter Application (Grunt, Express, Ghost, Bower & Compass)",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "homepage": "http://ohm.fm",
   "contributors": [
     {
