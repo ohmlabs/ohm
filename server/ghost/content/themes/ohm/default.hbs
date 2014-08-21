@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="{{@blog.description}}">
 <meta name="author" content="{{@blog.title}}">
-
-<!-- Twitter Card -->
 {{#if post}}
 {{#post}}
+<meta name="keywords" content="{{tags separator=', ' autolink='false'}}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="">
 <meta name="twitter:title" content="{{title}}">
 <meta name="twitter:description" content="{{excerpt}}">
 <meta name="twitter:creator" content="">
-<meta name="twitter:image:src" content="{{ asset '' }}">
-
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{@blog.title}}">
 <meta property="og:description" content="{{excerpt}}">
-<meta property="og:image" content="{{ asset '' }}">
 <meta property="og:site_name" content="{{@blog.title}}">
 {{/post}}
 {{else}}
@@ -30,22 +25,17 @@
 <meta name="twitter:title" content="{{@blog.title}}">
 <meta name="twitter:description" content="{{@blog.description}}">
 <meta name="twitter:creator" content="">
-<meta name="twitter:image:src" content="{{ asset '' }}">
-
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{@blog.title}}">
 <meta property="og:description" content="{{@blog.description}}">
-<meta property="og:image" content="">
 <meta property="og:site_name" content="{{@blog.title}}">
 {{/if}}
-
+<link rel="stylesheet" type="text/css" href="{{ asset '/js/lib/bootstrap/dist/css/bootstrap.min.css' }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset '/css/ghost.css' }}" />
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset '/img/favicon.png' }}">
-
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-
 {{#if post}}
 {{#post}}
 <title>{{title}} | {{@blog.title}}</title>
@@ -53,28 +43,16 @@
 {{else}}
 <title>{{@blog.title}}</title>
 {{/if}}
-
 {{ghost_head}}
 </head>
-
 <body class="{{body_class}}">
 <div class="wrapper">
-
 {{! Menu }}
 <header id="header-menu" class="fixed-skroll">
   <div class="wrapper">
     <div class="header-left">
-      <a href="" class="weiss-logo">
-        <p class="logo-text"></p>
-      </a>
     </div>
     <div class="header-middle">
-      <ul class="header-nav">
-        <li>Home</li>
-        <li>Mapper</li>
-        <li>Dock</li>
-        <li>Blog</li>
-      </ul>
     </div>
     <div class="header-right">
     </div>
@@ -82,31 +60,43 @@
 </header>
 {{! Everything else gets inserted here }}
 {{{body}}}
-
 <footer class="footer">
+    {{#unless post}}
+    {{pagination}}
+    {{/unless}}
     <div class="back-to-top"><a href="">Back to top</a></div>
     <a href="/"><div class="footer-nav"><p>{{@blog.title}}</p></div></a>
-
     <aside class="offsite-links">
         <a class="rss-link" href="{{ @blog.url }}/rss">RSS / </a>
         Powered by <a target="_blank" href="http://www.ghost.org">Ghost</a>
     </aside>
 </footer>
-
+<div id="map_canvas"></div>
+<div id="lightbox_fade">
+  <div id="fullscreen_image"></div>
+  <ul id="thumbnails" class="thumbnails"></ul>
+</div>
 </div> {{! End of wrapper }}
-
 {{! Scripts }}
-<script type="text/javascript" src="{{ asset '/components/jquery/jquery.min.js' }}"></script>
-<script type="text/javascript" src="{{ asset '/components/underscore/underscore.js' }}"></script>
-<script type="text/javascript" src="{{ asset '/components/d3/d3.min.js' }}"></script>
-<script type="text/javascript" src="{{ asset '/components/fittext/fittext.js' }}"></script>
-<script type="text/javascript" src="{{ asset '/components/respond/dest/respond.min.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/lib/jquery/jquery.min.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/lib/underscore/underscore.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/lib/d3/d3.min.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/lib/hammerjs/hammer.min.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/base/utils.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/ui/Gmapper.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/ui/LightBox.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/ui/ScrollMenu.js' }}"></script>
-<script type="text/javascript" src="{{ asset '/js/ghost.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/drake.js' }}"></script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=XXXXXXXXXXXXX&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <script type="text/javascript">
-  var ga_ua = 'UA-47441600-1';
-
+  var ga_ua = 'UA-XXXXXXXX-1';
   (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
       function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
       t=h.createElement(o);z=h.getElementsByTagName(o)[0];
@@ -114,9 +104,7 @@
       z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
       ga('create',ga_ua);ga('send','pageview');
 </script>
-
 {{! Ghost outputs important scripts and data with this tag }}
 {{ghost_foot}}
-
 </body>
 </html>

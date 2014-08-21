@@ -1,4 +1,4 @@
-var map, mapOptions, center, mapStyles, styledMap;
+var map, mapOptions, center, mapStyles, styledMap, google, d3, _;
 var overlay_locations = [];
 /**
 * Gmapper.js
@@ -12,16 +12,14 @@ var overlay_locations = [];
 * @author     Cameron W. Drake
 * @copyright  Copyright (c) 2014 Ohm Labs
 * @license    Licensed under the MIT license
+
+* @module Gmapper
+* @requires D3
+* @requires Google Maps
+* @requires Underscore
 */
 var Gmapper = (function(data){
   'use strict';
-  /**
-  * @class Gmapper
-  * @constructor
-  * @requires D3
-  * @requires Google Maps
-  * @requires Underscore
-  */
   try {
     google.toString();
     d3.toString();
@@ -30,8 +28,7 @@ var Gmapper = (function(data){
     console.log("No access to google API, probably because there is no internet... fall back");
     return;
   }
-  var context = this;
-  context._initializeGMapper(data);
+  this._initializeGMapper(data);
 
 });
 _.extend(Gmapper.prototype, {
@@ -49,9 +46,7 @@ _.extend(Gmapper.prototype, {
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent(
         //'<div class="plus-icon" style="background-image:url(\'' + data.icon +'\');"></div>' +
-        '<a href="' + data.url + '" target="_blank"><h1>' + data.name + '</h1></a>' +
-        '<h2>' + data.readable_address + '</h2>' +
-        '<h2>' + data.phone + '</h2>'
+        '<a href="' + data.url + '" target="_blank"><h1>' + data.name + '</h1></a>'
       );
       infowindow.open(map, this);
     });
@@ -78,9 +73,7 @@ _.extend(Gmapper.prototype, {
         function transform(d) {
           d = new google.maps.LatLng(d.value.latLng.latitude, d.value.latLng.longitude);
           d = projection.fromLatLngToDivPixel(d);
-          return d3.select(this)
-              .style("left", (d.x - padding) + "px")
-              .style("top", (d.y - padding) + "px");
+          return d3.select(this).style("left", (d.x - padding) + "px").style("top", (d.y - padding) + "px");
         }
         var marker = layer.selectAll("svg")
             .data(d3.entries(data))
@@ -161,7 +154,7 @@ _.extend(Gmapper.prototype, {
    * @param {string} query The query to make
    * @param {array} types The type of places to search
    */
-  _googlePlaceQuery: function (query, map, center, radius, types, context)
+  _googlePlaceQuery: function (query, map, center, radius, types)
   {
     'use strict';
     var request = {
@@ -174,7 +167,7 @@ _.extend(Gmapper.prototype, {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           results[i].latLng = results[i].geometry.location;
-          context._addMarker(results[i], map);
+          this._addMarker(results[i], map);
         }
       }
     }
@@ -216,17 +209,7 @@ _.extend(Gmapper.prototype, {
   * @param {string} radius Search Radius
   */
   _initializeGMapper: function(data){
-    // load style from json
-    if (data.theme !== null) {
-      d3.json("files/" + data.theme + ".json", function(json) {
-        mapStyles = json;
-        styledMap = new google.maps.StyledMapType(mapStyles, {name: data.theme});
-        //Associate the styled map with the MapTypeId and set it to display.
-        map.mapTypes.set('map_style', styledMap);
-        map.setMapTypeId('map_style');
-      });
-    }
-
+    'use strict';
     // set the center or default to oval */
     !data.lng || !data.lat ? center = new google.maps.LatLng(37.429856, -122.169425) : center = new google.maps.LatLng(data.lat, data.lng);
 
@@ -248,9 +231,26 @@ _.extend(Gmapper.prototype, {
     // initialize map
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
+    // load style from json
+    if (data.theme !== null && typeof data.theme === "string") {
+      d3.json("files/" + data.theme + ".json", function(json) {
+        mapStyles = json;
+        styledMap = new google.maps.StyledMapType(mapStyles, {name: data.theme});
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
+      });
+    } else if (data.theme !== null && typeof data.theme === "object") {
+      mapStyles = data.theme;
+      styledMap = new google.maps.StyledMapType(mapStyles, {name: "Drake.fm"});
+      //Associate the styled map with the MapTypeId and set it to display.
+      map.mapTypes.set('map_style', styledMap);
+      map.setMapTypeId('map_style');
+    }
+
     // If Google Places Search
     if (data.search){
-      this._googlePlaceQuery(data.query, map, center, data.radius, data.types, context);
+      this._googlePlaceQuery(data.query, map, center, data.radius, data.types);
       return;
     }
 
@@ -258,6 +258,7 @@ _.extend(Gmapper.prototype, {
     if (data.locations) {
       for (var i in data.locations) {
         var glocation = data.locations[i];
+        var icon = data.locations[i].icon;
         if (!glocation.latLng){
           // we need lat and lng to plot on google map
           // send readable_address to Google geocoder
@@ -265,9 +266,7 @@ _.extend(Gmapper.prototype, {
         }
         if (!data.overlay) {
           // if you are not using d3 overlay or Google places search...
-          if(glocation.GooglePlacesReference){
-            this._addMarker(glocation, map, data.icon);
-          }
+          this._addMarker(glocation, map, icon);
         }
         // add the locations to an array
         if(glocation.GooglePlacesReference){

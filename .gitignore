@@ -4,11 +4,10 @@ logs
 static/css/*.css
 static/js
 static/components
-static/img
 static/plato
 static/jsdoc
 # server/config/config.js
-
+server/ghost/content/data
 # Read about how to use .gitignore: http://h5bp.com/ae
 pids
 logs

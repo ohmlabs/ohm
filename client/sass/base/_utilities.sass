@@ -45,3 +45,82 @@
   z-index: 1000
   #general-error
     padding: 15px 25px
+
+#lightbox_fade
+  position: fixed
+  width: 100%
+  height: 100%
+  background: rgba(0,0,0,0.7)
+  display: none
+  top: 0
+  left: 0
+  z-index: 900
+  .next, .last
+    position: absolute
+    font-size: 24px
+  .next
+    right: 0
+  .last
+    left: 0
+ul.thumbnails
+  max-width: 810px
+  width: 100%
+  max-height: 600px
+  margin: 100px auto
+  padding: 0
+  overflow: scroll
+  li
+    float: left
+    list-style: none
+    padding: 0
+    .thumbnail
+      width: 250px
+      height: 250px
+      margin: 10px
+ul.thumbnails-nav
+  white-space: nowrap
+  -webkit-overflow-scrolling: touch
+  position: fixed
+  bottom: 0
+  left: 0
+  height: 90px
+  margin: 0 auto
+  overflow: scroll
+  max-width: 100%
+  li
+    display: inline-block
+    white-space: normal
+    float: none
+    .thumbnail
+      width: 75px !important
+      height: 75px !important
+      margin: 5px !important
+#fullscreen_image
+  display: table-cell
+  vertical-align: middle
+  img
+    margin: auto
+    max-width: 500px
+    max-height: 700px
+    display: block
+@media only screen and (min-width: 320px) and (max-width: 960px)
+  #fullscreen_image
+    img
+      max-width: 100%
+  #lightbox_fade
+    background: rgba(0,0,0,0.9)
+  ul.thumbnails
+    max-width: 480px
+    li
+      .thumbnail
+        width: 140px
+        height: 140px
+        margin: 10px
+  ul.thumbnails-nav
+    max-width: 100%
+@media only screen and (min-width: 320px) and (max-width: 540px)
+  ul.thumbnails
+    max-width: 320px
+  ul.thumbnails-nav
+    max-width: 100%
+    

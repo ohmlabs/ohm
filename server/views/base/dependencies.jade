@@ -1,20 +1,23 @@
 - if (dependencies.modernizr)
   // MODERNIZR
-  script(type="text/javascript", src="/components/modernizr/modernizr.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/modernizr/modernizr.js?v=#{assetsVersion}")
 - if (dependencies.skrollr)
   // SKROLLR
-  script(type="text/javascript", src="/components/skrollr/dist/skrollr.min.js?v=#{assetsVersion}")
-  script(type="text/javascript", src="/components/skrollr-menu/dist/skrollr.menu.min.js?v=#{assetsVersion}")
-  script(type="text/javascript", src="/components/skrollr-stylesheets/dist/skrollr.stylesheets.min.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/skrollr/dist/skrollr.min.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/skrollr-menu/dist/skrollr.menu.min.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/skrollr-stylesheets/dist/skrollr.stylesheets.min.js?v=#{assetsVersion}")
 - if (dependencies.underscore)
   // Underscore
-  script(type="text/javascript", src="/components/underscore/underscore.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/underscore/underscore.js?v=#{assetsVersion}")
 - if (dependencies.jquery)
   // jQuery
-  script(type="text/javascript", src="/components/jquery/jquery.min.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/jquery/jquery.min.js?v=#{assetsVersion}")
 - if (dependencies.d3)
   // D3
-  script(type="text/javascript", src="/components/d3/d3.min.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/d3/d3.min.js?v=#{assetsVersion}")
+- if (dependencies.hammer)
+  // Hammer
+  script(type="text/javascript", src="/js/lib/hammerjs/hammer.min.js?v=#{assetsVersion}")
 - if (dependencies.socketio)
   // SOCKET.IO
-  script(type="text/javascript", src="/components/socket.io-client/socket.io.js?v=#{assetsVersion}")
+  script(type="text/javascript", src="/js/lib/socket.io-client/socket.io.js?v=#{assetsVersion}")

@@ -1,3 +1,6 @@
+$default-text-shadow-color: rgba(0,0,0, 0.8)
+$default-text-shadow-blur: 3px
+$default-text-shadow-v-offset: 3px
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Abril+Fatface|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Oswald:400:700:300|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800)
 ///////////////////////////////////////
 //   Sass Document                  //
@@ -5,11 +8,8 @@
 @import "base/style"
 $app-bg: rgba(255,255,255,0.99)
 $weiss-blue: rgba(0,102,255,0.99)
+$drake-orange: rgba(255,132,50, 0.99)
 $weiss-font: 'Open Sans', $helvetica
-///////////////////////////////////////
-//   Header                         //
-/////////////////////////////////////
-@import "ui/header"
 html, body
   height: 100%
 
@@ -21,60 +21,63 @@ body
   font: 17px / 28px ff-meta-serif-web-pro, "Open Sans", serif
   color: #333
   background: #e4e4e4
+///////////////////////////////////////
+//   Header                         //
+/////////////////////////////////////
+@import "ui/header"
+///////////////////////////////////////
+//   LightBox                       //
+/////////////////////////////////////
+@import "ui/lightbox"
+#map_canvas
+  width: 100%
+  height: 400px
+  margin: auto
+.post, .posts
+  ///////////////////////////////////////
+  //   Typography                     //
+  /////////////////////////////////////
+  h1, h2, h3, h4, h5, h6
+    font-family: "Roboto Condensed", "helvetica neue", "helvetica", sans-serif
+    font-weight: normal
+    text-transform: uppercase
+    font-weight: 700
+    color: #000
+    text-rendering: optimizeLegibility
 
-/* Typography
- *==================================================
+  h1
+    font: 700 3em "Roboto Condensed", sans-serif
 
-h1, h2, h3, h4, h5, h6
-  font-family: "proxima-nova", "helvetica neue", "helvetica", sans-serif
-  font-weight: normal
-  text-transform: uppercase
-  font-weight: 700
-  color: #000
-  text-rendering: optimizeLegibility
+  h2
+    font: 500 2em "Roboto Condensed", sans-serif
+    color: #666
+    &.art-title
+      font: 700 98px "Roboto Condensed"
+      color: $drake-orange
+      +single-text-shadow
 
-h1
-  font: 700 32px "Roboto Condensed", sans-serif
+  p
+    margin: 0 0 28px 0
 
-h2
-  font: 500 24px "Roboto Condensed", sans-serif
-  color: #666
-  &.art-title
-    font: 700 98px "Roboto Condensed"
-    color: $weiss-blue
+  strong
+    font-weight: bold
 
-p
-  margin: 0 0 28px 0
+  em
+    font-style: italic
 
-strong
-  font-weight: bold
-
-em
-  font-style: italic
-
-sup
-  line-height: 0
-
-/* Teaser
- *==================================================
-
-header#teaser h1
-  text-transform: none !important
-  color: #333
-  font-size: 28px !important
-  font-weight: 300 !important
-
-/* Links
- *==================================================
-
-a
-  color: #b20f1f
-  text-decoration: none
-  -webkit-transition: color .2s ease-in-out
-  -moz-transition: color .2s ease-in-out
-  transition: color .2s ease-in-out
-  &:hover
-    color: #8d0d19
+  sup
+    line-height: 0
+  ///////////////////////////////////////
+  //   Links                          //
+  /////////////////////////////////////
+  a
+    color: #b20f1f
+    text-decoration: none
+    -webkit-transition: color .2s ease-in-out
+    -moz-transition: color .2s ease-in-out
+    transition: color .2s ease-in-out
+    &:hover
+      color: #8d0d19
 
 /*  Layout
  *==================================================
@@ -93,65 +96,6 @@ a
 .nav, .art-body-inner, .footer, .art-list, .abt, .fourohfour
   position: relative
   margin: 0 auto
-
-/*  Nav
- *==================================================
-
-.nav
-  position: absolute
-  top: 0
-  left: 50%
-  height: 70px
-  padding-top: 40px
-  margin-left: -490px
-  /* Half width of nav
-  border-bottom: 1px solid #333
-  z-index: 2
-  &.fixed
-    position: fixed
-
-#logo, .weiss-logo
-  float: left
-
-.nav-primary
-  float: right
-  li
-    display: inline-block
-    margin-left: 10px
-    font-weight: 500
-
-#logo h1
-  font-family: "proxima-nova", "helvetica neue", "helvetica", sans-serif
-  font-weight: 700
-  font-size: 13px
-  line-height: 50px
-  color: #000
-  text-transform: uppercase
-
-.nav-primary li
-  font-family: "proxima-nova", "helvetica neue", "helvetica", sans-serif
-  font-weight: 700
-  font-size: 13px
-  line-height: 50px
-  color: #000
-  text-transform: uppercase
-  a
-    font-family: "proxima-nova", "helvetica neue", "helvetica", sans-serif
-    font-weight: 700
-    font-size: 13px
-    line-height: 50px
-    color: #000
-    text-transform: uppercase
-
-#logo h1
-  width: 200px
-  height: 30px
-  margin-left: 0px
-  letter-spacing: 1px
-
-.nav li:first-child
-  margin-left: 0
-  /* Remove left margin from the first nav li
 
 /* Home Page 
  *==================================================
@@ -190,7 +134,7 @@ div.cover > img
 /* Contains the time, title and subtitle for an article
 
 .art-header-inner
-  position: fixed
+  position: absolute
   top: 300px
   left: 50%
   margin-left: -490px
@@ -202,7 +146,7 @@ div.cover > img
   text-transform: uppercase
 
 .art-time
-  font-size: 14px
+  font-size: 1em
   line-height: 1.8
   letter-spacing: 4px
 
@@ -346,6 +290,9 @@ div.cover > img
   font-size: 16px
   line-height: 24px
 
+.art-list-item p.art-tags
+  float: right
+
 /*  Footer
  *==================================================
 
@@ -364,7 +311,9 @@ div.cover > img
     color: #777
     &:hover
       color: #000
-
+.pagination
+  text-align: center
+  width: 100%
 .back-to-top, .footer-nav, .offsite-links
   width: 33.3%
   float: left
@@ -388,67 +337,6 @@ div.cover > img
 .art-list + .footer .footer-nav, .abt + .footer .footer-nav
   text-indent: -9999px
   text-align: left
-
-/*  White Reverse Theme
- *==================================================
-/* Nav
-
-.nav.white
-  border-bottom-color: #fff
-  border-bottom-color: rgba(255, 255, 255, 0.3)
-  li
-    a
-      color: #fff
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.5)
-    color: #fff
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5)
-  #logo h1
-    color: #fff
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5)
-    background-position: top center
-
-/* Art header
-
-.art-header.white
-  background-color: #111
-  .art-time, .art-title, .art-subtitle
-    color: #fff
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5)
-
-/*  About page
- *==================================================
-
-.abt
-  padding: 200px 0 100px
-  list-style: none
-  .abt-header
-    font-size: 140px
-    line-height: 1
-    text-transform: none
-  .abt-subheader
-    font-size: 24px
-    font-style: italic
-    text-transform: none
-    color: #777
-
-.abt-body
-  -moz-column-count: 2
-  -moz-column-gap: 20px
-  -webkit-column-count: 2
-  -webkit-column-gap: 20px
-  margin-bottom: 28px
-
-.abt-signoff
-  line-height: 1.3
-  font-style: italic
-  color: #777
-
-/*  404 page
- *==================================================
-
-.fourohfour
-  padding: 240px 0 100px
-  text-align: center
 
 /*  Code
  *==================================================
@@ -522,8 +410,6 @@ tt
   /* Remove bottom space out if articles doesn't have a background
   .simple .art-header
     padding-bottom: 0
-  .art-list
-    padding-top: 0
   .abt
     padding: 40px 0
   .fourohfour
@@ -547,7 +433,6 @@ tt
   .abt-body
     -moz-column-count: 1
     -webkit-column-count: 1
-
 @media only screen and (max-width: 500px)
   .nav-primary li
     margin-left: 10px
@@ -639,3 +524,4 @@ img
 .art-list, .nav, .abt, .art-body
   -webkit-animation: le-fade .5s 0s 1 ease-out
   -moz-animation: le-fade .5s 0s 1 ease-out
+  

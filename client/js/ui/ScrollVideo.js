@@ -15,7 +15,8 @@ var scrollVid   = document.getElementById('scrollVid');
 * @author     Cameron W. Drake
 * @copyright  Copyright (c) 2014 Ohm Labs
 * @license    Licensed under the MIT license
-* @param {object} Options
+* @module ScrollVideo
+* @param {data} Options
 */
 var ScrollVideo = (function(e, data){
   'use strict';

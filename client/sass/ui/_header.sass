@@ -1,11 +1,27 @@
 $app-bg: rgba(255,255,255,0.99)
 $weiss-blue: rgba(0,102,255,0.99)
 $weiss-font: 'Open Sans', $helvetica
+.social-buttons
+  width: 30px
+  height: 30px
+  background-size: cover
+  z-index: 6
+.social-buttons:hover
+  width: 37px
+  height: 37px
+#facebook
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE3LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1Ni43IDU2LjciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjcgNTYuNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik00MC40LDIxLjdoLTcuNnYtNWMwLTEuOSwxLjItMi4zLDIuMS0yLjNjMC45LDAsNS40LDAsNS40LDBWNi4xbC03LjQsMGMtOC4yLDAtMTAuMSw2LjItMTAuMSwxMC4xdjUuNUgxOAoJdjguNWg0LjhjMCwxMC45LDAsMjQuMSwwLDI0LjFoMTBjMCwwLDAtMTMuMywwLTI0LjFoNi44TDQwLjQsMjEuN3oiLz4KPC9zdmc+)
+#twitter
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE3LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1Ni43IDU2LjciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjcgNTYuNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik01Mi44LDE1LjFjLTEuOCwwLjgtMy44LDEuMy01LjgsMS42YzIuMS0xLjIsMy43LTMuMiw0LjQtNS42Yy0yLDEuMi00LjEsMi02LjQsMi41Yy0xLjgtMi00LjUtMy4yLTcuNC0zLjIKCWMtNS42LDAtMTAuMSw0LjUtMTAuMSwxMC4xYzAsMC44LDAuMSwxLjYsMC4zLDIuM0MxOS40LDIyLjMsMTIsMTguMyw3LDEyLjJjLTAuOSwxLjUtMS40LDMuMi0xLjQsNS4xYzAsMy41LDEuOCw2LjYsNC41LDguNAoJYy0xLjctMC4xLTMuMi0wLjUtNC42LTEuM2MwLDAsMCwwLjEsMCwwLjFjMCw0LjksMy41LDksOC4xLDkuOWMtMC44LDAuMi0xLjcsMC40LTIuNywwLjRjLTAuNywwLTEuMy0wLjEtMS45LTAuMmMxLjMsNCw1LDYuOSw5LjQsNwoJQzE1LjEsNDQuMywxMC43LDQ2LDYsNDZjLTAuOCwwLTEuNiwwLTIuNC0wLjFjNC41LDIuOSw5LjgsNC41LDE1LjUsNC41YzE4LjYsMCwyOC44LTE1LjQsMjguOC0yOC44YzAtMC40LDAtMC45LDAtMS4zCglDNDkuOCwxOC45LDUxLjUsMTcuMSw1Mi44LDE1LjF6Ii8+Cjwvc3ZnPg==)
+#google
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE3LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1Ni43IDU2LjciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjcgNTYuNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTUyLjIsMjUuOWgtNy41di03LjVjMC0wLjYtMC41LTEtMS0xaC0yLjFjLTAuNiwwLTEsMC41LTEsMXY3LjVIMzNjLTAuNiwwLTEsMC41LTEsMVYyOWMwLDAuNiwwLjUsMSwxLDEKCQloNy41djcuNWMwLDAuNiwwLjUsMSwxLDFoMi4xYzAuNiwwLDEtMC41LDEtMXYtNy41aDcuNWMwLjYsMCwxLTAuNSwxLTF2LTIuMUM1My4zLDI2LjMsNTIuOCwyNS45LDUyLjIsMjUuOXoiLz4KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNywzMi40Yy0xLjYtMS4xLTMtMi44LTMtMy4zYzAtMC45LDAuMS0xLjQsMi4xLTNjMi43LTIuMSw0LjEtNC44LDQuMS03LjdjMC0yLjYtMC44LTUtMi4yLTYuNmgxLjEKCQljMC4yLDAsMC40LTAuMSwwLjYtMC4ybDMtMi4xQzMzLDkuMywzMy4yLDguOCwzMyw4LjRjLTAuMS0wLjQtMC41LTAuNy0xLTAuN0gxOC44Yy0xLjQsMC0yLjksMC4zLTQuNCwwLjhjLTQuOCwxLjctOC4yLDUuOC04LjIsMTAKCQljMCw2LDQuNiwxMC41LDEwLjgsMTAuNmMtMC4xLDAuNS0wLjIsMC45LTAuMiwxLjRjMCwwLjksMC4yLDEuOCwwLjcsMi42Yy0wLjEsMC0wLjEsMC0wLjIsMGMtNS45LDAtMTEuMiwyLjktMTMuMiw3LjIKCQljLTAuNSwxLjEtMC44LDIuMi0wLjgsMy40YzAsMS4xLDAuMywyLjEsMC44LDMuMWMxLjMsMi4zLDQsNCw3LjcsNWMxLjksMC41LDMuOSwwLjcsNi4xLDAuN2MxLjksMCwzLjctMC4yLDUuNC0wLjcKCQljNS4yLTEuNSw4LjYtNS40LDguNi05LjhDMzIsMzcuNiwzMC43LDM1LDI3LDMyLjR6IE0xMC4zLDQyLjJjMC0zLjEsMy45LTUuOCw4LjQtNS44aDAuMWMxLDAsMS45LDAuMiwyLjgsMC40CgkJYzAuMywwLjIsMC42LDAuNCwwLjksMC42YzIuMSwxLjQsMy41LDIuNCwzLjgsMy45YzAuMSwwLjQsMC4xLDAuOCwwLjEsMS4xYzAsMy45LTIuOSw1LjgtOC42LDUuOEMxMy43LDQ4LjIsMTAuMyw0NS42LDEwLjMsNDIuMnoKCQkgTTE0LjQsMTIuOWMwLjctMC44LDEuNi0xLjIsMi43LTEuMmwwLjEsMGMyLjksMC4xLDUuNywzLjMsNi4yLDcuM2MwLjMsMi4yLTAuMiw0LjMtMS4zLDUuNWMtMC43LDAuOC0xLjYsMS4yLTIuNywxLjJjMCwwLDAsMCwwLDAKCQloMGMtMi45LTAuMS01LjctMy41LTYuMi03LjRDMTIuOCwxNi4xLDEzLjMsMTQuMSwxNC40LDEyLjl6Ii8+CjwvZz4KPC9zdmc+)
+#github
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE3LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjU2LDMyQzEzMi4zLDMyLDMyLDEzNC44LDMyLDI2MS43YzAsMTAxLjUsNjQuMiwxODcuNSwxNTMuMiwyMTcuOWMxMS4yLDIuMSwxNS4zLTUsMTUuMy0xMS4xCgkJYzAtNS41LTAuMi0xOS45LTAuMy0zOS4xYy02Mi4zLDEzLjktNzUuNS0zMC44LTc1LjUtMzAuOEMxMTQuNSwzNzIuMSw5OS44LDM2NSw5OS44LDM2NWMtMjAuMy0xNC4zLDEuNS0xNCwxLjUtMTQKCQljMjIuNSwxLjYsMzQuMywyMy43LDM0LjMsMjMuN2MyMCwzNS4xLDUyLjQsMjUsNjUuMiwxOS4xYzItMTQuOCw3LjgtMjUsMTQuMi0zMC43Yy00OS43LTUuOC0xMDItMjUuNS0xMDItMTEzLjUKCQljMC0yNS4xLDguNy00NS42LDIzLTYxLjZjLTIuMy01LjgtMTAtMjkuMiwyLjItNjAuOGMwLDAsMTguOC02LjIsNjEuNiwyMy41YzE3LjktNS4xLDM3LTcuNiw1Ni4xLTcuN2MxOSwwLjEsMzguMiwyLjYsNTYuMSw3LjcKCQljNDIuOC0yOS43LDYxLjUtMjMuNSw2MS41LTIzLjVjMTIuMiwzMS42LDQuNSw1NSwyLjIsNjAuOGMxNC4zLDE2LjEsMjMsMzYuNiwyMyw2MS42YzAsODguMi01Mi40LDEwNy42LTEwMi4zLDExMy4zCgkJYzgsNy4xLDE1LjIsMjEuMSwxNS4yLDQyLjVjMCwzMC43LTAuMyw1NS41LTAuMyw2M2MwLDYuMSw0LDEzLjMsMTUuNCwxMUM0MTUuOSw0NDkuMSw0ODAsMzYzLjEsNDgwLDI2MS43CgkJQzQ4MCwxMzQuOCwzNzkuNywzMiwyNTYsMzJ6Ii8+CjwvZz4KPC9zdmc+)
 ///////////////////////////////////////
 //   Header                         //
 /////////////////////////////////////
 header#header-menu
-  z-index: 1001
+  z-index: 101
   width: 100%
   height: 75px
   position: fixed
@@ -14,11 +30,6 @@ header#header-menu
   background: rgba(255,255,255,0.75)
   @include box-shadow(#ccc 2px 2px 10px)
   @include transition(background 500ms ceaser($easeInOutQuart))
-  #hamburger
-    float: right
-    line-height: 60px
-    padding: 6px
-    cursor: pointer
   .wrapper
     .header-left
       width: 23%
@@ -26,17 +37,17 @@ header#header-menu
       margin: 0
       min-width: 215px
       float: left
-      .weiss-logo
+      .logo-wrapper
         float: left
         display: inline-block
         cursor: pointer
         font: 400 16px 'Lato', $hcb
         .logo.small
-          background: url('../img/weiss.png')
+          background: url('../img/watermark.png')
           background-size: cover
           display: inline-block
-          height: 56px
-          width: 56px
+          height: 48px
+          width: 121px
           margin: 6px
         .logo-text
           vertical-align: top
@@ -86,20 +97,6 @@ header#header-menu
             background-color: rgba(255,255,255,0)
 header#header-menu:hover
   background: rgba(255,255,255,0.95)
-///////////////////////////////////////
-//   Keyframes                      //
-/////////////////////////////////////
-@-skrollr-keyframes menu-link
-  0
-    color: rgba(0,0,0,0.99)
-  100-top
-    color: rgba(0,0,0, 0.99)
-  top
-    color: rgba(0,102,255,0.99)
-  250-top-bottom
-    color: rgba(0,102,255,0.99)
-  100-top-bottom
-    color: rgba(0,0,0,0.99)
 @media (min-width: 320px) and (max-width: 1024px)
   .social-buttons
     display: none

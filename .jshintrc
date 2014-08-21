@@ -13,5 +13,8 @@
   "undef": true,
   "latedef": true,
   "strict": true,
-  "sub": true
+  "sub": true,
+  "latedef": true,
+  "latefunc": true
+  
 }

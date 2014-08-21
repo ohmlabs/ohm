@@ -13,13 +13,11 @@ var previousScroll = window.pageYOffset;
 * @author     Cameron W. Drake
 * @copyright  Copyright (c) 2014 Ohm Labs
 * @license    Licensed under the MIT license
+* @module ScrollMenu
+
 */
 var ScrollMenu = (function (e) {
   'use strict';
-  /**
-  * @class ScrollMenu
-  * @constructor
-  */
   try {
     d3.toString();
     _.toString();

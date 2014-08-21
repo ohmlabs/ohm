@@ -58,14 +58,14 @@ if (commander.ghost) {
 }
 if (commander.install){
   echo("Installing Node Modules and Bower Dependencies...");
-  shell('bundle install;npm cache clean;npm install;bower install;ohm -g;cd node_module/ghost;npm install --production;', puts);
-}
-if (commander.list){
-  shell('forever list', puts);
+  shell('bundle install;npm cache clean;npm install;bower install;cd node_modules/ghost;npm install;', puts);
 }
 if (commander.prod){
   echo("Generating Production Ready Assets......");
   shell('grunt prod', puts);
+}
+if (commander.list){
+  shell('forever list', puts);
 }
 if (commander.start) {
   echo("Starting App...");
