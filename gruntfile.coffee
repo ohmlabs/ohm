@@ -72,28 +72,35 @@ module.exports = (grunt) ->
         pushTo: 'origin'
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
 
+    perfbudget:
+      default:
+        options:
+          url: 'http://ohm.fm'
+          key: ''
+          runs: 1
+          budget:
+            speedIndex: '1500'
+
+    pagespeed:
+      options:
+        nokey: true
+        url: "http://ohm.fm"
+      paths:
+        options:
+          paths: ["/"]
+          locale: "en_US"
+          strategy: "desktop"
+          threshold: 80
+      
     imagemin:
-      png:
+      dist:
         options:
-          optimizationLevel: 7
           cache: false
         files: [
           expand: true
           cwd: 'client/images/'
-          src: ['**/*.png', '*.png']
+          src: '{,*/}*.{png,jpg,jpeg,gif}'
           dest: 'static/img/'
-          ext: '.png'
-        ]
-      jpg:
-        options:
-          progressive: true
-          cache: false
-        files: [
-          expand: true
-          cwd: 'client/images/'
-          src: ['**/*.jpg', '*.jpg']
-          dest: 'static/img/'
-          ext: '.jpg'
         ]
     ### 
     Compass Configuration
@@ -139,14 +146,13 @@ module.exports = (grunt) ->
       livereload:
         options:
           livereload: true
-        files: ["static/js/*.js", "static/css/*.css", "server/views/**/*.jade"]
-      server:
-        files: ["ohm.coffee", "server/**/*.js"]
-        tasks: ["coffee", "forever:restart"]
+        files: ["static/css/*.css", "server/views/**/*.jade"]
 
   grunt.loadNpmTasks "grunt-contrib-imagemin"
+  grunt.loadNpmTasks "grunt-pagespeed"
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
+  grunt.loadNpmTasks "grunt-perfbudget"
   grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-compass"
@@ -161,10 +167,8 @@ module.exports = (grunt) ->
   # the bare grunt command only compiles
   grunt.registerTask "default", ["coffee", "concat", "copy", "compass:dev"]
   # in testing, concat and plato
-  grunt.registerTask "docs", ["plato", "jsdoc"]
-  # images
-  grunt.registerTask "images", ["imagemin:jpg", "imagemin:png"]
+  grunt.registerTask "docs", ["pagespeed", "perfbudget", "plato", "jsdoc"]
   # in production, concat and minify
-  grunt.registerTask "prod", ["concat", "uglify", "copy", "compass:prod", "images"]
+  grunt.registerTask "prod", ["concat", "uglify", "copy", "compass:prod"]
   # versioning, bust the cache, bump the version, push to origin
-  grunt.registerTask "version", ["coffee", "copy", "concat", "uglify", "compass:prod", "bump"]
+  grunt.registerTask "version", ["coffee", "copy", "concat", "uglify", "compass:prod", "imagemin",  "bump"]
