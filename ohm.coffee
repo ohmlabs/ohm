@@ -1,9 +1,9 @@
 pkg                   = require('./package.json')
 config                = require("./server/config/config.example.js")
+ghost                 = require( './server/ghost/ghostMiddleware' )
 path                  = require("path")
 http                  = require("http")
 express               = require("express")
-ghost                 = require("ghost")
 # Express Middleware
 logger                = require("morgan")
 cookieParser          = require("cookie-parser")
@@ -23,7 +23,7 @@ process.env.NODE_ENV  = config.env
 # Set assets version
 assetsVersion         = pkg.version
 parentApp             = express()
-parentApp.use "/blog", require('./server/ghost/ghostMiddleware')
+parentApp.use "/blog",  ghost({config: path.join(__dirname, "/server/ghost/config.js")})
 # ------------------
 # Express Configuration
 # ------------------
