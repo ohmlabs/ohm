@@ -11,7 +11,6 @@ var manifest          = __dirname + '/../package.json';
 var manifestContent;
 var data;
 var project_root      = __dirname + '/../';
-var dock              = './node_modules/ohm-dock/dock';
 
 fs.readFile(manifest, bootstrap);
 function bootstrap(err, contentAsBuffer){
@@ -32,12 +31,11 @@ function echo(message) {
 }
 commander
   .version('0.1.3')
-  .option('-b, --bump', 'Versioning App using git tags, package.json')
-  .option('-d, --docs', 'Generating JSDocs and Plato Reports')
-  .option('-g, --ghost', 'Copying Ghost Content')
-  .option('-i, --install', 'Installing... (package.json, Gemfile, bower.json)')
+  .option('-b, --bump, bump', 'Versioning App using git tags, package.json')
+  .option('-d, --docs, docs', 'Generating JSDocs and Plato Reports')
+  .option('-i, --install, install', 'Installing... (package.json, Gemfile, bower.json)')
   .option('-l, --list, list', 'Running Node.js Apps...')
-  .option('-p, --prod', 'Generating Production Ready Assets...')
+  .option('-p, --prod, prod', 'Generating Production Ready Assets...')
   .option('start, --start', 'Starting App with Forever...')
   .option('stop, --stop', 'Stopping App with Forever...')
   .parse(process.argv);
@@ -52,13 +50,9 @@ if (commander.docs){
   echo("Generating JSDocs and Plato Reports");
   shell('grunt docs', puts);
 }
-if (commander.ghost) {
-  echo("Creating symlink between your ghost content and the node module...");
-  shell('cd node_modules/ghost; rm -rf content; rm -rf config.js;  ln -s ../../server/ghost/content . ; ln -s ../../server/ghost/config.js . ;', puts);
-}
 if (commander.install){
   echo("Installing Node Modules and Bower Dependencies...");
-  shell('bundle install;npm cache clean;npm install;bower install;cd node_modules/ghost;npm install;', puts);
+  shell('bundle install;npm cache clean;npm install;bower install;', puts);
 }
 if (commander.prod){
   echo("Generating Production Ready Assets......");
