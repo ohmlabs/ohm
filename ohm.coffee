@@ -44,6 +44,7 @@ if parentApp.settings.env == "production"
   parentApp.enable "trust proxy"
   parentApp.locals.pretty = false
 if parentApp.settings.env == "development"
+  require('longjohn')
   parentApp.use express.static(__dirname + "/static")
   parentApp.use errorHandler(
     dumpExceptions: true
