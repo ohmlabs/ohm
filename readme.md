@@ -25,7 +25,7 @@ npm install
 # install dependencies (must be done first)
 ohm --install
 ```
-Ohm can do a lot more, you can check out the avaialbe options like so: 
+Ohm can do a lot more, you can check out the available options like so: 
 ```sh
 ohm --help
 
@@ -53,7 +53,7 @@ ohm --help
 
 
 # Running
-In development, we use forever and grunt to start the server as a daemon. The server runs on port 8888, the ghost server on port 8889. You must however access the ghost server via localhost:8888/blog (that slug is determined [here](https://github.com/ohmlabs/ohm/blob/master/ohm.coffee#L26))
+In development, we use forever and grunt to start the server as a daemon. The server runs on port 8888, the ghost server on port 8889. You must however access the ghost server via localhost:8888/blog (that slug 'blog' can be changed [here](https://github.com/ohmlabs/ohm/blob/master/ohm.coffee#L26))
 ```sh
 # start ohm on http://localhost:8888/
 ohm start
