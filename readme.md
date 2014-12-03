@@ -1,5 +1,5 @@
-# ohm - Node.js Starter Application
-ohm is an opinionated full-stack Node.js environment to jumpstart a web project. Based on [Express](http://expressjs.com/guide.html), ohm uses [Grunt](http://gruntjs.com/) for automation, [Compass](http://compass-style.org/) (SASS) for CSS pre-processing and npm & bower for dependencies. It also integrates the [Ghost](http://ghost.org) blogging platform as a CMS. ohm is designed to be run proxied by [Nginx](http://nginx.org). For more see [dock](https://github.com/ohmlabs/dock).  I've included some basic mixins and figures that can be helpful in making web layouts quickly, I also am going to gradually integrate Bootstrap features. ohm comes preconfigured with production/development environments (production minifies all files including the html markup) as well as example server config files (using Nginx to serve static files, and proxying ohm and ghost).
+# Ohm - Node.js Starter Application
+Ohm is an opinionated full-stack Node.js environment to jumpstart a web project. Based on [Express](http://expressjs.com/guide.html), ohm uses [Grunt](http://gruntjs.com/) for automation, [Compass](http://compass-style.org/) (SASS) for CSS pre-processing and npm & bower for dependencies. It also integrates the [Ghost](http://ghost.org) as a blog CMS. Ohm is designed to be run proxied by [Nginx](http://nginx.org) in production. I've included some basic mixins and figures that can be helpful in making web layouts quickly, and uses bootstrap. Ohm comes preconfigured with production/development environments (production minifies all files including the html markup) as well as example server config files (using Nginx to serve static files, and proxying ohm).
 
 # Features
 * HTML5 ready. Use the new elements with confidence.
@@ -11,46 +11,49 @@ ohm is an opinionated full-stack Node.js environment to jumpstart a web project.
 * Adhere to Steve Sauders Rules for High Performance Websites:
 
 # Installing
-If you are confident that your environment is properly configured skip this, but installing the app is very easy using [dock](https://github.com/ohmlabs/dock)
+Installing and using Ohm should be simple:
 ```sh
-# clone the repo to computer for development
-git clone https://github.com/ohmlabs/ohm.git your-repo
-cd your-repo
+# clone the repo
+git clone https://github.com/ohmlabs/ohm.git your-repo && cd your-repo
 
-# install the cli for running app or alternatively "npm link"
-npm install -g ohm 
-ohm -h
+# link the binary so ohm command can be used globally
+npm link
+
+# install npm dependencies
+npm install
+
+# install dependencies (must be done first)
+ohm --install
+```
+Ohm can do a lot more, you can check out the avaialbe options like so: 
+```sh
+ohm --help
 
   Usage: ohm [options]
 
   Options:
 
-    -h, --help        output usage information
-    -V, --version     output the version number
-    -b, --bump        Versioning App using git tags, package.json
-    -d, --docs        Generating JSDocs and Plato Reports
-    -g, --ghost       Copying Ghost Content
-    -i, --install     Installing... (package.json, Gemfile, bower.json)
-    -l, --list, list  Running Node.js Apps...
-    -p, --prod        Generating Production Ready Assets...
-    start, --start    Starting App with Forever...
-    stop, --stop      Stopping App with Forever...
+    -h, --help              output usage information
+    -V, --version           output the version number
+    -b, --bump, bump        Versioning App using git tags, package.json
+    -d, --docs, docs        Generating JSDocs and Plato Reports
+    -i, --install, install  Installing... (package.json, Gemfile, bower.json)
+    -l, --list, list        Running Node.js Apps...
+    -p, --prod, prod        Generating Production Ready Assets...
+    start, --start          Starting App with Forever...
+    stop, --stop            Stopping App with Forever...
 
-# install dependencies (must be done first)
-ohm -i
 ```
 # Dependencies:
 * [Express (Node.js framework)](http://expressjs.com/guide.html)
 * [Grunt (Javascript Task Runner)](http://gruntjs.com/)
 * [Compass(CSS framework)](http://compass-style.org/)
-* [Normalize (CSS normalizations)](http://necolas.github.io/normalize.css/)
-* [dock Deployments](https://github.com/ohmlabs/dock)
 * [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
 * [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
 
 
 # Running
-In development, we use forever and grunt to start the server as a daemon. The cli takes care of this:
+In development, we use forever and grunt to start the server as a daemon. The server runs on port 8888, the ghost server on port 8889. You must however access the ghost server via localhost:8888/blog (that slug is determined [here](https://github.com/ohmlabs/ohm/blob/master/ohm.coffee#L26))
 ```sh
 # start ohm on http://localhost:8888/
 ohm start
@@ -58,8 +61,8 @@ ohm start
 # stop ohm
 ohm stop
 
-# show all forever process
-ohm -l
+# list running forever apps
+ohm list
 
 #  The almighty watch command
 grunt watch
@@ -118,26 +121,20 @@ The best thing about this ohm is that when used in conjunction with our [dock re
 * compiles production assets
 * bumps the git version
 
-
 ```sh
 # compile production assets 
-ohm -p
+ohm prod
 
 # start in production
 node ohm.js -p
 
 # increment git version
-ohm version
+ohm bump
+
 # alternatively you can:
 # grunt bump:patch
 # grunt bump:minor
 # grunt bump:major
-
-# push to the production server
-git push prod prod
-
-# push to github server
-git push origin prod
 ```
 # Extending
 ohm is built to be easily extended to include many additional features.
@@ -155,8 +152,6 @@ There are a few client-side add-ons included via Bower. There are advantages to 
 This command will generate jsdoc documentation and perform jslint on both client and server files. An added bonus here is [Plato](https://github.com/jsoverson/plato), which will run jshint and get data on [complexity analysis](http://jsoverson.github.io/plato/examples/jquery/) on your javascript files.
 ```sh
 # generate Plato & jsdoc Reports (complexity analysis, lint & jsdoc)
-# documentation - localhost:8888/jsdoc
-# plato         - localhost:8888/plato
 ohm docs
 ```
 ### Debugging
@@ -164,14 +159,6 @@ The dock repo includes node-inspector in the global node modules that were insta
 ```sh
 node-inspector &
 # navigate to http://127.0.0.1:8080/debug?port=5858
-```
-### Profiling
-You can profile your servers performance using [strongOps](http://strongloop.com/node-js-performance/strongops/). All you need to do is sign up for an account.
-```sh
-$ cd your-app-dir
-$ slc strongops --register
-# If you already have a StrongOps account, don't use --register.
-# Complete your registration at the strongOps site
 ```
 # Roadmap
 * Amazon Web Services integration
