@@ -38,3 +38,35 @@ Finally, this code will retrieve your instagram feed:
 <button id="lb-instagram-feed" class="btn btn-primary">Instagram Feed</button>
 ```
 ## Google Maps Plugin
+First head over to Google and grab an [API key](https://code.google.com/apis/console/?noredirect).
+Next include the script on your page<sup>[1](https://github.com/ohmlabs/ohm/blob/master/server/views/sample.jade#L47)</sup>
+```html
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=#{dependencies.gmaps}&sensor=true&libraries=places'></script>
+<script>
+  var gmapper = new Gmapper({
+    locations: [{
+      "description": "This is an example of how to use the Gmapper, You basically only need to include am icon, latLng, name and url.",
+      "icon": "http://drake.fm/img/apple-touch-icon-precomposed.png",
+      "latLng": {
+        "__type": "GeoPoint",
+        "latitude": 41.890212,
+        "longitude": -87.624967
+      },
+      "name": "Drake.fm",
+      "url": "http://drake.fm"
+    }],
+    scrollWheel: false,
+    theme: "BW",
+    overlay: false,
+    lat: 41.80,
+    lng: -87.60,
+    search: false,
+    query: "cameron",
+    types: ["web design"],
+    radius: 40000,
+    zoom: 4
+  });
+</script>
+```
+
+
