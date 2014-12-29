@@ -32,6 +32,7 @@ After everything is configured using the plugin is very easy, just add the follo
 ```html
 <a class="lb-instagram" data-user="777777">Show Photos</a>
 ```
+If you are wondering how to retrieve a user id just [check this out](http://www.otzberg.net/iguserid/)
 And this code will retrieve your instagram feed:
 ```html
 <button id="lb-instagram-feed" class="btn btn-primary">Instagram Feed</button>
