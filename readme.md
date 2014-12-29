@@ -137,6 +137,7 @@ ohm bump
 # grunt bump:major
 ```
 # Extending
+![screenshot](/docs/assets/img/screenshot.png)
 I have been working to extend the functionality that this app provides beyond a boilerplate and you can learn more about the plugins [here](https://github.com/ohmlabs/ohm/blob/master/docs/plugins.md).
 
 ### [Lightbox Plugin](https://github.com/ohmlabs/ohm/blob/master/docs/plugins.md#lightbox-plugin)
