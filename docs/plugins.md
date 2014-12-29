@@ -36,4 +36,4 @@ And this code will retrieve your instagram feed:
 ```html
 <button id="lb-instagram-feed" class="btn btn-primary">Instagram Feed</button>
 ```
-### Google Maps Plugin
+## Google Maps Plugin
