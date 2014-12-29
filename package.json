@@ -56,14 +56,14 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
+    "grunt-perfbudget": "^0.1.6",
+    "grunt-contrib-imagemin": "^0.5.0",
     "grunt-browser-sync": "~0.4.8",
     "grunt-bump": "0.0.13",
-    "grunt-contrib-imagemin": "^0.5.0",
     "grunt-contrib-watch": "0.5.3",
     "grunt-jsdoc": "^0.5.4",
     "grunt-open": "^0.2.3",
     "grunt-pagespeed": "^0.3.0",
-    "grunt-perfbudget": "^0.1.6",
     "grunt-plato": "~0.2.1",
     "jsdoc": "^3.3.0-alpha5",
     "longjohn": "^0.2.4"

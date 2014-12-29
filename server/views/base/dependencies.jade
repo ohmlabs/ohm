@@ -21,3 +21,7 @@
 - if (dependencies.socketio)
   // SOCKET.IO
   script(type="text/javascript", src="/js/lib/socket.io-client/socket.io.js?v=#{assetsVersion}")
+  // Livereload
+- if (environment === "development")
+  script(src="//localhost:13555/livereload.js")
+

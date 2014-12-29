@@ -9,19 +9,23 @@ var base = {
   GOOGLE_ANALYTICS: "UA-XXXXXX-1",
   AWS_ACCESS_KEY: "AWS_ACCESS",
   AWS_SECRET_KEY: "AWS_SECRET",
+  IG_CLIENT_ID: "IG_CLIENT_ID",
+  IG_CLIENT_SECRET: "IG_CLIENT_SECRET",
 };
 switch (env) {
-case '-p':
-  base['is_prod'] = true;
-  base['host'] = '127.0.0.1';
-  base['port'] = '8888';
-  base['env'] = 'production';
-  break;
-default:
-  base['is_prod'] = false;
-  base['host'] = 'localhost';
-  base['port'] = '8888';
-  base['env'] = 'development';
+  case '-p':
+    base['is_prod'] = true;
+    base['host'] = '127.0.0.1';
+    base['port'] = '8888';
+    base['env'] = 'production';
+    base['IG_REDIRECT_URI'] = '';
+    break;
+  default:
+    base['is_prod'] = false;
+    base['host'] = 'localhost';
+    base['port'] = '8888';
+    base['env'] = 'development';
+    base['IG_REDIRECT_URI'] = '';
 };
 
 module.exports = base;

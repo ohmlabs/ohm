@@ -2,7 +2,7 @@
   {
     "featureType": "water",
     "stylers": [
-      { "color": "#000000" }
+      { "color": "#cccccc" }
     ]
   },{
     "featureType": "landscape.man_made",

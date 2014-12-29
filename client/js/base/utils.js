@@ -1,58 +1,60 @@
 'use strict';
 /** 
-* DOM Utility Functions
-* Vanilla javascript implementation of class manipulation
-*/
+ * DOM Utility Functions
+ * Vanilla javascript implementation of class manipulation
+ */
 
-Element.prototype.hasClassName = function (a) {
+Element.prototype.hasClassName = function(a) {
   return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);
 };
 /** 
-* Add Class Name
-*/
-Element.prototype.addClassName = function (a) {
+ * Add Class Name
+ */
+Element.prototype.addClassName = function(a) {
   if (!this.hasClassName(a)) {
     this.className = [this.className, a].join(" ");
   }
 };
 /** 
-* Remove Class Name
-*/
-Element.prototype.removeClassName = function (b) {
+ * Remove Class Name
+ */
+Element.prototype.removeClassName = function(b) {
   if (this.hasClassName(b)) {
     var a = this.className;
     this.className = a.replace(new RegExp("(?:^|\\s+)" + b + "(?:\\s+|$)", "g"), " ");
   }
 };
 /** 
-* Toggle Class Name
-*/
-Element.prototype.toggleClassName = function (a) {
+ * Toggle Class Name
+ */
+Element.prototype.toggleClassName = function(a) {
   this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
 };
 
 var isMobile, distance, dev;
 /** 
-* Mobile Device Detection
-*/
-isMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
+ * Mobile Device Detection
+ */
+isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
 /**
-* Display message onscreen
-* @param {string} msg the message to be displayed
-*/
+ * Display message onscreen
+ * @param {string} msg the message to be displayed
+ */
+
 function handleError(msg) {
-  if (document.getElementById('general-error-wrapper')){
-    document.getElementById('general-error-wrapper').style.display="block";
+  if (document.getElementById('general-error-wrapper')) {
+    document.getElementById('general-error-wrapper').style.display = "block";
     document.getElementById('general-error').innerHTML = msg;
-    setTimeout(function() {document.getElementById('general-error-wrapper').style.display="none";},2500);
+    setTimeout(function() {
+      document.getElementById('general-error-wrapper').style.display = "none";
+    }, 2500);
   }
 }
 /**
-* Check for dev environment
-*/
-dev = window.location.origin.indexOf("8888") !== -1 ? true: false;
-if (dev)
-{
+ * Check for dev environment
+ */
+dev = window.location.origin.indexOf("8888") !== -1 ? true : false;
+if (dev) {
   handleError("development mode");
 }
 distance = isMobile ? "70%" : "30%";

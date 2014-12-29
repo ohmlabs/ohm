@@ -1,30 +1,30 @@
 var map, mapOptions, center, mapStyles, styledMap, google, d3, _;
 var overlay_locations = [];
 /**
-* Gmapper.js
-*
-* Copyright (c) 2014 Ohm Labs Inc
-* Licensed under the MIT license
-* For all details and documentation:
-* http://drake.fm/gmapper
-*
-* @version  0.2.0
-* @author     Cameron W. Drake
-* @copyright  Copyright (c) 2014 Ohm Labs
-* @license    Licensed under the MIT license
-
-* @module Gmapper
-* @requires D3
-* @requires Google Maps
-* @requires Underscore
-*/
-var Gmapper = (function(data){
+ * Gmapper.js
+ *
+ * Copyright (c) 2014 Ohm Labs Inc
+ * Licensed under the MIT license
+ * For all details and documentation:
+ * http://drake.fm/gmapper
+ *
+ * @version  0.2.0
+ * @author     Cameron W. Drake
+ * @copyright  Copyright (c) 2014 Ohm Labs
+ * @license    Licensed under the MIT license
+ 
+ * @module Gmapper
+ * @requires D3
+ * @requires Google Maps
+ * @requires Underscore
+ */
+var Gmapper = (function(data) {
   'use strict';
   try {
     google.toString();
     d3.toString();
     _.toString();
-  } catch(e){
+  } catch (e) {
     console.log("No access to google API, probably because there is no internet... fall back");
     return;
   }
@@ -38,15 +38,18 @@ _.extend(Gmapper.prototype, {
    * @param {object} marker The Google Maps Marker
    * @param {object} map The Google Map
    */
-  _addInfoWindow: function (data, marker, map)
-  {
+  _addInfoWindow: function(data, marker, map) {
     'use strict';
     // initialize infoWindow
-    var infowindow = new google.maps.InfoWindow();
+    var infowindow = new google.maps.InfoWindow({
+      maxWidth: 300
+    });
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent(
         //'<div class="plus-icon" style="background-image:url(\'' + data.icon +'\');"></div>' +
-        '<a href="' + data.url + '" target="_blank"><h1>' + data.name + '</h1></a>'
+        '<div class="info-styles"><a href="' + data.url + '" target="_blank"><h2>' + data.name + '</h2></a>' +
+        '<h4>' + data.dates + '</h4>' +
+        '<p>' + data.description + '</p></div>'
       );
       infowindow.open(map, this);
     });
@@ -56,42 +59,44 @@ _.extend(Gmapper.prototype, {
    * Add a D3 Overlay.
    * @param {object} data The details for the locations
    */
-  _addOverlay: function (data, map)
-  {
+  _addOverlay: function(data, map) {
     'use strict';
     // Load the station data. When the data comes back, create an overlay.
     var overlay = new google.maps.OverlayView();
     // Add the container when the overlay is added to the map.
     overlay.onAdd = function() {
       var layer = d3.select(this.getPanes().overlayLayer).append("div")
-          .attr("class", "offices");
+        .attr("class", "offices");
       // Draw each marker as a separate SVG element.
       // We could use a single SVG, but what size would it have?
       overlay.draw = function() {
         var projection = this.getProjection(),
-            padding = 10;
+          padding = 10;
+
         function transform(d) {
           d = new google.maps.LatLng(d.value.latLng.latitude, d.value.latLng.longitude);
           d = projection.fromLatLngToDivPixel(d);
           return d3.select(this).style("left", (d.x - padding) + "px").style("top", (d.y - padding) + "px");
         }
         var marker = layer.selectAll("svg")
-            .data(d3.entries(data))
-            .each(transform) // update existing markers
-          .enter().append("svg:svg")
-            .each(transform)
-            .attr("class", "marker");
+          .data(d3.entries(data))
+          .each(transform) // update existing markers
+        .enter().append("svg:svg")
+          .each(transform)
+          .attr("class", "marker");
         // Add a circle.
         marker.append("svg:circle")
-            .attr("r", 10.5)
-            .attr("cx", padding)
-            .attr("cy", padding);
+          .attr("r", 10.5)
+          .attr("cx", padding)
+          .attr("cy", padding);
         // Add a label.
         marker.append("svg:text")
-            .attr("x", padding + 7)
-            .attr("y", padding)
-            .attr("dy", ".31em")
-            .text(function(d) { return d.value.name; });
+          .attr("x", padding + 7)
+          .attr("y", padding)
+          .attr("dy", ".31em")
+          .text(function(d) {
+            return d.value.name;
+          });
       };
     };
     // Bind our overlay to the map…
@@ -104,15 +109,18 @@ _.extend(Gmapper.prototype, {
    * @param {object} icon The image to be used for the marker
    * @param {object} map The Google Map
    */
-  _addMarker: function (data, map, icon)
-  {
+  _addMarker: function(data, map, icon) {
     'use strict';
     var gll;
     data.latLng.latitude ? gll = new google.maps.LatLng(data.latLng.latitude, data.latLng.longitude) : gll = data.latLng;
+    var image = {
+      url: icon
+      //size: new google.maps.Size(50,50)
+    }
     var marker = new google.maps.Marker({
       position: gll,
       title: data.name,
-      icon: icon,
+      icon: image,
       map: map
     });
     if (data.GooglePlacesReference) {
@@ -129,14 +137,13 @@ _.extend(Gmapper.prototype, {
    * @param {object} marker The Google Maps Marker
    * @param {object} map The Google Map
    */
-  _getGoogleDetails: function (data, marker, map)
-  {
+  _getGoogleDetails: function(data, marker, map) {
     'use strict';
     var service = new google.maps.places.PlacesService(map);
     var request = {
       reference: data.GooglePlacesReference
     };
-    service.getDetails(request, function(details){
+    service.getDetails(request, function(details) {
       data.readable_address = details.formatted_address;
       data.url = details.url;
       data.phone = details.formatted_phone_number;
@@ -154,8 +161,7 @@ _.extend(Gmapper.prototype, {
    * @param {string} query The query to make
    * @param {array} types The type of places to search
    */
-  _googlePlaceQuery: function (query, map, center, radius, types)
-  {
+  _googlePlaceQuery: function(query, map, center, radius, types) {
     'use strict';
     var request = {
       location: center,
@@ -163,6 +169,7 @@ _.extend(Gmapper.prototype, {
       types: types,
       name: query
     };
+
     function googleSearchCallback(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -180,15 +187,16 @@ _.extend(Gmapper.prototype, {
    * @param {object} location The details for the location
    * @param {object} map The Google Map
    */
-  _geoCodeLocations: function (location)
-  {
+  _geoCodeLocations: function(location) {
     'use strict';
     var geocoder;
     geocoder = new google.maps.Geocoder();
-    geocoder.geocode( { 'address': location.readable_address}, function(response, status) {
+    geocoder.geocode({
+      'address': location.readable_address
+    }, function(response, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         location.latLng = response[0].geometry.location;
-        console.log(location );
+        console.log(location);
       } else {
         console('Geocode was not successful for the following reason: ' + status);
         // TODO: Error Handler for Users
@@ -196,19 +204,19 @@ _.extend(Gmapper.prototype, {
     });
   },
   /**
-  * Initialize GMapper
-  * @param {string} icon Custom Marker Image
-  * @param {string} theme Theme file to load (/static/maps)
-  * @param {boolean} scrollWheel Scrollwheel defaults to disabled
-  * @param {boolean} overlay D3 SVG overlay
-  * @param {number} lat Latitude
-  * @param {number} lng Longitude
-  * @param {boolean} search Google Places Search
-  * @param {string} query Search Query
-  * @param {string} types Search Types
-  * @param {string} radius Search Radius
-  */
-  _initializeGMapper: function(data){
+   * Initialize GMapper
+   * @param {string} icon Custom Marker Image
+   * @param {string} theme Theme file to load (/static/maps)
+   * @param {boolean} scrollWheel Scrollwheel defaults to disabled
+   * @param {boolean} overlay D3 SVG overlay
+   * @param {number} lat Latitude
+   * @param {number} lng Longitude
+   * @param {boolean} search Google Places Search
+   * @param {string} query Search Query
+   * @param {string} types Search Types
+   * @param {string} radius Search Radius
+   */
+  _initializeGMapper: function(data) {
     'use strict';
     // set the center or default to oval */
     !data.lng || !data.lat ? center = new google.maps.LatLng(37.429856, -122.169425) : center = new google.maps.LatLng(data.lat, data.lng);
@@ -235,21 +243,26 @@ _.extend(Gmapper.prototype, {
     if (data.theme !== null && typeof data.theme === "string") {
       d3.json("files/" + data.theme + ".json", function(json) {
         mapStyles = json;
-        styledMap = new google.maps.StyledMapType(mapStyles, {name: data.theme});
+        styledMap = new google.maps.StyledMapType(mapStyles, {
+          name: data.theme
+        });
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('map_style', styledMap);
         map.setMapTypeId('map_style');
       });
     } else if (data.theme !== null && typeof data.theme === "object") {
       mapStyles = data.theme;
-      styledMap = new google.maps.StyledMapType(mapStyles, {name: "Drake.fm"});
+      styledMap = new google.maps.StyledMapType(mapStyles, {
+        // TODO: Add the map title
+        name: "Your Map Nam"
+      });
       //Associate the styled map with the MapTypeId and set it to display.
       map.mapTypes.set('map_style', styledMap);
       map.setMapTypeId('map_style');
     }
 
     // If Google Places Search
-    if (data.search){
+    if (data.search) {
       this._googlePlaceQuery(data.query, map, center, data.radius, data.types);
       return;
     }
@@ -259,7 +272,7 @@ _.extend(Gmapper.prototype, {
       for (var i in data.locations) {
         var glocation = data.locations[i];
         var icon = data.locations[i].icon;
-        if (!glocation.latLng){
+        if (!glocation.latLng) {
           // we need lat and lng to plot on google map
           // send readable_address to Google geocoder
           this._geoCodeLocations(glocation, map);
@@ -269,7 +282,7 @@ _.extend(Gmapper.prototype, {
           this._addMarker(glocation, map, icon);
         }
         // add the locations to an array
-        if(glocation.GooglePlacesReference){
+        if (glocation.GooglePlacesReference) {
           overlay_locations.push(glocation);
         }
       }

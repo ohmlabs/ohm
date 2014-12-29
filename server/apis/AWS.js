@@ -1,7 +1,21 @@
-var config = require("../config/config.js");
-var AWS = require('aws-sdk');
+var AWS, config;
+/**
+ * AWS.js
+ *
+ * @module AWS
+ * @requires aws-sdk
+ */
+config = require("../config/config.example.js");
+AWS    = require('aws-sdk');
 
-// Configure Amazon Web Services
-AWS.config.update({accessKeyId: config.AWS_ACCESS_KEY, secretAccessKey: config.AWS_SECRET_KEY});
+/**
+ * Configure Amazon Web Services
+ * @param {string} config.AWS_ACCESS_KEY access key
+ * @param {string} config.AWS_SECRET_KEY secret key
+ */
+AWS.config.update({
+  accessKeyId: config.AWS_ACCESS_KEY,
+  secretAccessKey: config.AWS_SECRET_KEY
+});
 
 module.exports = AWS;

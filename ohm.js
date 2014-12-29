@@ -1,5 +1,5 @@
 (function() {
-  var assetsVersion, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg, routes, sample;
+  var assetsVersion, bodyParser, config, cookieParser, errorHandler, express, ghost, http, lightbox, logger, methodOverride, parentApp, path, pkg, routes, sample;
 
   pkg = require('./package.json');
 
@@ -23,15 +23,17 @@
 
   errorHandler = require("errorhandler");
 
-  sample = require("./server/controllers/SampleController.js");
-
-  routes = require("./server/routes/sample.js");
-
   process.env.NODE_ENV = config.env;
 
   assetsVersion = pkg.version;
 
   parentApp = express();
+
+  sample = require("./server/controllers/SampleController.js");
+
+  lightbox = require("./server/routes/lightbox.js");
+
+  routes = require("./server/routes/sample.js");
 
   parentApp.use("/blog", ghost({
     config: path.join(__dirname, "/server/ghost/config.js")
@@ -63,6 +65,7 @@
   }
 
   if (parentApp.settings.env === "development") {
+    require('longjohn');
     parentApp.use(express["static"](__dirname + "/static"));
     parentApp.use(errorHandler({
       dumpExceptions: true,
@@ -72,6 +75,8 @@
   }
 
   routes(parentApp);
+
+  lightbox(parentApp);
 
   parentApp.get("*", sample.error);
 

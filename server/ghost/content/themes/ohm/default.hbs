@@ -9,14 +9,15 @@
 {{#if post}}
 {{#post}}
 <meta name="keywords" content="{{tags separator=', ' autolink='false'}}">
+<meta name="description" content="{{meta_description}}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="">
 <meta name="twitter:title" content="{{title}}">
 <meta name="twitter:description" content="{{excerpt}}">
 <meta name="twitter:creator" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{{@blog.title}}">
-<meta property="og:description" content="{{excerpt}}">
+<meta property="og:title" content="{{meta_title}}">
+<meta property="og:description" content="{{meta_description}}">
 <meta property="og:site_name" content="{{@blog.title}}">
 {{/post}}
 {{else}}
@@ -30,7 +31,6 @@
 <meta property="og:description" content="{{@blog.description}}">
 <meta property="og:site_name" content="{{@blog.title}}">
 {{/if}}
-<link rel="stylesheet" type="text/css" href="{{ asset '/js/lib/bootstrap/dist/css/bootstrap.min.css' }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset '/css/ghost.css' }}" />
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset '/img/favicon.png' }}">
 <!--[if lt IE 9]>
@@ -74,19 +74,29 @@
 <div id="map_canvas"></div>
 <div id="lightbox_fade">
   <div id="fullscreen_image"></div>
+  <div class="glyphicon glyphicon-th buckets lb-thumbs-toggle buckets"></div>
+  <div class="glyphicon glyphicon-remove"></div>
   <ul id="thumbnails" class="thumbnails"></ul>
+</div>
+<div id="general-error-wrapper">
+  <div id="general-error"></div>
+</div>
+<div id="loading">
+  <div id="loading-indicator"></div>
 </div>
 </div> {{! End of wrapper }}
 {{! Scripts }}
-<script type="text/javascript" src="{{ asset '/js/lib/jquery/jquery.min.js' }}"></script>
+{{ghost_foot}}
+
 <script type="text/javascript" src="{{ asset '/js/lib/underscore/underscore.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/lib/d3/d3.min.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/lib/hammerjs/hammer.min.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/base/prism-custom.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/base/utils.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/ui/Gmapper.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/ui/LightBox.js' }}"></script>
 <script type="text/javascript" src="{{ asset '/js/ui/ScrollMenu.js' }}"></script>
-<script type="text/javascript" src="{{ asset '/js/ghost.js' }}"></script>
+<script type="text/javascript" src="{{ asset '/js/ohm.js' }}"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

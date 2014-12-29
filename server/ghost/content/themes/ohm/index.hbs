@@ -11,9 +11,9 @@
                     {{#if featured}}
                     <div class="art-list-time"><span style="color:#F40034;">&#10029;</span> Featured</div>
                     {{else}}{{/if}}
-                    <div class='art-list-image'><a href="{{ url }}">{{content words="0"}}</a></div>
+                    <div class='art-list-image'><a href="{{ url }}"><img src='{{image absolute="true"}}' alt="post-image"></a></div>
                 </div>
-                <p class="art-excerpt">{{excerpt}}</p>
+                <p class="art-excerpt">{{excerpt}}&hellip;</p>
                 <p class="art-tags">{{tags separator=', '}}</p>
             </li>
             {{/foreach}}

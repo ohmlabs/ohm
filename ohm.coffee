@@ -10,6 +10,11 @@ cookieParser          = require("cookie-parser")
 bodyParser            = require("body-parser")
 methodOverride        = require("method-override")
 errorHandler          = require("errorhandler")
+# Set Environment Variable
+process.env.NODE_ENV  = config.env
+# Set assets version
+assetsVersion         = pkg.version
+parentApp             = express()
 # ------------------
 # Controllers
 # ------------------
@@ -17,12 +22,8 @@ sample                = require("./server/controllers/SampleController.js")
 # ------------------
 # Routes
 # ------------------
+lightbox              = require("./server/routes/lightbox.js")
 routes                = require("./server/routes/sample.js")
-# Set Environment Variable
-process.env.NODE_ENV  = config.env
-# Set assets version
-assetsVersion         = pkg.version
-parentApp             = express()
 parentApp.use "/blog",  ghost({config: path.join(__dirname, "/server/ghost/config.js")})
 # ------------------
 # Express Configuration
@@ -52,6 +53,8 @@ if parentApp.settings.env == "development"
   )
   parentApp.locals.pretty = true
 routes(parentApp)
+lightbox(parentApp)
+# 404
 parentApp.get "*", sample.error
 # ------------------
 # Listen

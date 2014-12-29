@@ -1,83 +1,137 @@
-$drake-orange: rgba(255,132,50, 0.99)
-.lightBox
+.orange
+  color: $drake-orange
+#lightbox_fade
+  position: fixed
   width: 100%
-  max-width: 960px
-  margin: auto
-  color: #ffffff
-  figure
-    width: 300px
-    height: 300px
-    overflow: hidden
+  height: 100%
+  background: rgba(0,0,0,0.9)
+  display: none
+  top: 0
+  left: 0
+  z-index: 900
+  .glyphicon-remove, .buckets
+    width: 40px
+    height: 40px
+    position: absolute
+    background-size: cover
+    font-size: 32px
+  .glyphicon-remove
+    font-size: 20px
+  .buckets
+    top: 10px
+    right: 10px
+  .glyphicon-remove
+    color:  #ccc
+    top: 10px
+    left: 10px
+    cursor: pointer
+  .active
+    color: $drake-orange
+    cursor: pointer
+  .glyphicon-heart, .glyphicon-heart-empty
+    color: $drake-orange
+    margin: 5px
+  .glyphicon-heart-empty
+    cursor: pointer
+#lightbox_fade.active
+  display: table
+ul.thumbnails
+  max-width: 810px
+  width: 100%
+  max-height: 600px
+  margin: 100px auto
+  padding: 0
+  overflow: scroll
+  display: none
+  li
     float: left
-    .overlay
-      display: inline-block
-      +background-image(radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%,rgba(255,255,255,1) 100%))
-      width: 100%
-      .rank
-        position: absolute
-        top: 20px
-        left: 20px
-        font: 700 65px 'Open'
-        color: #666
-      .name
-        font: 32px 'Abril Fatface'
-        color: $drake-orange
-        line-height: 300px
-        text-align: center
-        +text-shadow(rgb(0,0,0) 3px 3px 5px)
-        text-transform: none
-      .profession
-        color: #fff
-        font: 100 16px $helvetica
-        text-transform: small-caps
-        position: absolute
-        bottom: 10px
-        width: 100%
-        text-align: center
-        @include opacity(0)
-    figcaption
-      width: 100%
-      height: 5em
-      text-align: center
-      position: absolute
-      background: rgba(0,0,0,0)
-      color: #fff
-      opacity: 0
-      bottom: -4.6875em
-      z-index: 50
-      transition: all 500ms cubic-bezier(0.420, 0.000, 0.580, 1.000)
-      transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000)
-      h2
-        color: #fff
-        font: 24px 'Lato'
-        text-transform: none
-      .links
-        width: 50px
-        height: 50px
-        margin: 10px
-        @include transition(all 300ms ceaser($easeInOutQuart))
-        display: inline-block
-      .links:hover
-        @include transform(rotateX(360deg))
-        @include transform-style(preserve-3d)
-      .tumblr
-        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjY5MyA1Ni42OTMiIGhlaWdodD0iNTYuNjkzcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1Ni42OTMgNTYuNjkzIiB3aWR0aD0iNTYuNjkzcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yOC4zNDcsNS4xNTVjLTEzLjYsMC0yNC42MjUsMTEuMDI1LTI0LjYyNSwyNC42MjVjMCwxMy42MDIsMTEuMDI0LDI0LjYyNSwyNC42MjUsMjQuNjI1ICBjMTMuNjAyLDAsMjQuNjI1LTExLjAyMywyNC42MjUtMjQuNjI1QzUyLjk3MiwxNi4xOCw0MS45NDgsNS4xNTUsMjguMzQ3LDUuMTU1eiBNMzYuOTMzLDQzLjQwMyAgYy0xLjMyNCwwLjYyMS0yLjUyMywxLjA2MS0zLjU5OCwxLjMxMmMtMS4wNzYsMC4yNTItMi4yMzYsMC4zNzctMy40ODQsMC4zNzdjLTEuNDE4LDAtMi4yNTQtMC4xNzgtMy4zNDQtMC41MzMgIGMtMS4wODgtMC4zNTktMi4wMTgtMC44NzMtMi43ODUtMS41MzFjLTAuNzcxLTAuNjY0LTEuMzAzLTEuMzcxLTEuNjAyLTIuMTE1Yy0wLjI5Ny0wLjc0Ni0wLjQ0NS0xLjgyOC0wLjQ0NS0zLjI0OFYyNi43OTJoLTQuMjEyICB2LTQuMzkxYzEuMjE4LTAuMzk1LDIuNjMtMC45NjMsMy40OTYtMS43MDJjMC44NzMtMC43NCwxLjU2OC0xLjYyNywyLjA5NC0yLjY2NGMwLjUyNS0xLjAzMywwLjg4OS0yLjM1LDEuMDg2LTMuOTUxaDQuNDF2Ny4xNzQgIGg3LjE2OHY1LjUzNGgtNy4xNjh2Ny45NTFjMCwxLjc5OS0wLjAyMywyLjgzNiwwLjE2NiwzLjM0NHMwLjY2NCwxLjAzNSwxLjE4MiwxLjM0YzAuNjg4LDAuNDEsMS40NjksMC42MTcsMi4zNTQsMC42MTcgIGMxLjU3LDAsMy4xMzEtMC41MTIsNC42ODQtMS41MzFWNDMuNDAzeiIvPjwvc3ZnPg==) no-repeat
-        background-size: cover
-      .twitter
-        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjY5MyA1Ni42OTMiIGhlaWdodD0iNTYuNjkzcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1Ni42OTMgNTYuNjkzIiB3aWR0aD0iNTYuNjkzcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yOC4zNDgsNS4xNTdjLTEzLjYsMC0yNC42MjUsMTEuMDI3LTI0LjYyNSwyNC42MjVjMCwxMy42LDExLjAyNSwyNC42MjMsMjQuNjI1LDI0LjYyM2MxMy42LDAsMjQuNjIzLTExLjAyMywyNC42MjMtMjQuNjIzICBDNTIuOTcxLDE2LjE4NCw0MS45NDcsNS4xNTcsMjguMzQ4LDUuMTU3eiBNNDAuNzUyLDI0LjgxN2MwLjAxMywwLjI2NiwwLjAxOCwwLjUzMywwLjAxOCwwLjgwM2MwLDguMjAxLTYuMjQyLDE3LjY1Ni0xNy42NTYsMTcuNjU2ICBjLTMuNTA0LDAtNi43NjctMS4wMjctOS41MTMtMi43ODdjMC40ODYsMC4wNTcsMC45NzksMC4wODYsMS40OCwwLjA4NmMyLjkwOCwwLDUuNTg0LTAuOTkyLDcuNzA3LTIuNjU2ICBjLTIuNzE1LTAuMDUxLTUuMDA2LTEuODQ2LTUuNzk2LTQuMzExYzAuMzc4LDAuMDc0LDAuNzY3LDAuMTExLDEuMTY3LDAuMTExYzAuNTY2LDAsMS4xMTQtMC4wNzQsMS42MzUtMC4yMTcgIGMtMi44NC0wLjU3LTQuOTc5LTMuMDgtNC45NzktNi4wODRjMC0wLjAyNywwLTAuMDUzLDAuMDAxLTAuMDhjMC44MzYsMC40NjUsMS43OTMsMC43NDQsMi44MTEsMC43NzcgIGMtMS42NjYtMS4xMTUtMi43NjEtMy4wMTItMi43NjEtNS4xNjZjMC0xLjEzNywwLjMwNi0yLjIwNCwwLjg0LTMuMTJjMy4wNjEsMy43NTQsNy42MzQsNi4yMjUsMTIuNzkyLDYuNDgzICBjLTAuMTA2LTAuNDUzLTAuMTYxLTAuOTI4LTAuMTYxLTEuNDE0YzAtMy40MjYsMi43NzgtNi4yMDUsNi4yMDYtNi4yMDVjMS43ODUsMCwzLjM5NywwLjc1NCw0LjUyOSwxLjk1OSAgYzEuNDE0LTAuMjc3LDIuNzQyLTAuNzk1LDMuOTQxLTEuNTA2Yy0wLjQ2NSwxLjQ1LTEuNDQ4LDIuNjY2LTIuNzMsMy40MzNjMS4yNTctMC4xNSwyLjQ1My0wLjQ4NCwzLjU2NS0wLjk3NyAgQzQzLjAxOCwyMi44NDksNDEuOTY1LDIzLjk0Miw0MC43NTIsMjQuODE3eiIvPjwvc3ZnPg==) no-repeat
-        background-size: cover
-      .instagram
-        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjY5MyA1Ni42OTMiIGhlaWdodD0iNTYuNjkzcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1Ni42OTMgNTYuNjkzIiB3aWR0aD0iNTYuNjkzcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxwb2x5Z29uIHBvaW50cz0iMzguNTEyLDI0LjM5MiAzOC41MTIsMjAuNDQ1IDM4LjUxMiwxOS44NTUgMzcuOTIyLDE5Ljg1NyAzMy45NzUsMTkuODcxIDMzLjk5LDI0LjQwNyAgIi8+PHBhdGggZD0iTTI4LjIyNSwzNC44NjhjMi41OTgsMCw0LjcxMy0yLjExMyw0LjcxMy00LjcxMWMwLTEuMDI1LTAuMzM0LTEuOTc1LTAuODkzLTIuNzQ4Yy0wLjg1NS0xLjE4Ni0yLjI0OC0xLjk2NS0zLjgyLTEuOTY1ICAgcy0yLjk2MywwLjc3OS0zLjgyLDEuOTY1Yy0wLjU1OSwwLjc3My0wLjg5MSwxLjcyMy0wLjg5MSwyLjc0OEMyMy41MTQsMzIuNzU1LDI1LjYyNywzNC44NjgsMjguMjI1LDM0Ljg2OHoiLz48cGF0aCBkPSJNMjguMzQ4LDUuMTU4Yy0xMy42LDAtMjQuNjI1LDExLjAyMy0yNC42MjUsMjQuNjIzYzAsMTMuNiwxMS4wMjUsMjQuNjI1LDI0LjYyNSwyNC42MjUgICBjMTMuNTk4LDAsMjQuNjIzLTExLjAyNSwyNC42MjMtMjQuNjI1QzUyLjk3MSwxNi4xODEsNDEuOTQ1LDUuMTU4LDI4LjM0OCw1LjE1OHogTTQxLjYxMSwyNy40MDlWMzguMzcgICBjMCwyLjg1Mi0yLjMyMiw1LjE3Mi01LjE3NCw1LjE3MkgyMC4wMTJjLTIuODUzLDAtNS4xNzMtMi4zMi01LjE3My01LjE3MlYyNy40MDl2LTUuNDY0YzAtMi44NTMsMi4zMi01LjE3Myw1LjE3My01LjE3M2gxNi40MjUgICBjMi44NTIsMCw1LjE3NCwyLjMyLDUuMTc0LDUuMTczVjI3LjQwOXoiLz48cGF0aCBkPSJNMzUuNTQ1LDMwLjE1N2MwLDQuMDM1LTMuMjgzLDcuMzItNy4zMiw3LjMycy03LjMxOC0zLjI4NS03LjMxOC03LjMyYzAtMC45NzMsMC4xOTMtMS44OTgsMC41MzctMi43NDhoLTMuOTk2VjM4LjM3ICAgYzAsMS40MTQsMS4xNSwyLjU2NCwyLjU2NCwyLjU2NGgxNi40MjVjMS40MTQsMCwyLjU2NC0xLjE1LDIuNTY0LTIuNTY0VjI3LjQwOWgtMy45OThDMzUuMzUsMjguMjU5LDM1LjU0NSwyOS4xODUsMzUuNTQ1LDMwLjE1N3oiLz48L2c+PC9zdmc+) no-repeat
-        background-size: cover
-  figure:hover
-    .overlay
-      +background-image(radial-gradient(center, ellipse cover, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.5) 100%))
-    figcaption
-      opacity: 0.75
-      bottom: -1px
+    list-style: none
+    padding: 0
+    .thumbnail
+      width: 250px
+      height: 250px
+      margin: 10px
+ul.thumbnails.active
+  display: block
+ul.thumbnails-nav
+  white-space: nowrap
+  -webkit-overflow-scrolling: touch
+  position: fixed
+  bottom: 0
+  left: 0
+  height: 90px
+  margin: 0 auto
+  overflow: scroll
+  max-width: 100%
+  li
+    display: inline-block
+    white-space: normal
+    float: none
+    .thumbnail
+      width: 75px !important
+      height: 75px !important
+      margin: 5px !important
+///////////////////////////////////////
+//   Loading                        //
+/////////////////////////////////////
+#loading
+  position: fixed
+  width: 100%
+  height: 100%
+  background: rgba(0,0,0,0.7)
+  display: none
+  top: 0
+  left: 0
+  z-index: 900
+  #loading-indicator
+    display: table-cell
+    vertical-align: middle
+    background: url('../files/loading.gif') 50% 50% no-repeat
+    img
+      margin: auto
+      display: block
+      background: url('../files/loading.gif')
+#loading.active
+  display: table
+#fullscreen_image
+  display: table-cell
+  vertical-align: middle
+  text-align: center
+  width: 100%
+  #fullscreen
+    margin: auto
+    max-width: 640px
+    display: block
+  .caption, .users
+    color: #ccc
+    max-width: 640px
+    margin: auto
+    font-weight: 200
+  .users, .glyphicon-heart
+    display: inline-block
 @media only screen and (min-width: 320px) and (max-width: 960px)
-  .lightBox
-    width: 100%
-    figure
+  #fullscreen_image
+    img
+      max-width: 100%
+  #lightbox_fade
+    background: rgba(0,0,0,0.9)
+  ul.thumbnails
+    max-width: 480px
+    li
+      .thumbnail
+        width: 140px
+        height: 140px
+        margin: 10px
+  ul.thumbnails-nav
+    max-width: 100%
+@media only screen and (min-width: 320px) and (max-width: 540px)
+  ul.thumbnails
+    max-width: 320px
+    max-height: 75%
+    margin: 75px auto
+  ul.thumbnails-nav
+    max-width: 100%
+  #fullscreen_image
+    #fullscreen
       width: 100%
-      margin: 10px 0
+      max-width: 400px

@@ -6,10 +6,19 @@ $default-text-shadow-v-offset: 3px
 //   Sass Document                  //
 /////////////////////////////////////
 @import "base/style"
-$app-bg: rgba(255,255,255,0.99)
-$weiss-blue: rgba(0,102,255,0.99)
-$drake-orange: rgba(255,132,50, 0.99)
-$weiss-font: 'Open Sans', $helvetica
+///////////////////////////////////////
+//   Lightbox                       //
+/////////////////////////////////////
+@import "ui/lightbox"
+///////////////////////////////////////
+//   Header                         //
+/////////////////////////////////////
+@import "ui/header"
+///////////////////////////////////////
+//   Gmapper                        //
+/////////////////////////////////////
+@import "ui/map"
+
 html, body
   height: 100%
 
@@ -21,18 +30,6 @@ body
   font: 17px / 28px ff-meta-serif-web-pro, "Open Sans", serif
   color: #333
   background: #e4e4e4
-///////////////////////////////////////
-//   Header                         //
-/////////////////////////////////////
-@import "ui/header"
-///////////////////////////////////////
-//   LightBox                       //
-/////////////////////////////////////
-@import "ui/lightbox"
-#map_canvas
-  width: 100%
-  height: 300px
-  margin: auto
 .post, .posts
   ///////////////////////////////////////
   //   Typography                     //

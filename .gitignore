@@ -1,5 +1,6 @@
 # APPLICATION SPECIFIC IGNORES
 *.sass-cache
+*.tmp
 logs
 static/css/*.css
 static/js
