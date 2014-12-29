@@ -137,9 +137,16 @@ ohm bump
 # grunt bump:major
 ```
 # Extending
-ohm is built to be easily extended to include many additional features.
+I have been working to extend the functionality that this app provides beyond a boilerplate and you can learn more about the plugins [here](https://github.com/ohmlabs/ohm/blob/master/docs/plugins.md).
+
+### [Lightbox Plugin](https://github.com/ohmlabs/ohm/blob/master/docs/plugins.md#lightbox-plugin)
+Supports Instagram integration and general photo lightbox functionality. Requires instagram-node module.
+
+### Google Maps Plugin
+A simple plugin for drawing Google maps with custom styles, infowindows and markers.
+
 ### Client Dependencies
-There are a few client-side add-ons included via Bower. There are advantages to each of these libraries and I would certainly not recommend using them all together as it can really add in terms of HTTP requests and page download size (remember Souders rules!). Modernizr is useful for any project. Many users love using underscore and/or jQuery. Personally I prefer to use d3 instead of jQuery. Although it's larger in terms of download size it can do a lot of the same things jQuery can do and a whole lot more. Skrollr is very useful if you are working on a single page app or want to add parallax effects to your site. Finally, socket.io is a great library for building a real time web app.
+The repos provides examples of how to include client-side add-ons included via Bower. There are advantages to each of these libraries and I would certainly not recommend using them all together as it can really add in terms of HTTP requests and page download size (remember Souders rules!). Modernizr is useful for any project. Many users love using underscore and/or jQuery. Personally I prefer to use d3 instead of jQuery. Although it's larger in terms of download size it can do a lot of the same things jQuery can do and a whole lot more. Skrollr is very useful if you are working on a single page app or want to add parallax effects to your site. Finally, socket.io is a great library for building a real time web app. You can add to these but you should notice how I use the controller to [selectively include dependencies for each view](https://github.com/ohmlabs/ohm/blob/master/server/controllers/SampleController.js#L6)
 
 * [modernizr](http://modernizr.com/)
 * [underscore](http://underscorejs.org/)
