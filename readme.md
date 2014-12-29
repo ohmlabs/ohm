@@ -142,7 +142,7 @@ I have been working to extend the functionality that this app provides beyond a 
 ### [Lightbox Plugin](https://github.com/ohmlabs/ohm/blob/master/docs/plugins.md#lightbox-plugin)
 Supports Instagram integration and general photo lightbox functionality. Requires instagram-node module.
 
-### Google Maps Plugin
+### [Google Maps Plugin](https://github.com/ohmlabs/ohm/blob/master/docs/plugins.md#google-maps-plugin)
 A simple plugin for drawing Google maps with custom styles, infowindows and markers.
 
 ### Client Dependencies
