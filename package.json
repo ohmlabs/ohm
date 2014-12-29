@@ -48,6 +48,7 @@
     "grunt-forever": "0.4.1",
     "grunt-rev": "^0.1.0",
     "grunt-usemin": "^2.6.2",
+    "instagram-node": "^0.5.4",
     "jade": "",
     "method-override": "^1.0.0",
     "morgan": "^1.0.0",
