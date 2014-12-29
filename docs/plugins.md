@@ -1,7 +1,7 @@
 # Ohm Plugins
 ![plugins](assets/img/screenshot.png)
 
-## Instagram Lightbox Plugin 
+## Lightbox Plugin 
 For a long time I have wanted to develop my own lightbox for my photography and I am very excited to share this plugin as a part of this repo. I am trying to make utilizing this plugin as easy as possible within any express app, but I have only tested it with ohm so far so my apologies if you have trouble integrating it into your project.
 The plugin uses  the [instagram-node](https://github.com/totemstech/instagram-node) module to authenticate instagram and retrieve instagram photos for a user or for a feed. Using the repo requires a few main components:
 
