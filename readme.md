@@ -68,7 +68,7 @@ The server architecture is evolving more information to come.
 ```
 
 ### Debugging
-The dock repo includes node-inspector in the global node modules that were installed, so learn more about [how to use it](https://github.com/node-inspector/node-inspector). The npm start command by default passes the necessary flag to run the debugger, but you must start node inspector:
+If you are using [node-inspector](https://github.com/node-inspector/node-inspector) the run command by default passes the necessary flag to attach to the debugger, but you must start node inspector like so first:
 ```sh
 node-inspector &
 # navigate to http://127.0.0.1:8080/debug?port=5960
