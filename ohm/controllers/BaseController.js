@@ -1,9 +1,8 @@
 (function() {
   'use strict';
-  // FIXME
-  var config        = include('sample/config/config.js');
 
   var _             = require('underscore');
+  var config        = include('sample/config/config.js');
   var ViewerContext = include('ohm/models/ViewerContext.js');
 
   function BaseController(req, res) {

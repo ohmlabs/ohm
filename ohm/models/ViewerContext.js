@@ -1,9 +1,7 @@
 (function() {
   'use strict';
 
-  // FIXME
   var config        = include('sample/config/config.js');
-
   var emptyFunction = include('ohm/models/emptyFunction.js');
   var Parse         = include('ohm/apis/Parse.js');
 

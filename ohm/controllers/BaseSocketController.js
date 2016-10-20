@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  var _                = require('underscore');
-  var ViewerContext    = include('ohm/models/ViewerContext.js');
+  var _             = require('underscore');
+  var config        = include('sample/config/config.js');
+  var ViewerContext = include('ohm/models/ViewerContext.js');
 
   function BaseSocketController(socketMsg, socket, socketData) {
     this.socket        = socket;
@@ -14,7 +15,7 @@
 
     // by this point, the cookie has been signed, so we use this and not the sessionID
     if (this.socket.handshake && this.socket.handshake.signedCookies) {
-      this.sessionID = this.socket.handshake.signedCookies.ojxsid;
+      this.sessionID = this.socket.handshake.signedCookies[config.SESSION_KEY];
     }
 
     ViewerContext.genFromViewerContextID(

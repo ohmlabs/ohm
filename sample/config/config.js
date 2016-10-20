@@ -44,6 +44,7 @@
     PRIMARY_ACCOUNT_KEY       : '',
     GHOST_PATH                : '/blog',
     PARSE_PATH                : '/parse',
+    SESSION_KEY               : 'ojxsid',
   });
 
   module.exports = base;

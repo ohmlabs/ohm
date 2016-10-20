@@ -8,7 +8,6 @@
    * @module Parse
    * @requires parse
    */
-  // FIXME
   config = include('sample/config/config.js');
 
   Parse  = require('parse/node').Parse;

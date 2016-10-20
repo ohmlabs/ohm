@@ -8,7 +8,6 @@
    * @module AWS
    * @requires aws-sdk
    */
-  // FIXME
   config = include('sample/config/config.js');
 
   AWS    = require('aws-sdk');

@@ -3,7 +3,6 @@
   var ParseDashboard, ParseServer, SessionDataStore, io, ohmSessionDataStore, ensureAuthenticatedSocket, ohmCookieParser, S3Adapter, session, server, assetsVersion, helmet, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg;
 
   require('./_include.js');
-  // FIXME
   config          = include('sample/config/config.js');
   // Dependencies'
   pkg             = include('package.json');
@@ -63,7 +62,7 @@
         expires: new Date(Date.now() + 525600 * 60 * 1000),
         // secure: true,
       },
-      key: 'ojxsid',
+      key: config.SESSION_KEY,
       // resave: true,
       // saveUninitialized: true,
     })
@@ -78,7 +77,7 @@
   // 3. https://github.com/senchalabs/connect/blob/master/lib/middleware/session.js
   ensureAuthenticatedSocket = function(handshake, callback) {
     var cookie = ohmCookieParser(handshake, null, function(err) {
-      var sessionID = handshake.signedCookies.ojxsid;
+      var sessionID = handshake.signedCookies[config.SESSION_KEY];
       ohmSessionDataStore.get(sessionID, callback);
     });
   };
