@@ -4,7 +4,7 @@ var webpack    = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    index: './static/assets/js/index.js',
+    ohm: './static/assets/js/ohm.js',
   },
   output: {
     // Make sure to use [name] or [id] in output.filename

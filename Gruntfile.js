@@ -72,16 +72,6 @@ module.exports = function(grunt) {
         files: ['static/assets/js/**/*.js', 'ohm/views/**/*.pug', 'static/css/**/*.css'],
       },
     },
-
-    forever: {
-      options: {
-        index: 'jukeboxx.js',
-        command: 'node --debug=5959',
-        logDir: 'logs',
-        logFile: 'ohm.log',
-        errFile: 'error.log'
-      }
-    }
   });
 
   grunt.registerTask('default', [

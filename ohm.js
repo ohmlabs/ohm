@@ -126,7 +126,7 @@
           'serverURL': config.getBaseDomain() + config.PARSE_PATH,
           'appId': config.PARSE_APPLICATION_ID,
           'masterKey': config.PARSE_MASTER_KEY,
-          'appName': 'hiburrow'
+          'appName': 'ohm'
         }]
       }, false));
       parentApp.use(express['static'](__dirname + '/static'));

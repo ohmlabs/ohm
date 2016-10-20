@@ -14,7 +14,7 @@
         bodyClass: '',
         args: {
           title: 'Sample Page',
-          initScript: 'index',
+          initScript: 'ohm',
         },
       });
     },

@@ -1,11 +1,11 @@
 (function () {
   'use strict';
-  const React           = require('react');
-  const ReactDOM        = require('react-dom');
-  const io              = require('socket.io-client');
-  const LightBox        = require('./ohm/LightBox.react.js');
-  const GMap            = require('./ohm/GMapper.react.js');
-  const socket          = io.connect();
+  const React    = require('react');
+  const ReactDOM = require('react-dom');
+  const io       = require('socket.io-client');
+  const LightBox = require('./ohm/LightBox.react.js');
+  const GMap     = require('./ohm/GMapper.react.js');
+  const socket   = io.connect();
 
   socket.on('connect', (data) => {
     ReactDOM.render(
