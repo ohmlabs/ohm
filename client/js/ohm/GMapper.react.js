@@ -225,8 +225,8 @@
             }
           };
           markerOpts.attribution = {
-            source: broadcast.url,
-            webUrl: link
+            source: broadcast.title,
+            webUrl: broadcast.url
           };
         }
         marker = new google.maps.Marker(markerOpts);
