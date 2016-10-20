@@ -12,8 +12,8 @@ npm start
 grunt watch
 ```
 # Dependencies:
-* [Full Server dependencies (package.json)](https://github.com/hiburrow/hiburrow/blob/master/package.json)
-* [Full Client dependencies (bower.json)](https://github.com/hiburrow/hiburrow/blob/master/bower.json)
+* [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
+* [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
 
 ### Backend Tools
 * [Node.js](https://nodejs.org/en/)

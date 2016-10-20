@@ -42,7 +42,7 @@
     filesAdapter: new S3Adapter(
       config.AWS_ACCESS_KEY,
       config.AWS_SECRET_KEY,
-      'burrowdev', {
+      'ohmdev', {
         directAccess: true
       }
     ),
