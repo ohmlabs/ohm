@@ -1,0 +1,54 @@
+///////////////////////////////////////
+//   Figures                        //
+/////////////////////////////////////
+figure
+  position: relative
+  cursor: default
+  display: inline-block
+  vertical-align: top
+  margin: 10px
+  background-size: cover !important
+  .overlay
+    +background-image(radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1) 100%))
+    display: table-cell
+    vertical-align: top
+figure:hover
+  .overlay
+    +background-image(radial-gradient(center, ellipse cover, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%))
+  figcaption
+    opacity: 0.75
+    bottom: -1px
+
+///////////////////////////////////////
+//   Small Square                   //
+/////////////////////////////////////
+figure.small-square
+  @include square(200px, 10px)
+
+///////////////////////////////////////
+//   Medium Square                  //
+/////////////////////////////////////
+figure.medium-square
+  @include square(300px, 10px)
+  
+///////////////////////////////////////
+//   Circle                         //
+/////////////////////////////////////
+figure.user-circle
+  @include circle(150px)
+  h2
+    display: table-cell
+    vertical-align: middle
+figure.user-circle:hover
+  .overlay
+    background: rgba(0,0,0,0.75)
+
+///////////////////////////////////////
+//   Full Width                     //
+/////////////////////////////////////
+figure.wide-figure
+  @include rectangle(200px, 10px)
+figure.wide-figure:hover
+  figcaption
+    @include opacity(0.75)
+    bottom: 0px

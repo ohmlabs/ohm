@@ -15,6 +15,5 @@
   "strict": true,
   "sub": true,
   "latedef": true,
-  "latefunc": true
-  
+  "esnext": true
 }

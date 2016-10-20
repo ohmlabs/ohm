@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="author" content="">
+{{#if post}}
+{{#post}}
+<meta name="keywords" content="{{tags separator=', ' autolink='false'}}">
+<meta name="description" content="{{meta_description}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="{{meta_title}}">
+<meta name="twitter:description" content="{{meta_description}}">
+<meta name="twitter:creator" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{meta_title}}">
+<meta property="og:description" content="{{meta_description}}">
+<meta property="og:site_name" content="{{@blog.title}}">
+{{/post}}
+{{else}}
+<meta name="keywords" content="">
+<meta name="description" content="{{@blog.description}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="{{@blog.title}}">
+<meta name="twitter:description" content="{{@blog.description}}">
+<meta name="twitter:creator" content="">
+<meta name="twitter:image" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{@blog.title}}">
+<meta property="og:description" content="{{@blog.description}}">
+<meta property="og:site_name" content="{{@blog.title}}">
+{{/if}}
+<link rel="stylesheet" type="text/css" href="{{ asset '/css/style.css' }}" />
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset '/img/favicon.png' }}">
+{{#if post}}
+{{#post}}
+<title>{{title}} | {{@blog.title}}</title>
+{{/post}}
+{{else}}
+<title>{{@blog.title}}</title>
+{{/if}}
+{{ghost_head}}
+</head>
+<body class="{{body_class}}">
+<div class="wrapper">
+{{! Menu }}
+<!-- TODO Make react component -->
+<header id="header-menu" class="fixed-skroll">
+  <div class="wrapper">
+    <div class="header-left">
+    </div>
+    <div class="header-middle">
+    </div>
+    <div class="header-right">
+    </div>
+  </div>
+</header>
+{{! Everything else gets inserted here }}
+{{{body}}}
+<footer class="footer">
+    {{#unless post}}
+    {{pagination}}
+    {{/unless}}
+    <div class="back-to-top"><a href="">Back to top</a></div>
+    <a href="/"><div class="footer-nav"><p>{{@blog.title}}</p></div></a>
+    <aside class="offsite-links">
+        <a class="rss-link" href="{{ @blog.url }}/rss">RSS</a>
+        / Powered by <a target="_blank" href="http://www.ghost.org">Ghost</a>
+    </aside>
+</footer>
+<div id="main"></div>
+</div> {{! End of wrapper }}
+{{! Scripts }}
+{{ghost_foot}}
+<script type="text/javascript" src="{{ asset '/js/ohm/prism-custom.js' }}"></script>
+<!-- FIXME: this needs to be packaged -->
+<script type="text/javascript" src="{{ asset '/js/ghost.bundle.js' }}"></script>
+<!-- FIXME Facebook social plugin -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=OHMTEST&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- FIXME GA -->
+<script type="text/javascript">
+  var ga_ua = 'UA-OHMTEST-1';
+  (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+      function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+      t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+      t.src='//www.google-analytics.com/analytics.js';
+      z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+      ga('create',ga_ua);ga('send','pageview');
+</script>
+{{! Ghost outputs important scripts and data with this tag }}
+</body>
+</html>

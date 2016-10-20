@@ -1,0 +1,182 @@
+@import "variables"
+@import "mixins"
+$drake-orange: rgba(255,132,50, 0.99)
+$z-overlay-high: 1000
+$featureHeight: 500px
+.orange
+  color: $drake-orange
+///////////////////////////////////////
+//   Background                     //
+/////////////////////////////////////
+#lb-fade
+  position: fixed
+  width: 100%
+  height: 100%
+  background: rgba(0,0,0,0.9)
+  display: none
+  top: 0
+  left: 0
+  z-index: $z-overlay-high
+  .instagram-feed
+    position: fixed
+    bottom: 10px
+    right: 10px
+  .glyphicon-remove, .buckets
+    width: 40px
+    height: 40px
+    position: absolute
+    background-size: cover
+    font-size: 32px
+  .glyphicon-remove
+    font-size: 20px
+    color:  #ccc
+    top: 10px
+    left: 10px
+    cursor: pointer
+  .buckets
+    top: 10px
+    right: 10px
+  .active
+    color: $drake-orange
+#lb-fade.active
+  display: table
+///////////////////////////////////////
+//   thumbs (V)                     //
+/////////////////////////////////////
+ul.thumbnails
+  max-width: 810px
+  width: 100%
+  max-height: 75vh
+  margin: 15vh auto
+  padding: 0
+  overflow: scroll
+  display: none
+  li
+    float: left
+    list-style: none
+    padding: 0
+    .thumbnail
+      width: 250px
+      height: 250px
+      margin: 10px
+ul.thumbnails.active
+  display: block
+///////////////////////////////////////
+//   thumbs (H)                     //
+/////////////////////////////////////
+ul.thumbnails-horizontal
+  height: $featureHeight
+  max-width: 720px
+  margin: auto
+  li
+    display: inline-block
+    white-space: normal
+    float: none
+    margin-top: 10px
+    .thumbnail
+      width: 140px
+      height: 140px
+      margin: 5px
+    #next-button
+      button
+        position: absolute
+        top: 50px
+        right: 50px
+  li:first-child
+    margin-left: 20px
+  li:last-child
+    margin-right: 20px
+    position: relative
+///////////////////////////////////////
+//   Loading                        //
+/////////////////////////////////////
+#lb-loading
+  position: fixed
+  width: 100%
+  height: 100%
+  background: rgba(0,0,0,0.7)
+  display: none
+  top: 0
+  left: 0
+  z-index: $z-overlay-high
+  #lb-loading-indicator
+    display: table-cell
+    vertical-align: middle
+    background: url('../files/loading.gif') 50% 50% no-repeat
+    img
+      margin: auto
+      display: block
+      background: url('../files/loading.gif')
+#lb-loading.active
+  display: table
+///////////////////////////////////////
+//   Fullscreen                     //
+/////////////////////////////////////
+#lb-fullscreen
+  display: table-cell
+  vertical-align: middle
+  text-align: center
+  width: 100%
+  #fullscreen
+    margin: auto
+    max-width: 90%
+    max-height: 50%
+    display: block
+  .instagram-link
+    cursor: pointer
+    display: inline-block
+    line-height: 32px
+  .caption, .users
+    color: #ccc
+    max-width: 640px
+    margin: auto
+    font-weight: 200
+    max-height: 6em
+    overflow: scroll
+  .like-container
+    position: relative
+    .glyphicon-heart, .glyphicon-heart-empty
+      color: $drake-orange
+      margin: 5px
+      position: absolute
+      right: 0
+    .glyphicon-heart-empty
+      cursor: pointer
+  .users, .glyphicon-heart
+    display: inline-block
+///////////////////////////////////////
+//   Media Queries                  //
+/////////////////////////////////////
+@media only screen and (min-width: 320px) and (max-width: 960px)
+  #lb-fullscreen
+    img
+      max-width: 100%
+  #lb-fade
+    background: rgba(0,0,0,0.9)
+  ul.thumbnails-horizontal
+    height: 120px
+    li
+      .thumbnail
+        width: 100px
+        height: 100px
+      #next-button
+        button
+          position: absolute
+          top: 30px
+          right: 30px
+  ul.thumbnails
+    max-width: 480px
+    li
+      .thumbnail
+        width: 140px
+        height: 140px
+        margin: 10px
+@media only screen and (min-width: 320px) and (max-width: 540px)
+  ul.thumbnails
+    max-width: 320px
+  ul.thumbnails-horizontal
+    max-width: 100%
+  #lb-fullscreen
+    #fullscreen
+      width: 100%
+      max-width: 400px

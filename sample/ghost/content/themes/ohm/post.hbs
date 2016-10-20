@@ -1,0 +1,25 @@
+{{!< default}}
+{{#post}}
+
+<article class="art simple {{post_class}}">
+    
+    <header class="art-header" style="background-image:url('{{image}}')">
+        <div class="art-header-inner" style="margin-top: 0px; opacity: 1;">
+            <time class="art-time">{{date published_at format="MMMM Do, YYYY"}}</time>
+            <h2 class="art-title" id="art-title">{{title}}</h2>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+            {{content}}
+            <p>Written By: <a href="mailto:{{author.email}}" target="_blank">{{author.name}}</a></p>
+            <p class="art-tags">Tagged: {{tags separator=', '}}</p>
+            <div class="fb-comments" data-href="http://drake.fm{{url}}" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+        </div>
+    </div>
+
+</article>
+
+{{/post}}

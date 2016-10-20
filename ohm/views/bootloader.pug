@@ -1,0 +1,32 @@
+extends base/layout
+block head
+  // STYLES
+  link(rel="stylesheet", href="/assets/css/style.css", type="text/css")
+  link(rel="stylesheet", href="/lib/bootstrap/dist/css/bootstrap.min.css", type="text/css")
+  // SHORTCUT ICONS:
+  link(rel="shortcut icon", href="")
+  link(rel="apple-touch-icon", href="")
+  link(rel="apple-touch-icon-precomposed",  href="")
+  // APPLE
+  meta(name="description", content="")
+  meta(name="author", content="")
+  meta(name="keywords", content="")
+  meta(name="apple-mobile-web-app-status-bar-style", content="")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  // FACEBOOK
+  meta(property="og:title", content="")
+  meta(property="og:description", content="")
+  meta(property="og:image", content="")
+  // TWITTER
+  meta(name="twitter:card", content="")
+  meta(name="twitter:site", content="")
+  meta(name="twitter:creator", content="")
+  meta(name="twitter:url", content="")
+  meta(name="twitter:title", content="")
+  meta(name="twitter:description", content="")
+block content
+  - var data = JSON.stringify(args);
+  #main(data-args=data)
+block scripts
+  - var init = '/assets/js/' + args.initScript + '.bundle.js'
+  script(type="text/javascript" src=init)

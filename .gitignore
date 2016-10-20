@@ -2,13 +2,11 @@
 *.sass-cache
 *.tmp
 logs
-static/css/*.css
-static/js
-static/components
-static/plato
-static/jsdoc
+static
 # server/config/config.js
-server/ghost/content/data
+sample/ghost/content/data
+sample/ghost/content/images
+sample/ghost/content/apps
 # Read about how to use .gitignore: http://h5bp.com/ae
 pids
 logs
