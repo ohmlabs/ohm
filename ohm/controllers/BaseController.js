@@ -11,8 +11,7 @@
     this.viewerContext = null;
 
     return ViewerContext.genFromViewerContextID(
-      this.req.session ?
-        this.req.session.viewerContextID : null,
+      this.req.session.viewerContextID,
       (err, viewerContext) => {
         if (viewerContext.getCredential(config.PRIMARY_ACCOUNT_KEY)) {
           return ViewerContext.genFromPrimaryAccountKey(
@@ -28,7 +27,7 @@
 
   _.extend(BaseController.prototype, {
     setReqSession: function (err, viewerContext) {
-      if (viewerContext && !err) {
+      if (viewerContext) {
         this.viewerContext = viewerContext;
 
         if (this.req.session.viewerContextID !== viewerContext.id) {
