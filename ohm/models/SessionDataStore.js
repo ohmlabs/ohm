@@ -3,7 +3,8 @@
 
   var _             = require('underscore');
   var session       = require('express-session');
-  var MemoryStore   = session.MemoryStore;
+  var RedisStore    = require('connect-redis')(session);
+  var redis         = require('redis');
   var emptyFunction = include('ohm/models/emptyFunction.js');
   var SessionData   = include('ohm/models/SessionData.js');
 
@@ -25,14 +26,14 @@
    * - destroy: function (sessionID, callback)
    * @module SessionDataStore
    */
-  function SessionDataStore() {
+  function SessionDataStore(port, host) {
     // This acts as a cache in front of Parse
-    this.cache = new MemoryStore({
-      reapInterval: 60000 * 10
+    this.cache = new RedisStore({
+      client: redis.createClient(port, host)
     });
   }
 
-  _.extend(SessionDataStore.prototype, MemoryStore.prototype, {
+  _.extend(SessionDataStore.prototype, RedisStore.prototype, {
 
     dirtyCache: function(sessionID, callback) {
       this.cache.destroy(sessionID, callback);

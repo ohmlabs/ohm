@@ -24,7 +24,8 @@
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "preferGlobal": "true",
   "scripts": {
-    "start": "node --debug=5966 ohm"
+    "debug": "node --debug=5967 ohm",
+    "start": "node ohm"
   },
   "dependencies": {
     "aws-sdk": "",
@@ -34,6 +35,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-register": "^6.16.3",
     "body-parser": "^1.0.2",
+    "connect-redis": "^3.1.0",
     "cookie-parser": "^1.0.1",
     "d3": "^4.2.6",
     "errorhandler": "^1.0.0",
@@ -48,7 +50,6 @@
     "grunt-forever": "",
     "grunt-webpack": "^1.0.15",
     "helmet": "^2.3.0",
-    "instagram-node": "^0.5.8",
     "jsx-loader": "^0.13.2",
     "load-grunt-tasks": "^3.5.2",
     "method-override": "^1.0.0",
@@ -63,6 +64,7 @@
     "querystring": "0.1.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "redis": "^2.6.2",
     "socket.io": "1.5.0",
     "socket.io-client": "1.5.0",
     "time-grunt": "^1.4.0",
@@ -72,15 +74,12 @@
   },
   "devDependencies": {
     "grunt-browser-sync": "",
-    "grunt-contrib-imagemin": "",
     "grunt-contrib-watch": "",
     "grunt-newer": "^1.2.0",
-    "grunt-open": "",
-    "grunt-plato": "",
     "json-loader": "^0.5.4",
     "longjohn": ""
   },
   "engines": {
-    "node": "4.5.0"
+    "node": "4.6.1"
   }
 }

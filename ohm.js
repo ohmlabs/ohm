@@ -3,38 +3,32 @@
   var ParseDashboard, ParseServer, SessionDataStore, io, ohmSessionDataStore, ensureAuthenticatedSocket, ohmCookieParser, S3Adapter, session, server, assetsVersion, helmet, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg;
 
   require('./_include.js');
-  config          = include('sample/config/config.js');
+  config           = include('sample/config/config.js');
   // Dependencies'
-  pkg             = include('package.json');
-  path            = require('path');
-  http            = require('http');
-  express         = require('express');
-  logger          = require('morgan');
-  helmet          = require('helmet');
-  bodyParser      = require('body-parser');
-  session         = require('express-session');
-  ParseServer     = require('parse-server').ParseServer;
-  S3Adapter       = require('parse-server').S3Adapter;
-  ParseDashboard  = require('parse-dashboard');
-  methodOverride  = require('method-override');
-  errorHandler    = require('errorhandler');
-  cookieParser    = require('cookie-parser');
-  ohmCookieParser = cookieParser(config.SOCKETIO_SESSION_SECRET);
-  assetsVersion   = pkg.version;
-  parentApp       = express();
-  server          = http.createServer(parentApp);
-  ///////////////////////////////////
-  //   Configure Ghost CMS        //
-  /////////////////////////////////
-  ghost = include('sample/ghost/ghostMiddleware.js');
-  parentApp.use(config.GHOST_PATH, ghost({
-    config: path.join(__dirname, '/sample/ghost/config.js')
-  }));
+  pkg              = include('package.json');
+  SessionDataStore = include('ohm/models/SessionDataStore.js');
+  path             = require('path');
+  http             = require('http');
+  express          = require('express');
+  logger           = require('morgan');
+  helmet           = require('helmet');
+  bodyParser       = require('body-parser');
+  session          = require('express-session');
+  ParseServer      = require('parse-server').ParseServer;
+  S3Adapter        = require('parse-server').S3Adapter;
+  ParseDashboard   = require('parse-dashboard');
+  methodOverride   = require('method-override');
+  errorHandler     = require('errorhandler');
+  cookieParser     = require('cookie-parser');
+  ohmCookieParser  = cookieParser(config.SOCKETIO_SESSION_SECRET);
+  assetsVersion    = pkg.version;
+  parentApp        = express();
+  server           = http.createServer(parentApp);
   ///////////////////////////////////
   //   Configure Parse Server     //
   /////////////////////////////////
   parentApp.use(config.PARSE_PATH, new ParseServer({
-    databaseURI: config.MONGODB_INSTANCE,
+    databaseURI: config.MONGODB_INSTANCE(),
     appId: config.PARSE_APPLICATION_ID,
     masterKey: config.PARSE_MASTER_KEY,
     serverURL: config.PARSE_SERVER_URL,
@@ -49,8 +43,7 @@
   ///////////////////////////////////
   //      Session Tracking        //
   /////////////////////////////////
-  SessionDataStore    = include('ohm/models/SessionDataStore.js');
-  ohmSessionDataStore = new SessionDataStore();
+  ohmSessionDataStore = new SessionDataStore(config.REDIS_PORT, config.REDIS_HOST);
   parentApp.use(ohmCookieParser);
   parentApp.use(
     session({
@@ -120,12 +113,12 @@
       break;
     case 'development':
       require('longjohn');
-      parentApp.use('/dashboard', new ParseDashboard({
+      parentApp.use(config.PARSE_DASHBOARD, new ParseDashboard({
         'apps': [{
-          'serverURL': config.getBaseDomain() + config.PARSE_PATH,
+          'serverURL': config.PARSE_SERVER_URL,
           'appId': config.PARSE_APPLICATION_ID,
           'masterKey': config.PARSE_MASTER_KEY,
-          'appName': 'ohm'
+          'appName': config.MONGO_DB
         }]
       }, false));
       parentApp.use(express['static'](__dirname + '/static'));
@@ -139,9 +132,17 @@
       break;
   }
   ///////////////////////////////////
+  //   Configure Ghost CMS        //
+  /////////////////////////////////
+  // TODO see about getting this via npm
+  ghost = include('ohm/ghost/ghostMiddleware.js');
+  parentApp.use(config.GHOST_PATH, ghost({
+    config: path.join(__dirname, config.GHOST_CONFIG)
+  }));
+  ///////////////////////////////////
   //   Start Server               //
   /////////////////////////////////
-  // Routes
+  // FIXME: take Routes dynamically
   include('sample/routes/sockets.js')(io);
   include('sample/routes/site.js')(parentApp);
   // Listen
