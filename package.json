@@ -73,7 +73,6 @@
     "webpack-dev-server": "^1.16.1"
   },
   "devDependencies": {
-    "grunt-browser-sync": "",
     "grunt-contrib-watch": "",
     "grunt-newer": "^1.2.0",
     "json-loader": "^0.5.4",

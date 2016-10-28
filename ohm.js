@@ -3,7 +3,7 @@
   var ParseDashboard, ParseServer, SessionDataStore, io, ohmSessionDataStore, ensureAuthenticatedSocket, ohmCookieParser, S3Adapter, session, server, assetsVersion, helmet, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg;
 
   require('./_include.js');
-  // TODO: Pass this in dynamically
+  // FIXME: Pass this in dynamically
   config           = include('sample/config/config.js');
   // Dependencies'
   pkg              = include('package.json');
@@ -29,7 +29,7 @@
   //   Configure Parse Server     //
   /////////////////////////////////
   parentApp.use(config.PARSE_PATH, new ParseServer({
-    databaseURI: config.MONGODB_INSTANCE(),
+    databaseURI: config.MONGODB_INSTANCE,
     appId: config.PARSE_APPLICATION_ID,
     masterKey: config.PARSE_MASTER_KEY,
     serverURL: config.PARSE_SERVER_URL,

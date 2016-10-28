@@ -29,13 +29,11 @@
     };
   }
   _.extend(base, {
-    // MongoDB instance
-    MONGODB_INSTANCE: function () {
-      return 'mongodb://' + base.MONGO_HOST + ':' + base.MONGO_PORT + '/' + base.MONGO_DB;
-    },
     // AWS
     AWS_ACCESS_KEY            : 'OHMTEST',
     AWS_SECRET_KEY            : 'OHMTEST',
+    // MongoDB instance
+    MONGODB_INSTANCE          : 'mongodb://' + base.MONGO_HOST + ':' + base.MONGO_PORT + '/' + base.MONGO_DB,
     // Parse
     PARSE_SERVER_URL          : 'http://' + base.host + ':' + base.port+ '/parse',
     PARSE_APPLICATION_ID      : 'OHMTEST',
