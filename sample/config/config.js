@@ -52,6 +52,7 @@
     GHOST_CONFIG              : '/sample/ghost/config.js',
     SESSION_KEY               : 'ojxsid',
     MONGO_DB                  : 'ohm',
+    AWS_BUCKET_NAME           : 'ohmdev',
   });
 
   module.exports = base;

@@ -3,6 +3,7 @@
   var ParseDashboard, ParseServer, SessionDataStore, io, ohmSessionDataStore, ensureAuthenticatedSocket, ohmCookieParser, S3Adapter, session, server, assetsVersion, helmet, bodyParser, config, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg;
 
   require('./_include.js');
+  // TODO: Pass this in dynamically
   config           = include('sample/config/config.js');
   // Dependencies'
   pkg              = include('package.json');
@@ -35,7 +36,7 @@
     filesAdapter: new S3Adapter(
       config.AWS_ACCESS_KEY,
       config.AWS_SECRET_KEY,
-      'ohmdev', {
+      config.AWS_BUCKET_NAME, {
         directAccess: true
       }
     ),
