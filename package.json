@@ -24,7 +24,6 @@
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "preferGlobal": "true",
   "scripts": {
-    "debug": "node --debug=5967 ohm",
     "start": "node ohm"
   },
   "dependencies": {
@@ -75,6 +74,7 @@
   "devDependencies": {
     "grunt-contrib-watch": "",
     "grunt-newer": "^1.2.0",
+    "grunt-node-inspector": "^0.4.2",
     "json-loader": "^0.5.4",
     "longjohn": ""
   },
