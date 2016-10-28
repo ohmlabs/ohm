@@ -1,0 +1,27 @@
+version: "2"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ohm/nginx/Dockerfile
+    links:
+      - node:node
+    ports:
+      - "80:80"
+  node:
+    build: 
+      context: .
+      dockerfile: ohm/Dockerfile
+    links:
+      - redis
+      - mongo
+    ports:
+      - "8787"
+  mongo:
+    image: mongo
+    ports:
+     - "2701"
+  redis:
+    image: redis
+    ports:
+      - "6379"
