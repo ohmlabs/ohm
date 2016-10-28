@@ -16,7 +16,7 @@ services:
       - redis
       - mongo
     ports:
-      - "8787"
+      - "8888"
   mongo:
     image: mongo
     ports:

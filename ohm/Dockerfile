@@ -25,6 +25,7 @@ COPY ohm.js /app
 COPY ohm /app/ohm
 
 COPY sample /app/sample
+
 # Expose port
 EXPOSE 8888
 
