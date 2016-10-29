@@ -1,5 +1,6 @@
 # APPLICATION SPECIFIC IGNORES
 *.sass-cache
+.babel-loader
 *.tmp
 logs
 static
