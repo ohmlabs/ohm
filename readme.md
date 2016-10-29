@@ -25,20 +25,15 @@ You are ready to run the server
 npm start
 ```
 # Dependencies:
-* [See package.json](https://github.com/ohmlabs/ohm/blob/master/package.json)
+For Full details see [package.json](https://github.com/ohmlabs/ohm/blob/master/package.json)
 
-### Backend
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](http://expressjs.com/guide.html)
 * [Parse Server](https://github.com/ParsePlatform/parse-server)
 * [Ghost](https://ghost.org/)
-
-### Frontend
 * [React.js](https://facebook.github.io/react/)
 * [Socket.io](https://github.com/socketio/socket.io)
 * [underscore](http://underscorejs.org/)
-
-### Build Tools
 * [Grunt](http://gruntjs.com/)
 * [Webpack](https://webpack.github.io/)
 * [Babel](https://babeljs.io/)
