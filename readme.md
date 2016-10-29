@@ -4,13 +4,9 @@ Assuming you are running homebrew up-to-date on a Mac, here is how you configure
 ```sh
 brew install mongodb
 brew install nvm
-brew install rbenv
 brew install redis
 # Configure Dependencies
 brew services start mongodb
-rbenv install 2.3.0
-rbenv shell 2.3.0
-gem install bundle
 nvm install v4.6.1
 nvm alias default v4.6.1
 npm install -g bower
