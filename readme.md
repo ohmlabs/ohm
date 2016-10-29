@@ -25,26 +25,21 @@ You are ready to run the server
 npm start
 ```
 # Dependencies:
-* [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
-* [Full Client dependencies (bower.json)](https://github.com/ohmlabs/ohm/blob/master/bower.json)
+* [See package.json](https://github.com/ohmlabs/ohm/blob/master/package.json)
 
-### Backend Tools
+### Backend
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](http://expressjs.com/guide.html)
 * [Parse Server](https://github.com/ParsePlatform/parse-server)
-* [MongoDB](https://www.mongodb.com/)
 * [Ghost](https://ghost.org/)
 
-### Frontend Tools
+### Frontend
 * [React.js](https://facebook.github.io/react/)
 * [Socket.io](https://github.com/socketio/socket.io)
 * [underscore](http://underscorejs.org/)
-* [d3](http://d3js.org/)
-* [skrollr](https://github.com/Prinzhorn/skrollr) (also IE, color, menu and stylesheets plugins)
 
 ### Build Tools
 * [Grunt](http://gruntjs.com/)
-* [Compass](http://compass-style.org/)
 * [Webpack](https://webpack.github.io/)
 * [Babel](https://babeljs.io/)
 
@@ -60,8 +55,6 @@ The server architecture is evolving more information to come.
 │   ├── config                    # config files for Compass, Express, Auth, etc.
 │   ├── models                    # app models
 │   ├── ghost
-│   |   ├── content               # Ghost data, images & themes
-│   |   └── config.js             # Ghost config file
 │   ├── controllers               # app controllers
 │   ├── routes                    # url routing
 │   └── views                     # jade files for pages and templates
@@ -71,12 +64,8 @@ The server architecture is evolving more information to come.
 │   ├── css                       # compiled css files
 │   ├── img                       # compressed images
 │   └── js                        # compiled js
-├── bower.json                    
 ├── package.json
 ├── gruntfile.js                  # gruntfile (necessary for cli to work)
-├── .bowerrc
-├── .gitignore
-├── .jshintrc
 └── ohm.js
 ```
 
