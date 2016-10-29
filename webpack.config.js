@@ -1,34 +1,27 @@
-// FIXME this is hard coded which is a little problematic
-var path       = require('path');
-var webpack    = require('webpack');
-module.exports = {
-  devtool: 'source-map',
+const path       = require('path');
+const webpack    = require("webpack");
+module.exports = [{
   entry: {
-    ohm: './static/assets/js/ohm.js',
+    ohm: './client/js/ohm.react.js'
   },
+  context: __dirname,
   output: {
-    // Make sure to use [name] or [id] in output.filename
-    //  when using multiple entry points
-    filename: './static/assets/js/[name].bundle.js',
-    chunkFilename: './static/assets/js/[id].bundle.js'
+    path: path.join(__dirname, 'static/assets/js'),
+    filename: '[name].bundle.js'
   },
   module: {
     loaders: [{
       test: /\.react.js?$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
-        presets: ['es2015']
+        presets: ['es2015', 'react']
       }
     }, {
-      test: /\.json$/,
-      loader: 'json-loader'
+      test: /\.sass$/,
+      loader: 'style-loader!raw-loader!sass-loader'
+        + '?includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+        + '&includePaths[]=' + path.resolve(__dirname, './node_modules/bootstrap-sass/assets/stylesheets')
     }]
-  },
-  node: {
-    console: true,
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
   }
-};
+}];

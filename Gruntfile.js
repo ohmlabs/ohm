@@ -3,26 +3,14 @@ module.exports = function(grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
+  var webpack       = require("webpack");
   var webpackConfig = require('./webpack.config.js');
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
-    babel: {
-      options: {
-        sourceMap: true,
-        presets: ['es2015', 'react']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'client/js',
-          dest: 'static/assets/js',
-          src: '**/*.js'
-        }]
-      }
-    },
 
     'node-inspector': {
       custom: {
@@ -39,20 +27,16 @@ module.exports = function(grunt) {
     },
 
     webpack: {
-      webpack: webpackConfig
-    },
-
-    'webpack-dev-server': {
-      options: {
-        webpack: webpackConfig,
-        publicPath: '/' + webpackConfig.output.publicPath
+      options: webpackConfig,
+      build: {
+        plugins: [
+          new webpack.optimize.UglifyJsPlugin({minimize: true}),
+          new webpack.optimize.DedupePlugin(),
+        ]
       },
-      start: {
-        keepAlive: true,
-        webpack: {
-          devtool: 'eval',
-          debug: true
-        }
+      'build-dev': {
+        devtool: "sourcemap",
+        debug: true
       }
     },
 
@@ -75,13 +59,11 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', [
-    'babel',
-    'webpack'
+    'webpack:build-dev'
   ]);
 
   grunt.registerTask('prod', [
-    'babel',
-    'webpack',
+    'webpack:build',
   ]);
 
 };

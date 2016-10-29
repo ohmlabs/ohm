@@ -51,11 +51,12 @@
             this.setState({
               userLocation: pos.coords
             });
-            this._drawGoogleMap();
           }.bind(this));
         } else {
           // TODO map anyway
         }
+          // Draw the map
+        this._drawGoogleMap();
       },
 
       /**
@@ -291,6 +292,7 @@
       },
 
       render: function () {
+        // TODO: Update map when user moves / new channels appear
         return (
           <div>
             <div ref="map" className="canvasMap"></div>

@@ -1,3 +1,4 @@
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm)
 # Installing
 ```sh
 npm install

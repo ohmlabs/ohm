@@ -162,8 +162,8 @@
 
         /** Previous Photo */
         _previousPhoto: function() {
-          var l;
-          var $active = this.state.current;
+          var $active, l;
+          $active = this.state.current;
           if ($active) {
             l = $active.previousElementSibling;
           }

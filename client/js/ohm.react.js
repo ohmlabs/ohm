@@ -6,6 +6,7 @@
   const LightBox = require('./ohm/LightBox.react.js');
   const GMap     = require('./ohm/GMapper.react.js');
   const socket   = io.connect();
+  const styles   = require('./../sass/ohm.sass');
 
   socket.on('connect', (data) => {
     ReactDOM.render(
