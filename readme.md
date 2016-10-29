@@ -1,7 +1,6 @@
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm)
 # Installing
-## Developer Installation
-Assuming you are running homebrew up-to-date on a Mac
+Assuming you are running homebrew up-to-date on a Mac, here is how you configure your dev environment
 ```sh
 brew install mongodb
 brew install nvm
