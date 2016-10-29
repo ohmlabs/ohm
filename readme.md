@@ -47,20 +47,16 @@ The server architecture is evolving more information to come.
 │   └── sass                      # sass files
 ├── ohm
 │   ├── apis                      # API initializations (Parse, AWS)
-│   ├── config                    # config files for Compass, Express, Auth, etc.
-│   ├── models                    # app models
+│   ├── config
+│   ├── models
 │   ├── ghost
-│   ├── controllers               # app controllers
-│   ├── routes                    # url routing
-│   └── views                     # jade files for pages and templates
-│   |   └── includes              # include files such as google analytics
-├── static
-│   ├── components                # bower managed client dependencies
-│   ├── css                       # compiled css files
-│   ├── img                       # compressed images
-│   └── js                        # compiled js
+│   ├── controllers
+│   ├── routes
+│   └── views                     
+│   |   └── bootloader.pug        # the sole view which loads a javascript file
+├── static                        # compiled assets
 ├── package.json
-├── gruntfile.js                  # gruntfile (necessary for cli to work)
+├── gruntfile.js
 └── ohm.js
 ```
 
