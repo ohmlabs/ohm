@@ -1,16 +1,33 @@
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm)
 # Installing
+## Developer Installation
+Assuming you are running homebrew up-to-date on a Mac
+```sh
+brew install mongodb
+brew install nvm
+brew install rbenv
+brew install redis
+# Configure Dependencies
+brew services start mongodb
+rbenv install 2.3.0
+rbenv shell 2.3.0
+gem install bundle
+nvm install v4.6.1
+nvm alias default v4.6.1
+npm install -g bower
+redis-server &
+```
+Next install app dependencies
 ```sh
 npm install
-bower install
-gem install
 ```
-# Running
+Finally, compile the client assets.
 ```sh
-# start on http://localhost:8888/
+grunt
+```
+You are ready to run the server
+```sh
 npm start
-#  The watch command
-grunt watch
 ```
 # Dependencies:
 * [Full Server dependencies (package.json)](https://github.com/ohmlabs/ohm/blob/master/package.json)
@@ -71,6 +88,6 @@ The server architecture is evolving more information to come.
 ### Debugging
 If you are using [node-inspector](https://github.com/node-inspector/node-inspector) the run command by default passes the necessary flag to attach to the debugger, but you must start node inspector like so first:
 ```sh
-node-inspector &
-# navigate to http://127.0.0.1:8080/debug?port=5960
+grunt node-inspector &
+# navigate to http://127.0.0.1:8090/debug?port=5960
 ```
