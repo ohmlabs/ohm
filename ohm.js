@@ -57,8 +57,8 @@
         // secure: true,
       },
       key: config.SESSION_KEY,
-      // resave: true,
-      // saveUninitialized: true,
+      resave: true, // it appears redis requires this be true
+      saveUninitialized: false,
     })
   );
   /////////////////////
