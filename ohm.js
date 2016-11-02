@@ -8,6 +8,7 @@
   // Dependencies'
   pkg              = include('package.json');
   SessionDataStore = include('ohm/models/SessionDataStore.js');
+  ghost            = include('ohm/ghost/ghostMiddleware.js');
   path             = require('path');
   http             = require('http');
   express          = require('express');
@@ -44,7 +45,11 @@
   ///////////////////////////////////
   //      Session Tracking        //
   /////////////////////////////////
-  ohmSessionDataStore = new SessionDataStore(config.REDIS_PORT, config.REDIS_HOST);
+  if (config.env === "development") {
+    ohmSessionDataStore = new SessionDataStore(false);
+  } else {
+    ohmSessionDataStore = new SessionDataStore(true, config.REDIS_PORT, config.REDIS_HOST);
+  }
   parentApp.use(ohmCookieParser);
   parentApp.use(
     session({
@@ -135,8 +140,6 @@
   ///////////////////////////////////
   //   Configure Ghost CMS        //
   /////////////////////////////////
-  // TODO see about getting this via npm
-  ghost = include('ohm/ghost/ghostMiddleware.js');
   parentApp.use(config.GHOST_PATH, ghost({
     config: path.join(__dirname, config.GHOST_CONFIG)
   }));
