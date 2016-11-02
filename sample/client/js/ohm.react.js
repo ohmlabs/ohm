@@ -7,6 +7,10 @@
   const LightBox = require('./../../../ohm/client/js/lib/LightBox.react.js');
   const GMap     = require('./../../../ohm/client/js/lib/GMapper.react.js');
   const socket   = io.connect();
+  const center   = {
+    latitude: 37.7774421,
+    longitude: -122.4251068
+  };
 
   socket.on('connect', (data) => {
     ReactDOM.render(
@@ -15,6 +19,8 @@
         <GMap
           scrollwheel={false}
           zoom={9}
+          center={center}
+          apiKey={"FIXME"}
           mapName="ohm" />
         <div id="general-error-wrapper">
           <div id="general-error"></div>
