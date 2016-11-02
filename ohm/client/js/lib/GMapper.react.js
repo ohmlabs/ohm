@@ -11,6 +11,11 @@
     const async        = require('./async.js');
     const BroadcastMap = React.createClass({
 
+      propTypes: {
+        center: React.PropTypes.object.isRequired,
+        apiKey: React.PropTypes.string.isRequired
+      },
+
       getInitialState: function() {
         return {
           userLocation: {},
@@ -32,10 +37,8 @@
       },
 
       componentDidMount: function() {
-        // TODO add listener for locations response
-        // TODO remove google maps api key
         async.load(
-          'https://maps.google.com/maps/api/js?key=OHMTEST&v=3&signed_in=true&libraries=places!callback',
+          'https://maps.google.com/maps/api/js?key=' + this.props.apiKey + '&v=3&signed_in=true&libraries=places!callback',
           this._googleMapApiCallback
         );
       },
@@ -51,12 +54,14 @@
             this.setState({
               userLocation: pos.coords
             });
+            this._drawGoogleMap();
           }.bind(this));
         } else {
-          // TODO map anyway
+          this.setState({
+            userLocation: this.props.center
+          });
+          this._drawGoogleMap();
         }
-          // Draw the map
-        this._drawGoogleMap();
       },
 
       /**
