@@ -18,10 +18,10 @@
       /// INSTANCE METHODS ///
       update: function(newSessionDataJSON, callback) {
         var copy = SessionData.renameIDToSessionID(newSessionDataJSON);
-
+        
         _.each(SESSION_DATA_FIELDS, function(fieldName) {
-          if (_.has(newSessionDataJSON, fieldName)) {
-            this.set(fieldName, newSessionDataJSON[fieldName]);
+          if (_.has(copy, fieldName)) {
+            this.set(fieldName, copy[fieldName]);
           }
         }, this);
 
@@ -83,7 +83,7 @@
 
         if (!sessionID) {
           var err = new Error('No sessionID passed into fetchWithSessionID method');
-          callback(err);
+          return callback(err);
         }
 
         var query = new Parse.Query(SessionData);

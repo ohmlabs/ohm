@@ -27,8 +27,8 @@
    * - destroy: function (sessionID, callback)
    * @module SessionDataStore
    */
-  function SessionDataStore(redis, port, host) {
-    if (!redis) {
+  function SessionDataStore(useRedis, port, host) {
+    if (!useRedis) {
       this.cache = new MemoryStore({
         reapInterval: 60000 * 10
       });
@@ -166,7 +166,7 @@
 
       SessionData.fetchWithSessionID(
         sessionID,
-        function(err, sessionData) {
+        function (err, sessionData) {
           if (err) {
             console.error(err);
             callback(err);
