@@ -5,11 +5,11 @@
   var viewerContext = include('models/ViewerContext.js');
 
   function BaseController(req, res) {
-    var ViewerContext  = new viewerContext(req.app.locals.config);
+    this.config        = req.app.locals.config;
     this.req           = req;
     this.res           = res;
-    this.config        = res.app.locals.config;
     this.viewerContext = null;
+    var ViewerContext  = new viewerContext(this.config);
 
     return ViewerContext.genFromViewerContextID(
       this.req.session.viewerContextID,

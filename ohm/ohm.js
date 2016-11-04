@@ -6,8 +6,8 @@
   var BaseController       = require('./controllers/BaseController.js')
   var BaseSocketController = require('./controllers/BaseSocketController.js')
 
-  function Ohm(config, routes, sockets, assetsVersion) {
-    var ParseDashboard, ParseServer, SessionDataStore, io, ohmSessionDataStore, ensureAuthenticatedSocket, ohmCookieParser, S3Adapter, session, server, assetsVersion, helmet, bodyParser, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg;
+  function Ohm(config) {
+    var ParseDashboard, ParseServer, SessionDataStore, io, ohmSessionDataStore, ensureAuthenticatedSocket, ohmCookieParser, S3Adapter, session, server, helmet, bodyParser, cookieParser, errorHandler, express, ghost, http, logger, methodOverride, parentApp, path, pkg;
 
     // Dependencies'
     SessionDataStore = include('models/SessionDataStore.js');
@@ -111,7 +111,7 @@
     parentApp.use(bodyParser.json());
     parentApp.locals.config = config;
     parentApp.use(function(req, res, next) {
-      res.locals.assetsVersion = assetsVersion;
+      res.locals.assetsVersion = '1.0';
       return next();
     });
     switch (config.env) {
@@ -150,8 +150,8 @@
     ///////////////////////////////////
     //   Start Server               //
     /////////////////////////////////
-    include(sockets)(io, parentApp);
-    include(routes)(parentApp);
+    include(config.SOCKETS)(io, parentApp);
+    include(config.ROUTES)(parentApp);
     // Listen
     server.listen(config.port);
 

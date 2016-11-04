@@ -48,6 +48,8 @@
     PARSE_DASHBOARD           : '/dashboard',
     GHOST_PATH                : '/blog',
     GHOST_CONFIG              : '../sample/ghost/config.js',
+    ROUTES                    : '../sample/routes/site.js',
+    SOCKETS                   : '../sample/routes/sockets.js',
     SESSION_KEY               : 'ojxsid',
     MONGO_DB                  : 'ohm',
     AWS_BUCKET_NAME           : 'ohmdev',
