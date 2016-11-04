@@ -6,7 +6,5 @@
   const assetsVersion = pkg.version;
   const Ohm           = require('./ohm/ohm.js');
 
-  global.ohm_config = config;
-
   module.exports = new Ohm(config, '../sample/routes/site.js', '../sample/routes/sockets.js', assetsVersion);
 }());

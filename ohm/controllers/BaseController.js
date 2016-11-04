@@ -5,18 +5,19 @@
   var viewerContext = include('models/ViewerContext.js');
 
   function BaseController(req, res) {
-    var ViewerContext = new viewerContext(req.app.locals.config);
+    var ViewerContext  = new viewerContext(req.app.locals.config);
     this.req           = req;
     this.res           = res;
+    this.config        = res.app.locals.config;
     this.viewerContext = null;
 
     return ViewerContext.genFromViewerContextID(
       this.req.session.viewerContextID,
       function (err, viewerContext) {
-        if (viewerContext.getCredential(ohm_config.PRIMARY_ACCOUNT_KEY)) {
+        if (viewerContext.getCredential(this.config.PRIMARY_ACCOUNT_KEY)) {
           return ViewerContext.genFromPrimaryAccount(
-            ohm_config.PRIMARY_ACCOUNT_KEY,
-            viewerContext.getCredential(ohm_config.PRIMARY_ACCOUNT_KEY),
+            this.config.PRIMARY_ACCOUNT_KEY,
+            viewerContext.getCredential(this.config.PRIMARY_ACCOUNT_KEY),
             this.setReqSession.bind(this)
           );
         } else {
@@ -57,7 +58,7 @@
       var params = {
         initScript: initScript,
         assetsVersion: this.res.locals.assetsVersion,
-        environment: ohm_config.env
+        environment: this.config.env
       };
 
       return params;
