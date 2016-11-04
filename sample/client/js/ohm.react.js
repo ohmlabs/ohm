@@ -13,6 +13,7 @@
   };
 
   socket.on('connect', (data) => {
+    socket.emit('home', {});
     ReactDOM.render(
       <div>
         <LightBox />

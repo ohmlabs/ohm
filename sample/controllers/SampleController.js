@@ -2,7 +2,7 @@
   'use strict';
 
   var _              = require('underscore');
-  var BaseController = include('ohm/controllers/BaseController.js');
+  var BaseController = include('controllers/BaseController.js');
 
   function SampleController() {
     BaseController.apply(this, arguments);

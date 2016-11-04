@@ -2,10 +2,10 @@
   'use strict';
 
   var _             = require('underscore');
-  var config        = include('sample/config/config.js');
-  var ViewerContext = include('ohm/models/ViewerContext.js');
+  var viewerContext = include('models/ViewerContext.js');
 
-  function BaseSocketController(socketMsg, socket, socketData) {
+  function BaseSocketController(config, socketMsg, socket, socketData) {
+    var ViewerContext  = new viewerContext(config);
     this.socket        = socket;
     this.socketMessage = socketMsg;
     this.sessionData   = socket.request.sessionData || {};

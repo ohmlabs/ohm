@@ -47,7 +47,7 @@
     PARSE_PATH                : '/parse',
     PARSE_DASHBOARD           : '/dashboard',
     GHOST_PATH                : '/blog',
-    GHOST_CONFIG              : '/sample/ghost/config.js',
+    GHOST_CONFIG              : '../sample/ghost/config.js',
     SESSION_KEY               : 'ojxsid',
     MONGO_DB                  : 'ohm',
     AWS_BUCKET_NAME           : 'ohmdev',

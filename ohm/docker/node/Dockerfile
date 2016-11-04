@@ -20,7 +20,7 @@ COPY grunt /app
 COPY _include.js /app
 
 COPY client /app/client
-COPY static /app/static
+COPY dist /app/dist
 COPY ohm.js /app
 COPY ohm /app/ohm
 

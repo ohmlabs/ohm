@@ -6,7 +6,7 @@ module.exports = [{
   },
   context: __dirname,
   output: {
-    path: path.join(__dirname, 'static/assets/js'),
+    path: path.join(__dirname, 'ohm/dist/assets/js'),
     filename: '[name].bundle.js'
   },
   module: {

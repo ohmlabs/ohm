@@ -3,7 +3,7 @@
 .babel-loader
 *.tmp
 logs
-static
+dist
 # server/config/config.js
 sample/ghost/content/data
 sample/ghost/content/images

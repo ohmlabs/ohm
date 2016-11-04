@@ -83,10 +83,14 @@
     "webpack": ""
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "grunt-contrib-watch": "",
     "grunt-newer": "^1.2.0",
     "grunt-node-inspector": "^0.4.2",
-    "longjohn": ""
+    "longjohn": "",
+    "mocha": "^3.1.2",
+    "request": "^2.78.0",
+    "supertest": "^2.0.1"
   },
   "engines": {
     "node": "4.6.1"

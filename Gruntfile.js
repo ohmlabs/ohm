@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         options: {
           livereload: 35778
         },
-        files: ['static/assets/js/**/*.js', 'ohm/views/**/*.pug', 'static/css/**/*.css'],
+        files: ['ohm/dist/assets/js/**/*.js', 'ohm/views/**/*.pug', 'ohm/dist/css/**/*.css'],
       },
     },
   });

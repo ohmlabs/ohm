@@ -14,14 +14,16 @@
   }
 
   // Keep me alphabetized!!
-  var ON = {};
+  var ON = {
+    'home': '../sample/controllers/Home.socket.controller.js'
+  };
 
-  module.exports = function (io) {
+  module.exports = function (io, app) {
     io.sockets.on('connection', function (socket) {
       _.each(ON, function (controller, socketMsg) {
         socket.on(
           socketMsg,
-          _.partial(_new, include(controller), socketMsg, socket)
+          _.partial(_new, include(controller), app.locals.config, socketMsg, socket)
         );
       });
     });

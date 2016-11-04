@@ -6,9 +6,8 @@
   var MemoryStore   = session.MemoryStore;
   var RedisStore    = require('connect-redis')(session);
   var redis         = require('redis');
-  var emptyFunction = include('ohm/models/emptyFunction.js');
-  var SessionData   = include('ohm/models/SessionData.js');
-
+  var emptyFunction = include('models/emptyFunction.js');
+  var sessionData   = include('models/SessionData.js');
   /**
    * Implementation of session data memory store.
    *
@@ -27,7 +26,9 @@
    * - destroy: function (sessionID, callback)
    * @module SessionDataStore
    */
-  function SessionDataStore(useRedis, port, host) {
+  function SessionDataStore(config, useRedis, port, host) {
+    this.config = config;
+
     if (!useRedis) {
       this.cache = new MemoryStore({
         reapInterval: 60000 * 10
@@ -67,8 +68,9 @@
     },
 
     set: function(sessionID, sessionDataJSON, callback) {
-      callback = callback || emptyFunction;
-      var self = this;
+      callback        = callback || emptyFunction;
+      var self        = this;
+      var SessionData = new sessionData(this.config);
 
       process.nextTick(function() {
         self._getFromCache(sessionID, function(err, cacheSessionDataJSON) {
@@ -85,8 +87,9 @@
     },
 
     destroy: function(sessionID, callback) {
-      callback = callback || emptyFunction;
-      var self = this;
+      callback        = callback || emptyFunction;
+      var self        = this;
+      var SessionData = new sessionData(this.config);
 
       process.nextTick(function() {
         self.dirtyCache(sessionID, function() {
@@ -123,6 +126,8 @@
     },
 
     _getFromDatabase: function(sessionID, callback) {
+      var SessionData = new sessionData(this.config);
+
       SessionData.fetchWithSessionID(
         sessionID,
         (err, sessionData) => {
@@ -163,6 +168,8 @@
 
     _setToDatabase: function(sessionID, sessionDataJSON, callback) {
       callback = callback || emptyFunction;
+
+      var SessionData = new sessionData(this.config);
 
       SessionData.fetchWithSessionID(
         sessionID,

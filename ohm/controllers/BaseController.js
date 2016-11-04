@@ -2,26 +2,27 @@
   'use strict';
 
   var _             = require('underscore');
-  var config        = include('sample/config/config.js');
-  var ViewerContext = include('ohm/models/ViewerContext.js');
+  var viewerContext = include('models/ViewerContext.js');
 
   function BaseController(req, res) {
+    var ViewerContext = new viewerContext(req.app.locals.config);
     this.req           = req;
     this.res           = res;
     this.viewerContext = null;
 
     return ViewerContext.genFromViewerContextID(
       this.req.session.viewerContextID,
-      (err, viewerContext) => {
-        if (viewerContext.getCredential(config.PRIMARY_ACCOUNT_KEY)) {
-          return ViewerContext.genFromPrimaryAccountKey(
-            viewerContext.getCredential(config.PRIMARY_ACCOUNT_KEY),
+      function (err, viewerContext) {
+        if (viewerContext.getCredential(ohm_config.PRIMARY_ACCOUNT_KEY)) {
+          return ViewerContext.genFromPrimaryAccount(
+            ohm_config.PRIMARY_ACCOUNT_KEY,
+            viewerContext.getCredential(ohm_config.PRIMARY_ACCOUNT_KEY),
             this.setReqSession.bind(this)
           );
         } else {
           this.setReqSession(err, viewerContext);
         }
-      }
+      }.bind(this)
     );
   }
 
@@ -56,7 +57,7 @@
       var params = {
         initScript: initScript,
         assetsVersion: this.res.locals.assetsVersion,
-        environment: config.env
+        environment: ohm_config.env
       };
 
       return params;
