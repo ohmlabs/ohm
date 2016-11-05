@@ -2,6 +2,7 @@
   'use strict';
 
   var base,
+      path    = require('path'),
       _       = require('underscore'),
       envFlag = process.argv[2];
 
@@ -47,9 +48,9 @@
     PARSE_PATH                : '/parse',
     PARSE_DASHBOARD           : '/dashboard',
     GHOST_PATH                : '/blog',
-    GHOST_CONFIG              : '/config/ghost.config.js',
-    ROUTES                    : '/routes/site.js',
-    SOCKETS                   : '/routes/sockets.js',
+    GHOST_CONFIG              : path.join(__dirname, 'ghost.config.js'),
+    ROUTES                    : path.join(__dirname, '../routes/site.js'),
+    SOCKETS                   : path.join(__dirname, '../routes/sockets.js'),
     SESSION_KEY               : 'ojxsid',
     MONGO_DB                  : 'ohm',
     AWS_BUCKET_NAME           : 'ohmdev',

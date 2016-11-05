@@ -23,7 +23,7 @@ COPY server.js /app
 COPY lib /app/lib
 
 # App Specific files
-COPY sample /app/sample
+COPY example/basic /app/example
 
 EXPOSE 8888
 

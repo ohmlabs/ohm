@@ -50,10 +50,9 @@ config = {
         },
         paths: {
             // FIXME find better place
-            contentPath: path.join(__dirname, '../node_modules/ohm/lib/ghost/content/')
+            contentPath: path.join(__dirname, '../../../lib/ghost/content/')
         }
     },
   };
-console.log(path.join(__dirname, '.ghost/ghost-dev.db'))
 // Export config
 module.exports = config;

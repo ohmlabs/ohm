@@ -29,7 +29,8 @@
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "scripts": {
     "start": "node ohm",
-    "prepublish": "grunt prod"
+    "prepublish": "grunt prod",
+    "test": "./node_modules/mocha/bin/mocha test/**"
   },
   "dependencies": {
     "aws-sdk": "",

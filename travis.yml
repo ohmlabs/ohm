@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "4.6.1"
+  - "4.5"
+sudo: false
+cache:
+  directories:
+    - node_modules
+before_install:
+  # Update Node.js modules
+  - "test ! -d node_modules || npm prune"
+  - "test ! -d node_modules || npm rebuild"

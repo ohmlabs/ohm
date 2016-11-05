@@ -2,7 +2,7 @@ const path       = require('path');
 const webpack    = require("webpack");
 module.exports = [{
   entry: {
-    ohm: './sample/client/js/ohm.react.js'
+    ohm: './examples/basic/client/js/ohm.react.js'
   },
   context: __dirname,
   output: {
