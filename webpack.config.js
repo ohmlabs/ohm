@@ -6,7 +6,7 @@ module.exports = [{
   },
   context: __dirname,
   output: {
-    path: path.join(__dirname, 'ohm/dist/assets/js'),
+    path: path.join(__dirname, 'lib/dist/assets/js'),
     filename: '[name].bundle.js'
   },
   module: {
@@ -23,7 +23,7 @@ module.exports = [{
       loader: 'style-loader!raw-loader!sass-loader'
         + '?includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib')
         + '&includePaths[]=' + path.resolve(__dirname, './node_modules/bootstrap-sass/assets/stylesheets')
-        + '&includePaths[]=' + path.resolve(__dirname, './ohm/client/sass/')
+        + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/')
     }]
   }
 }];

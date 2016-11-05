@@ -45,6 +45,15 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      main: {
+        expand: true,
+        src: '**',
+        cwd: 'lib/dist',
+        dest: 'lib/ghost/content/themes/ohm/assets/',
+      },
+    },
+
     watch: {
       sass: {
         files: 'client/**/*.sass',
@@ -58,17 +67,19 @@ module.exports = function(grunt) {
         options: {
           livereload: 35778
         },
-        files: ['ohm/dist/assets/js/**/*.js', 'ohm/views/**/*.pug', 'ohm/dist/css/**/*.css'],
+        files: ['lib/dist/assets/js/**/*.js', 'lib/views/**/*.pug', 'lib/dist/css/**/*.css'],
       },
     },
   });
 
   grunt.registerTask('default', [
-    'webpack:build-dev'
+    'webpack:build-dev',
+    'copy'
   ]);
 
   grunt.registerTask('prod', [
     'webpack:build',
+    'copy'
   ]);
 
 };

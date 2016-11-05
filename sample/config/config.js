@@ -47,7 +47,7 @@
     PARSE_PATH                : '/parse',
     PARSE_DASHBOARD           : '/dashboard',
     GHOST_PATH                : '/blog',
-    GHOST_CONFIG              : '../sample/ghost/config.js',
+    GHOST_CONFIG              : '../sample/config/ghost.config.js',
     ROUTES                    : '../sample/routes/site.js',
     SOCKETS                   : '../sample/routes/sockets.js',
     SESSION_KEY               : 'ojxsid',

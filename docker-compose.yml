@@ -3,7 +3,7 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: ohm/docker/nginx/Dockerfile
+      dockerfile: lib/docker/nginx/Dockerfile
     links:
       - node:node
     ports:
@@ -11,7 +11,7 @@ services:
   node:
     build: 
       context: .
-      dockerfile: ohm/docker/Dockerfile
+      dockerfile: lib/docker/Dockerfile
     links:
       - redis
       - mongo
