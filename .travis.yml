@@ -13,3 +13,5 @@ before_install:
   # Update Node.js modules
   - "test ! -d node_modules || npm prune"
   - "test ! -d node_modules || npm rebuild"
+notifications:
+  slack: ohmlabs:5MGtAi5UufagxhoS5Gv5pvPF
