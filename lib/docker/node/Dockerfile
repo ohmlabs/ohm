@@ -6,27 +6,25 @@ MAINTAINER Cameron Drake
 
 # Install nodemon
 RUN npm install -g nodemon
-
+# run npm install if necessary
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
 RUN mkdir -p /app && cp -a /tmp/node_modules /app/
 
 WORKDIR /app
 
+# Build Files
 COPY package.json /app
 COPY webpack.config.js /app
 COPY Gruntfile.js /app
 COPY grunt /app
-COPY _include.js /app
+# Application files
+COPY server.js /app
+COPY lib /app/lib
 
-COPY client /app/client
-COPY dist /app/dist
-COPY ohm.js /app
-COPY ohm /app/ohm
-
+# App Specific files
 COPY sample /app/sample
 
-# Expose port
 EXPOSE 8888
 
 # Run app using nodemon
