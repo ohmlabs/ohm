@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  const config        = require('./config/config.js');
-  const Ohm           = require('../lib/ohm.js');
+  const Ohm     = require('../lib/ohm.js');
+  const config  = require('./config/config.js');
 
   module.exports = new Ohm(config);
 }());
