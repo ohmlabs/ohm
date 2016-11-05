@@ -15,7 +15,7 @@ config = {
         database: {
             client: 'sqlite3',
             connection: {
-                filename: path.join(__dirname, '../../lib/ghost/content/data/ghost.db')
+                filename: path.join(__dirname, '../.ghost/ghost.db')
             },
             debug: false
         },
@@ -37,7 +37,8 @@ config = {
         database: {
             client: 'sqlite3',
             connection: {
-                filename: path.join(__dirname, '../../lib/ghost/content/data/ghost-dev.db')
+                filename: path.join(__dirname, '../.ghost/ghost-dev.db')
+
             },
             debug: false
         },
@@ -48,10 +49,11 @@ config = {
             port: '8888'
         },
         paths: {
-            contentPath: path.join(__dirname, '../../lib/ghost/content/')
+            // FIXME find better place
+            contentPath: path.join(__dirname, '../node_modules/ohm/lib/ghost/content/')
         }
     },
   };
-
+console.log(path.join(__dirname, '.ghost/ghost-dev.db'))
 // Export config
 module.exports = config;

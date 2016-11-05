@@ -1,6 +1,7 @@
 # APPLICATION SPECIFIC IGNORES
 *.sass-cache
 *.babel-loader
+.ghost
 dist
 lib/ghost/content/themes/ohm/assets/
 lib/ghost/content/data

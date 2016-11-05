@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  var _ = require('underscore');
+  var _    = require('underscore');
+  var path = require('path');
   // This function means that
   //
   // > _new(String, "foo");
@@ -15,18 +16,20 @@
 
   // Keep me alphabetized!!
   var GET = {
-    '/sample': '../sample/controllers/SampleController.js',
+    '/sample': '../controllers/SampleController.js',
   };
 
   var POST = {};
 
   module.exports = function(app) {
     _.each(GET, function(controllerPath, route) {
-      app.get(route, _.partial(_new, include(controllerPath)));
+      controllerPath = path.join(__dirname, controllerPath);
+      app.get(route, _.partial(_new, require(controllerPath)));
     });
 
     _.each(POST, function(controllerPath, route) {
-      app.post(route, _.partial(_new, include(controllerPath)));
+      controllerPath = path.join(__dirname, controllerPath);
+      app.post(route, _.partial(_new, require(controllerPath)));
     });
   };
 }());
