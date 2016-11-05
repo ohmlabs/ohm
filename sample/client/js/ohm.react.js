@@ -4,8 +4,9 @@
   const React    = require('react');
   const ReactDOM = require('react-dom');
   const io       = require('socket.io-client');
-  const LightBox = require('./../../../ohm/client/js/lib/LightBox.react.js');
-  const GMap     = require('./../../../ohm/client/js/lib/GMapper.react.js');
+  // FIXME: add via npm
+  const LightBox = require('./../../../lib/client/js/lib/LightBox.react.js');
+  const GMap     = require('./../../../lib/client/js/lib/GMapper.react.js');
   const socket   = io.connect();
   const center   = {
     latitude: 37.7774421,
@@ -13,6 +14,7 @@
   };
 
   socket.on('connect', (data) => {
+    socket.emit('home', {});
     ReactDOM.render(
       <div>
         <LightBox />

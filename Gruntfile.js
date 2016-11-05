@@ -45,30 +45,41 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      main: {
+        expand: true,
+        src: '**',
+        cwd: 'lib/dist',
+        dest: 'lib/ghost/content/themes/ohm/assets/',
+      },
+    },
+
     watch: {
       sass: {
-        files: 'client/**/*.sass',
-        tasks: ''
+        files: 'lib/client/**/*.sass',
+        tasks: ['webpack:build-dev', 'copy']
       },
       babel: {
-        files: 'client/js/{,*/}*.js',
-        tasks: ['babel', 'webpack']
+        files: 'lib/client/js/{,*/}*.js',
+        tasks: ['webpack:build-dev', 'copy']
       },
       livereload: {
         options: {
           livereload: 35778
         },
-        files: ['static/assets/js/**/*.js', 'ohm/views/**/*.pug', 'static/css/**/*.css'],
+        files: ['lib/dist/assets/js/**/*.js', 'lib/views/**/*.pug', 'lib/dist/css/**/*.css'],
       },
     },
   });
 
   grunt.registerTask('default', [
-    'webpack:build-dev'
+    'webpack:build-dev',
+    'copy'
   ]);
 
   grunt.registerTask('prod', [
     'webpack:build',
+    'copy'
   ]);
 
 };

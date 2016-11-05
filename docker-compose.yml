@@ -3,15 +3,15 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: ohm/nginx/Dockerfile
+      dockerfile: lib/docker/nginx/Dockerfile
     links:
       - node:node
     ports:
-      - "80:80"
+      - "8080:8080"
   node:
     build: 
       context: .
-      dockerfile: ohm/Dockerfile
+      dockerfile: lib/docker/Dockerfile
     links:
       - redis
       - mongo

@@ -1,5 +1,5 @@
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm)
-# Installing
+### Set up environment
 Assuming you are running homebrew up-to-date on a Mac, here is how you configure your dev environment
 ```sh
 brew install mongodb
@@ -12,18 +12,22 @@ nvm alias default v4.6.1
 npm install -g bower
 redis-server &
 ```
-Next install app dependencies
+### Install
 ```sh
-npm install
+npm install --save ohm
 ```
-Finally, compile the client assets.
-```sh
-grunt
-```
-You are ready to run the server
-```sh
-npm start
-```
+### Usage
+create a new file `server.js` and create a config file.
+```javascript
+(function() {
+  'use strict';
+
+  const config        = require('./config.js');
+  const Ohm           = require('ohm');
+
+  module.exports = new Ohm(config);
+}());
+````
 # Dependencies:
 For Full details see [package.json](https://github.com/ohmlabs/ohm/blob/master/package.json)
 
@@ -31,19 +35,23 @@ For Full details see [package.json](https://github.com/ohmlabs/ohm/blob/master/p
 * [Express.js](http://expressjs.com/guide.html)
 * [Parse Server](https://github.com/ParsePlatform/parse-server)
 * [Ghost](https://ghost.org/)
-* [React.js](https://facebook.github.io/react/)
 * [Socket.io](https://github.com/socketio/socket.io)
 * [underscore](http://underscorejs.org/)
+
+My recommended frontend stack:
+* [React.js](https://facebook.github.io/react/)
 * [Grunt](http://gruntjs.com/)
 * [Webpack](https://webpack.github.io/)
 * [Babel](https://babeljs.io/)
 
+
+# Contributing
 # Architecture
 The server architecture is evolving more information to come.
 ```sh
 ├── client
 │   ├── js                        # client scripts
-│   ├── images                    # raw image files 
+│   ├── images                    # raw image files
 │   └── sass                      # sass files
 ├── ohm
 │   ├── apis                      # API initializations (Parse, AWS)
@@ -59,7 +67,6 @@ The server architecture is evolving more information to come.
 ├── gruntfile.js
 └── ohm.js
 ```
-
 ### Debugging
 If you are using [node-inspector](https://github.com/node-inspector/node-inspector) the run command by default passes the necessary flag to attach to the debugger, but you must start node inspector like so first:
 ```sh

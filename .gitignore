@@ -1,13 +1,11 @@
 # APPLICATION SPECIFIC IGNORES
 *.sass-cache
-.babel-loader
-*.tmp
-logs
-static
-# server/config/config.js
-sample/ghost/content/data
-sample/ghost/content/images
-sample/ghost/content/apps
+*.babel-loader
+dist
+lib/ghost/content/themes/ohm/assets/
+lib/ghost/content/data
+lib/ghost/content/images
+lib/ghost/content/apps
 # Read about how to use .gitignore: http://h5bp.com/ae
 pids
 logs
@@ -16,6 +14,7 @@ npm-debug.log
 node_modules
 
 # Numerous always-ignore extensions
+*.tmp
 *.diff
 *.err
 *.orig
@@ -26,7 +25,6 @@ node_modules
 *.vi
 *~
 *#
-
 # OS or Editor folders
 .DS_Store
 ._*
@@ -34,37 +32,31 @@ Thumbs.db
 .cache
 .project
 .settings
-
 nbproject
 *.sublime-project
 *.sublime-workspace
+.idea
 # Dreamweaver added files
 _notes
 dwsync.xml
-
 # Komodo
 *.komodoproject
 .komodotools
-
 # Espresso
 *.esproj
 *.espressostorage
-
 # Rubinius
 *.rbc
-
 # Folders to ignore
 .hg
 .svn
 .CVS
 intermediate
 publish
-.idea
-
+logs
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
-
 ## Node.js gitignore files from https://github.com/h5bp/html5-boilerplate
 lib-cov
 *.seed
