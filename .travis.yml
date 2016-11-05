@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - "4.6.1"
   - "4.5"
+services:
+  - mongodb
+  - redis-server
 sudo: false
 cache:
   directories:
