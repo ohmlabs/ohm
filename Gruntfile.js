@@ -56,12 +56,12 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: 'client/**/*.sass',
-        tasks: ''
+        files: 'lib/client/**/*.sass',
+        tasks: ['webpack:build-dev', 'copy']
       },
       babel: {
-        files: 'client/js/{,*/}*.js',
-        tasks: ['babel', 'webpack']
+        files: 'lib/client/js/{,*/}*.js',
+        tasks: ['webpack:build-dev', 'copy']
       },
       livereload: {
         options: {
