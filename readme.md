@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/ohm.svg)](https://badge.fury.io/js/ohm) [![Build Status](https://travis-ci.org/ohmlabs/ohm.svg?branch=master)](https://travis-ci.org/ohmlabs/ohm) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm)
+[![npm version](https://badge.fury.io/js/ohm.svg)](https://badge.fury.io/js/ohm) [![Build Status](https://travis-ci.org/ohmlabs/ohm.svg?branch=master)](https://travis-ci.org/ohmlabs/ohm) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm) [![Coverage Status](https://coveralls.io/repos/github/ohmlabs/ohm/badge.svg?branch=master)](https://coveralls.io/github/ohmlabs/ohm?branch=master)
 ### Set up environment
 Assuming you are running homebrew up-to-date on a Mac, here is how you configure your dev environment
 ```sh
