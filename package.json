@@ -30,7 +30,7 @@
   "scripts": {
     "start": "node ohm",
     "prepublish": "grunt prod",
-    "test": "./node_modules/mocha/bin/mocha test/**"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/mocha"
   },
   "dependencies": {
     "aws-sdk": "",
@@ -75,10 +75,12 @@
     "grunt-cli": "",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "",
+    "grunt-coveralls": "^1.0.1",
     "grunt-forever": "",
     "grunt-newer": "^1.2.0",
     "grunt-node-inspector": "^0.4.2",
     "grunt-webpack": "",
+    "istanbul": "^0.4.5",
     "json-loader": "^0.5.4",
     "jsx-loader": "^0.13.2",
     "load-grunt-tasks": "^3.5.2",
