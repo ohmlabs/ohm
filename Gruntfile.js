@@ -64,6 +64,12 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      bootstrap: {
+        cwd: 'node_modules/bootstrap-sass/assets/fonts/bootstrap',
+        expand: true,
+        src: '**',
+        dest: 'lib/dist/lib/bootstrap/fonts/',
+      },
       main: {
         expand: true,
         src: '**',
