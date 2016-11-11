@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         src: '**',
         dest: 'lib/dist/lib/bootstrap/fonts/',
       },
-      main: {
+      ghost: {
         expand: true,
         src: '**',
         cwd: 'lib/dist',
