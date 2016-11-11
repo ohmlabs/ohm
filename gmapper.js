@@ -1,11 +1,11 @@
 (function () {
   /*!
-   * ohm
+   * Gmapper
    * Copyright(c) 2013-2016 Cameron Drake
    * MIT Licensed
    */
 
   'use strict';
 
-  module.exports = require('./lib/ohm');
+  module.exports = require('./lib/client/js/lib/Gmapper.react');
 }())
