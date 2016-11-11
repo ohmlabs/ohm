@@ -46,27 +46,6 @@ My recommended frontend stack:
 
 
 # Contributing
-# Architecture
-The server architecture is evolving more information to come.
-```sh
-├── client
-│   ├── js                        # client scripts
-│   ├── images                    # raw image files
-│   └── sass                      # sass files
-├── ohm
-│   ├── apis                      # API initializations (Parse, AWS)
-│   ├── config
-│   ├── models
-│   ├── ghost
-│   ├── controllers
-│   ├── routes
-│   └── views                     
-│   |   └── bootloader.pug        # the sole view which loads a javascript file
-├── static                        # compiled assets
-├── package.json
-├── gruntfile.js
-└── ohm.js
-```
 ### Debugging
 If you are using [node-inspector](https://github.com/node-inspector/node-inspector) the run command by default passes the necessary flag to attach to the debugger, but you must start node inspector like so first:
 ```sh
