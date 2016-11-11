@@ -50,7 +50,7 @@ create a new file `server.js` and create a config file.
 * `PARSE_APPLICATION_ID`
 * `PARSE_JAVASCRIPT_KEY` 
 * `PARSE_MASTER_KEY`
-* `SOCKETIO_SESSION_SECRET`:
+* `SOCKETIO_SESSION_SECRET`
 
 ##### optional params:
 * `AWS_ACCESS_KEY`
