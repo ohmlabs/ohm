@@ -13,11 +13,16 @@
     longitude: -122.4251068
   };
 
+  var callback = function () {
+    console.log('loaded');
+  }
+
   socket.on('connect', (data) => {
     socket.emit('home', {});
     ReactDOM.render(
       <div>
-        <LightBox />
+        <LightBox 
+          onMountCallback={callback}/>
         <GMap
           scrollwheel={false}
           zoom={9}
