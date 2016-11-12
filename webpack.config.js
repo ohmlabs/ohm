@@ -7,12 +7,13 @@ module.exports = [{
   context: __dirname,
   output: {
     path: path.join(__dirname, 'lib/dist/assets/js'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    chunkFilename: "[id].bundle.js",
   },
   module: {
     loaders: [{
       test: /\.react.js?$/,
-      exclude: /(node_modules|bower_components)/,
+      exclude: /node_modules\/(?!(ohm|compass-mixins|bootstrap-sass)\/).*/,
       loader: 'babel-loader',
       query: {
         presets: ['es2015', 'react'],

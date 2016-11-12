@@ -1,13 +1,11 @@
 module.exports = function(grunt) {
   'use strict';
-  // Load grunt tasks automatically
+
   require('load-grunt-tasks')(grunt);
-
-  var webpack       = require("webpack");
-  var webpackConfig = require('./webpack.config.js');
-
-  // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  const webpack       = require("webpack");
+  const webpackConfig = require('./webpack.config.js');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -17,13 +15,13 @@ module.exports = function(grunt) {
         options: {
           'web-host': 'localhost',
           'web-port': 8090,
-          'debug-port': 5959,
+          'debug-port': 5967,
           'save-live-edit': true,
           'preload': false,
           'hidden': ['node_modules'],
           'stack-trace-limit': 5,
-        }
-      }
+        },
+      },
     },
 
     webpack: {
@@ -31,18 +29,53 @@ module.exports = function(grunt) {
       build: {
         plugins: [
           new webpack.DefinePlugin({
-            'process.env':{
+            'process.env': {
               'NODE_ENV': JSON.stringify('production')
             }
           }),
-          new webpack.optimize.UglifyJsPlugin({minimize: true}),
+          new webpack.optimize.UglifyJsPlugin({
+            minimize: true
+          }),
           new webpack.optimize.DedupePlugin(),
         ]
       },
       'build-dev': {
-        devtool: "sourcemap",
-        debug: true
-      }
+        devtool: "eval",
+        debug: true,
+      },
+    },
+
+    watch: {
+      client: {
+        files: [
+          'examples/basic/client/js/{,*/}*.js',
+          'examples/basic/client/sass/{,*/}*.sass',
+          'lib/client/js/{,*/}*.js',
+          'lib/client/sass/{,*/}*.sass',
+        ],
+        tasks: ['webpack:build-dev'],
+      },
+      livereload: {
+        options: {
+          livereload: 35777,
+        },
+        files: 'lib/dist/assets/js/{,*/}*.js',
+      },
+    },
+
+    copy: {
+      bootstrap: {
+        cwd: 'node_modules/bootstrap-sass/assets/fonts/bootstrap',
+        expand: true,
+        src: '**',
+        dest: 'node_modules/ohm/lib/dist/lib/bootstrap/fonts/',
+      },
+      main: {
+        expand: true,
+        src: '**',
+        cwd: 'lib/dist',
+        dest: 'lib/ghost/content/themes/ohm/assets/',
+      },
     },
 
     coveralls: {
@@ -63,47 +96,16 @@ module.exports = function(grunt) {
       },
     },
 
-    copy: {
-      bootstrap: {
-        cwd: 'node_modules/bootstrap-sass/assets/fonts/bootstrap',
-        expand: true,
-        src: '**',
-        dest: 'lib/dist/lib/bootstrap/fonts/',
-      },
-      ghost: {
-        expand: true,
-        src: '**',
-        cwd: 'lib/dist',
-        dest: 'lib/ghost/content/themes/ohm/assets/',
-      },
-    },
-
-    watch: {
-      sass: {
-        files: 'lib/client/**/*.sass',
-        tasks: ['webpack:build-dev', 'copy']
-      },
-      babel: {
-        files: 'lib/client/js/{,*/}*.js',
-        tasks: ['webpack:build-dev', 'copy']
-      },
-      livereload: {
-        options: {
-          livereload: 35778
-        },
-        files: ['lib/dist/assets/js/**/*.js', 'lib/views/**/*.pug', 'lib/dist/css/**/*.css'],
-      },
-    },
   });
 
   grunt.registerTask('default', [
     'webpack:build-dev',
-    'copy'
+    'copy',
   ]);
 
   grunt.registerTask('prod', [
     'webpack:build',
-    'copy'
+    'copy',
   ]);
 
 };
