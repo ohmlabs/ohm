@@ -1,7 +1,7 @@
 {
   "name": "ohm",
   "description": "Node.js Starter Application (Grunt, Express, Parse, React, Webpack)",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "license": "MIT",
   "homepage": "http://ohm.fm",
   "contributors": [
@@ -48,6 +48,7 @@
     "nodemailer": "^2.6.4",
     "nodemailer-ses-transport": "^1.4.0",
     "parse": "",
+    "parse-dashboard": "1.0.14",
     "parse-server": "2.2.13",
     "pug": "",
     "querystring": "0.1.0",
@@ -84,7 +85,6 @@
     "load-grunt-tasks": "^3.5.2",
     "mocha": "^3.1.2",
     "node-sass": "",
-    "parse-dashboard": "1.0.14",
     "raw-loader": "^0.5.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
