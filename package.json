@@ -1,7 +1,7 @@
 {
   "name": "ohm",
   "description": "Node.js Starter Application (Grunt, Express, Parse, React, Webpack)",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "MIT",
   "homepage": "http://ohm.fm",
   "contributors": [
@@ -20,6 +20,8 @@
   "files": [
     "readme.md",
     "index.js",
+    "gmapper.js",
+    "lightbox.js",
     "lib/"
   ],
   "repository": {
