@@ -46,9 +46,6 @@
     PRIMARY_ACCOUNT_KEY       : '',
     // Custom Config
     PARSE_PATH                : '/parse',
-    PARSE_DASHBOARD           : '/dashboard',
-    GHOST_PATH                : '/blog',
-    GHOST_CONFIG              : path.join(__dirname, 'ghost.config.js'),
     VIEWS_DIR                 : '',
     ROUTES                    : path.join(__dirname, '../routes/site.js'),
     SOCKETS                   : path.join(__dirname, '../routes/sockets.js'),
