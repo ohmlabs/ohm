@@ -48,6 +48,7 @@
     "longjohn": "",
     "method-override": "^1.0.0",
     "morgan": "",
+    "nconf": "^0.8.4",
     "nodemailer": "^2.6.4",
     "nodemailer-ses-transport": "^1.4.0",
     "parse": "",
