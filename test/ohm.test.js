@@ -10,7 +10,7 @@
   var app       = new Ohm(config);
 
   var hasCookie = function(res) {
-    return expect(res.headers['set-cookie'][0]).to.contain(config.SESSION_KEY);
+    return expect(res.headers['set-cookie'][0]).to.contain('OHMTEST');
   };
 
   describe('Server', function() {
