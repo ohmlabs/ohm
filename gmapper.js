@@ -7,5 +7,5 @@
 
   'use strict';
 
-  module.exports = require('./lib/client/js/lib/GMapper.react');
+  module.exports = require('./lib/gmapper/js/GMapper.react');
 }())

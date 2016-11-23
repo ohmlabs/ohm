@@ -1,5 +1,7 @@
 const path       = require('path');
 const webpack    = require("webpack");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = [{
   entry: {
     ohm: './examples/basic/client/js/ohm.react.js'
@@ -21,10 +23,17 @@ module.exports = [{
       }
     }, {
       test: /\.sass$/,
-      loader: 'style-loader!raw-loader!sass-loader'
+      loader: process.env.NODE_ENV !== 'production' ? 'style!raw!sass'
         + '?includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib')
         + '&includePaths[]=' + path.resolve(__dirname, './node_modules/bootstrap-sass/assets/stylesheets')
-        + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/')
-    }]
-  }
+        + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/') :
+      ExtractTextPlugin.extract('raw!css!sass'
+        + '?includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+        + '&includePaths[]=' + path.resolve(__dirname, './node_modules/bootstrap-sass/assets/stylesheets')
+        + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/'))
+    }],
+  },
+  plugins: [
+    new ExtractTextPlugin("style.css")
+  ],
 }];
