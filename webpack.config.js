@@ -1,6 +1,5 @@
-const path       = require('path');
-const webpack    = require("webpack");
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path              = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = [{
   entry: {
@@ -33,7 +32,4 @@ module.exports = [{
         + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/'))
     }],
   },
-  plugins: [
-    new ExtractTextPlugin("style.css")
-  ],
 }];

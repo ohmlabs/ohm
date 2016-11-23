@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 
   const webpack       = require("webpack");
   const webpackConfig = require('./webpack.config.js');
+  var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -37,6 +38,7 @@ module.exports = function(grunt) {
             minimize: true
           }),
           new webpack.optimize.DedupePlugin(),
+          new ExtractTextPlugin("../css/style.css"),
         ]
       },
       'build-dev': {

@@ -8,12 +8,12 @@
 
   switch (envFlag) {
   case '-p':
+    process.env.NODE_ENV= 'production';
     base = {
       env             : 'production',
       host            : 'localhost',
       port            : '8888',
-      MONGO_HOST      : 'mongo',
-      REDIS_HOST      : 'redis',
+      development     : false,
     };
     break;
   default:
