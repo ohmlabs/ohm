@@ -26,7 +26,7 @@ module.exports = [{
         + '?includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib')
         + '&includePaths[]=' + path.resolve(__dirname, './node_modules/bootstrap-sass/assets/stylesheets')
         + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/') :
-      ExtractTextPlugin.extract('raw!css!sass'
+      ExtractTextPlugin.extract('css!sass'
         + '?includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib')
         + '&includePaths[]=' + path.resolve(__dirname, './node_modules/bootstrap-sass/assets/stylesheets')
         + '&includePaths[]=' + path.resolve(__dirname, './lib/client/sass/'))
