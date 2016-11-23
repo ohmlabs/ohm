@@ -27,7 +27,7 @@
           scrollwheel={false}
           zoom={9}
           center={center}
-          apiKey={"OHMTEST"}
+          apiKey={"AIzaSyC4Tnw7DEdnK7-mr7MG0a60H9qTIE87NQc"}
           mapName="ohm" />
       </div>,
       main
