@@ -17,21 +17,18 @@
     console.log('loaded');
   };
 
-  socket.on('connect', (data) => {
-    socket.emit('home', {});
-    ReactDOM.render(
-      <div>
-        <LightBox 
-          onMountCallback={callback}/>
-        <GMap
-          scrollwheel={false}
-          zoom={9}
-          center={center}
-          apiKey={"AIzaSyC4Tnw7DEdnK7-mr7MG0a60H9qTIE87NQc"}
-          mapName="ohm" />
-      </div>,
-      main
-    );
-  });
+  ReactDOM.render(
+    <div>
+      <LightBox 
+        onMountCallback={callback}/>
+      <GMap
+        scrollwheel={false}
+        zoom={9}
+        center={center}
+        apiKey={"AIzaSyC4Tnw7DEdnK7-mr7MG0a60H9qTIE87NQc"}
+        mapName="ohm" />
+    </div>,
+    main
+  );
 
 }());

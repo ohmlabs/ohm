@@ -16,7 +16,7 @@
 
   // Keep me alphabetized!!
   var GET = {
-    '/sample': '../controllers/SampleController.js',
+    '/example': '../controllers/ExampleController.js',
   };
 
   var POST = {};

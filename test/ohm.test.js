@@ -24,11 +24,11 @@
       });
     });
 
-    describe('GET /sample', function() {
+    describe('GET /example', function() {
 
       it('should contain cookie', function(done) {
         request(app)
-          .get('/sample')
+          .get('/example')
           .expect(200)
           .expect(hasCookie)
           .end(function(err, res) {

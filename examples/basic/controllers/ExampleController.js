@@ -10,12 +10,11 @@
 
   _.extend(SampleController.prototype, BaseController.prototype, {
     genResponse: function () {
+      var params   = this.getBootloaderParams('example');
+      params.title = 'Sample Page';
       return this.res.render('bootloader', {
         bodyClass: '',
-        args: {
-          title: 'Sample Page',
-          initScript: 'ohm',
-        },
+        args: params,
       });
     },
   });
