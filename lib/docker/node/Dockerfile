@@ -16,8 +16,6 @@ WORKDIR /app
 # Build Files
 COPY package.json /app
 COPY webpack.config.js /app
-COPY Gruntfile.js /app
-COPY grunt /app
 # Application files
 COPY server.js /app
 COPY lib /app/lib

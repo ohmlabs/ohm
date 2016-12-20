@@ -62,21 +62,9 @@ For Full details see [package.json](https://github.com/ohmlabs/ohm/blob/master/p
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](http://expressjs.com/guide.html)
 * [Parse Server](https://github.com/ParsePlatform/parse-server)
-* [Ghost](https://ghost.org/)
 * [Socket.io](https://github.com/socketio/socket.io)
 * [underscore](http://underscorejs.org/)
-
-My recommended frontend stack:
 * [React.js](https://facebook.github.io/react/)
-* [Grunt](http://gruntjs.com/)
 * [Webpack](https://webpack.github.io/)
 * [Babel](https://babeljs.io/)
-
-
-# Contributing
-### Debugging
-If you are using [node-inspector](https://github.com/node-inspector/node-inspector) the run command by default passes the necessary flag to attach to the debugger, but you must start node inspector like so first:
-```sh
-grunt node-inspector &
-# navigate to http://127.0.0.1:8090/debug?port=5960
 ```
