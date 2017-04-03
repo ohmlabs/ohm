@@ -46,6 +46,7 @@
     "body-parser": "^1.0.2",
     "bootstrap-sass": "~3.3.1",
     "compass-mixins": "^0.12.10",
+    "compression": "^1.6.2",
     "connect-redis": "^3.1.0",
     "cookie-parser": "^1.0.1",
     "css-loader": "^0.25.0",
