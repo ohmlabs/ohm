@@ -30,14 +30,12 @@
   },
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "scripts": {
-    "start": "node ohm",
-    "build": "./node_modules/.bin/webpack webpack.config.js",
-    "debug": "node --debug=5967 server",
-    "prepublish": "./node_modules/.bin/webpack webpack.config.js",
+    "start": "node  --inspect ohm",
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
+    "prepublish": "./node_modules/.bin/webpack --config webpack.config.js",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/mocha"
   },
   "dependencies": {
-    "aws-sdk": "^2.7.14",
     "babel-core": "",
     "babel-loader": "",
     "babel-preset-es2015": "",
@@ -63,7 +61,7 @@
     "method-override": "^1.0.0",
     "morgan": "",
     "nconf": "^0.8.4",
-    "node-sass": "^3.11.2",
+    "node-sass": "",
     "nodemailer": "^2.6.4",
     "nodemailer-ses-transport": "^1.4.0",
     "parse": "^1.9.2",
@@ -82,7 +80,7 @@
     "underscore": "",
     "url-loader": "^0.5.7",
     "webpack": "",
-    "webpack-manifest-plugin": "^1.1.0",
+    "webpack-manifest-plugin": "",
     "winston": "^2.3.0"
   },
   "devDependencies": {
@@ -93,6 +91,6 @@
     "supertest": "^2.0.1"
   },
   "engines": {
-    "node": "4.6.1"
+    "node": "6.10.2"
   }
 }

@@ -7,8 +7,8 @@ brew install nvm
 brew install redis
 # Configure Dependencies
 brew services start mongodb
-nvm install v4.6.1
-nvm alias default v4.6.1
+nvm install v6.10.2
+nvm alias default v6.10.2
 npm install -g bower
 redis-server &
 ```
