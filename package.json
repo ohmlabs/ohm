@@ -30,12 +30,11 @@
   },
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "scripts": {
-    "start": "node  --inspect ohm",
-    "build": "./node_modules/.bin/webpack --config webpack.config.js",
-    "prepublish": "./node_modules/.bin/webpack --config webpack.config.js",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/mocha"
   },
   "dependencies": {
+    "babel-env": "^2.4.1",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.0.2",
     "compression": "^1.6.2",
     "connect-redis": "^3.1.0",
