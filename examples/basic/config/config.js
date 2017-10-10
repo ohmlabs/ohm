@@ -3,7 +3,7 @@
 
   var base,
       path    = require('path'),
-      _       = require('underscore'),
+      _       = require('lodash'),
       envFlag = process.argv[2];
 
   switch (envFlag) {

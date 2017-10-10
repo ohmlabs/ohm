@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var _    = require('underscore');
+  var _    = require('lodash');
   var path = require('path');
   // This function means that
   //
