@@ -26,6 +26,7 @@
   _.extend(base, {
     ROUTES            : path.join(__dirname, '../routes/site.js'),
     SOCKETS           : path.join(__dirname, '../routes/sockets.js'),
+    SESSION_KEY       : 'OHMTEST',
   });
 
   module.exports = base;

@@ -1,6 +1,6 @@
 {
   "name": "ohm",
-  "description": "Node.js Starter Application (Express, Parse, React, Webpack)",
+  "description": "Node.js Session Manager",
   "version": "0.1.14",
   "license": "MIT",
   "homepage": "http://ohm.fm",
@@ -11,17 +11,14 @@
     }
   ],
   "keywords": [
-    "boilerplate",
-    "ghost",
-    "frontend",
-    "framework",
-    "full-stack"
+    "Express",
+    "Parse",
+    "Session",
+    "Node.js"
   ],
   "files": [
     "readme.md",
     "index.js",
-    "gmapper.js",
-    "lightbox.js",
     "lib/"
   ],
   "repository": {
@@ -30,39 +27,38 @@
   },
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha"
   },
   "dependencies": {
-    "babel-env": "^2.4.1",
-    "babel-register": "^6.26.0",
-    "body-parser": "^1.0.2",
-    "compression": "^1.6.2",
-    "connect-redis": "^3.1.0",
-    "cookie-parser": "^1.0.1",
-    "errorhandler": "^1.0.0",
-    "express": "^4.14.0",
-    "express-session": "^1.14.2",
-    "express-winston": "^2.0.0",
-    "helmet": "^3.6.0",
-    "lodash": "^4.17.4",
+    "babel-env": "2.4.1",
+    "babel-register": "6.26.0",
+    "body-parser": "1.0.2",
+    "compression": "1.6.2",
+    "connect-redis": "3.1.0",
+    "cookie-parser": "1.0.1",
+    "errorhandler": "1.0.0",
+    "express": "4.14.0",
+    "express-session": "1.14.2",
+    "express-winston": "2.0.0",
+    "helmet": "3.6.0",
+    "lodash": "4.17.4",
     "longjohn": "0.2.12",
-    "method-override": "^2.3.8",
+    "method-override": "2.3.8",
     "morgan": "1.9.0",
-    "nconf": "^0.8.4",
+    "nconf": "0.8.4",
     "parse": "1.10.0",
     "parse-dashboard": "1.1.0",
-    "parse-server": "2.5.3",
-    "pug": "^2.0.0-rc.4",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "redis": "^2.6.2",
+    "parse-server": "2.6.3",
+    "pug": "2.0.0-rc.4",
+    "redis": "2.6.2",
     "socket.io": "2.0.1",
-    "winston": "^2.3.0"
+    "why-is-node-running": "^1.2.3",
+    "winston": "2.3.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.1.2",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.2",
+    "mocha": "^4.0.1",
     "request": "^2.78.0",
     "supertest": "^3.0.0"
   },

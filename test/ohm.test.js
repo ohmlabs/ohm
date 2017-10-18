@@ -1,19 +1,23 @@
-(function(){
+(function() {
   'use strict';
   require('../lib/_include.js');
 
-  const assert  = require('assert');
-  const expect  = require('chai').expect;
+  const assert = require('assert');
+  const expect = require('chai').expect;
   const request = require('supertest');
-  const config  = require('../examples/basic/config/config.js');
-  const Ohm     = require('../lib/ohm');
-  var app       = new Ohm(config);
+  const config = require('../examples/basic/config/config.js');
+  const Ohm = require('../lib/ohm');
 
   var hasCookie = function(res) {
     return expect(res.headers['set-cookie'][0]).to.contain('OHMTEST');
   };
 
   describe('Server', function() {
+    var app = new Ohm(config);
+
+    beforeEach(function(){
+      app.listen(8888);
+    });
 
     describe('GET /', function() {
 
@@ -26,7 +30,7 @@
 
     describe('GET /example', function() {
 
-      it('should contain cookie', function(done) {
+      it('should contain cookie', function() {
         request(app)
           .get('/example')
           .expect(200)
@@ -40,5 +44,9 @@
           });
       });
     });
+
+    afterEach(function(){
+      app.close();
+    })
   });
 }());

@@ -4,5 +4,6 @@
   const config        = require('./config/config.js');
   const Ohm           = require('../../lib/ohm');
 
-  module.exports = new Ohm(config);
+  let server = new Ohm(config);
+  module.exports = server;
 }());
