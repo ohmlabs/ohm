@@ -30,7 +30,7 @@
 
     describe('GET /example', function() {
 
-      it('should contain cookie', function() {
+      it('should contain cookie', function(done) {
         request(app)
           .get('/example')
           .expect(200)
