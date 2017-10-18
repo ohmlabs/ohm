@@ -27,7 +27,7 @@
   },
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha --exit"
   },
   "dependencies": {
     "babel-env": "2.4.1",
