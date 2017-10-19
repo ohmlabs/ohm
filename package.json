@@ -48,7 +48,7 @@
     "nconf": "0.8.4",
     "parse": "1.10.0",
     "parse-dashboard": "1.1.0",
-    "parse-server": "2.6.2",
+    "parse-server": "2.5.3",
     "pug": "2.0.0-rc.4",
     "redis": "2.6.2",
     "socket.io": "2.0.1",
