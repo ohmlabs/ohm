@@ -1,12 +1,11 @@
 (function() {
   'use strict';
-  require('../lib/_include.js');
 
   const assert = require('assert');
   const expect = require('chai').expect;
   const request = require('supertest');
   const config = require('../examples/basic/config/config.js');
-  const Ohm = require('../lib/ohm');
+  const Ohm = require('../dist/ohm');
 
   var hasCookie = function(res) {
     return expect(res.headers['set-cookie'][0]).to.contain('OHMTEST');
@@ -20,7 +19,6 @@
     });
 
     describe('GET /', function() {
-
       it('should return 404', function(done) {
         request(app)
           .get('/')

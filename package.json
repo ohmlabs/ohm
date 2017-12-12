@@ -16,10 +16,10 @@
     "Session",
     "Node.js"
   ],
+  "main": "dist/ohm.js",
   "files": [
     "readme.md",
-    "index.js",
-    "lib/"
+    "dist/"
   ],
   "repository": {
     "type": "git",
@@ -27,11 +27,12 @@
   },
   "bugs": "https://github.com/ohmlabs/ohm/issues",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --exit"
+    "test": "./node_modules/.bin/mocha --exit",
+    "prepublish": "npm run build",
+    "build": "./node_modules/.bin/babel lib --presets babel-preset-env --out-dir dist --copy-files"
   },
   "dependencies": {
     "babel-env": "2.4.1",
-    "babel-register": "6.26.0",
     "body-parser": "1.0.2",
     "compression": "1.6.2",
     "connect-redis": "3.1.0",
@@ -55,6 +56,7 @@
     "winston": "2.3.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "chai": "^4.1.2",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
