@@ -1,7 +1,7 @@
 {
   "name": "ohm",
   "description": "Node.js Session Manager",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MIT",
   "homepage": "http://ohm.fm",
   "contributors": [
