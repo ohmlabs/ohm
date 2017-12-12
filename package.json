@@ -1,7 +1,7 @@
 {
   "name": "ohm",
   "description": "Node.js Session Manager",
-  "version": "0.1.14",
+  "version": "0.9.0",
   "license": "MIT",
   "homepage": "http://ohm.fm",
   "contributors": [
@@ -32,7 +32,6 @@
     "build": "./node_modules/.bin/babel lib --presets babel-preset-env --out-dir dist --copy-files"
   },
   "dependencies": {
-    "babel-env": "2.4.1",
     "body-parser": "1.0.2",
     "compression": "1.6.2",
     "connect-redis": "3.1.0",
@@ -57,6 +56,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-env": "2.4.1",
     "chai": "^4.1.2",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
