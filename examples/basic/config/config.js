@@ -27,6 +27,7 @@
     ROUTES            : path.join(__dirname, '../routes/site.js'),
     SOCKETS           : path.join(__dirname, '../routes/sockets.js'),
     SESSION_KEY       : 'OHMTEST',
+    PARSE_SERVER_URL  : 'http://localhost:8888/parse',
   });
 
   module.exports = base;
