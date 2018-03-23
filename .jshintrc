@@ -10,6 +10,7 @@
   "quotmark": false,
   "trailing": true,
   "unused": true,
+  "esversion": 6,
   "undef": true,
   "latedef": true,
   "strict": true,
