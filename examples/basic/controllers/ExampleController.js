@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var _              = require('underscore');
+  var _              = require('lodash');
   var BaseController = include('controllers/BaseController.js');
 
   function SampleController() {
