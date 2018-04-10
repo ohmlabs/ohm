@@ -1,4 +1,5 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) [![npm version](https://badge.fury.io/js/ohm.svg)](https://badge.fury.io/js/ohm) [![NSP Status](https://nodesecurity.io/orgs/ohm/projects/b7413ae1-6468-4de8-8e57-2f619122c519/badge)](https://nodesecurity.io/orgs/ohm/projects/b7413ae1-6468-4de8-8e57-2f619122c519) ![dependencies](https://david-dm.org/ohmlabs/ohm.svg) [![Build Status](https://travis-ci.org/ohmlabs/ohm.svg?branch=master)](https://travis-ci.org/ohmlabs/ohm) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/camwes/ohm-fm) [![Coverage Status](https://coveralls.io/repos/github/ohmlabs/ohm/badge.svg?branch=master)](https://coveralls.io/github/ohmlabs/ohm?branch=master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fohmlabs%2Fohm.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fohmlabs%2Fohm?ref=badge_shield)
 ### Set up environment
 Assuming you are running homebrew up-to-date on a Mac, here is how you configure your dev environment
 ```sh
@@ -60,4 +61,6 @@ For Full details see [package.json](https://github.com/ohmlabs/ohm/blob/master/p
 * [Express.js](http://expressjs.com/guide.html)
 * [Parse Server](https://github.com/ParsePlatform/parse-server)
 * [Socket.io](https://github.com/socketio/socket.io)
-```
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fohmlabs%2Fohm.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fohmlabs%2Fohm?ref=badge_large)
