@@ -61,8 +61,6 @@ For Full details see [package.json](https://github.com/ohmlabs/ohm/blob/master/p
 * [Express.js](http://expressjs.com/guide.html)
 * [Parse Server](https://github.com/ParsePlatform/parse-server)
 * [Socket.io](https://github.com/socketio/socket.io)
-```
-
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fohmlabs%2Fohm.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fohmlabs%2Fohm?ref=badge_large)
